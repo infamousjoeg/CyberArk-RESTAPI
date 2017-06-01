@@ -1300,7 +1300,7 @@
           "_postman_id": "4e6bbc19-6c20-8aa1-9b31-4b96c675297f",
           "name": "Get User Details",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/?UserName={{UserName}}",
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
             "method": "GET",
             "header": [
               {
