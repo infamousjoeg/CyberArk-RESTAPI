@@ -1218,7 +1218,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"UserName\":\"{{UserName}}\",\r\n  \"InitialPassword\":\"Cyberark1\",\r\n  \"Email\":\"EPVUserTest@cyberark.local\",\r\n  \"FirstName\":\"REST API\",\r\n  \"LastName\":\"EPVUserTest\",\r\n  \"ChangePasswordOnTheNextLogon\":false,\r\n  \"ExpiryDate\":\"\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":true,\r\n  \"Location\":\"{{Folder}}\"\r\n}"
+              "raw": "{\r\n  \"UserName\":\"{{UserName}}\",\r\n  \"InitialPassword\":\"Cyberark1\",\r\n  \"Email\":\"EPVUserTest@cyberark.local\",\r\n  \"FirstName\":\"REST API\",\r\n  \"LastName\":\"EPVUserTest\",\r\n  \"ChangePasswordOnTheNextLogon\":false,\r\n  \"ExpiryDate\":\"yyyy-MM-dd\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":true,\r\n  \"Location\":\"{{Folder}}\"\r\n}"
             },
             "description": "This method adds a new user to the Vault."
           },
