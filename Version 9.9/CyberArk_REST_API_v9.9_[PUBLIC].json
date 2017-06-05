@@ -934,7 +934,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -944,7 +944,7 @@
               {
                 "key": "ImmediateChangeByCPM",
                 "value": "Yes",
-                "description": "Accepted: Yes or No"
+                "description": ""
               }
             ],
             "body": {
