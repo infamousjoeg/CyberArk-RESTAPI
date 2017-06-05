@@ -700,29 +700,6 @@
           "response": []
         },
         {
-          "_postman_id": "6fddaa7a-4e1b-d1e0-3ae3-47713356e527",
-          "name": "Get Account",
-          "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "This method returns information about an account. If more than one account meets the search criteria, only the first account will be returned, although the Count output parameter will display the number of accounts that were found.\r\nOnly the following users can access this account:\r\n- Users who are members of the Safe where the account is stored.\r\n- Users who have access to this specific account. For more information about object level access control, refer to Object Level Access Control in the Privileged Account Security Implementation Guide.\r\n- The user who runs this web service requires the following permission in the Safe:\r\n  - Retrieve account\r\nNotes:\r\n- This method does not display the actual password.\r\n- If ten or more accounts are found, the Count Output parameter will show 10."
-          },
-          "response": []
-        },
-        {
           "_postman_id": "c3e9e145-eff9-e41c-ca16-d05c25aca2e8",
           "name": "Delete Account",
           "request": {
