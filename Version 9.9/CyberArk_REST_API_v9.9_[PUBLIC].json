@@ -1792,13 +1792,35 @@
           "_postman_id": "a65118a9-3852-11ba-dcd6-9f9506393716",
           "name": "Update User",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/?UserName={{UserName}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/?UserName={{UserName}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Users",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "UserName",
+                  "value": "{{UserName}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1818,13 +1840,35 @@
           "_postman_id": "352f0a3b-876b-dd74-8c64-ac6b6dac9d12",
           "name": "Delete User",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/API.svc/Users/?UserName={{UserName}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/API.svc/Users/?UserName={{UserName}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "API.svc",
+                "Users",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "UserName",
+                  "value": "{{UserName}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Conte",
@@ -1847,7 +1891,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1870,7 +1914,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
