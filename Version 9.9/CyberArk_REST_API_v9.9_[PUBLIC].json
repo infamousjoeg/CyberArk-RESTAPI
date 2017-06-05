@@ -807,7 +807,7 @@
           "name": "Get Account Details",
           "request": {
             "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Safe={{Safe}}&Keywords={{Keywords}}",
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
               "auth": {},
               "host": [
                 "{{BaseURL}}"
@@ -820,14 +820,14 @@
               ],
               "query": [
                 {
-                  "key": "Safe",
-                  "value": "{{Safe}}",
+                  "key": "Keywords",
+                  "value": "{{Keywords}}",
                   "equals": true,
                   "description": ""
                 },
                 {
-                  "key": "Keywords",
-                  "value": "{{Keywords}}",
+                  "key": "Safe",
+                  "value": "{{Safe}}",
                   "equals": true,
                   "description": ""
                 }
