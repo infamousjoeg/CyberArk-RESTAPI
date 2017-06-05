@@ -239,37 +239,13 @@
           "_postman_id": "ccad7422-832f-5e99-71c3-1afef76e938d",
           "name": "Delete a Specific Authentication",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Applications",
-                "{{AppID}}",
-                "Authentications",
-                ""
-              ],
-              "query": [
-                {
-                  "key": "AuthID",
-                  "value": "1",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -497,7 +473,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -699,7 +675,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": "Session SAML Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -725,7 +701,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": "Session SAML Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
