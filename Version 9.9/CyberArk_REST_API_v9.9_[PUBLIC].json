@@ -911,7 +911,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -934,7 +934,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -944,7 +944,7 @@
               {
                 "key": "ImmediateChangeByCPM",
                 "value": "Yes",
-                "description": ""
+                "description": "Accepted: Yes or No"
               }
             ],
             "body": {
@@ -965,7 +965,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1239,13 +1239,35 @@
           "_postman_id": "89139a86-8c40-867e-2812-c3878f847dbd",
           "name": "Update Account Details",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Accounts",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AccountID",
+                  "value": "{{AccountID}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
