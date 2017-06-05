@@ -1574,34 +1574,13 @@
           "_postman_id": "12f6d966-9415-e5d5-46ff-1dc6a0e44166",
           "name": "Search for a Safe",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Safes"
-              ],
-              "query": [
-                {
-                  "key": "query",
-                  "value": "{{Query}}",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1631,7 +1610,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
