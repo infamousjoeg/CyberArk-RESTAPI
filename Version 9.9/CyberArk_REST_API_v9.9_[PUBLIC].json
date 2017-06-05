@@ -1913,13 +1913,13 @@
           "_postman_id": "9d1fc549-b1d0-d2fe-8df9-4f3b6052254e",
           "name": "Add User to Group",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{GroupName}/Users",
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
             "method": "POST",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
