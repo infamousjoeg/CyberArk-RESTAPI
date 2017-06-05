@@ -1610,7 +1610,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1633,7 +1633,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1653,36 +1653,13 @@
           "_postman_id": "ea1a6233-9dad-6d52-e53c-c4162b98949b",
           "name": "Update Safe Member",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}}/Members?MemberName=EPVUserTest",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Safes",
-                "{{Safe}}}",
-                "Members"
-              ],
-              "query": [
-                {
-                  "key": "MemberName",
-                  "value": "EPVUserTest",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}}/Members?MemberName=EPVUserTest",
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1702,36 +1679,13 @@
           "_postman_id": "ecf9d1c4-3560-4060-f92b-16985ddd7329",
           "name": "Delete Safe Member",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members?MemberName=EPVUserTest",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Safes",
-                "{{Safe}}",
-                "Members"
-              ],
-              "query": [
-                {
-                  "key": "MemberName",
-                  "value": "EPVUserTest",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members?MemberName=EPVUserTest",
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1788,7 +1742,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1818,7 +1772,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1838,35 +1792,13 @@
           "_postman_id": "a65118a9-3852-11ba-dcd6-9f9506393716",
           "name": "Update User",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/?UserName={{UserName}}",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Users",
-                ""
-              ],
-              "query": [
-                {
-                  "key": "UserName",
-                  "value": "{{UserName}}",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/?UserName={{UserName}}",
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
