@@ -1018,12 +1018,11 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
+                "value": "application/json"
               }
             ],
             "body": {},
@@ -1067,12 +1066,11 @@
                   {
                     "key": "Authorization",
                     "value": "{{CyberArkLogonResult}}",
-                    "description": ""
+                    "description": "Session Authorization Token"
                   },
                   {
                     "key": "Content-Type",
-                    "value": "application/json",
-                    "description": ""
+                    "value": "application/json"
                   }
                 ],
                 "body": {}
@@ -1233,7 +1231,7 @@
                 }
               ],
               "responseTime": "47",
-              "body": "{\"Count\":1,\"accounts\":[{\"AccountID\":\"41_4\",\"InternalProperties\":[{\"Key\":\"CPMStatus\",\"Value\":\"success\"},{\"Key\":\"CreationMethod\",\"Value\":\"PVWA\"},{\"Key\":\"RetriesCount\",\"Value\":\"-1\"},{\"Key\":\"LastTask\",\"Value\":\"VerifyTask\"}],\"Properties\":[{\"Key\":\"Safe\",\"Value\":\"T-APP-CYBR-RESTAPI\"},{\"Key\":\"Folder\",\"Value\":\"Root\"},{\"Key\":\"Name\",\"Value\":\"Operating System-WindowsDomainAccount-JG-joe-garcia.local-test.user0001\"},{\"Key\":\"UserName\",\"Value\":\"test.user0001\"},{\"Key\":\"PolicyID\",\"Value\":\"WindowsDomainAccount-JG\"},{\"Key\":\"LogonDomain\",\"Value\":\"JOE-GARCIA\"},{\"Key\":\"LastSuccessVerification\",\"Value\":\"1496683713\"},{\"Key\":\"Address\",\"Value\":\"joe-garcia.local\"},{\"Key\":\"DeviceType\",\"Value\":\"Operating System\"}]}]}"
+              "body": "{\n  \"Count\": 1,\n  \"accounts\": [\n    {\n      \"AccountID\": \"41_4\",\n      \"InternalProperties\": [\n        {\n          \"Key\": \"CPMStatus\",\n          \"Value\": \"success\"\n        },\n        {\n          \"Key\": \"CreationMethod\",\n          \"Value\": \"PVWA\"\n        },\n        {\n          \"Key\": \"RetriesCount\",\n          \"Value\": \"-1\"\n        },\n        {\n          \"Key\": \"LastTask\",\n          \"Value\": \"VerifyTask\"\n        }\n      ],\n      \"Properties\": [\n        {\n          \"Key\": \"Safe\",\n          \"Value\": \"T-APP-CYBR-RESTAPI\"\n        },\n        {\n          \"Key\": \"Folder\",\n          \"Value\": \"Root\"\n        },\n        {\n          \"Key\": \"Name\",\n          \"Value\": \"Operating System-WindowsDomainAccount-cyberark.local-test.user0001\"\n        },\n        {\n          \"Key\": \"UserName\",\n          \"Value\": \"test.user0001\"\n        },\n        {\n          \"Key\": \"PolicyID\",\n          \"Value\": \"WindowsDomainAccount\"\n        },\n        {\n          \"Key\": \"LogonDomain\",\n          \"Value\": \"CYBERARK\"\n        },\n        {\n          \"Key\": \"LastSuccessVerification\",\n          \"Value\": \"1496683713\"\n        },\n        {\n          \"Key\": \"Address\",\n          \"Value\": \"cyberark.local\"\n        },\n        {\n          \"Key\": \"DeviceType\",\n          \"Value\": \"Operating System\"\n        }\n      ]\n    }\n  ]\n}"
             }
           ]
         },
