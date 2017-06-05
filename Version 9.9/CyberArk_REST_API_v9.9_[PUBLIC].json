@@ -3,7 +3,7 @@
   "info": {
     "name": "CyberArk REST API v9.9 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v9.9\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.template\" before clicking \"Run in Postman\".",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v9.9\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -22,7 +22,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -42,13 +42,37 @@
           "_postman_id": "7105a23e-72b1-8635-3e7c-138657a1f088",
           "name": "Delete Account/ACL",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Account",
+                "{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
+                "PrivilegedCommands",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -71,7 +95,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -95,13 +119,47 @@
           "_postman_id": "b424fdca-bbcd-6548-9e34-a9dceeb576bb",
           "name": "List Applications",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}&Location=\\&IncludeSublocations=true",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}&Location=\\&IncludeSublocations=true",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AppID",
+                  "value": "{{AppID}}",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "Location",
+                  "value": "\\",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "IncludeSublocations",
+                  "value": "true",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -118,13 +176,35 @@
           "_postman_id": "713d8a2e-509b-f878-a7df-d28ed91e054a",
           "name": "List a Specific Application",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AppID",
+                  "value": "{{AppID}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -147,7 +227,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -173,7 +253,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -190,13 +270,35 @@
           "_postman_id": "39c67e65-5e6e-86e4-8532-43962e6f60a6",
           "name": "Delete a Specific Application",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AppID",
+                  "value": "{{AppID}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -219,7 +321,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -239,13 +341,37 @@
           "_postman_id": "ccad7422-832f-5e99-71c3-1afef76e938d",
           "name": "Delete a Specific Authentication",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                "{{AppID}}",
+                "Authentications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AuthID",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -473,7 +599,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
