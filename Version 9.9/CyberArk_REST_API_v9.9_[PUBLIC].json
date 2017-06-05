@@ -120,7 +120,7 @@
           "name": "List Applications",
           "request": {
             "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}&Location=\\&IncludeSublocations=true",
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
               "auth": {},
               "host": [
                 "{{BaseURL}}"
@@ -133,12 +133,6 @@
                 ""
               ],
               "query": [
-                {
-                  "key": "AppID",
-                  "value": "{{AppID}}",
-                  "equals": true,
-                  "description": ""
-                },
                 {
                   "key": "Location",
                   "value": "\\",
@@ -170,7 +164,196 @@
             "body": {},
             "description": "This method returns a list of all the applications in the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users"
           },
-          "response": []
+          "response": [
+            {
+              "id": "67238f6d-3e2f-91d3-084d-3e3f74ee2af7",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": {
+                  "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
+                  "auth": {},
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "PasswordVault",
+                    "WebServices",
+                    "PIMServices.svc",
+                    "Applications",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "Location",
+                      "value": "\\",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "IncludeSublocations",
+                      "value": "true",
+                      "equals": true,
+                      "description": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": "Session Authorization Token"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "771",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 18:49:26 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                }
+              ],
+              "responseTime": "32",
+              "body": "{\n  \"application\": [\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"AIMWebService\",\n      \"BusinessOwnerEmail\": \"\",\n      \"BusinessOwnerFName\": \"\",\n      \"BusinessOwnerLName\": \"\",\n      \"BusinessOwnerPhone\": \"\",\n      \"Description\": \"This application is for the web service installed for the Central Credential Provider.\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\\"\n    },\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"RESTExamples\",\n      \"BusinessOwnerEmail\": \"john.doe@cyberark.com\",\n      \"BusinessOwnerFName\": \"John\",\n      \"BusinessOwnerLName\": \"Doe\",\n      \"BusinessOwnerPhone\": \"555-555-1212\",\n      \"Description\": \"AppID for all AIM and REST Examples\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\Applications\"\n    }\n  ]\n}"
+            }
+          ]
         },
         {
           "_postman_id": "713d8a2e-509b-f878-a7df-d28ed91e054a",
@@ -215,7 +398,190 @@
             "body": {},
             "description": "This method returns information about a specific application.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users"
           },
-          "response": []
+          "response": [
+            {
+              "id": "d2deaf4b-5033-5c05-4c0e-d80f6ed74f3a",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": {
+                  "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+                  "auth": {},
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "PasswordVault",
+                    "WebServices",
+                    "PIMServices.svc",
+                    "Applications",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "AppID",
+                      "value": "{{AppID}}",
+                      "equals": true,
+                      "description": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": "Session Authorization Token"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "396",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 18:45:14 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                }
+              ],
+              "responseTime": "38",
+              "body": "{\n  \"application\": [\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"RESTExamples\",\n      \"BusinessOwnerEmail\": \"devops.mgr@cyberark.com\",\n      \"BusinessOwnerFName\": \"DevOps\",\n      \"BusinessOwnerLName\": \"Manager\",\n      \"BusinessOwnerPhone\": \"617-555-1234\",\n      \"Description\": \"AppID for all AIM and REST Examples\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\Applications\"\n    }\n  ]\n}"
+            }
+          ]
         },
         {
           "_postman_id": "3d7f5416-21d3-b64b-d51b-34cf06d421f4",
@@ -241,7 +607,171 @@
             },
             "description": "This method adds a new application to the Vault.\r\nThe user who adds this application requires the following permission in the Vault:\r\n- Manage Users"
           },
-          "response": []
+          "response": [
+            {
+              "id": "343e580e-8608-1b46-ee99-3fbac8093482",
+              "name": "400 Bad Request",
+              "originalRequest": {
+                "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": "Session Authorization Token"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"application\":\r\n  {\r\n    \"AppID\":\"{{AppID}}2\",\r\n    \"Description\":\"Testing DevOps Deployments with CyberArk\",\r\n    \"Location\":\"/Applications\",\r\n    \"AccessPermittedFrom\":0,\r\n    \"AccessPermittedTo\":23,\r\n    \"ExpirationDate\":\"\",\r\n    \"Disabled\":\"No\",\r\n    \"BusinessOwnerFName\":\"John\",\r\n    \"BusinessOwnerLName\":\"Doe\",\r\n    \"BusinessOwnerEmail\":\"John.Doe@CyberArk.com\",\r\n    \"BusinessOwnerPhone\":\"555-555-1212\"\r\n  }\r\n}"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "html",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1647",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 18:46:42 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                }
+              ],
+              "responseTime": "585",
+              "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n  <head>\r\n    <title>Request Error</title>\r\n    <style>BODY { color: #000000; background-color: white; font-family: Verdana; margin-left: 0px; margin-top: 0px; } #content { margin-left: 30px; font-size: .70em; padding-bottom: 2em; } A:link { color: #336699; font-weight: bold; text-decoration: underline; } A:visited { color: #6699cc; font-weight: bold; text-decoration: underline; } A:active { color: #336699; font-weight: bold; text-decoration: underline; } .heading1 { background-color: #003366; border-bottom: #336699 6px solid; color: #ffffff; font-family: Tahoma; font-size: 26px; font-weight: normal;margin: 0em 0em 10px -20px; padding-bottom: 8px; padding-left: 30px;padding-top: 16px;} pre { font-size:small; background-color: #e5e5cc; padding: 5px; font-family: Courier New; margin-top: 0px; border: 1px #f0f0e0 solid; white-space: pre-wrap; white-space: -pre-wrap; word-wrap: break-word; } table { border-collapse: collapse; border-spacing: 0px; font-family: Verdana;} table th { border-right: 2px white solid; border-bottom: 2px white solid; font-weight: bold; background-color: #cecf9c;} table td { border-right: 2px white solid; border-bottom: 2px white solid; background-color: #e5e5cc;}</style>\r\n  </head>\r\n  <body>\r\n    <div id=\"content\">\r\n      <p class=\"heading1\">Request Error</p>\r\n      <p>The server encountered an error processing the request. See server logs for more details.</p>\r\n    </div>\r\n  </body>\r\n</html>"
+            }
+          ]
         },
         {
           "_postman_id": "63b29b35-4550-c06c-d326-6fe5ec49e2cd",
@@ -2445,7 +2975,346 @@
             "body": {},
             "description": "This method returns the display name of the Vault configured in the ServerDisplayName configuration parameter."
           },
-          "response": []
+          "response": [
+            {
+              "id": "507c6d7c-0866-b47b-c63a-97d8b968d17b",
+              "name": "403 Forbidden (Check your authorization/authentication)",
+              "originalRequest": {
+                "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": "Session Authorization Token"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "html",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "CA-ErrorCode",
+                  "value": "CAIWS001E",
+                  "name": "CA-ErrorCode",
+                  "description": ""
+                },
+                {
+                  "key": "CA-ErrorMessage",
+                  "value": "Couldn't retrieve session token from request header.",
+                  "name": "CA-ErrorMessage",
+                  "description": ""
+                },
+                {
+                  "key": "CA-ErrorMessageBase64Encoded",
+                  "value": "Q291bGRuJ3QgcmV0cmlldmUgc2Vzc2lvbiB0b2tlbiBmcm9tIHJlcXVlc3QgaGVhZGVyLg==",
+                  "name": "CA-ErrorMessageBase64Encoded",
+                  "description": ""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "95",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 18:40:46 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                }
+              ],
+              "responseTime": "32",
+              "body": "{\"ErrorCode\":\"CAIWS001E\",\"ErrorMessage\":\"Couldn't retrieve session token from request header.\"}"
+            },
+            {
+              "id": "7c14d0a8-be99-a78e-ca11-a3a8359edbba",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": "Session Authorization Token"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 18:42:20 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                }
+              ],
+              "responseTime": "252",
+              "body": "{\"ExternalVersion\":\"9.9.0\",\"InternalVersion\":\"9.90.0.18\",\"ServerName\":\"Vault\"}"
+            }
+          ]
         }
       ]
     },
