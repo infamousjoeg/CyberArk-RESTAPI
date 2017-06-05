@@ -862,7 +862,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -888,7 +888,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -911,7 +911,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
