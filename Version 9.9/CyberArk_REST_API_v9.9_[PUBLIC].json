@@ -1239,35 +1239,13 @@
           "_postman_id": "89139a86-8c40-867e-2812-c3878f847dbd",
           "name": "Update Account Details",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Accounts",
-                ""
-              ],
-              "query": [
-                {
-                  "key": "AccountID",
-                  "value": "{{AccountID}}",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1287,36 +1265,13 @@
           "_postman_id": "b7c3d022-7007-4f23-e2b1-c614cfe6bd85",
           "name": "List Activity by ID",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Accounts",
-                "{{AccountID}}",
-                "Activities"
-              ],
-              "query": [
-                {
-                  "key": "SafeName",
-                  "value": "{{Safe}}",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
@@ -1346,7 +1301,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
+                "description": ""
               },
               {
                 "key": "Content-Type",
