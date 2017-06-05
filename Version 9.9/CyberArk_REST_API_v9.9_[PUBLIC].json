@@ -219,7 +219,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -239,13 +239,37 @@
           "_postman_id": "ccad7422-832f-5e99-71c3-1afef76e938d",
           "name": "Delete a Specific Authentication",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                "{{AppID}}",
+                "Authentications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AuthID",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -473,7 +497,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -675,7 +699,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": ""
+                "description": "Session SAML Token"
               },
               {
                 "key": "Content-Type",
@@ -701,7 +725,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": ""
+                "description": "Session SAML Token"
               },
               {
                 "key": "Content-Type",
@@ -757,7 +781,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -783,7 +807,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -800,13 +824,39 @@
           "_postman_id": "5f9674a9-3769-af30-c681-5c28eacd80ed",
           "name": "SSH - Delete Public SSH Key",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/?KeyID=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/?KeyID=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Users",
+                "{{UserName}}",
+                "AuthenticationMethods",
+                "SSHKeyAuthentication",
+                "AuthorizedKeys",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "KeyID",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -836,7 +886,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -862,7 +912,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -888,7 +938,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -911,7 +961,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -934,7 +984,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -944,7 +994,7 @@
               {
                 "key": "ImmediateChangeByCPM",
                 "value": "Yes",
-                "description": ""
+                "description": "Accepted: Yes or No"
               }
             ],
             "body": {
@@ -965,7 +1015,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1239,13 +1289,35 @@
           "_postman_id": "89139a86-8c40-867e-2812-c3878f847dbd",
           "name": "Update Account Details",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Accounts",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AccountID",
+                  "value": "{{AccountID}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1265,13 +1337,36 @@
           "_postman_id": "b7c3d022-7007-4f23-e2b1-c614cfe6bd85",
           "name": "List Activity by ID",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Accounts",
+                "{{AccountID}}",
+                "Activities"
+              ],
+              "query": [
+                {
+                  "key": "SafeName",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1301,7 +1396,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1321,13 +1416,34 @@
           "_postman_id": "6939a254-ec96-258c-4b61-0195a81ec0b1",
           "name": "Delete Onboarding Rule",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/?id=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/?id=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "api",
+                "AutomaticOnboardingRules",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1350,7 +1466,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1380,7 +1496,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1403,7 +1519,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1423,13 +1539,37 @@
           "_postman_id": "b504188f-dbc7-72e4-31a8-b5d35f5c7c10",
           "name": "Delete Policy/ACL",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Policy",
+                "{{ACLPolicyID}}",
+                "PrivilegedCommands",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1459,7 +1599,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1476,13 +1616,35 @@
           "_postman_id": "d7d98acb-bb8d-fa22-9434-83fa35938686",
           "name": "Get Safe Details",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Safes",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "SafeName",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1505,7 +1667,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1525,13 +1687,35 @@
           "_postman_id": "f23f5f53-09ae-735f-af44-459270a74c26",
           "name": "Update Safe",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Safes",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "SafeName",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1557,7 +1741,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1574,13 +1758,34 @@
           "_postman_id": "12f6d966-9415-e5d5-46ff-1dc6a0e44166",
           "name": "Search for a Safe",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Safes"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "{{Query}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1610,7 +1815,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1633,7 +1838,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -1653,13 +1858,36 @@
           "_postman_id": "ea1a6233-9dad-6d52-e53c-c4162b98949b",
           "name": "Update Safe Member",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}}/Members?MemberName=EPVUserTest",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}}/Members?MemberName=EPVUserTest",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Safes",
+                "{{Safe}}}",
+                "Members"
+              ],
+              "query": [
+                {
+                  "key": "MemberName",
+                  "value": "EPVUserTest",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "PUT",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
