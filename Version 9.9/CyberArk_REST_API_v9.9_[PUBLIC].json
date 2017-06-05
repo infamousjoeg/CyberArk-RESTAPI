@@ -71,7 +71,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -95,13 +95,47 @@
           "_postman_id": "b424fdca-bbcd-6548-9e34-a9dceeb576bb",
           "name": "List Applications",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}&Location=\\&IncludeSublocations=true",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}&Location=\\&IncludeSublocations=true",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AppID",
+                  "value": "{{AppID}}",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "Location",
+                  "value": "\\",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "IncludeSublocations",
+                  "value": "true",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -118,13 +152,35 @@
           "_postman_id": "713d8a2e-509b-f878-a7df-d28ed91e054a",
           "name": "List a Specific Application",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Applications",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "AppID",
+                  "value": "{{AppID}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
