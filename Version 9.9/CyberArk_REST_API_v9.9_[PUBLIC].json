@@ -675,7 +675,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": ""
+                "description": "Session SAML Token"
               },
               {
                 "key": "Content-Type",
@@ -701,7 +701,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": ""
+                "description": "Session SAML Token"
               },
               {
                 "key": "Content-Type",
@@ -757,7 +757,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -783,7 +783,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -800,13 +800,39 @@
           "_postman_id": "5f9674a9-3769-af30-c681-5c28eacd80ed",
           "name": "SSH - Delete Public SSH Key",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/?KeyID=1",
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/?KeyID=1",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Users",
+                "{{UserName}}",
+                "AuthenticationMethods",
+                "SSHKeyAuthentication",
+                "AuthorizedKeys",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "KeyID",
+                  "value": "1",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -836,7 +862,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -862,7 +888,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
