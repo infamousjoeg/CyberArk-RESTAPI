@@ -484,7 +484,186 @@
             "body": {},
             "description": "This method logs off the user and removes the Vault session."
           },
-          "response": []
+          "response": [
+            {
+              "id": "f0a329a4-cf93-23d9-8d56-d861780fdace",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": ""
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 17:50:00 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                },
+                {
+                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "ldap",
+                  "key": "CAPreferredAuth"
+                },
+                {
+                  "expires": "Sun Jan 17 2038 00:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/",
+                  "secure": false,
+                  "value": "t2jlmd4i1yjna3morxfbr3pv",
+                  "key": "ASP.NET_SessionId"
+                }
+              ],
+              "responseTime": "66",
+              "body": "{}"
+            }
+          ]
         },
         {
           "_postman_id": "ff4e4ce2-485b-fbf4-df80-1868ecc9d513",
@@ -700,6 +879,262 @@
           "response": []
         },
         {
+          "_postman_id": "d777b281-01fa-dad5-5cd0-516fdc98dbf5",
+          "name": "Get Account Details",
+          "request": {
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Accounts"
+              ],
+              "query": [
+                {
+                  "key": "Keywords",
+                  "value": "{{Keywords}}",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "Safe",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "This method returns information about an account. If more than one account meets the search criteria, only the first account will be returned, although the Count output parameter will display the number of accounts that were found.\r\nOnly the following users can access this account:\r\n- Users who are members of the Safe where the account is stored.\r\n- Users who have access to this specific account. For more information about object level access control, refer to Object Level Access Control in the Privileged Account Security Implementation Guide.\r\n- The user who runs this web service requires the following permission in the Safe:\r\n  - List accounts\r\nNotes:\r\n- This method does not display the actual password.\r\n- If ten or more accounts are found, the Count Output parameter will show 10."
+          },
+          "response": [
+            {
+              "id": "ea515d2e-9863-1fb4-e248-265fbdf9500d",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": {
+                  "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
+                  "auth": {},
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "PasswordVault",
+                    "WebServices",
+                    "PIMServices.svc",
+                    "Accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "Keywords",
+                      "value": "{{Keywords}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Safe",
+                      "value": "{{Safe}}",
+                      "equals": true,
+                      "description": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": ""
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "697",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 17:48:52 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                },
+                {
+                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "ldap",
+                  "key": "CAPreferredAuth"
+                },
+                {
+                  "expires": "Sun Jan 17 2038 01:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/",
+                  "secure": false,
+                  "value": "t2jlmd4i1yjna3morxfbr3pv",
+                  "key": "ASP.NET_SessionId"
+                }
+              ],
+              "responseTime": "47",
+              "body": "{\"Count\":1,\"accounts\":[{\"AccountID\":\"41_4\",\"InternalProperties\":[{\"Key\":\"CPMStatus\",\"Value\":\"success\"},{\"Key\":\"CreationMethod\",\"Value\":\"PVWA\"},{\"Key\":\"RetriesCount\",\"Value\":\"-1\"},{\"Key\":\"LastTask\",\"Value\":\"VerifyTask\"}],\"Properties\":[{\"Key\":\"Safe\",\"Value\":\"T-APP-CYBR-RESTAPI\"},{\"Key\":\"Folder\",\"Value\":\"Root\"},{\"Key\":\"Name\",\"Value\":\"Operating System-WindowsDomainAccount-JG-joe-garcia.local-test.user0001\"},{\"Key\":\"UserName\",\"Value\":\"test.user0001\"},{\"Key\":\"PolicyID\",\"Value\":\"WindowsDomainAccount-JG\"},{\"Key\":\"LogonDomain\",\"Value\":\"JOE-GARCIA\"},{\"Key\":\"LastSuccessVerification\",\"Value\":\"1496683713\"},{\"Key\":\"Address\",\"Value\":\"joe-garcia.local\"},{\"Key\":\"DeviceType\",\"Value\":\"Operating System\"}]}]}"
+            }
+          ]
+        },
+        {
           "_postman_id": "c3e9e145-eff9-e41c-ca16-d05c25aca2e8",
           "name": "Delete Account",
           "request": {
@@ -799,56 +1234,6 @@
               "raw": "{}"
             },
             "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "d777b281-01fa-dad5-5cd0-516fdc98dbf5",
-          "name": "Get Account Details",
-          "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Accounts"
-              ],
-              "query": [
-                {
-                  "key": "Keywords",
-                  "value": "{{Keywords}}",
-                  "equals": true,
-                  "description": ""
-                },
-                {
-                  "key": "Safe",
-                  "value": "{{Safe}}",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "This method returns information about an account. If more than one account meets the search criteria, only the first account will be returned, although the Count output parameter will display the number of accounts that were found.\r\nOnly the following users can access this account:\r\n- Users who are members of the Safe where the account is stored.\r\n- Users who have access to this specific account. For more information about object level access control, refer to Object Level Access Control in the Privileged Account Security Implementation Guide.\r\n- The user who runs this web service requires the following permission in the Safe:\r\n  - List accounts\r\nNotes:\r\n- This method does not display the actual password.\r\n- If ten or more accounts are found, the Count Output parameter will show 10."
           },
           "response": []
         },
