@@ -879,6 +879,109 @@
           "response": []
         },
         {
+          "_postman_id": "c3e9e145-eff9-e41c-ca16-d05c25aca2e8",
+          "name": "Delete Account",
+          "request": {
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "This method deletes a specific account in the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Delete accounts"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "54c906ba-ac4d-fd85-221d-f119107d96bb",
+          "name": "Get Account Value",
+          "request": {
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "This method enables users to retrieve the password of an existing account that is identified by its Account ID.\r\n- This web service will not return SSH Keys. If the request was sent for an SSH key, the following error will be returned: \"Failed to get the credentials of <AccountID>. Reason: The account is of type SSH Key.\"\r\n- This web service will not be able to retrieve the password if a reason is required (according to its effective Master Policy), and an error will be returned."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "65b3e135-79fd-d949-5304-3e203b2ed7f5",
+          "name": "Change Credentials",
+          "request": {
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "ImmediateChangeByCPM",
+                "value": "Yes",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ChangeCredsForGroup\":\"No\"\n}"
+            },
+            "description": "This method marks the account for an immediate password change by the CPM to a new random password.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations\r\n\r\nNOTE: 'ImmediateChangeByCPM' is in the Web Services SDK as part of the body, but it should be included in the header as it is here."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "b9707d0c-efd7-aa10-42e5-0c610660c403",
+          "name": "Verify Credentials",
+          "request": {
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/VerifyCredentials",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "d777b281-01fa-dad5-5cd0-516fdc98dbf5",
           "name": "Get Account Details",
           "request": {
@@ -1133,109 +1236,6 @@
               "body": "{\"Count\":1,\"accounts\":[{\"AccountID\":\"41_4\",\"InternalProperties\":[{\"Key\":\"CPMStatus\",\"Value\":\"success\"},{\"Key\":\"CreationMethod\",\"Value\":\"PVWA\"},{\"Key\":\"RetriesCount\",\"Value\":\"-1\"},{\"Key\":\"LastTask\",\"Value\":\"VerifyTask\"}],\"Properties\":[{\"Key\":\"Safe\",\"Value\":\"T-APP-CYBR-RESTAPI\"},{\"Key\":\"Folder\",\"Value\":\"Root\"},{\"Key\":\"Name\",\"Value\":\"Operating System-WindowsDomainAccount-JG-joe-garcia.local-test.user0001\"},{\"Key\":\"UserName\",\"Value\":\"test.user0001\"},{\"Key\":\"PolicyID\",\"Value\":\"WindowsDomainAccount-JG\"},{\"Key\":\"LogonDomain\",\"Value\":\"JOE-GARCIA\"},{\"Key\":\"LastSuccessVerification\",\"Value\":\"1496683713\"},{\"Key\":\"Address\",\"Value\":\"joe-garcia.local\"},{\"Key\":\"DeviceType\",\"Value\":\"Operating System\"}]}]}"
             }
           ]
-        },
-        {
-          "_postman_id": "c3e9e145-eff9-e41c-ca16-d05c25aca2e8",
-          "name": "Delete Account",
-          "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "This method deletes a specific account in the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Delete accounts"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "54c906ba-ac4d-fd85-221d-f119107d96bb",
-          "name": "Get Account Value",
-          "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "This method enables users to retrieve the password of an existing account that is identified by its Account ID.\r\n- This web service will not return SSH Keys. If the request was sent for an SSH key, the following error will be returned: \"Failed to get the credentials of <AccountID>. Reason: The account is of type SSH Key.\"\r\n- This web service will not be able to retrieve the password if a reason is required (according to its effective Master Policy), and an error will be returned."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "65b3e135-79fd-d949-5304-3e203b2ed7f5",
-          "name": "Change Credentials",
-          "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              },
-              {
-                "key": "ImmediateChangeByCPM",
-                "value": "Yes",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"ChangeCredsForGroup\":\"No\"\n}"
-            },
-            "description": "This method marks the account for an immediate password change by the CPM to a new random password.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations\r\n\r\nNOTE: 'ImmediateChangeByCPM' is in the Web Services SDK as part of the body, but it should be included in the header as it is here."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "b9707d0c-efd7-aa10-42e5-0c610660c403",
-          "name": "Verify Credentials",
-          "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/VerifyCredentials",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{}"
-            },
-            "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations"
-          },
-          "response": []
         },
         {
           "_postman_id": "89139a86-8c40-867e-2812-c3878f847dbd",
