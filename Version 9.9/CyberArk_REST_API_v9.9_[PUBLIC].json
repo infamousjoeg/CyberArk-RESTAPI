@@ -473,7 +473,7 @@
               {
                 "key": "Authorization",
                 "value": "{{CyberArkLogonResult}}",
-                "description": ""
+                "description": "Session Authorization Token"
               },
               {
                 "key": "Content-Type",
@@ -675,7 +675,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": ""
+                "description": "Session SAML Token"
               },
               {
                 "key": "Content-Type",
@@ -701,7 +701,7 @@
               {
                 "key": "Authorization",
                 "value": "{{SAMLToken}}",
-                "description": ""
+                "description": "Session SAML Token"
               },
               {
                 "key": "Content-Type",
