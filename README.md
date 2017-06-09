@@ -1,37 +1,108 @@
-## Welcome to GitHub Pages
+## CyberArk REST API
 
-You can use the [editor on GitHub](https://github.com/infamousjoeg/CyberArk-RESTAPI/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+All available requests in CyberArk Privileged Account Security Web Services v9.9.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Postman Live Documentation
 
-### Markdown
+[View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPIv99)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Get Accounts via REST - PowerShell Example
 
-```markdown
-Syntax highlighted code block
+This example demonstrates how to create a function in PowerShell for each REST call necessary and how to handle responses.
 
-# Header 1
-## Header 2
-### Header 3
+```powershell
+function PASREST-Logon {
 
-- Bulleted
-- List
+    # Declaration
+    $webServicesLogon = "$PVWA_URL/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon"
 
-1. Numbered
-2. List
+    # Authentication
+    $bodyParams = @{username = "Svc_CyberArkAPI"; password = "password"} | ConvertTo-JSON
 
-**Bold** and _Italic_ and `Code` text
+    # Execution
+    try {
+        $logonResult = Invoke-RestMethod -Uri $webServicesLogon -Method POST -ContentType "application/json" -Body $bodyParams -ErrorVariable logonResultErr
+        Return $logonResult.CyberArkLogonResult
+    }
+    catch {
+        Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value__
+        Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
+        Write-Host "Response: " $_.Exception.Message
+        Return $false
+    }
+}
 
-[Link](url) and ![Image](src)
+function PASREST-Logoff ([string]$Authorization) {
+
+    # Declaration
+    $webServicesLogoff = "$PVWA_URL/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff"
+
+    # Authorization
+    $headerParams = @{}
+    $headerParams.Add("Authorization",$Authorization)
+
+    # Execution
+    try {
+        $logoffResult = Invoke-RestMethod -Uri $webServicesLogoff -Method POST -ContentType "application/json" -Header $headerParams -ErrorVariable logoffResultErr
+        Return $true
+    }
+    catch {
+        Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value__
+        Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
+        Write-Host "Response: " $_.Exception.Message
+        Return $false
+    }
+}
+
+function PASREST-GetAccount ([string]$Authorization) {
+
+    # Declaration
+    $webServicesGA = "$PVWA_URL/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords=$Keywords&Safe=$Safe"
+
+    # Authorization
+    $headerParams = @{}
+    $headerParams.Add("Authorization",$sessionID)
+
+    # Execution
+    try {
+        $getAccountResult = Invoke-RestMethod -Uri $webServicesGA -Method GET -ContentType "application/json" -Headers $headerParams -ErrorVariable getAccountResultErr
+        return $getAccountResult
+    }
+    catch {
+        Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__
+        Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+        Write-Host "Response:" $_.Exception.Message
+        return $false
+    }
+}
+
+# Global Declaration
+$PVWA_URL = "https://components.cyberark.local"
+$Keywords = "TestAccount"
+$Safe = "TestSafe"
+
+# Execute Logon
+$sessionID = PASREST-Logon
+
+# Error Handling for Logon
+if ($sessionID -eq $false) {Write-Host "[ERROR] There was an error logging into the Vault." -ForegroundColor Red; break}
+else {Write-Host "[INFO] Logon completed successfully." -ForegroundColor DarkYellow}
+
+# Execute Get Accounts
+$getAccountResult = PASREST-GetAccount -Authorization $sessionID
+if ($getAccountResult -eq $false) {Write-Host "[ERROR] There was an error getting the account from the Vault."-ForegroundColor Red; break}
+else {$getAccountResult.accounts | Format-Table -Property AccountID}
+
+# Execute Logoff
+$logoffResult = PASREST-Logoff -Authorization $sessionID
+if ($logoffResult -eq $true) {Write-Host "[INFO] Logoff completed successfully." -ForegroundColor DarkYellow}
+else {Write-Host "[ERROR] Logoff was not completed successfully.  Please logout manually using Authorization token:" $sessionID -ForegroundColor Red}
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/infamousjoeg/CyberArk-RESTAPI/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Q.  All DEL or PUT methods return an error, how can I fix this?
+
+A.  Make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.
+
+Having trouble with CyberArk's REST API? Check out the [/r/CyberArk subreddit on Reddit](https://reddit.com/r/CyberArk)!
