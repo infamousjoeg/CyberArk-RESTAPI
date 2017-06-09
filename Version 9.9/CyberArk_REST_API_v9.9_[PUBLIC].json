@@ -106,7 +106,204 @@
             "body": {},
             "description": "This method gets a list of the privileged commands (OPM rules) associated with this account."
           },
-          "response": []
+          "response": [
+            {
+              "id": "aa12f2c2-edd0-18c1-347d-80b386aba551",
+              "name": "500 Internal Server Error (ACLAddress Required)",
+              "originalRequest": {
+                "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{CyberArkLogonResult}}",
+                    "description": "Session Authorization Token"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "html",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "CA-ErrorCode",
+                  "value": "",
+                  "name": "CA-ErrorCode",
+                  "description": ""
+                },
+                {
+                  "key": "CA-ErrorMessage",
+                  "value": "Input parameter AccountAddress is obligatory. Please fix it and try again.",
+                  "name": "CA-ErrorMessage",
+                  "description": ""
+                },
+                {
+                  "key": "CA-ErrorMessageBase64Encoded",
+                  "value": "SW5wdXQgcGFyYW1ldGVyIEFjY291bnRBZGRyZXNzIGlzIG9ibGlnYXRvcnkuIFBsZWFzZSBmaXggaXQgYW5kIHRyeSBhZ2Fpbi4=",
+                  "name": "CA-ErrorMessageBase64Encoded",
+                  "description": ""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "118",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2017 21:08:01 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA22222=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA11111=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA55555=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "CA33333=; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+                  "name": "Set-Cookie",
+                  "description": ""
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN",
+                  "name": "X-Frame-Options",
+                  "description": ""
+                },
+                {
+                  "key": "X-UA-Compatible",
+                  "value": "IE=EmulateIE8",
+                  "name": "X-UA-Compatible",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 07:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                },
+                {
+                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "ldap",
+                  "key": "CAPreferredAuth"
+                },
+                {
+                  "expires": "Sat Jan 16 2038 20:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/",
+                  "secure": false,
+                  "value": "t2jlmd4i1yjna3morxfbr3pv",
+                  "key": "ASP.NET_SessionId"
+                }
+              ],
+              "responseTime": "70",
+              "body": "{\"ErrorCode\":\"CAWS00001E\",\"ErrorMessage\":\"Input parameter AccountAddress is obligatory. Please fix it and try again.\"}"
+            }
+          ]
         }
       ]
     },
@@ -400,7 +597,7 @@
           },
           "response": [
             {
-              "id": "d2deaf4b-5033-5c05-4c0e-d80f6ed74f3a",
+              "id": "1c74d095-0843-124d-2813-7bb8275927b5",
               "name": "200 OK",
               "originalRequest": {
                 "url": {
@@ -466,7 +663,7 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Mon, 05 Jun 2017 18:45:14 GMT",
+                  "value": "Mon, 05 Jun 2017 18:51:27 GMT",
                   "name": "Date",
                   "description": ""
                 },
@@ -578,8 +775,8 @@
                   "key": "mobileState"
                 }
               ],
-              "responseTime": "38",
-              "body": "{\n  \"application\": [\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"RESTExamples\",\n      \"BusinessOwnerEmail\": \"devops.mgr@cyberark.com\",\n      \"BusinessOwnerFName\": \"DevOps\",\n      \"BusinessOwnerLName\": \"Manager\",\n      \"BusinessOwnerPhone\": \"617-555-1234\",\n      \"Description\": \"AppID for all AIM and REST Examples\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\Applications\"\n    }\n  ]\n}"
+              "responseTime": "25",
+              "body": "{\n  \"application\": [\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"RESTExamples\",\n      \"BusinessOwnerEmail\": \"john.doecyberark.com\",\n      \"BusinessOwnerFName\": \"John\",\n      \"BusinessOwnerLName\": \"Doe\",\n      \"BusinessOwnerPhone\": \"555-555-1212\",\n      \"Description\": \"AppID for all AIM and REST Examples\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\Applications\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -938,7 +1135,7 @@
               "mode": "raw",
               "raw": "{\r\n  \"username\":\"{{apiUsername}}\",\r\n  \"password\":\"{{apiPassword}}\",\r\n  \"useRadiusAuthentication\":\"false\",\r\n  \"connectionNumber\":\"1\"\r\n}"
             },
-            "description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method allows you to set a new password.\r\nYou can define the validity period of a users login for REST API and Mobile applications. After the configured timeout expires, users have to log on again using their username and password.\r\nUsers can authenticate using CyberArk, LDAP or RADIUS authentication."
+            "description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method allows you to set a new password.\r\nYou can define the validity period of a users login for REST API and Mobile applications. After the configured timeout expires, users have to log on again using their username and password.\r\nUsers can authenticate using CyberArk, LDAP or RADIUS authentication.\r\n\r\nNOTE: connectionNumber allows the use of multiple accounts with REST.  It requires that a connectionNumber be generated and tracked by the script.  It is limited to 100 concurrent sessions.  For unlimited concurrent sessions, please see *Shared Logon Authentication*."
           },
           "response": [
             {
