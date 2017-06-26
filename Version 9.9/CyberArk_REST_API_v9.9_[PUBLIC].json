@@ -2661,7 +2661,7 @@
           "_postman_id": "4f836a12-c4ec-93bd-bb4a-fd0ced787cd4",
           "name": "Add Safe Member",
           "request": {
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}}/Members",
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
             "method": "POST",
             "header": [
               {
