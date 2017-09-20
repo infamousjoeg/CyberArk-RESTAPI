@@ -1709,7 +1709,45 @@
           "_postman_id": "b0586fbc-5f17-ca12-c600-8e455707974b",
           "name": "GetPassword",
           "request": {
-            "url": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+            "url": {
+              "raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+              "auth": {},
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "AIMWebService",
+                "api",
+                "Accounts"
+              ],
+              "query": [
+                {
+                  "key": "AppID",
+                  "value": "{{AppID}}",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "Safe",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "Folder",
+                  "value": "{{Folder}}",
+                  "equals": true,
+                  "description": ""
+                },
+                {
+                  "key": "Object",
+                  "value": "{{ObjectName}}",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "variable": []
+            },
             "method": "GET",
             "header": [
               {
@@ -1721,7 +1759,346 @@
             "body": {},
             "description": "GetPassword  This service enables applications to retrieve passwords from the\r\nCentral Credential Provider.\r\n\r\n- AppID (REQUIRED)\r\n\t- Specifies the unique ID of the application issuing the password request.\r\n- Safe\r\n\t- Specifies the name of the Safe where the password is stored.\r\n- Folder\r\n\t- Specifies the name of the folder where the password is stored. (Default: Root)\r\n- Object\r\n\t- Specifies the name of the password object to retrieve.\r\n- UserName\r\n\t- Defines search criteria according to the UserName account property.\r\n- Address\r\n\t- Defines search criteria according to the Address account property.\r\n- Database\r\n\t- Defines search criteria according to the Database account property.\r\n- PolicyID\r\n\t- Defines the format that will be used in the setPolicyID method.\r\n- Reason\r\n\t- The reason for retrieving the password.  This reason will be audited in the Credential Provider audit log.\r\n- ConnectionTimeout\r\n\t- The number of seconds that the Central Credential Provider will try to retrieve the password.  The timeout is calculated when the request is sent from the web service to the Vault and returned back to the web service.\r\n\t\t- 30 (Default)\r\n- Query\r\n\t- Defines a free query using account properties, including Safe, folder, and object.  When this method is specified, all other search criteria (Safe/Folder/Object/UserName/Address/PolicyID/Database) are ignored and only the account properties that are specified in the query are passed to the Central Credential Provider in the password request.\r\n- QueryFormat\r\n\t- Defines the query format, which can optionally use regular expressions.\r\n\t- Possible values are:\r\n\t\t- Exact (Default)\r\n\t\t- Regexp\r\n- FailedRequestOnPasswordChange\r\n\t- Whether or not an error will be returned if this web service is called when a password change process is underway.\r\n\t\t- True\r\n\t\t- False (Default)"
           },
-          "response": []
+          "response": [
+            {
+              "id": "80cfb8db-c178-a67a-4be1-abb58038d074",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": {
+                  "raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+                  "auth": {},
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "AIMWebService",
+                    "api",
+                    "Accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "AppID",
+                      "value": "{{AppID}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Safe",
+                      "value": "{{Safe}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Folder",
+                      "value": "{{Folder}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Object",
+                      "value": "{{ObjectName}}",
+                      "equals": true,
+                      "description": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "336",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 20 Sep 2017 21:49:50 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                },
+                {
+                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "ldap",
+                  "key": "CAPreferredAuth"
+                },
+                {
+                  "expires": "Sat Jan 16 2038 11:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/",
+                  "secure": false,
+                  "value": "t2jlmd4i1yjna3morxfbr3pv",
+                  "key": "ASP.NET_SessionId"
+                }
+              ],
+              "responseTime": "240",
+              "body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
+            },
+            {
+              "id": "8cc25c81-f593-8d16-da1f-4954650771e1",
+              "name": "APPAP004E - Password object matching query was not found",
+              "originalRequest": {
+                "url": {
+                  "raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+                  "auth": {},
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "AIMWebService",
+                    "api",
+                    "Accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "AppID",
+                      "value": "{{AppID}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Safe",
+                      "value": "{{Safe}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Folder",
+                      "value": "{{Folder}}",
+                      "equals": true,
+                      "description": ""
+                    },
+                    {
+                      "key": "Object",
+                      "value": "{{ObjectName}}",
+                      "equals": true,
+                      "description": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "415",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 20 Sep 2017 21:45:44 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                },
+                {
+                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "ldap",
+                  "key": "CAPreferredAuth"
+                },
+                {
+                  "expires": "Sat Jan 16 2038 11:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/",
+                  "secure": false,
+                  "value": "t2jlmd4i1yjna3morxfbr3pv",
+                  "key": "ASP.NET_SessionId"
+                }
+              ],
+              "responseTime": "1692",
+              "body": "{\"ErrorCode\":\"APPAP004E\",\"ErrorMsg\":\"Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password.\"}"
+            }
+          ]
         }
       ]
     },
