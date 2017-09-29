@@ -1708,7 +1708,7 @@
         },
         {
           "_postman_id": "5f9674a9-3769-af30-c681-5c28eacd80ed",
-          "name": "SSH - Delete Public SSH Key",
+          "name": "SSH - Delete Public SSH Key [v9.6+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/?KeyID=1",
