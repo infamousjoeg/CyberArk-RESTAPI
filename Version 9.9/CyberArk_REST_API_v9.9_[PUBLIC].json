@@ -2973,7 +2973,7 @@
         },
         {
           "_postman_id": "f23f5f53-09ae-735f-af44-459270a74c26",
-          "name": "Update Safe",
+          "name": "Update Safe [v9.3+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
