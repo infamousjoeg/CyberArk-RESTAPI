@@ -1177,7 +1177,7 @@
       "item": [
         {
           "_postman_id": "397e7f83-7605-d1b3-8077-9fd65f978537",
-          "name": "CyberArk/LDAP/Radius Logon",
+          "name": "CyberArk [v9.0+]/LDAP/Radius Logon",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
             "method": "POST",
