@@ -1685,7 +1685,7 @@
         },
         {
           "_postman_id": "a8c67df0-f747-485a-c280-2cd56410f4c6",
-          "name": "SSH - Get Public SSH Keys",
+          "name": "SSH - Get Public SSH Keys [v9.6+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
             "method": "GET",
