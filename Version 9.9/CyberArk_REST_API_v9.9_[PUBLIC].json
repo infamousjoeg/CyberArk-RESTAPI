@@ -1577,7 +1577,7 @@
         },
         {
           "_postman_id": "ff4e4ce2-485b-fbf4-df80-1868ecc9d513",
-          "name": "SAML Authentication Logon",
+          "name": "SAML Authentication Logon [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logon",
             "method": "POST",
