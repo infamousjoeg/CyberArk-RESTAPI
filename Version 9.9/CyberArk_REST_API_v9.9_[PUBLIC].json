@@ -2947,7 +2947,7 @@
         },
         {
           "_postman_id": "0bde0b7c-a7c3-5192-bba8-d025f735e7a3",
-          "name": "Add Safe",
+          "name": "Add Safe [v9.2]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
             "method": "POST",
