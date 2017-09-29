@@ -1759,7 +1759,7 @@
     },
     {
       "_postman_id": "d1735e39-71d6-bfb5-b13d-ab1574fc00cc",
-      "name": "Central Credential Provider (CCP)",
+      "name": "Central Credential Provider (CCP) [v9.8+]",
       "description": "",
       "item": [
         {
