@@ -2192,7 +2192,7 @@
         },
         {
           "_postman_id": "689b7b24-db3a-93aa-6b6b-395148167232",
-          "name": "Add Pending Account",
+          "name": "Add Pending Account [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
             "method": "POST",
