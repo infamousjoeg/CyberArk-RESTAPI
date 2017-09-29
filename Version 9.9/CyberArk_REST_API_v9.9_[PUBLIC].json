@@ -2623,7 +2623,7 @@
         },
         {
           "_postman_id": "b7c3d022-7007-4f23-e2b1-c614cfe6bd85",
-          "name": "List Activity by ID",
+          "name": "List Activity by ID [v9.7+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
