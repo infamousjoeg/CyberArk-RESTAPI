@@ -8,6 +8,63 @@
   },
   "item": [
     {
+      "_postman_id": "3807a31d-1e52-bdd8-438a-030242f85b94",
+      "name": "Account Groups",
+      "description": "The following methods enable you to manage account groups:\n* Add Account Group\n* Add Account to Account Group",
+      "item": [
+        {
+          "_postman_id": "56d1d8af-cd5b-fb5d-abb6-4dd712cd0e95",
+          "name": "Add Account Group [v9.9.5]",
+          "request": {
+            "url": "https://{{BaseURL}}/API/AccountGroups/",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"GroupName\":\"{{GroupName}}\",\r\n  \"GroupPlatform\":\"{{PlatformID}}\",\r\n  \"Safe\":\"{{Safe}}\"\r\n}"
+            },
+            "description": "This method enables application managers to define a new account group automatically, and manage accounts as part of a group.\n\nTo create an account group, users require the following permissions in the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders\n\n**Note:** _The following characters are not supported in URL values in the Body:_ **+ & % #**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "83be9c81-2357-d934-aa11-efb7d0ea77ff",
+          "name": "Add Account to Account Group [v9.9.5]",
+          "request": {
+            "url": "https://{{BaseURL}}/API/AccountGroups/{{GroupName}}/Members",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"AccountID\":\"{{AccountID}}\"\n}"
+            },
+            "description": "This method adds an account as a member to an existing account group.  The account can contain either a password or SSH key.  All members of an account group must be stored in the same Safe as the group itself.\n\nTo add an account as a member to an account group, users require the following permissions to the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n\n**Note:** _The following characters are not support in URL values in the Body:_ **+ & % #**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "1c2b812a-6dcb-dd8b-9339-5b054e3123e1",
       "name": "Account/ACL Methods",
       "description": "",
