@@ -1647,7 +1647,7 @@
         },
         {
           "_postman_id": "c2ed63a4-b873-ef8e-30ee-37b2ab5d4332",
-          "name": "Shared Logon Authentication Logoff",
+          "name": "Shared Logon Authentication Logoff [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff",
             "method": "POST",
