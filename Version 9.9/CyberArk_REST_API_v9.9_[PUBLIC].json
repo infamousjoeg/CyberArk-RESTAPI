@@ -2241,7 +2241,7 @@
         },
         {
           "_postman_id": "54c906ba-ac4d-fd85-221d-f119107d96bb",
-          "name": "Get Account Value",
+          "name": "Get Account Value [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
             "method": "GET",
