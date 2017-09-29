@@ -14,7 +14,7 @@
       "item": [
         {
           "_postman_id": "56d1d8af-cd5b-fb5d-abb6-4dd712cd0e95",
-          "name": "Add Account Group [v9.9.5]",
+          "name": "Add Account Group",
           "request": {
             "url": "https://{{BaseURL}}/API/AccountGroups/",
             "method": "POST",
