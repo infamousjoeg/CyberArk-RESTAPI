@@ -2879,7 +2879,7 @@
       "item": [
         {
           "_postman_id": "2d770de5-0c74-4a69-1788-32ac5525768a",
-          "name": "List Safes",
+          "name": "List Safes [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
             "method": "GET",
