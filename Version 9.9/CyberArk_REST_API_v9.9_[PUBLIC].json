@@ -2218,7 +2218,7 @@
         },
         {
           "_postman_id": "c3e9e145-eff9-e41c-ca16-d05c25aca2e8",
-          "name": "Delete Account",
+          "name": "Delete Account [v9.3+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
             "method": "DELETE",
