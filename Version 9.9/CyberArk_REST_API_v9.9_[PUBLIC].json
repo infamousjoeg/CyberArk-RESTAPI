@@ -3021,7 +3021,7 @@
         },
         {
           "_postman_id": "f5bcefae-0144-10f4-3735-1578c514593f",
-          "name": "Delete Safe",
+          "name": "Delete Safe [v9.3+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
             "method": "DELETE",
