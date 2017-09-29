@@ -1659,7 +1659,7 @@
         },
         {
           "_postman_id": "426798e4-778a-b027-ba6e-59a07a8da2d0",
-          "name": "SSH - Add a Public SSH Key",
+          "name": "SSH - Add a Public SSH Key [v9.6]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
             "method": "POST",
