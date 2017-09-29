@@ -3095,7 +3095,7 @@
       "item": [
         {
           "_postman_id": "b6b47bbd-70fc-4d53-84c6-7bfb20ef516a",
-          "name": "List Safe Members",
+          "name": "List Safe Members [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
             "method": "GET",
