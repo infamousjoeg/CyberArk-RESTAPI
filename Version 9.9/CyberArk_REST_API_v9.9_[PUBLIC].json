@@ -2166,7 +2166,7 @@
       "item": [
         {
           "_postman_id": "8119a171-ca22-179f-982d-b4b2028ea994",
-          "name": "Add Account",
+          "name": "Add Account [v9.0+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account",
             "method": "POST",
