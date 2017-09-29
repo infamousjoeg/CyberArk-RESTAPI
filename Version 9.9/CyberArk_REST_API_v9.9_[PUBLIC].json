@@ -1375,7 +1375,7 @@
         },
         {
           "_postman_id": "7bd14637-8182-40db-482b-e5d93dd5469b",
-          "name": "CyberArk/LDAP/Radius Logoff",
+          "name": "CyberArk [v9.0+]/LDAP/Radius Logoff",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
             "method": "POST",
