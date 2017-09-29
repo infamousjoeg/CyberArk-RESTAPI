@@ -2264,7 +2264,7 @@
         },
         {
           "_postman_id": "65b3e135-79fd-d949-5304-3e203b2ed7f5",
-          "name": "Change Credentials",
+          "name": "Change Credentials [v9.3+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
             "method": "PUT",
