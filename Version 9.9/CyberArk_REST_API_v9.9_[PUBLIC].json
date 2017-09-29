@@ -1603,7 +1603,7 @@
         },
         {
           "_postman_id": "2a4c1301-78f9-d39b-8592-e610183adf11",
-          "name": "SAML Authentication Logoff",
+          "name": "SAML Authentication Logoff [v9.7+]",
           "request": {
             "url": "{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logoff",
             "method": "POST",
