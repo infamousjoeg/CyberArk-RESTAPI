@@ -1,7 +1,7 @@
 {
   "variables": [],
   "info": {
-    "name": "CyberArk REST API v9.9 [PUBLIC]",
+    "name": "CyberArk REST API v9.9.5 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
     "description": "All available requests in CyberArk Privileged Account Security Web Services v9.9\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
