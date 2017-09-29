@@ -2902,7 +2902,7 @@
         },
         {
           "_postman_id": "d7d98acb-bb8d-fa22-9434-83fa35938686",
-          "name": "Get Safe Details",
+          "name": "Get Safe Details [v9.7+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
