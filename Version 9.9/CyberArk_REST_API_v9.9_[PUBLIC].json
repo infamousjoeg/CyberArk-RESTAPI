@@ -3044,7 +3044,7 @@
         },
         {
           "_postman_id": "12f6d966-9415-e5d5-46ff-1dc6a0e44166",
-          "name": "Search for a Safe",
+          "name": "Search for a Safe [v9.7+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
