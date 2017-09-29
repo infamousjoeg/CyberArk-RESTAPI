@@ -2321,7 +2321,7 @@
         },
         {
           "_postman_id": "d777b281-01fa-dad5-5cd0-516fdc98dbf5",
-          "name": "Get Account Details",
+          "name": "Get Account Details [v9.3+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
