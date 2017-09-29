@@ -2575,7 +2575,7 @@
         },
         {
           "_postman_id": "89139a86-8c40-867e-2812-c3878f847dbd",
-          "name": "Update Account Details",
+          "name": "Update Account Details [v9.5+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/?AccountID={{AccountID}}",
