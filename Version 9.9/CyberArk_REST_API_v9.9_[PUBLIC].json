@@ -3144,7 +3144,7 @@
         },
         {
           "_postman_id": "ea1a6233-9dad-6d52-e53c-c4162b98949b",
-          "name": "Update Safe Member",
+          "name": "Update Safe Member [v9.3+]",
           "request": {
             "url": {
               "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}}/Members?MemberName=EPVUserTest",
