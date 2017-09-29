@@ -9,7 +9,7 @@
   "item": [
     {
       "_postman_id": "3807a31d-1e52-bdd8-438a-030242f85b94",
-      "name": "Account Groups [v9.9.5]",
+      "name": "Account Groups [v9.9.5+]",
       "description": "The following methods enable you to manage account groups:\n* Add Account Group\n* Add Account to Account Group",
       "item": [
         {
