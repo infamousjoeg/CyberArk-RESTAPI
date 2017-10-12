@@ -101,8 +101,17 @@ else {Write-Host "[ERROR] Logoff was not completed successfully.  Please logout 
 
 ### Support or Contact
 
-Q.  All DEL or PUT methods return an error, how can I fix this?
+**SYMPTOM:**
+A delete request was sent to the Vault, and the following response was received: `405 Method not allowed`.
 
-A.  Make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.
+**PROBLEM:**
+The `DELETE`/`PUT` command is handled by the WebDAV instead of the Restful services.
+
+**SOLUTION:**
+1. Edit the PVWA's `web.config` file.
+2. Search for `<add name= "WebDAV" Path=......>`
+3. In that line search for the `DELETE` & `PUT` command and delete them, leaving the other ones.
+4. Save the file
+5. Restart IIS
 
 Having trouble with CyberArk's REST API? Check out the [/r/CyberArk subreddit on Reddit](https://reddit.com/r/CyberArk)!
