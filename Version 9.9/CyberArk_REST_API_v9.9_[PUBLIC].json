@@ -3195,30 +3195,7 @@
           "_postman_id": "ecf9d1c4-3560-4060-f92b-16985ddd7329",
           "name": "Delete Safe Member [v9.3+]",
           "request": {
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members?MemberName=EPVUserTest",
-              "auth": {},
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Safes",
-                "{{Safe}}",
-                "Members"
-              ],
-              "query": [
-                {
-                  "key": "MemberName",
-                  "value": "EPVUserTest",
-                  "equals": true,
-                  "description": ""
-                }
-              ],
-              "variable": []
-            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members/{{AccountID}}",
             "method": "DELETE",
             "header": [
               {
