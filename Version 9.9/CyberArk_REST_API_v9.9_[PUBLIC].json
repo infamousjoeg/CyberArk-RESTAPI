@@ -3147,7 +3147,7 @@
           "name": "Update Safe Member [v9.3+]",
           "request": {
             "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members?MemberName={{UserName}}",
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members?MemberName=EPVUserTest",
               "auth": {},
               "host": [
                 "{{BaseURL}}"
@@ -3163,7 +3163,7 @@
               "query": [
                 {
                   "key": "MemberName",
-                  "value": "{{UserName}}",
+                  "value": "EPVUserTest",
                   "equals": true,
                   "description": ""
                 }
