@@ -6,6 +6,12 @@ All available requests in CyberArk Privileged Account Security Web Services v9.9
 
 [View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPIv99)
 
+### Having trouble getting the collection imported? ###
+
+You can select the `Import` button in Postman and select `Import from URL`.
+
+The URL to use is `https://www.getpostman.com/collections/4597fc82349cda7d2857`.
+
 ### Get Accounts via REST - PowerShell Example
 
 This example demonstrates how to create a function in PowerShell for each REST call necessary and how to handle responses.
