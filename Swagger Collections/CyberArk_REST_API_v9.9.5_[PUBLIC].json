@@ -1,0 +1,5307 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "CyberArk REST API v9.9.5 [PUBLIC]",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v9.9\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "host": "DefaultParameterValue",
+  "basePath": "/API/AccountGroups",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Account Group",
+        "tags": [
+          "Account Groups [v9.9.5+]"
+        ],
+        "operationId": "Add Account Group",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAccountGrouprequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"GroupName\":\"{{GroupName}}\",\r\n  \"GroupPlatform\":\"{{PlatformID}}\",\r\n  \"Safe\":\"{{Safe}}\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add Account Group",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/{GroupName}/Members": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Account to Account Group",
+        "tags": [
+          "Account Groups [v9.9.5+]"
+        ],
+        "operationId": "Add Account to Account Group",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAccountToAccountGrouprequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "GroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Account/{ACLAddress}|{ACLUserName}|{ACLPolicyID}/PrivilegedCommands": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "List Account/ACL",
+        "tags": [
+          "Account/ACL Methods [v9.0+]"
+        ],
+        "operationId": "List Account/ACL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLAddress",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLUserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "default": {
+            "description": "Internal Server Error",
+            "schema": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Add Account/ACL",
+        "tags": [
+          "Account/ACL Methods [v9.0+]"
+        ],
+        "operationId": "Add Account/ACL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAccount~1aclrequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLAddress",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLUserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Account/ACL",
+        "tags": [
+          "Account/ACL Methods [v9.0+]"
+        ],
+        "operationId": "Delete Account/ACL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLAddress",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLUserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Applications": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "List a Specific Application",
+        "tags": [
+          "Applications [v9.1+]"
+        ],
+        "operationId": "List a Specific Application",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "AppID",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListASpecificApplicationresponse"
+            },
+            "examples": {
+              "application/json": {
+                "application": [
+                  {
+                    "AccessPermittedFrom": 0,
+                    "AccessPermittedTo": 24,
+                    "AllowExtendedAuthenticationRestrictions": false,
+                    "AppID": "RESTExamples",
+                    "BusinessOwnerEmail": "john.doecyberark.com",
+                    "BusinessOwnerFName": "John",
+                    "BusinessOwnerLName": "Doe",
+                    "BusinessOwnerPhone": "555-555-1212",
+                    "Description": "AppID for all AIM and REST Examples",
+                    "Disabled": false,
+                    "ExpirationDate": "null",
+                    "Location": "\\Applications"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Applications?AppID={{AppID}}",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Content-Length": "396",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Mon, 05 Jun 2017 18:51:27 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5",
+                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-UA-Compatible": "IE=EmulateIE8"
+              },
+              "body": "{\"application\":[{\"AccessPermittedFrom\":0,\"AccessPermittedTo\":24,\"AllowExtendedAuthenticationRestrictions\":false,\"AppID\":\"RESTExamples\",\"BusinessOwnerEmail\":\"john.doecyberark.com\",\"BusinessOwnerFName\":\"John\",\"BusinessOwnerLName\":\"Doe\",\"BusinessOwnerPhone\":\"555-555-1212\",\"Description\":\"AppID for all AIM and REST Examples\",\"Disabled\":false,\"ExpirationDate\":\"null\",\"Location\":\"\\\\Applications\"}]}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "List a Specific Application",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete a Specific Application",
+        "tags": [
+          "Applications [v9.1+]"
+        ],
+        "operationId": "Delete a Specific Application",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "AppID",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Applications?AppID={{AppID}}",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Delete a Specific Application",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Applications/": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Application",
+        "tags": [
+          "Applications [v9.1+]"
+        ],
+        "operationId": "Add Application",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddApplicationrequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Applications/",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"application\":\r\n  {\r\n    \"AppID\":\"{{AppID}}\",\r\n    \"Description\":\"Testing DevOps Deployments with CyberArk\",\r\n    \"Location\":\"/Applications\",\r\n    \"AccessPermittedFrom\":0,\r\n    \"AccessPermittedTo\":23,\r\n    \"ExpirationDate\":\"\",\r\n    \"Disabled\":\"No\",\r\n    \"BusinessOwnerFName\":\"John\",\r\n    \"BusinessOwnerLName\":\"Doe\",\r\n    \"BusinessOwnerEmail\":\"John.Doe@CyberArk.com\",\r\n    \"BusinessOwnerPhone\":\"555-555-1212\"\r\n  }\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add Application",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Applications/{AppID}/Authentications": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "List all Authentication Methods of a Specific Application",
+        "tags": [
+          "Applications [v9.1+]"
+        ],
+        "operationId": "List all Authentication Methods of a Specific Application",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete a Specific Authentication",
+        "tags": [
+          "Applications [v9.1+]"
+        ],
+        "operationId": "Delete a Specific Authentication",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "AuthID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Applications/{AppID}/Authentications/": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Authentication",
+        "tags": [
+          "Applications [v9.1+]"
+        ],
+        "operationId": "Add Authentication",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logon",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logon",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Cyberark[v9.0+]~1ldap[v9.7+]~1radius[v9.7+]Logonrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Cyberark[v9.0+]~1ldap[v9.7+]~1radius[v9.7+]Logonresponse"
+            },
+            "examples": {
+              "application/json": {
+                "CyberArkLogonResult": "AAEAAAD/////AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw=="
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"username\":\"{{apiUsername}}\",\r\n  \"password\":\"{{apiPassword}}\",\r\n  \"useRadiusAuthentication\":\"false\",\r\n  \"connectionNumber\":\"1\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Content-Length": "503",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Mon, 05 Jun 2017 17:16:31 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5",
+                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-UA-Compatible": "IE=EmulateIE8"
+              },
+              "body": "{\"CyberArkLogonResult\":\"AAEAAAD\\/\\/\\/\\/\\/AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw==\"}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logon",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logoff",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logoff",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "examples": {
+              "text/plain": "{}"
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "KEYS",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Content-Length": "2",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Mon, 05 Jun 2017 17:50:00 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5",
+                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-UA-Compatible": "IE=EmulateIE8"
+              },
+              "body": "{}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logoff",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logon": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "SAML Authentication Logon [v9.7+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "SAML Authentication Logon [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logon",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{SAMLToken}}"
+              },
+              "body": "{}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "SAML Authentication Logon [v9.7+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logoff": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "SAML Authentication Logoff [v9.7+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "SAML Authentication Logoff [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logoff",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{SAMLToken}}"
+              },
+              "body": "{}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "SAML Authentication Logoff [v9.7+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logon": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Shared Logon Authentication Logon [v9.7+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "Shared Logon Authentication Logon [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logon",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Shared Logon Authentication Logon [v9.7+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Shared Logon Authentication Logoff [v9.7+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "Shared Logon Authentication Logoff [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Shared Logon Authentication Logoff [v9.7+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Users/{UserName}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "SSH - Get Public SSH Keys [v9.6+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "SSH - Get Public SSH Keys [v9.6+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "UserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "SSH - Add a Public SSH Key [v9.6+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "SSH - Add a Public SSH Key [v9.6+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Ssh  add a public ssh key [v9.6+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "UserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "SSH - Delete Public SSH Key [v9.6+]",
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "SSH - Delete Public SSH Key [v9.6+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "KeyID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "UserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/AIMWebService/api/Accounts": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "GetPassword",
+        "tags": [
+          "Central Credential Provider (CCP) [v9.8+]"
+        ],
+        "operationId": "GetPassword",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "AppID",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Folder",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Object",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetPasswordResponse"
+            },
+            "examples": {
+              "application/json": {
+                "Content": "Cyberark1",
+                "CreationMethod": "PVWA",
+                "Address": "joe-garcia.local",
+                "Safe": "T-APP-CYBR-RESTAPI",
+                "UserName": "Svc_CyberArkREST",
+                "Name": "Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST",
+                "LogonDomain": "JOE-GARCIA",
+                "PolicyID": "WinDomain",
+                "DeviceType": "Operating System",
+                "Folder": "Root",
+                "PasswordChangeInProcess": "False"
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache",
+                "Content-Length": "336",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Wed, 20 Sep 2017 21:49:50 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5"
+              },
+              "body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "GetPassword",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Account": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Account [v9.0+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Add Account [v9.0+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddAccount[v9.0+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Account",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"Windows Domain Account\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Logon account name\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"Safename\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Reconcile account name\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"Safename\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add Account [v9.0+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/PendingAccounts": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Pending Account [v9.7+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Add Pending Account [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddPendingAccount[v9.7+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"pendingAccount\":{\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"AccountDiscoveryDate\":\"2016-12-19T08:19:03Z\",\r\n    \"AccountEnabled\":\"Disabled\",\r\n    \"AccountOSGroups\":\"Domain Admins\",\r\n    \"AccountType\":\"Domain\",\r\n    \"Domain\":\"joe-garcia.local\",\r\n    \"PasswordNeverExpires\":\"false\",\r\n    \"OSVersion\":\"Windows Server 2012 R2\",\r\n    \"OU\":\"Users\",\r\n    \"AccountCategory\":\"Privileged\",\r\n    \"UserDisplayName\":\"CA_EPVTestUser\",\r\n    \"AccountDescription\":\"CyberArk EPV Test User for Web Services\",\r\n    \"GID\":\"\",\r\n    \"UID\":\"\",\r\n    \"OSType\":\"Windows\",\r\n    \"DiscoveryPlatformType\":\"Windows Domain Accounts\",\r\n    \"MachineOSFamily\":\"server\",\r\n    \"LastLogonDate\":\"\",\r\n    \"LastPasswordSetDate\":\"2016-12-19T08:19:03Z\",\r\n    \"AccountExpirationDate\":\"\",\r\n    \"AccountCategoryCriteria\":\"<criteria>\"\r\n  }\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add Pending Account [v9.7+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Account [v9.3+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Delete Account [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/Credentials": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Get Account Value [v9.7+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Get Account Value [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/ChangeCredentials": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Change Credentials [v9.3+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Change Credentials [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ChangeCredentials[v9.3+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ImmediateChangeByCPM",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/VerifyCredentials": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Verify Credentials [v9.7+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Verify Credentials [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Accounts": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Get Account Details [v9.3+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Get Account Details [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Keywords",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetAccountDetails[v9.3+]response"
+            },
+            "examples": {
+              "application/json": {
+                "Count": 1,
+                "accounts": [
+                  {
+                    "AccountID": "41_4",
+                    "InternalProperties": [
+                      {
+                        "Key": "CPMStatus",
+                        "Value": "success"
+                      },
+                      {
+                        "Key": "CreationMethod",
+                        "Value": "PVWA"
+                      },
+                      {
+                        "Key": "RetriesCount",
+                        "Value": "-1"
+                      },
+                      {
+                        "Key": "LastTask",
+                        "Value": "VerifyTask"
+                      }
+                    ],
+                    "Properties": [
+                      {
+                        "Key": "Safe",
+                        "Value": "T-APP-CYBR-RESTAPI"
+                      },
+                      {
+                        "Key": "Folder",
+                        "Value": "Root"
+                      },
+                      {
+                        "Key": "Name",
+                        "Value": "Operating System-WindowsDomainAccount-cyberark.local-test.user0001"
+                      },
+                      {
+                        "Key": "UserName",
+                        "Value": "test.user0001"
+                      },
+                      {
+                        "Key": "PolicyID",
+                        "Value": "WindowsDomainAccount"
+                      },
+                      {
+                        "Key": "LogonDomain",
+                        "Value": "CYBERARK"
+                      },
+                      {
+                        "Key": "LastSuccessVerification",
+                        "Value": "1496683713"
+                      },
+                      {
+                        "Key": "Address",
+                        "Value": "cyberark.local"
+                      },
+                      {
+                        "Key": "DeviceType",
+                        "Value": "Operating System"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Content-Length": "697",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Mon, 05 Jun 2017 17:48:52 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5",
+                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-UA-Compatible": "IE=EmulateIE8"
+              },
+              "body": "{\n  \"Count\": 1,\n  \"accounts\": [\n    {\n      \"AccountID\": \"41_4\",\n      \"InternalProperties\": [\n        {\n          \"Key\": \"CPMStatus\",\n          \"Value\": \"success\"\n        },\n        {\n          \"Key\": \"CreationMethod\",\n          \"Value\": \"PVWA\"\n        },\n        {\n          \"Key\": \"RetriesCount\",\n          \"Value\": \"-1\"\n        },\n        {\n          \"Key\": \"LastTask\",\n          \"Value\": \"VerifyTask\"\n        }\n      ],\n      \"Properties\": [\n        {\n          \"Key\": \"Safe\",\n          \"Value\": \"T-APP-CYBR-RESTAPI\"\n        },\n        {\n          \"Key\": \"Folder\",\n          \"Value\": \"Root\"\n        },\n        {\n          \"Key\": \"Name\",\n          \"Value\": \"Operating System-WindowsDomainAccount-cyberark.local-test.user0001\"\n        },\n        {\n          \"Key\": \"UserName\",\n          \"Value\": \"test.user0001\"\n        },\n        {\n          \"Key\": \"PolicyID\",\n          \"Value\": \"WindowsDomainAccount\"\n        },\n        {\n          \"Key\": \"LogonDomain\",\n          \"Value\": \"CYBERARK\"\n        },\n        {\n          \"Key\": \"LastSuccessVerification\",\n          \"Value\": \"1496683713\"\n        },\n        {\n          \"Key\": \"Address\",\n          \"Value\": \"cyberark.local\"\n        },\n        {\n          \"Key\": \"DeviceType\",\n          \"Value\": \"Operating System\"\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get Account Details [v9.3+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update Account Details [v9.5+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Update Account Details [v9.5+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "AccountID",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountDetails[v9.5+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Accounts?AccountID={{AccountID}}",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomainAccounts\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"}\r\n    ]\r\n  }\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update Account Details [v9.5+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/Activities": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "List Activity by ID [v9.7+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "List Activity by ID [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "SafeName",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/api/AutomaticOnboardingRules": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Onboarding Rule",
+        "tags": [
+          "Onboarding Rules [v9.8+]"
+        ],
+        "operationId": "Add Onboarding Rule",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddOnboardingRulerequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/api/AutomaticOnboardingRules",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"DecisionPlatformId\":\"Windows Domain Account\",\r\n  \"DecisionSafeName\":\"{{Safe}}\",\r\n  \"IsAdminUIDFilter\":\"Yes\",\r\n  \"MachineTypeFilter\":\"Server\",\r\n  \"SystemTypeFilter\":\"Windows\",\r\n  \"UserNameFilter\":\"Administrator\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add Onboarding Rule",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Onboarding Rule",
+        "tags": [
+          "Onboarding Rules [v9.8+]"
+        ],
+        "operationId": "Delete Onboarding Rule",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/PasswordVault/api/AutomaticOnboardingRules?id=1",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Delete Onboarding Rule",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/api/AutomaticOnboardingRules/": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Get Onboarding Rule",
+        "tags": [
+          "Onboarding Rules [v9.8+]"
+        ],
+        "operationId": "Get Onboarding Rule",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/api/AutomaticOnboardingRules/",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get Onboarding Rule",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Policy/{ACLPolicyID}/PrivilegedCommands": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "List Policy/ACL",
+        "tags": [
+          "Policy/ACL Methods [v9.0+]"
+        ],
+        "operationId": "List Policy/ACL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Add Policy/ACL",
+        "tags": [
+          "Policy/ACL Methods [v9.0+]"
+        ],
+        "operationId": "Add Policy/ACL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddPolicy~1aclrequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Policy/ACL",
+        "tags": [
+          "Policy/ACL Methods [v9.0+]"
+        ],
+        "operationId": "Delete Policy/ACL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ACLPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Safes": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Search for a Safe [v9.7+]",
+        "tags": [
+          "Safe Management"
+        ],
+        "operationId": "Search for a Safe [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Search for a Safe [v9.7+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update Safe [v9.3+]",
+        "tags": [
+          "Safe Management"
+        ],
+        "operationId": "Update Safe [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "SafeName",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateSafe[v9.3+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Safes?SafeName={{Safe}}",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"safe\":\r\n  {\r\n    \"SafeName\":\"{{Safe}}\",\r\n    \"Description\":\"Test, Application, CyberArk, API, Update Safe Test\",\r\n    \"OLACEnabled\":false,\r\n    \"ManagingCPM\":\"PasswordManager\",\r\n    \"NumberOfVersionsRetention\":5,\r\n    \"NumberOfDaysRetention\":7\r\n  }\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update Safe [v9.3+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Safe [v9.2+]",
+        "tags": [
+          "Safe Management"
+        ],
+        "operationId": "Add Safe [v9.2+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddSafe[v9.2+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Safes",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\n  \"safe\":\n  {\n    \"SafeName\":\"{{Safe}}\",\n    \"Description\":\"Test, Application, CyberArk, API\",\n    \"OLACEnabled\":false,\n    \"ManagingCPM\":\"PasswordManager\",\n    \"NumberofVersionsRetention\":5,\n    \"NumberofDaysRetention\":7\n  }\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add Safe [v9.2+]",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Safes/{Safe}": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Safe [v9.3+]",
+        "tags": [
+          "Safe Management"
+        ],
+        "operationId": "Delete Safe [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Safes/{Safe}/Members": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "List Safe Members [v9.7+]",
+        "tags": [
+          "Safe Members"
+        ],
+        "operationId": "List Safe Members [v9.7+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update Safe Member [v9.3+]",
+        "tags": [
+          "Safe Members"
+        ],
+        "operationId": "Update Safe Member [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MemberName",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateSafeMember[v9.3+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add Safe Member [v9.3+]",
+        "tags": [
+          "Safe Members"
+        ],
+        "operationId": "Add Safe Member [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddSafeMember[v9.3+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Safes/{Safe}/Members/{SafeMember}": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Safe Member [v9.3+]",
+        "tags": [
+          "Safe Members"
+        ],
+        "operationId": "Delete Safe Member [v9.3+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "SafeMember",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Verify": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Verify",
+        "tags": [
+          "Server Web Services [v9.7+]"
+        ],
+        "operationId": "Verify",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/VerifyResponse"
+            },
+            "examples": {
+              "application/json": {
+                "ApplicationName": "PasswordVault",
+                "AuthenticationMethods": [
+                  {
+                    "Enabled": true,
+                    "Id": "windows"
+                  },
+                  {
+                    "Enabled": false,
+                    "Id": "pki"
+                  },
+                  {
+                    "Enabled": true,
+                    "Id": "cyberark"
+                  },
+                  {
+                    "Enabled": false,
+                    "Id": "oraclesso"
+                  },
+                  {
+                    "Enabled": false,
+                    "Id": "rsa"
+                  },
+                  {
+                    "Enabled": true,
+                    "Id": "radius"
+                  },
+                  {
+                    "Enabled": true,
+                    "Id": "ldap"
+                  },
+                  {
+                    "Enabled": false,
+                    "Id": "saml"
+                  }
+                ],
+                "ServerId": "e10b6fe6-1bea-11e7-8329-000c29ebeaed",
+                "ServerName": "Vault"
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Verify"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Content-Length": "380",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Mon, 05 Jun 2017 18:28:01 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5",
+                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-UA-Compatible": "IE=EmulateIE8"
+              },
+              "body": "{\"ApplicationName\":\"PasswordVault\",\"AuthenticationMethods\":[{\"Enabled\":true,\"Id\":\"windows\"},{\"Enabled\":false,\"Id\":\"pki\"},{\"Enabled\":true,\"Id\":\"cyberark\"},{\"Enabled\":false,\"Id\":\"oraclesso\"},{\"Enabled\":false,\"Id\":\"rsa\"},{\"Enabled\":true,\"Id\":\"radius\"},{\"Enabled\":true,\"Id\":\"ldap\"},{\"Enabled\":false,\"Id\":\"saml\"}],\"ServerId\":\"e10b6fe6-1bea-11e7-8329-000c29ebeaed\",\"ServerName\":\"Vault\"}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Verify",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Logo": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Logo",
+        "tags": [
+          "Server Web Services [v9.7+]"
+        ],
+        "operationId": "Logo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "default": {
+            "description": "Internal Server Error",
+            "schema": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Logo?type=Square"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Logo",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Server": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Server",
+        "tags": [
+          "Server Web Services [v9.7+]"
+        ],
+        "operationId": "Server",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ServerResponse"
+            },
+            "examples": {
+              "application/json": {
+                "ExternalVersion": "9.9.0",
+                "InternalVersion": "9.90.0.18",
+                "ServerName": "Vault"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Server",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Content-Length": "78",
+                "Content-Type": "application/json; charset=utf-8",
+                "Date": "Mon, 05 Jun 2017 18:42:20 GMT",
+                "Expires": "-1",
+                "Pragma": "no-cache",
+                "Server": "Microsoft-IIS/8.5",
+                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-UA-Compatible": "IE=EmulateIE8"
+              },
+              "body": "{\"ExternalVersion\":\"9.9.0\",\"InternalVersion\":\"9.90.0.18\",\"ServerName\":\"Vault\"}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Server",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Users": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update User",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Update User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "UserName",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserrequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Users?UserName={{UserName}}",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"NewPassword\":\"Password321\",\r\n  \"Email\":\"John.Doe@CyberArk.com\",\r\n  \"FirstName\":\"John\",\r\n  \"LastName\":\"Doe\",\r\n  \"ChangePasswordOnTheNextLogon\":true,\r\n  \"ExpiryDate\":\"\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":false,\r\n  \"Location\":\"{{Folder}}\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update User",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add User",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Add User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddUserrequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/Users",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\r\n  \"UserName\":\"{{UserName}}\",\r\n  \"InitialPassword\":\"Cyberark1\",\r\n  \"Email\":\"EPVUserTest@cyberark.local\",\r\n  \"FirstName\":\"REST API\",\r\n  \"LastName\":\"EPVUserTest\",\r\n  \"ChangePasswordOnTheNextLogon\":false,\r\n  \"ExpiryDate\":\"yyyy-MM-dd\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":true,\r\n  \"Location\":\"{{Folder}}\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Add User",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/API.svc/Users": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete User",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Delete User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "UserName",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Conte",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/PasswordVault/WebServices/API.svc/Users?UserName={{UserName}}",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Conte": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Delete User",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/User": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Logged on User Details",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Logged on User Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/WebServices/PIMServices.svc/User",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Logged on User Details",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Users/{UserName}": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Get User Details",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Get User Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "UserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Activate User",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Activate User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ActivateUserrequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "UserName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/WebServices/PIMServices.svc/Groups/{GroupName}/Users": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Add User to Group",
+        "tags": [
+          "User Management [v9.7+]"
+        ],
+        "operationId": "Add User to Group",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddUserToGrouprequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "GroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddAccountGrouprequest": {
+      "title": "Add Account GroupRequest",
+      "example": {
+        "GroupName": "{{GroupName}}",
+        "GroupPlatform": "{{PlatformID}}",
+        "Safe": "{{Safe}}"
+      },
+      "type": "object",
+      "properties": {
+        "GroupName": {
+          "description": "",
+          "type": "string"
+        },
+        "GroupPlatform": {
+          "description": "",
+          "type": "string"
+        },
+        "Safe": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "GroupName",
+        "GroupPlatform",
+        "Safe"
+      ]
+    },
+    "AddAccountToAccountGrouprequest": {
+      "title": "Add Account to Account GroupRequest",
+      "example": {
+        "AccountID": "{{AccountID}}"
+      },
+      "type": "object",
+      "properties": {
+        "AccountID": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "AccountID"
+      ]
+    },
+    "AddAccount/aclrequest": {
+      "title": "Add Account/ACLRequest",
+      "example": {
+        "Command": "/bin/sh",
+        "CommandGroup": false,
+        "PermissionType": "Deny",
+        "Restrictions": "",
+        "UserName": "*"
+      },
+      "type": "object",
+      "properties": {
+        "Command": {
+          "description": "",
+          "type": "string"
+        },
+        "CommandGroup": {
+          "description": "",
+          "type": "boolean"
+        },
+        "PermissionType": {
+          "description": "",
+          "type": "string"
+        },
+        "Restrictions": {
+          "description": "",
+          "type": "string"
+        },
+        "UserName": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Command",
+        "CommandGroup",
+        "PermissionType",
+        "Restrictions",
+        "UserName"
+      ]
+    },
+    "ListApplicationsresponse": {
+      "title": "List ApplicationsResponse",
+      "example": {
+        "application": [
+          {
+            "AccessPermittedFrom": 0,
+            "AccessPermittedTo": 24,
+            "AllowExtendedAuthenticationRestrictions": false,
+            "AppID": "AIMWebService",
+            "BusinessOwnerEmail": "",
+            "BusinessOwnerFName": "",
+            "BusinessOwnerLName": "",
+            "BusinessOwnerPhone": "",
+            "Description": "This application is for the web service installed for the Central Credential Provider.",
+            "Disabled": false,
+            "ExpirationDate": "null",
+            "Location": "\\"
+          },
+          {
+            "AccessPermittedFrom": 0,
+            "AccessPermittedTo": 24,
+            "AllowExtendedAuthenticationRestrictions": false,
+            "AppID": "RESTExamples",
+            "BusinessOwnerEmail": "john.doe@cyberark.com",
+            "BusinessOwnerFName": "John",
+            "BusinessOwnerLName": "Doe",
+            "BusinessOwnerPhone": "555-555-1212",
+            "Description": "AppID for all AIM and REST Examples",
+            "Disabled": false,
+            "ExpirationDate": "null",
+            "Location": "\\Applications"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "application": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Application"
+          }
+        }
+      },
+      "required": [
+        "application"
+      ]
+    },
+    "Application": {
+      "title": "Application",
+      "type": "object",
+      "properties": {
+        "AccessPermittedFrom": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "AccessPermittedTo": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "AllowExtendedAuthenticationRestrictions": {
+          "description": "",
+          "type": "boolean"
+        },
+        "AppID": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerEmail": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerFName": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerLName": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerPhone": {
+          "description": "",
+          "type": "string"
+        },
+        "Description": {
+          "description": "",
+          "type": "string"
+        },
+        "Disabled": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ExpirationDate": {
+          "description": "",
+          "type": "string"
+        },
+        "Location": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "AccessPermittedFrom",
+        "AccessPermittedTo",
+        "AllowExtendedAuthenticationRestrictions",
+        "AppID",
+        "BusinessOwnerEmail",
+        "BusinessOwnerFName",
+        "BusinessOwnerLName",
+        "BusinessOwnerPhone",
+        "Description",
+        "Disabled",
+        "ExpirationDate",
+        "Location"
+      ]
+    },
+    "ListASpecificApplicationresponse": {
+      "title": "List a Specific ApplicationResponse",
+      "example": {
+        "application": [
+          {
+            "AccessPermittedFrom": 0,
+            "AccessPermittedTo": 24,
+            "AllowExtendedAuthenticationRestrictions": false,
+            "AppID": "RESTExamples",
+            "BusinessOwnerEmail": "john.doecyberark.com",
+            "BusinessOwnerFName": "John",
+            "BusinessOwnerLName": "Doe",
+            "BusinessOwnerPhone": "555-555-1212",
+            "Description": "AppID for all AIM and REST Examples",
+            "Disabled": false,
+            "ExpirationDate": "null",
+            "Location": "\\Applications"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "application": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Application"
+          }
+        }
+      },
+      "required": [
+        "application"
+      ]
+    },
+    "AddApplicationrequest": {
+      "title": "Add ApplicationRequest",
+      "example": {
+        "application": {
+          "AppID": "{{AppID}}",
+          "Description": "Testing DevOps Deployments with CyberArk",
+          "Location": "/Applications",
+          "AccessPermittedFrom": 0,
+          "AccessPermittedTo": 23,
+          "ExpirationDate": "",
+          "Disabled": "No",
+          "BusinessOwnerFName": "John",
+          "BusinessOwnerLName": "Doe",
+          "BusinessOwnerEmail": "John.Doe@CyberArk.com",
+          "BusinessOwnerPhone": "555-555-1212"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Application8"
+        }
+      },
+      "required": [
+        "application"
+      ]
+    },
+    "Application8": {
+      "title": "Application8",
+      "type": "object",
+      "properties": {
+        "AppID": {
+          "description": "",
+          "type": "string"
+        },
+        "Description": {
+          "description": "",
+          "type": "string"
+        },
+        "Location": {
+          "description": "",
+          "type": "string"
+        },
+        "AccessPermittedFrom": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "AccessPermittedTo": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "ExpirationDate": {
+          "description": "",
+          "type": "string"
+        },
+        "Disabled": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerFName": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerLName": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerEmail": {
+          "description": "",
+          "type": "string"
+        },
+        "BusinessOwnerPhone": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "AppID",
+        "Description",
+        "Location",
+        "AccessPermittedFrom",
+        "AccessPermittedTo",
+        "ExpirationDate",
+        "Disabled",
+        "BusinessOwnerFName",
+        "BusinessOwnerLName",
+        "BusinessOwnerEmail",
+        "BusinessOwnerPhone"
+      ]
+    },
+    "Cyberark[v9.0+]/ldap[v9.7+]/radius[v9.7+]Logonrequest": {
+      "title": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] LogonRequest",
+      "example": {
+        "username": "{{apiUsername}}",
+        "password": "{{apiPassword}}",
+        "useRadiusAuthentication": "false",
+        "connectionNumber": "1"
+      },
+      "type": "object",
+      "properties": {
+        "username": {
+          "description": "",
+          "type": "string"
+        },
+        "password": {
+          "description": "",
+          "type": "string"
+        },
+        "useRadiusAuthentication": {
+          "description": "",
+          "type": "string"
+        },
+        "connectionNumber": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password",
+        "useRadiusAuthentication",
+        "connectionNumber"
+      ]
+    },
+    "Cyberark[v9.0+]/ldap[v9.7+]/radius[v9.7+]Logonresponse": {
+      "title": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] LogonResponse",
+      "example": {
+        "CyberArkLogonResult": "AAEAAAD/////AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw=="
+      },
+      "type": "object",
+      "properties": {
+        "CyberArkLogonResult": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "CyberArkLogonResult"
+      ]
+    },
+    "Ssh  add a public ssh key [v9.6+]request": {
+      "title": "SSH - Add a Public SSH Key [v9.6+]Request",
+      "example": {
+        "PublicSSHKey": "<public-key>"
+      },
+      "type": "object",
+      "properties": {
+        "PublicSSHKey": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "PublicSSHKey"
+      ]
+    },
+    "GetPasswordResponse": {
+      "title": "GetPasswordResponse",
+      "example": {
+        "Content": "Cyberark1",
+        "CreationMethod": "PVWA",
+        "Address": "joe-garcia.local",
+        "Safe": "T-APP-CYBR-RESTAPI",
+        "UserName": "Svc_CyberArkREST",
+        "Name": "Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST",
+        "LogonDomain": "JOE-GARCIA",
+        "PolicyID": "WinDomain",
+        "DeviceType": "Operating System",
+        "Folder": "Root",
+        "PasswordChangeInProcess": "False"
+      },
+      "type": "object",
+      "properties": {
+        "Content": {
+          "description": "",
+          "type": "string"
+        },
+        "CreationMethod": {
+          "description": "",
+          "type": "string"
+        },
+        "Address": {
+          "description": "",
+          "type": "string"
+        },
+        "Safe": {
+          "description": "",
+          "type": "string"
+        },
+        "UserName": {
+          "description": "",
+          "type": "string"
+        },
+        "Name": {
+          "description": "",
+          "type": "string"
+        },
+        "LogonDomain": {
+          "description": "",
+          "type": "string"
+        },
+        "PolicyID": {
+          "description": "",
+          "type": "string"
+        },
+        "DeviceType": {
+          "description": "",
+          "type": "string"
+        },
+        "Folder": {
+          "description": "",
+          "type": "string"
+        },
+        "PasswordChangeInProcess": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Content",
+        "CreationMethod",
+        "Address",
+        "Safe",
+        "UserName",
+        "Name",
+        "LogonDomain",
+        "PolicyID",
+        "DeviceType",
+        "Folder",
+        "PasswordChangeInProcess"
+      ]
+    },
+    "AddAccount[v9.0+]request": {
+      "title": "Add Account [v9.0+]Request",
+      "example": {
+        "account": {
+          "safe": "{{Safe}}",
+          "platformID": "Windows Domain Account",
+          "address": "{{Address}}",
+          "accountName": "",
+          "password": "Password123",
+          "username": "{{UserName}}",
+          "disableAutoMgmt": "false",
+          "disableAutoMgmtReason": "N/A",
+          "groupName": "",
+          "groupPlatformID": "",
+          "properties": [
+            {
+              "Key": "Port",
+              "Value": "<port>"
+            },
+            {
+              "Key": "ExtraPass1Name",
+              "Value": "Logon account name"
+            },
+            {
+              "Key": "ExtraPass1Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass1Safe",
+              "Value": "Safename"
+            },
+            {
+              "Key": "ExtraPass3Name",
+              "Value": "Reconcile account name"
+            },
+            {
+              "Key": "ExtraPass3Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass3Safe",
+              "Value": "Safename"
+            },
+            {
+              "Key": "ParamName",
+              "Value": "Parameter value"
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/Account"
+        }
+      },
+      "required": [
+        "account"
+      ]
+    },
+    "Account": {
+      "title": "Account",
+      "type": "object",
+      "properties": {
+        "safe": {
+          "description": "",
+          "type": "string"
+        },
+        "platformID": {
+          "description": "",
+          "type": "string"
+        },
+        "address": {
+          "description": "",
+          "type": "string"
+        },
+        "accountName": {
+          "description": "",
+          "type": "string"
+        },
+        "password": {
+          "description": "",
+          "type": "string"
+        },
+        "username": {
+          "description": "",
+          "type": "string"
+        },
+        "disableAutoMgmt": {
+          "description": "",
+          "type": "string"
+        },
+        "disableAutoMgmtReason": {
+          "description": "",
+          "type": "string"
+        },
+        "groupName": {
+          "description": "",
+          "type": "string"
+        },
+        "groupPlatformID": {
+          "description": "",
+          "type": "string"
+        },
+        "properties": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Property"
+          }
+        }
+      },
+      "required": [
+        "safe",
+        "platformID",
+        "address",
+        "accountName",
+        "password",
+        "username",
+        "disableAutoMgmt",
+        "disableAutoMgmtReason",
+        "groupName",
+        "groupPlatformID",
+        "properties"
+      ]
+    },
+    "Property": {
+      "title": "Property",
+      "type": "object",
+      "properties": {
+        "Key": {
+          "description": "",
+          "type": "string"
+        },
+        "Value": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ]
+    },
+    "AddPendingAccount[v9.7+]request": {
+      "title": "Add Pending Account [v9.7+]Request",
+      "example": {
+        "pendingAccount": {
+          "UserName": "{{UserName}}",
+          "Address": "{{Address}}",
+          "AccountDiscoveryDate": "2016-12-19T08:19:03Z",
+          "AccountEnabled": "Disabled",
+          "AccountOSGroups": "Domain Admins",
+          "AccountType": "Domain",
+          "Domain": "joe-garcia.local",
+          "PasswordNeverExpires": "false",
+          "OSVersion": "Windows Server 2012 R2",
+          "OU": "Users",
+          "AccountCategory": "Privileged",
+          "UserDisplayName": "CA_EPVTestUser",
+          "AccountDescription": "CyberArk EPV Test User for Web Services",
+          "GID": "",
+          "UID": "",
+          "OSType": "Windows",
+          "DiscoveryPlatformType": "Windows Domain Accounts",
+          "MachineOSFamily": "server",
+          "LastLogonDate": "",
+          "LastPasswordSetDate": "2016-12-19T08:19:03Z",
+          "AccountExpirationDate": "",
+          "AccountCategoryCriteria": "<criteria>"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "pendingAccount": {
+          "$ref": "#/definitions/PendingAccount"
+        }
+      },
+      "required": [
+        "pendingAccount"
+      ]
+    },
+    "PendingAccount": {
+      "title": "PendingAccount",
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "description": "",
+          "type": "string"
+        },
+        "Address": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountDiscoveryDate": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountEnabled": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountOSGroups": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountType": {
+          "description": "",
+          "type": "string"
+        },
+        "Domain": {
+          "description": "",
+          "type": "string"
+        },
+        "PasswordNeverExpires": {
+          "description": "",
+          "type": "string"
+        },
+        "OSVersion": {
+          "description": "",
+          "type": "string"
+        },
+        "OU": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountCategory": {
+          "description": "",
+          "type": "string"
+        },
+        "UserDisplayName": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountDescription": {
+          "description": "",
+          "type": "string"
+        },
+        "GID": {
+          "description": "",
+          "type": "string"
+        },
+        "UID": {
+          "description": "",
+          "type": "string"
+        },
+        "OSType": {
+          "description": "",
+          "type": "string"
+        },
+        "DiscoveryPlatformType": {
+          "description": "",
+          "type": "string"
+        },
+        "MachineOSFamily": {
+          "description": "",
+          "type": "string"
+        },
+        "LastLogonDate": {
+          "description": "",
+          "type": "string"
+        },
+        "LastPasswordSetDate": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountExpirationDate": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountCategoryCriteria": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UserName",
+        "Address",
+        "AccountDiscoveryDate",
+        "AccountEnabled",
+        "AccountOSGroups",
+        "AccountType",
+        "Domain",
+        "PasswordNeverExpires",
+        "OSVersion",
+        "OU",
+        "AccountCategory",
+        "UserDisplayName",
+        "AccountDescription",
+        "GID",
+        "UID",
+        "OSType",
+        "DiscoveryPlatformType",
+        "MachineOSFamily",
+        "LastLogonDate",
+        "LastPasswordSetDate",
+        "AccountExpirationDate",
+        "AccountCategoryCriteria"
+      ]
+    },
+    "ChangeCredentials[v9.3+]request": {
+      "title": "Change Credentials [v9.3+]Request",
+      "example": {
+        "ChangeCredsForGroup": "No"
+      },
+      "type": "object",
+      "properties": {
+        "ChangeCredsForGroup": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ChangeCredsForGroup"
+      ]
+    },
+    "GetAccountDetails[v9.3+]response": {
+      "title": "Get Account Details [v9.3+]Response",
+      "example": {
+        "Count": 1,
+        "accounts": [
+          {
+            "AccountID": "41_4",
+            "InternalProperties": [
+              {
+                "Key": "CPMStatus",
+                "Value": "success"
+              },
+              {
+                "Key": "CreationMethod",
+                "Value": "PVWA"
+              },
+              {
+                "Key": "RetriesCount",
+                "Value": "-1"
+              },
+              {
+                "Key": "LastTask",
+                "Value": "VerifyTask"
+              }
+            ],
+            "Properties": [
+              {
+                "Key": "Safe",
+                "Value": "T-APP-CYBR-RESTAPI"
+              },
+              {
+                "Key": "Folder",
+                "Value": "Root"
+              },
+              {
+                "Key": "Name",
+                "Value": "Operating System-WindowsDomainAccount-cyberark.local-test.user0001"
+              },
+              {
+                "Key": "UserName",
+                "Value": "test.user0001"
+              },
+              {
+                "Key": "PolicyID",
+                "Value": "WindowsDomainAccount"
+              },
+              {
+                "Key": "LogonDomain",
+                "Value": "CYBERARK"
+              },
+              {
+                "Key": "LastSuccessVerification",
+                "Value": "1496683713"
+              },
+              {
+                "Key": "Address",
+                "Value": "cyberark.local"
+              },
+              {
+                "Key": "DeviceType",
+                "Value": "Operating System"
+              }
+            ]
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "Count": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "accounts": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account20"
+          }
+        }
+      },
+      "required": [
+        "Count",
+        "accounts"
+      ]
+    },
+    "Account20": {
+      "title": "Account20",
+      "type": "object",
+      "properties": {
+        "AccountID": {
+          "description": "",
+          "type": "string"
+        },
+        "InternalProperties": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InternalProperty"
+          }
+        },
+        "Properties": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Property"
+          }
+        }
+      },
+      "required": [
+        "AccountID",
+        "InternalProperties",
+        "Properties"
+      ]
+    },
+    "InternalProperty": {
+      "title": "InternalProperty",
+      "type": "object",
+      "properties": {
+        "Key": {
+          "description": "",
+          "type": "string"
+        },
+        "Value": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ]
+    },
+    "UpdateAccountDetails[v9.5+]request": {
+      "title": "Update Account Details [v9.5+]Request",
+      "example": {
+        "Accounts": {
+          "Folder": "{{Folder}}",
+          "AccountName": "{{ObjectName}}",
+          "DeviceType": "Operating System",
+          "PlatformID": "WinDomainAccounts",
+          "Address": "{{Address}}",
+          "UserName": "{{UserName}}",
+          "GroupName": "",
+          "GroupPlatformID": "",
+          "Properties": [
+            {
+              "Key": "Notes",
+              "Value": "Test User for CyberArk"
+            },
+            {
+              "Key": "Ticket Number",
+              "Value": "CHG100001"
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "Accounts": {
+          "$ref": "#/definitions/Accounts"
+        }
+      },
+      "required": [
+        "Accounts"
+      ]
+    },
+    "Accounts": {
+      "title": "Accounts",
+      "type": "object",
+      "properties": {
+        "Folder": {
+          "description": "",
+          "type": "string"
+        },
+        "AccountName": {
+          "description": "",
+          "type": "string"
+        },
+        "DeviceType": {
+          "description": "",
+          "type": "string"
+        },
+        "PlatformID": {
+          "description": "",
+          "type": "string"
+        },
+        "Address": {
+          "description": "",
+          "type": "string"
+        },
+        "UserName": {
+          "description": "",
+          "type": "string"
+        },
+        "GroupName": {
+          "description": "",
+          "type": "string"
+        },
+        "GroupPlatformID": {
+          "description": "",
+          "type": "string"
+        },
+        "Properties": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Property"
+          }
+        }
+      },
+      "required": [
+        "Folder",
+        "AccountName",
+        "DeviceType",
+        "PlatformID",
+        "Address",
+        "UserName",
+        "GroupName",
+        "GroupPlatformID",
+        "Properties"
+      ]
+    },
+    "AddOnboardingRulerequest": {
+      "title": "Add Onboarding RuleRequest",
+      "example": {
+        "DecisionPlatformId": "Windows Domain Account",
+        "DecisionSafeName": "{{Safe}}",
+        "IsAdminUIDFilter": "Yes",
+        "MachineTypeFilter": "Server",
+        "SystemTypeFilter": "Windows",
+        "UserNameFilter": "Administrator"
+      },
+      "type": "object",
+      "properties": {
+        "DecisionPlatformId": {
+          "description": "",
+          "type": "string"
+        },
+        "DecisionSafeName": {
+          "description": "",
+          "type": "string"
+        },
+        "IsAdminUIDFilter": {
+          "description": "",
+          "type": "string"
+        },
+        "MachineTypeFilter": {
+          "description": "",
+          "type": "string"
+        },
+        "SystemTypeFilter": {
+          "description": "",
+          "type": "string"
+        },
+        "UserNameFilter": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "DecisionPlatformId",
+        "DecisionSafeName",
+        "IsAdminUIDFilter",
+        "MachineTypeFilter",
+        "SystemTypeFilter",
+        "UserNameFilter"
+      ]
+    },
+    "AddPolicy/aclrequest": {
+      "title": "Add Policy/ACLRequest",
+      "example": {
+        "Command": "/bin/sh",
+        "CommandGroup": false,
+        "PermissionType": "Deny",
+        "Restrictions": "",
+        "UserName": "{{ACLUserName}}"
+      },
+      "type": "object",
+      "properties": {
+        "Command": {
+          "description": "",
+          "type": "string"
+        },
+        "CommandGroup": {
+          "description": "",
+          "type": "boolean"
+        },
+        "PermissionType": {
+          "description": "",
+          "type": "string"
+        },
+        "Restrictions": {
+          "description": "",
+          "type": "string"
+        },
+        "UserName": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Command",
+        "CommandGroup",
+        "PermissionType",
+        "Restrictions",
+        "UserName"
+      ]
+    },
+    "AddSafe[v9.2+]request": {
+      "title": "Add Safe [v9.2+]Request",
+      "example": {
+        "safe": {
+          "SafeName": "{{Safe}}",
+          "Description": "Test, Application, CyberArk, API",
+          "OLACEnabled": false,
+          "ManagingCPM": "PasswordManager",
+          "NumberofVersionsRetention": 5,
+          "NumberofDaysRetention": 7
+        }
+      },
+      "type": "object",
+      "properties": {
+        "safe": {
+          "$ref": "#/definitions/Safe"
+        }
+      },
+      "required": [
+        "safe"
+      ]
+    },
+    "Safe": {
+      "title": "Safe",
+      "type": "object",
+      "properties": {
+        "SafeName": {
+          "description": "",
+          "type": "string"
+        },
+        "Description": {
+          "description": "",
+          "type": "string"
+        },
+        "OLACEnabled": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ManagingCPM": {
+          "description": "",
+          "type": "string"
+        },
+        "NumberofVersionsRetention": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "NumberofDaysRetention": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "SafeName",
+        "Description",
+        "OLACEnabled",
+        "ManagingCPM",
+        "NumberofVersionsRetention",
+        "NumberofDaysRetention"
+      ]
+    },
+    "UpdateSafe[v9.3+]request": {
+      "title": "Update Safe [v9.3+]Request",
+      "example": {
+        "safe": {
+          "SafeName": "{{Safe}}",
+          "Description": "Test, Application, CyberArk, API, Update Safe Test",
+          "OLACEnabled": false,
+          "ManagingCPM": "PasswordManager",
+          "NumberOfVersionsRetention": 5,
+          "NumberOfDaysRetention": 7
+        }
+      },
+      "type": "object",
+      "properties": {
+        "safe": {
+          "$ref": "#/definitions/Safe31"
+        }
+      },
+      "required": [
+        "safe"
+      ]
+    },
+    "Safe31": {
+      "title": "Safe31",
+      "type": "object",
+      "properties": {
+        "SafeName": {
+          "description": "",
+          "type": "string"
+        },
+        "Description": {
+          "description": "",
+          "type": "string"
+        },
+        "OLACEnabled": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ManagingCPM": {
+          "description": "",
+          "type": "string"
+        },
+        "NumberOfVersionsRetention": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "NumberOfDaysRetention": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "SafeName",
+        "Description",
+        "OLACEnabled",
+        "ManagingCPM",
+        "NumberOfVersionsRetention",
+        "NumberOfDaysRetention"
+      ]
+    },
+    "AddSafeMember[v9.3+]request": {
+      "title": "Add Safe Member [v9.3+]Request",
+      "type": "object",
+      "properties": {
+        "member": {
+          "$ref": "#/definitions/Member"
+        }
+      },
+      "required": [
+        "member"
+      ]
+    },
+    "Member": {
+      "title": "Member",
+      "type": "object",
+      "properties": {
+        "MemberName": {
+          "description": "",
+          "type": "string"
+        },
+        "SearchIn": {
+          "description": "",
+          "type": "string"
+        },
+        "MembershipExpirationDate": {
+          "description": "",
+          "type": "string"
+        },
+        "Permissions": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          }
+        }
+      },
+      "required": [
+        "MemberName",
+        "SearchIn",
+        "MembershipExpirationDate",
+        "Permissions"
+      ]
+    },
+    "Permission": {
+      "title": "Permission",
+      "type": "object",
+      "properties": {
+        "Key": {
+          "description": "",
+          "type": "string"
+        },
+        "Value": {
+          "description": "",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ]
+    },
+    "UpdateSafeMember[v9.3+]request": {
+      "title": "Update Safe Member [v9.3+]Request",
+      "type": "object",
+      "properties": {
+        "member": {
+          "$ref": "#/definitions/Member36"
+        }
+      },
+      "required": [
+        "member"
+      ]
+    },
+    "Member36": {
+      "title": "Member36",
+      "type": "object",
+      "properties": {
+        "MembershipExpirationDate": {
+          "description": "",
+          "type": "string"
+        },
+        "Permissions": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          }
+        }
+      },
+      "required": [
+        "MembershipExpirationDate",
+        "Permissions"
+      ]
+    },
+    "VerifyResponse": {
+      "title": "VerifyResponse",
+      "example": {
+        "ApplicationName": "PasswordVault",
+        "AuthenticationMethods": [
+          {
+            "Enabled": true,
+            "Id": "windows"
+          },
+          {
+            "Enabled": false,
+            "Id": "pki"
+          },
+          {
+            "Enabled": true,
+            "Id": "cyberark"
+          },
+          {
+            "Enabled": false,
+            "Id": "oraclesso"
+          },
+          {
+            "Enabled": false,
+            "Id": "rsa"
+          },
+          {
+            "Enabled": true,
+            "Id": "radius"
+          },
+          {
+            "Enabled": true,
+            "Id": "ldap"
+          },
+          {
+            "Enabled": false,
+            "Id": "saml"
+          }
+        ],
+        "ServerId": "e10b6fe6-1bea-11e7-8329-000c29ebeaed",
+        "ServerName": "Vault"
+      },
+      "type": "object",
+      "properties": {
+        "ApplicationName": {
+          "description": "",
+          "type": "string"
+        },
+        "AuthenticationMethods": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AuthenticationMethod"
+          }
+        },
+        "ServerId": {
+          "description": "",
+          "type": "string"
+        },
+        "ServerName": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "AuthenticationMethods",
+        "ServerId",
+        "ServerName"
+      ]
+    },
+    "AuthenticationMethod": {
+      "title": "AuthenticationMethod",
+      "type": "object",
+      "properties": {
+        "Enabled": {
+          "description": "",
+          "type": "boolean"
+        },
+        "Id": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Enabled",
+        "Id"
+      ]
+    },
+    "ServerResponse": {
+      "title": "ServerResponse",
+      "example": {
+        "ExternalVersion": "9.9.0",
+        "InternalVersion": "9.90.0.18",
+        "ServerName": "Vault"
+      },
+      "type": "object",
+      "properties": {
+        "ExternalVersion": {
+          "description": "",
+          "type": "string"
+        },
+        "InternalVersion": {
+          "description": "",
+          "type": "string"
+        },
+        "ServerName": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ExternalVersion",
+        "InternalVersion",
+        "ServerName"
+      ]
+    },
+    "AddUserrequest": {
+      "title": "Add UserRequest",
+      "example": {
+        "UserName": "{{UserName}}",
+        "InitialPassword": "Cyberark1",
+        "Email": "EPVUserTest@cyberark.local",
+        "FirstName": "REST API",
+        "LastName": "EPVUserTest",
+        "ChangePasswordOnTheNextLogon": false,
+        "ExpiryDate": "yyyy-MM-dd",
+        "UserTypeName": "EPVUser",
+        "Disabled": true,
+        "Location": "{{Folder}}"
+      },
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "description": "",
+          "type": "string"
+        },
+        "InitialPassword": {
+          "description": "",
+          "type": "string"
+        },
+        "Email": {
+          "description": "",
+          "type": "string"
+        },
+        "FirstName": {
+          "description": "",
+          "type": "string"
+        },
+        "LastName": {
+          "description": "",
+          "type": "string"
+        },
+        "ChangePasswordOnTheNextLogon": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ExpiryDate": {
+          "description": "",
+          "type": "string"
+        },
+        "UserTypeName": {
+          "description": "",
+          "type": "string"
+        },
+        "Disabled": {
+          "description": "",
+          "type": "boolean"
+        },
+        "Location": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UserName",
+        "InitialPassword",
+        "Email",
+        "FirstName",
+        "LastName",
+        "ChangePasswordOnTheNextLogon",
+        "ExpiryDate",
+        "UserTypeName",
+        "Disabled",
+        "Location"
+      ]
+    },
+    "UpdateUserrequest": {
+      "title": "Update UserRequest",
+      "example": {
+        "NewPassword": "Password321",
+        "Email": "John.Doe@CyberArk.com",
+        "FirstName": "John",
+        "LastName": "Doe",
+        "ChangePasswordOnTheNextLogon": true,
+        "ExpiryDate": "",
+        "UserTypeName": "EPVUser",
+        "Disabled": false,
+        "Location": "{{Folder}}"
+      },
+      "type": "object",
+      "properties": {
+        "NewPassword": {
+          "description": "",
+          "type": "string"
+        },
+        "Email": {
+          "description": "",
+          "type": "string"
+        },
+        "FirstName": {
+          "description": "",
+          "type": "string"
+        },
+        "LastName": {
+          "description": "",
+          "type": "string"
+        },
+        "ChangePasswordOnTheNextLogon": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ExpiryDate": {
+          "description": "",
+          "type": "string"
+        },
+        "UserTypeName": {
+          "description": "",
+          "type": "string"
+        },
+        "Disabled": {
+          "description": "",
+          "type": "boolean"
+        },
+        "Location": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "NewPassword",
+        "Email",
+        "FirstName",
+        "LastName",
+        "ChangePasswordOnTheNextLogon",
+        "ExpiryDate",
+        "UserTypeName",
+        "Disabled",
+        "Location"
+      ]
+    },
+    "ActivateUserrequest": {
+      "title": "Activate UserRequest",
+      "example": {
+        "Suspended": "false"
+      },
+      "type": "object",
+      "properties": {
+        "Suspended": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Suspended"
+      ]
+    },
+    "AddUserToGrouprequest": {
+      "title": "Add User to GroupRequest",
+      "example": {
+        "UserName": "{{UserName}}"
+      },
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UserName"
+      ]
+    }
+  }
+}
