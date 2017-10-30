@@ -1,10 +1,16 @@
 ## CyberArk REST API
 
-All available requests in CyberArk Privileged Account Security Web Services v9.9.
+All available requests in CyberArk Privileged Account Security Web Services v9.9.5.
 
 ### Postman Live Documentation
 
 [View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPIv99)
+
+### Access the Proper Collection
+
+If you're using [Postman](https://www.getpostman.com/), you'll use the JSON collection located in [Version 9.9](Version%209.9).
+
+If you're using [Swagger](https://swagger.io), you'll use the JSON collection located in [Swagger Collection](Swagger%20Collections).
 
 ### Having trouble getting the collection imported? ###
 
