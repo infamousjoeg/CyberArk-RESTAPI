@@ -2628,7 +2628,8 @@
                 {
                   "key": "id",
                   "value": "1",
-                  "equals": true
+                  "equals": true,
+                  "description": "Rule ID to delete"
                 }
               ]
             },
