@@ -2182,7 +2182,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
               },
-              "body": "{\r\n  \"DecisionPlatformId\":\"Windows Domain Account\",\r\n  \"DecisionSafeName\":\"{{Safe}}\",\r\n  \"IsAdminUIDFilter\":\"Yes\",\r\n  \"MachineTypeFilter\":\"Server\",\r\n  \"SystemTypeFilter\":\"Windows\",\r\n  \"UserNameFilter\":\"Administrator\"\r\n}"
+              "body": "{\r\n  \"DecisionPlatformId\":\"WinLocalAccount\",\r\n  \"DecisionSafeName\":\"{{Safe}}\",\r\n  \"IsAdminUIDFilter\":\"true\",\r\n  \"MachineTypeFilter\":\"Server\",\r\n  \"SystemTypeFilter\":\"Windows\",\r\n  \"UserNameFilter\":\"\"\r\n}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -4720,12 +4720,12 @@
     "AddOnboardingRulerequest": {
       "title": "Add Onboarding RuleRequest",
       "example": {
-        "DecisionPlatformId": "Windows Domain Account",
+        "DecisionPlatformId": "WinLocalAccount",
         "DecisionSafeName": "{{Safe}}",
-        "IsAdminUIDFilter": "Yes",
+        "IsAdminUIDFilter": "true",
         "MachineTypeFilter": "Server",
         "SystemTypeFilter": "Windows",
-        "UserNameFilter": "Administrator"
+        "UserNameFilter": ""
       },
       "type": "object",
       "properties": {
