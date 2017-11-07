@@ -1515,7 +1515,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
               },
-              "body": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"Windows Domain Account\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Logon account name\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"Safename\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Reconcile account name\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"Safename\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+              "body": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-LogonAcct\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-ReconAcct\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -2051,7 +2051,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
               },
-              "body": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomainAccounts\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"}\r\n    ]\r\n  }\r\n}"
+              "body": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomain\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-LogonAcct\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-ReconAcct\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -4183,7 +4183,7 @@
       "example": {
         "account": {
           "safe": "{{Safe}}",
-          "platformID": "Windows Domain Account",
+          "platformID": "WinDomain",
           "address": "{{Address}}",
           "accountName": "",
           "password": "Password123",
@@ -4199,7 +4199,7 @@
             },
             {
               "Key": "ExtraPass1Name",
-              "Value": "Logon account name"
+              "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
             },
             {
               "Key": "ExtraPass1Folder",
@@ -4207,11 +4207,11 @@
             },
             {
               "Key": "ExtraPass1Safe",
-              "Value": "Safename"
+              "Value": "{{Safe}}"
             },
             {
               "Key": "ExtraPass3Name",
-              "Value": "Reconcile account name"
+              "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
             },
             {
               "Key": "ExtraPass3Folder",
@@ -4219,7 +4219,7 @@
             },
             {
               "Key": "ExtraPass3Safe",
-              "Value": "Safename"
+              "Value": "{{Safe}}"
             },
             {
               "Key": "ParamName",
@@ -4634,7 +4634,7 @@
           "Folder": "{{Folder}}",
           "AccountName": "{{ObjectName}}",
           "DeviceType": "Operating System",
-          "PlatformID": "WinDomainAccounts",
+          "PlatformID": "WinDomain",
           "Address": "{{Address}}",
           "UserName": "{{UserName}}",
           "GroupName": "",
@@ -4647,6 +4647,34 @@
             {
               "Key": "Ticket Number",
               "Value": "CHG100001"
+            },
+            {
+              "Key": "ExtraPass1Name",
+              "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+            },
+            {
+              "Key": "ExtraPass1Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass1Safe",
+              "Value": "{{Safe}}"
+            },
+            {
+              "Key": "ExtraPass3Name",
+              "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+            },
+            {
+              "Key": "ExtraPass3Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass3Safe",
+              "Value": "{{Safe}}"
+            },
+            {
+              "Key": "ParamName",
+              "Value": "Parameter value"
             }
           ]
         }
