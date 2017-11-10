@@ -1615,6 +1615,62 @@
       }
     },
     "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update Account Details [v9.5+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "Update Account Details [v9.5+]",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAccountDetails[v9.5+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
       "delete": {
         "description": "TODO: Add Description",
         "summary": "Delete Account [v9.3+]",
@@ -1984,86 +2040,6 @@
             "x-testShouldPass": true,
             "x-testEnabled": true,
             "x-testName": "Get Account Details [v9.3+]",
-            "x-testDescription": "TODO: Add Description"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
-      },
-      "put": {
-        "description": "TODO: Add Description",
-        "summary": "Update Account Details [v9.5+]",
-        "tags": [
-          "Managing Accounts"
-        ],
-        "operationId": "Update Account Details [v9.5+]",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "AccountID",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateAccountDetails[v9.5+]request"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "PUT",
-              "uri": "/PasswordVault/WebServices/PIMServices.svc/Accounts?AccountID={{AccountID}}",
-              "headers": {
-                "Content-Type": "application/json",
-                "Authorization": "{{CyberArkLogonResult}}"
-              },
-              "body": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomain\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-LogonAcct\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-ReconAcct\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Update Account Details [v9.5+]",
             "x-testDescription": "TODO: Add Description"
           }
         ],
