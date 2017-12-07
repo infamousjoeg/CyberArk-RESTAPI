@@ -28,7 +28,7 @@
         "tags": [
           "Account Groups [v9.9.5+]"
         ],
-        "operationId": "Add Account Group",
+        "operationId": "UnnammedEndpointPost",
         "produces": [
           "application/json"
         ],
@@ -103,7 +103,7 @@
         "tags": [
           "Account Groups [v9.9.5+]"
         ],
-        "operationId": "Add Account to Account Group",
+        "operationId": "MembersByGroupNamePost",
         "produces": [
           "application/json"
         ],
@@ -161,7 +161,7 @@
         "tags": [
           "Account/ACL Methods [v9.0+]"
         ],
-        "operationId": "List Account/ACL",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountAPIAPIACLPolicyIDPrivilegedCommandsByACLAddressAndACLUserNameGet",
         "produces": [
           "application/json"
         ],
@@ -226,7 +226,7 @@
         "tags": [
           "Account/ACL Methods [v9.0+]"
         ],
-        "operationId": "Add Account/ACL",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountAPIAPIACLPolicyIDPrivilegedCommandsByACLAddressAndACLUserNamePut",
         "produces": [
           "application/json"
         ],
@@ -296,7 +296,7 @@
         "tags": [
           "Account/ACL Methods [v9.0+]"
         ],
-        "operationId": "Delete Account/ACL",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountAPIAPIACLPolicyIDPrivilegedCommandsByACLAddressAndACLUserNameDelete",
         "produces": [
           "application/json"
         ],
@@ -367,7 +367,7 @@
         "tags": [
           "Applications [v9.1+]"
         ],
-        "operationId": "List a Specific Application",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcApplicationsGet2",
         "produces": [
           "application/json"
         ],
@@ -472,7 +472,7 @@
         "tags": [
           "Applications [v9.1+]"
         ],
-        "operationId": "Delete a Specific Application",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcApplicationsDelete",
         "produces": [
           "application/json"
         ],
@@ -544,7 +544,7 @@
         "tags": [
           "Applications [v9.1+]"
         ],
-        "operationId": "Add Application",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcApplicationsPost",
         "produces": [
           "application/json"
         ],
@@ -623,7 +623,7 @@
         "tags": [
           "Applications [v9.1+]"
         ],
-        "operationId": "List all Authentication Methods of a Specific Application",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcApplicationsAuthenticationsByAppIDGet",
         "produces": [
           "application/json"
         ],
@@ -670,7 +670,7 @@
         "tags": [
           "Applications [v9.1+]"
         ],
-        "operationId": "Delete a Specific Authentication",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcApplicationsAuthenticationsByAppIDDelete",
         "produces": [
           "application/json"
         ],
@@ -727,7 +727,7 @@
         "tags": [
           "Applications [v9.1+]"
         ],
-        "operationId": "Add Authentication",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcApplicationsAuthenticationsByAppIDPost",
         "produces": [
           "application/json"
         ],
@@ -776,7 +776,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logon",
+        "operationId": "PasswordVaultWebServicesAuthCyberarkCyberArkAuthenticationServiceSvcLogonPost",
         "produces": [
           "application/json"
         ],
@@ -863,7 +863,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logoff",
+        "operationId": "PasswordVaultWebServicesAuthCyberarkCyberArkAuthenticationServiceSvcLogoffPost",
         "produces": [
           "application/json"
         ],
@@ -946,7 +946,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "SAML Authentication Logon [v9.7+]",
+        "operationId": "PasswordVaultWebServicesAuthSAMLSAMLAuthenticationServiceSvcLogonPost",
         "produces": [
           "application/json"
         ],
@@ -1021,7 +1021,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "SAML Authentication Logoff [v9.7+]",
+        "operationId": "PasswordVaultWebServicesAuthSAMLSAMLAuthenticationServiceSvcLogoffPost",
         "produces": [
           "application/json"
         ],
@@ -1096,7 +1096,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "Shared Logon Authentication Logon [v9.7+]",
+        "operationId": "PasswordVaultWebServicesAuthSharedRestfulAuthenticationServiceSvcLogonPost",
         "produces": [
           "application/json"
         ],
@@ -1153,7 +1153,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "Shared Logon Authentication Logoff [v9.7+]",
+        "operationId": "PasswordVaultWebServicesAuthSharedRestfulAuthenticationServiceSvcLogoffPost",
         "produces": [
           "application/json"
         ],
@@ -1199,7 +1199,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "SSH - Get Public SSH Keys [v9.6+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersAuthenticationMethodsSSHKeyAuthenticationAuthorizedKeysByUserNameGet",
         "produces": [
           "application/json"
         ],
@@ -1246,7 +1246,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "SSH - Add a Public SSH Key [v9.6+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersAuthenticationMethodsSSHKeyAuthenticationAuthorizedKeysByUserNamePost",
         "produces": [
           "application/json"
         ],
@@ -1302,7 +1302,7 @@
         "tags": [
           "Authentication"
         ],
-        "operationId": "SSH - Delete Public SSH Key [v9.6+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersAuthenticationMethodsSSHKeyAuthenticationAuthorizedKeysByUserNameDelete",
         "produces": [
           "application/json"
         ],
@@ -1359,7 +1359,7 @@
         "tags": [
           "Central Credential Provider (CCP) [v9.8+]"
         ],
-        "operationId": "GetPassword",
+        "operationId": "AIMWebServiceApiAccountsGet",
         "produces": [
           "application/json"
         ],
@@ -1471,7 +1471,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Add Account [v9.0+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountPost",
         "produces": [
           "application/json"
         ],
@@ -1546,7 +1546,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Add Pending Account [v9.7+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcPendingAccountsPost",
         "produces": [
           "application/json"
         ],
@@ -1621,7 +1621,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Update Account Details [v9.5+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsByAccountIDPut",
         "produces": [
           "application/json"
         ],
@@ -1677,7 +1677,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Delete Account [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsByAccountIDDelete",
         "produces": [
           "application/json"
         ],
@@ -1726,7 +1726,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Get Account Value [v9.7+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsCredentialsByAccountIDGet",
         "produces": [
           "application/json"
         ],
@@ -1775,7 +1775,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Change Credentials [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsChangeCredentialsByAccountIDPut",
         "produces": [
           "application/json"
         ],
@@ -1840,7 +1840,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Verify Credentials [v9.7+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsVerifyCredentialsByAccountIDPost",
         "produces": [
           "application/json"
         ],
@@ -1898,7 +1898,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "Get Account Details [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsGet",
         "produces": [
           "application/json"
         ],
@@ -2058,7 +2058,7 @@
         "tags": [
           "Managing Accounts"
         ],
-        "operationId": "List Activity by ID [v9.7+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsActivitiesByAccountIDGet",
         "produces": [
           "application/json"
         ],
@@ -2114,7 +2114,7 @@
         "tags": [
           "Onboarding Rules [v9.8+]"
         ],
-        "operationId": "Add Onboarding Rule",
+        "operationId": "PasswordVaultApiAutomaticOnboardingRulesPost",
         "produces": [
           "application/json"
         ],
@@ -2187,7 +2187,7 @@
         "tags": [
           "Onboarding Rules [v9.8+]"
         ],
-        "operationId": "Delete Onboarding Rule",
+        "operationId": "PasswordVaultApiAutomaticOnboardingRulesDelete",
         "produces": [
           "application/json"
         ],
@@ -2260,7 +2260,7 @@
         "tags": [
           "Onboarding Rules [v9.8+]"
         ],
-        "operationId": "Get Onboarding Rule",
+        "operationId": "PasswordVaultApiAutomaticOnboardingRulesGet",
         "produces": [
           "application/json"
         ],
@@ -2325,7 +2325,7 @@
         "tags": [
           "Policy/ACL Methods [v9.0+]"
         ],
-        "operationId": "List Policy/ACL",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcPolicyPrivilegedCommandsByACLPolicyIDGet",
         "produces": [
           "application/json"
         ],
@@ -2372,7 +2372,7 @@
         "tags": [
           "Policy/ACL Methods [v9.0+]"
         ],
-        "operationId": "Add Policy/ACL",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcPolicyPrivilegedCommandsByACLPolicyIDPut",
         "produces": [
           "application/json"
         ],
@@ -2428,7 +2428,7 @@
         "tags": [
           "Policy/ACL Methods [v9.0+]"
         ],
-        "operationId": "Delete Policy/ACL",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcPolicyPrivilegedCommandsByACLPolicyIDDelete",
         "produces": [
           "application/json"
         ],
@@ -2485,7 +2485,7 @@
         "tags": [
           "Safe Management"
         ],
-        "operationId": "Search for a Safe [v9.7+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesGet3",
         "produces": [
           "application/json"
         ],
@@ -2555,7 +2555,7 @@
         "tags": [
           "Safe Management"
         ],
-        "operationId": "Update Safe [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesPut",
         "produces": [
           "application/json"
         ],
@@ -2635,7 +2635,7 @@
         "tags": [
           "Safe Management"
         ],
-        "operationId": "Add Safe [v9.2+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesPost",
         "produces": [
           "application/json"
         ],
@@ -2710,7 +2710,7 @@
         "tags": [
           "Safe Management"
         ],
-        "operationId": "Delete Safe [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesBySafeDelete",
         "produces": [
           "application/json"
         ],
@@ -2759,7 +2759,7 @@
         "tags": [
           "Safe Members"
         ],
-        "operationId": "List Safe Members [v9.7+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesMembersBySafeGet",
         "produces": [
           "application/json"
         ],
@@ -2806,7 +2806,7 @@
         "tags": [
           "Safe Members"
         ],
-        "operationId": "Update Safe Member [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesMembersBySafePut",
         "produces": [
           "application/json"
         ],
@@ -2869,7 +2869,7 @@
         "tags": [
           "Safe Members"
         ],
-        "operationId": "Add Safe Member [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesMembersBySafePost",
         "produces": [
           "application/json"
         ],
@@ -2927,7 +2927,7 @@
         "tags": [
           "Safe Members"
         ],
-        "operationId": "Delete Safe Member [v9.3+]",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesMembersBySafeAndSafeMemberDelete",
         "produces": [
           "application/json"
         ],
@@ -2983,7 +2983,7 @@
         "tags": [
           "Server Web Services [v9.7+]"
         ],
-        "operationId": "Verify",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcVerifyGet",
         "produces": [
           "application/json"
         ],
@@ -3085,7 +3085,7 @@
         "tags": [
           "Server Web Services [v9.7+]"
         ],
-        "operationId": "Logo",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcLogoGet",
         "produces": [
           "application/json"
         ],
@@ -3143,7 +3143,7 @@
         "tags": [
           "Server Web Services [v9.7+]"
         ],
-        "operationId": "Server",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcServerGet",
         "produces": [
           "application/json"
         ],
@@ -3234,7 +3234,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Update User",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersPut",
         "produces": [
           "application/json"
         ],
@@ -3314,7 +3314,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Add User",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersPost",
         "produces": [
           "application/json"
         ],
@@ -3389,7 +3389,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Delete User",
+        "operationId": "PasswordVaultWebServicesAPISvcUsersDelete",
         "produces": [
           "application/json"
         ],
@@ -3461,7 +3461,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Logged on User Details",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUserGet",
         "produces": [
           "application/json"
         ],
@@ -3526,7 +3526,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Get User Details",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersByUserNameGet",
         "produces": [
           "application/json"
         ],
@@ -3573,7 +3573,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Activate User",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcUsersByUserNamePut",
         "produces": [
           "application/json"
         ],
@@ -3631,7 +3631,7 @@
         "tags": [
           "User Management [v9.7+]"
         ],
-        "operationId": "Add User to Group",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcGroupsUsersByGroupNamePost",
         "produces": [
           "application/json"
         ],
