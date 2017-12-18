@@ -3695,14 +3695,17 @@
       "properties": {
         "GroupName": {
           "description": "",
+          "example": "{{GroupName}}",
           "type": "string"
         },
         "GroupPlatform": {
           "description": "",
+          "example": "{{PlatformID}}",
           "type": "string"
         },
         "Safe": {
           "description": "",
+          "example": "{{Safe}}",
           "type": "string"
         }
       },
@@ -3721,6 +3724,7 @@
       "properties": {
         "AccountID": {
           "description": "",
+          "example": "{{AccountID}}",
           "type": "string"
         }
       },
@@ -3741,14 +3745,17 @@
       "properties": {
         "Command": {
           "description": "",
+          "example": "/bin/sh",
           "type": "string"
         },
         "CommandGroup": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "PermissionType": {
           "description": "",
+          "example": "Deny",
           "type": "string"
         },
         "Restrictions": {
@@ -3757,6 +3764,7 @@
         },
         "UserName": {
           "description": "",
+          "example": "*",
           "type": "string"
         }
       },
@@ -3806,6 +3814,36 @@
       "properties": {
         "application": {
           "description": "",
+          "example": [
+            {
+              "AccessPermittedFrom": 0,
+              "AccessPermittedTo": 24,
+              "AllowExtendedAuthenticationRestrictions": false,
+              "AppID": "AIMWebService",
+              "BusinessOwnerEmail": "",
+              "BusinessOwnerFName": "",
+              "BusinessOwnerLName": "",
+              "BusinessOwnerPhone": "",
+              "Description": "This application is for the web service installed for the Central Credential Provider.",
+              "Disabled": false,
+              "ExpirationDate": "null",
+              "Location": "\\"
+            },
+            {
+              "AccessPermittedFrom": 0,
+              "AccessPermittedTo": 24,
+              "AllowExtendedAuthenticationRestrictions": false,
+              "AppID": "RESTExamples",
+              "BusinessOwnerEmail": "john.doe@cyberark.com",
+              "BusinessOwnerFName": "John",
+              "BusinessOwnerLName": "Doe",
+              "BusinessOwnerPhone": "555-555-1212",
+              "Description": "AppID for all AIM and REST Examples",
+              "Disabled": false,
+              "ExpirationDate": "null",
+              "Location": "\\Applications"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Application"
@@ -3818,24 +3856,42 @@
     },
     "Application": {
       "title": "Application",
+      "example": {
+        "AccessPermittedFrom": 0,
+        "AccessPermittedTo": 24,
+        "AllowExtendedAuthenticationRestrictions": false,
+        "AppID": "AIMWebService",
+        "BusinessOwnerEmail": "",
+        "BusinessOwnerFName": "",
+        "BusinessOwnerLName": "",
+        "BusinessOwnerPhone": "",
+        "Description": "This application is for the web service installed for the Central Credential Provider.",
+        "Disabled": false,
+        "ExpirationDate": "null",
+        "Location": "\\"
+      },
       "type": "object",
       "properties": {
         "AccessPermittedFrom": {
           "description": "",
+          "example": 0,
           "type": "integer",
           "format": "int32"
         },
         "AccessPermittedTo": {
           "description": "",
+          "example": 24,
           "type": "integer",
           "format": "int32"
         },
         "AllowExtendedAuthenticationRestrictions": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "AppID": {
           "description": "",
+          "example": "AIMWebService",
           "type": "string"
         },
         "BusinessOwnerEmail": {
@@ -3856,10 +3912,12 @@
         },
         "Description": {
           "description": "",
+          "example": "This application is for the web service installed for the Central Credential Provider.",
           "type": "string"
         },
         "Disabled": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "ExpirationDate": {
@@ -3868,6 +3926,7 @@
         },
         "Location": {
           "description": "",
+          "example": "\\",
           "type": "string"
         }
       },
@@ -3910,6 +3969,22 @@
       "properties": {
         "application": {
           "description": "",
+          "example": [
+            {
+              "AccessPermittedFrom": 0,
+              "AccessPermittedTo": 24,
+              "AllowExtendedAuthenticationRestrictions": false,
+              "AppID": "RESTExamples",
+              "BusinessOwnerEmail": "john.doecyberark.com",
+              "BusinessOwnerFName": "John",
+              "BusinessOwnerLName": "Doe",
+              "BusinessOwnerPhone": "555-555-1212",
+              "Description": "AppID for all AIM and REST Examples",
+              "Disabled": false,
+              "ExpirationDate": "null",
+              "Location": "\\Applications"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Application"
@@ -3940,7 +4015,20 @@
       "type": "object",
       "properties": {
         "application": {
-          "$ref": "#/definitions/Application8"
+          "$ref": "#/definitions/Application8",
+          "example": {
+            "AppID": "{{AppID}}",
+            "Description": "Testing DevOps Deployments with CyberArk",
+            "Location": "/Applications",
+            "AccessPermittedFrom": 0,
+            "AccessPermittedTo": 23,
+            "ExpirationDate": "",
+            "Disabled": "No",
+            "BusinessOwnerFName": "John",
+            "BusinessOwnerLName": "Doe",
+            "BusinessOwnerEmail": "John.Doe@CyberArk.com",
+            "BusinessOwnerPhone": "555-555-1212"
+          }
         }
       },
       "required": [
@@ -3949,27 +4037,45 @@
     },
     "Application8": {
       "title": "Application8",
+      "example": {
+        "AppID": "{{AppID}}",
+        "Description": "Testing DevOps Deployments with CyberArk",
+        "Location": "/Applications",
+        "AccessPermittedFrom": 0,
+        "AccessPermittedTo": 23,
+        "ExpirationDate": "",
+        "Disabled": "No",
+        "BusinessOwnerFName": "John",
+        "BusinessOwnerLName": "Doe",
+        "BusinessOwnerEmail": "John.Doe@CyberArk.com",
+        "BusinessOwnerPhone": "555-555-1212"
+      },
       "type": "object",
       "properties": {
         "AppID": {
           "description": "",
+          "example": "{{AppID}}",
           "type": "string"
         },
         "Description": {
           "description": "",
+          "example": "Testing DevOps Deployments with CyberArk",
           "type": "string"
         },
         "Location": {
           "description": "",
+          "example": "/Applications",
           "type": "string"
         },
         "AccessPermittedFrom": {
           "description": "",
+          "example": 0,
           "type": "integer",
           "format": "int32"
         },
         "AccessPermittedTo": {
           "description": "",
+          "example": 23,
           "type": "integer",
           "format": "int32"
         },
@@ -3979,22 +4085,27 @@
         },
         "Disabled": {
           "description": "",
+          "example": "No",
           "type": "string"
         },
         "BusinessOwnerFName": {
           "description": "",
+          "example": "John",
           "type": "string"
         },
         "BusinessOwnerLName": {
           "description": "",
+          "example": "Doe",
           "type": "string"
         },
         "BusinessOwnerEmail": {
           "description": "",
+          "example": "John.Doe@CyberArk.com",
           "type": "string"
         },
         "BusinessOwnerPhone": {
           "description": "",
+          "example": "555-555-1212",
           "type": "string"
         }
       },
@@ -4024,18 +4135,22 @@
       "properties": {
         "username": {
           "description": "",
+          "example": "{{apiUsername}}",
           "type": "string"
         },
         "password": {
           "description": "",
+          "example": "{{apiPassword}}",
           "type": "string"
         },
         "useRadiusAuthentication": {
           "description": "",
+          "example": "false",
           "type": "string"
         },
         "connectionNumber": {
           "description": "",
+          "example": "1",
           "type": "string"
         }
       },
@@ -4055,6 +4170,7 @@
       "properties": {
         "CyberArkLogonResult": {
           "description": "",
+          "example": "AAEAAAD/////AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw==",
           "type": "string"
         }
       },
@@ -4071,6 +4187,7 @@
       "properties": {
         "PublicSSHKey": {
           "description": "",
+          "example": "<public-key>",
           "type": "string"
         }
       },
@@ -4097,46 +4214,57 @@
       "properties": {
         "Content": {
           "description": "",
+          "example": "Cyberark1",
           "type": "string"
         },
         "CreationMethod": {
           "description": "",
+          "example": "PVWA",
           "type": "string"
         },
         "Address": {
           "description": "",
+          "example": "joe-garcia.local",
           "type": "string"
         },
         "Safe": {
           "description": "",
+          "example": "T-APP-CYBR-RESTAPI",
           "type": "string"
         },
         "UserName": {
           "description": "",
+          "example": "Svc_CyberArkREST",
           "type": "string"
         },
         "Name": {
           "description": "",
+          "example": "Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST",
           "type": "string"
         },
         "LogonDomain": {
           "description": "",
+          "example": "JOE-GARCIA",
           "type": "string"
         },
         "PolicyID": {
           "description": "",
+          "example": "WinDomain",
           "type": "string"
         },
         "DeviceType": {
           "description": "",
+          "example": "Operating System",
           "type": "string"
         },
         "Folder": {
           "description": "",
+          "example": "Root",
           "type": "string"
         },
         "PasswordChangeInProcess": {
           "description": "",
+          "example": "False",
           "type": "string"
         }
       },
@@ -4207,7 +4335,53 @@
       "type": "object",
       "properties": {
         "account": {
-          "$ref": "#/definitions/Account"
+          "$ref": "#/definitions/Account",
+          "example": {
+            "safe": "{{Safe}}",
+            "platformID": "WinDomain",
+            "address": "{{Address}}",
+            "accountName": "",
+            "password": "Password123",
+            "username": "{{UserName}}",
+            "disableAutoMgmt": "false",
+            "disableAutoMgmtReason": "N/A",
+            "groupName": "",
+            "groupPlatformID": "",
+            "properties": [
+              {
+                "Key": "Port",
+                "Value": "<port>"
+              },
+              {
+                "Key": "ExtraPass1Name",
+                "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+              },
+              {
+                "Key": "ExtraPass1Folder",
+                "Value": "Root"
+              },
+              {
+                "Key": "ExtraPass1Safe",
+                "Value": "{{Safe}}"
+              },
+              {
+                "Key": "ExtraPass3Name",
+                "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+              },
+              {
+                "Key": "ExtraPass3Folder",
+                "Value": "Root"
+              },
+              {
+                "Key": "ExtraPass3Safe",
+                "Value": "{{Safe}}"
+              },
+              {
+                "Key": "ParamName",
+                "Value": "Parameter value"
+              }
+            ]
+          }
         }
       },
       "required": [
@@ -4216,18 +4390,67 @@
     },
     "Account": {
       "title": "Account",
+      "example": {
+        "safe": "{{Safe}}",
+        "platformID": "WinDomain",
+        "address": "{{Address}}",
+        "accountName": "",
+        "password": "Password123",
+        "username": "{{UserName}}",
+        "disableAutoMgmt": "false",
+        "disableAutoMgmtReason": "N/A",
+        "groupName": "",
+        "groupPlatformID": "",
+        "properties": [
+          {
+            "Key": "Port",
+            "Value": "<port>"
+          },
+          {
+            "Key": "ExtraPass1Name",
+            "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+          },
+          {
+            "Key": "ExtraPass1Folder",
+            "Value": "Root"
+          },
+          {
+            "Key": "ExtraPass1Safe",
+            "Value": "{{Safe}}"
+          },
+          {
+            "Key": "ExtraPass3Name",
+            "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+          },
+          {
+            "Key": "ExtraPass3Folder",
+            "Value": "Root"
+          },
+          {
+            "Key": "ExtraPass3Safe",
+            "Value": "{{Safe}}"
+          },
+          {
+            "Key": "ParamName",
+            "Value": "Parameter value"
+          }
+        ]
+      },
       "type": "object",
       "properties": {
         "safe": {
           "description": "",
+          "example": "{{Safe}}",
           "type": "string"
         },
         "platformID": {
           "description": "",
+          "example": "WinDomain",
           "type": "string"
         },
         "address": {
           "description": "",
+          "example": "{{Address}}",
           "type": "string"
         },
         "accountName": {
@@ -4236,18 +4459,22 @@
         },
         "password": {
           "description": "",
+          "example": "Password123",
           "type": "string"
         },
         "username": {
           "description": "",
+          "example": "{{UserName}}",
           "type": "string"
         },
         "disableAutoMgmt": {
           "description": "",
+          "example": "false",
           "type": "string"
         },
         "disableAutoMgmtReason": {
           "description": "",
+          "example": "N/A",
           "type": "string"
         },
         "groupName": {
@@ -4260,6 +4487,40 @@
         },
         "properties": {
           "description": "",
+          "example": [
+            {
+              "Key": "Port",
+              "Value": "<port>"
+            },
+            {
+              "Key": "ExtraPass1Name",
+              "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+            },
+            {
+              "Key": "ExtraPass1Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass1Safe",
+              "Value": "{{Safe}}"
+            },
+            {
+              "Key": "ExtraPass3Name",
+              "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+            },
+            {
+              "Key": "ExtraPass3Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass3Safe",
+              "Value": "{{Safe}}"
+            },
+            {
+              "Key": "ParamName",
+              "Value": "Parameter value"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Property"
@@ -4282,14 +4543,20 @@
     },
     "Property": {
       "title": "Property",
+      "example": {
+        "Key": "Port",
+        "Value": "<port>"
+      },
       "type": "object",
       "properties": {
         "Key": {
           "description": "",
+          "example": "Port",
           "type": "string"
         },
         "Value": {
           "description": "",
+          "example": "<port>",
           "type": "string"
         }
       },
@@ -4329,7 +4596,31 @@
       "type": "object",
       "properties": {
         "pendingAccount": {
-          "$ref": "#/definitions/PendingAccount"
+          "$ref": "#/definitions/PendingAccount",
+          "example": {
+            "UserName": "{{UserName}}",
+            "Address": "{{Address}}",
+            "AccountDiscoveryDate": "2016-12-19T08:19:03Z",
+            "AccountEnabled": "Disabled",
+            "AccountOSGroups": "Domain Admins",
+            "AccountType": "Domain",
+            "Domain": "joe-garcia.local",
+            "PasswordNeverExpires": "false",
+            "OSVersion": "Windows Server 2012 R2",
+            "OU": "Users",
+            "AccountCategory": "Privileged",
+            "UserDisplayName": "CA_EPVTestUser",
+            "AccountDescription": "CyberArk EPV Test User for Web Services",
+            "GID": "",
+            "UID": "",
+            "OSType": "Windows",
+            "DiscoveryPlatformType": "Windows Domain Accounts",
+            "MachineOSFamily": "server",
+            "LastLogonDate": "",
+            "LastPasswordSetDate": "2016-12-19T08:19:03Z",
+            "AccountExpirationDate": "",
+            "AccountCategoryCriteria": "<criteria>"
+          }
         }
       },
       "required": [
@@ -4338,58 +4629,95 @@
     },
     "PendingAccount": {
       "title": "PendingAccount",
+      "example": {
+        "UserName": "{{UserName}}",
+        "Address": "{{Address}}",
+        "AccountDiscoveryDate": "2016-12-19T08:19:03Z",
+        "AccountEnabled": "Disabled",
+        "AccountOSGroups": "Domain Admins",
+        "AccountType": "Domain",
+        "Domain": "joe-garcia.local",
+        "PasswordNeverExpires": "false",
+        "OSVersion": "Windows Server 2012 R2",
+        "OU": "Users",
+        "AccountCategory": "Privileged",
+        "UserDisplayName": "CA_EPVTestUser",
+        "AccountDescription": "CyberArk EPV Test User for Web Services",
+        "GID": "",
+        "UID": "",
+        "OSType": "Windows",
+        "DiscoveryPlatformType": "Windows Domain Accounts",
+        "MachineOSFamily": "server",
+        "LastLogonDate": "",
+        "LastPasswordSetDate": "2016-12-19T08:19:03Z",
+        "AccountExpirationDate": "",
+        "AccountCategoryCriteria": "<criteria>"
+      },
       "type": "object",
       "properties": {
         "UserName": {
           "description": "",
+          "example": "{{UserName}}",
           "type": "string"
         },
         "Address": {
           "description": "",
+          "example": "{{Address}}",
           "type": "string"
         },
         "AccountDiscoveryDate": {
           "description": "",
+          "example": "12/19/2016 8:19:03 AM",
           "type": "string"
         },
         "AccountEnabled": {
           "description": "",
+          "example": "Disabled",
           "type": "string"
         },
         "AccountOSGroups": {
           "description": "",
+          "example": "Domain Admins",
           "type": "string"
         },
         "AccountType": {
           "description": "",
+          "example": "Domain",
           "type": "string"
         },
         "Domain": {
           "description": "",
+          "example": "joe-garcia.local",
           "type": "string"
         },
         "PasswordNeverExpires": {
           "description": "",
+          "example": "false",
           "type": "string"
         },
         "OSVersion": {
           "description": "",
+          "example": "Windows Server 2012 R2",
           "type": "string"
         },
         "OU": {
           "description": "",
+          "example": "Users",
           "type": "string"
         },
         "AccountCategory": {
           "description": "",
+          "example": "Privileged",
           "type": "string"
         },
         "UserDisplayName": {
           "description": "",
+          "example": "CA_EPVTestUser",
           "type": "string"
         },
         "AccountDescription": {
           "description": "",
+          "example": "CyberArk EPV Test User for Web Services",
           "type": "string"
         },
         "GID": {
@@ -4402,14 +4730,17 @@
         },
         "OSType": {
           "description": "",
+          "example": "Windows",
           "type": "string"
         },
         "DiscoveryPlatformType": {
           "description": "",
+          "example": "Windows Domain Accounts",
           "type": "string"
         },
         "MachineOSFamily": {
           "description": "",
+          "example": "server",
           "type": "string"
         },
         "LastLogonDate": {
@@ -4418,6 +4749,7 @@
         },
         "LastPasswordSetDate": {
           "description": "",
+          "example": "12/19/2016 8:19:03 AM",
           "type": "string"
         },
         "AccountExpirationDate": {
@@ -4426,6 +4758,7 @@
         },
         "AccountCategoryCriteria": {
           "description": "",
+          "example": "<criteria>",
           "type": "string"
         }
       },
@@ -4463,6 +4796,7 @@
       "properties": {
         "ChangeCredsForGroup": {
           "description": "",
+          "example": "No",
           "type": "string"
         }
       },
@@ -4540,11 +4874,73 @@
       "properties": {
         "Count": {
           "description": "",
+          "example": 1,
           "type": "integer",
           "format": "int32"
         },
         "accounts": {
           "description": "",
+          "example": [
+            {
+              "AccountID": "41_4",
+              "InternalProperties": [
+                {
+                  "Key": "CPMStatus",
+                  "Value": "success"
+                },
+                {
+                  "Key": "CreationMethod",
+                  "Value": "PVWA"
+                },
+                {
+                  "Key": "RetriesCount",
+                  "Value": "-1"
+                },
+                {
+                  "Key": "LastTask",
+                  "Value": "VerifyTask"
+                }
+              ],
+              "Properties": [
+                {
+                  "Key": "Safe",
+                  "Value": "T-APP-CYBR-RESTAPI"
+                },
+                {
+                  "Key": "Folder",
+                  "Value": "Root"
+                },
+                {
+                  "Key": "Name",
+                  "Value": "Operating System-WindowsDomainAccount-cyberark.local-test.user0001"
+                },
+                {
+                  "Key": "UserName",
+                  "Value": "test.user0001"
+                },
+                {
+                  "Key": "PolicyID",
+                  "Value": "WindowsDomainAccount"
+                },
+                {
+                  "Key": "LogonDomain",
+                  "Value": "CYBERARK"
+                },
+                {
+                  "Key": "LastSuccessVerification",
+                  "Value": "1496683713"
+                },
+                {
+                  "Key": "Address",
+                  "Value": "cyberark.local"
+                },
+                {
+                  "Key": "DeviceType",
+                  "Value": "Operating System"
+                }
+              ]
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Account20"
@@ -4558,14 +4954,92 @@
     },
     "Account20": {
       "title": "Account20",
+      "example": {
+        "AccountID": "41_4",
+        "InternalProperties": [
+          {
+            "Key": "CPMStatus",
+            "Value": "success"
+          },
+          {
+            "Key": "CreationMethod",
+            "Value": "PVWA"
+          },
+          {
+            "Key": "RetriesCount",
+            "Value": "-1"
+          },
+          {
+            "Key": "LastTask",
+            "Value": "VerifyTask"
+          }
+        ],
+        "Properties": [
+          {
+            "Key": "Safe",
+            "Value": "T-APP-CYBR-RESTAPI"
+          },
+          {
+            "Key": "Folder",
+            "Value": "Root"
+          },
+          {
+            "Key": "Name",
+            "Value": "Operating System-WindowsDomainAccount-cyberark.local-test.user0001"
+          },
+          {
+            "Key": "UserName",
+            "Value": "test.user0001"
+          },
+          {
+            "Key": "PolicyID",
+            "Value": "WindowsDomainAccount"
+          },
+          {
+            "Key": "LogonDomain",
+            "Value": "CYBERARK"
+          },
+          {
+            "Key": "LastSuccessVerification",
+            "Value": "1496683713"
+          },
+          {
+            "Key": "Address",
+            "Value": "cyberark.local"
+          },
+          {
+            "Key": "DeviceType",
+            "Value": "Operating System"
+          }
+        ]
+      },
       "type": "object",
       "properties": {
         "AccountID": {
           "description": "",
+          "example": "41_4",
           "type": "string"
         },
         "InternalProperties": {
           "description": "",
+          "example": [
+            {
+              "Key": "CPMStatus",
+              "Value": "success"
+            },
+            {
+              "Key": "CreationMethod",
+              "Value": "PVWA"
+            },
+            {
+              "Key": "RetriesCount",
+              "Value": "-1"
+            },
+            {
+              "Key": "LastTask",
+              "Value": "VerifyTask"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/InternalProperty"
@@ -4573,6 +5047,44 @@
         },
         "Properties": {
           "description": "",
+          "example": [
+            {
+              "Key": "Safe",
+              "Value": "T-APP-CYBR-RESTAPI"
+            },
+            {
+              "Key": "Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "Name",
+              "Value": "Operating System-WindowsDomainAccount-cyberark.local-test.user0001"
+            },
+            {
+              "Key": "UserName",
+              "Value": "test.user0001"
+            },
+            {
+              "Key": "PolicyID",
+              "Value": "WindowsDomainAccount"
+            },
+            {
+              "Key": "LogonDomain",
+              "Value": "CYBERARK"
+            },
+            {
+              "Key": "LastSuccessVerification",
+              "Value": "1496683713"
+            },
+            {
+              "Key": "Address",
+              "Value": "cyberark.local"
+            },
+            {
+              "Key": "DeviceType",
+              "Value": "Operating System"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Property"
@@ -4587,14 +5099,20 @@
     },
     "InternalProperty": {
       "title": "InternalProperty",
+      "example": {
+        "Key": "CPMStatus",
+        "Value": "success"
+      },
       "type": "object",
       "properties": {
         "Key": {
           "description": "",
+          "example": "CPMStatus",
           "type": "string"
         },
         "Value": {
           "description": "",
+          "example": "success",
           "type": "string"
         }
       },
@@ -4658,7 +5176,55 @@
       "type": "object",
       "properties": {
         "Accounts": {
-          "$ref": "#/definitions/Accounts"
+          "$ref": "#/definitions/Accounts",
+          "example": {
+            "Folder": "{{Folder}}",
+            "AccountName": "{{ObjectName}}",
+            "DeviceType": "Operating System",
+            "PlatformID": "WinDomain",
+            "Address": "{{Address}}",
+            "UserName": "{{UserName}}",
+            "GroupName": "",
+            "GroupPlatformID": "",
+            "Properties": [
+              {
+                "Key": "Notes",
+                "Value": "Test User for CyberArk"
+              },
+              {
+                "Key": "Ticket Number",
+                "Value": "CHG100001"
+              },
+              {
+                "Key": "ExtraPass1Name",
+                "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+              },
+              {
+                "Key": "ExtraPass1Folder",
+                "Value": "Root"
+              },
+              {
+                "Key": "ExtraPass1Safe",
+                "Value": "{{Safe}}"
+              },
+              {
+                "Key": "ExtraPass3Name",
+                "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+              },
+              {
+                "Key": "ExtraPass3Folder",
+                "Value": "Root"
+              },
+              {
+                "Key": "ExtraPass3Safe",
+                "Value": "{{Safe}}"
+              },
+              {
+                "Key": "ParamName",
+                "Value": "Parameter value"
+              }
+            ]
+          }
         }
       },
       "required": [
@@ -4667,30 +5233,84 @@
     },
     "Accounts": {
       "title": "Accounts",
+      "example": {
+        "Folder": "{{Folder}}",
+        "AccountName": "{{ObjectName}}",
+        "DeviceType": "Operating System",
+        "PlatformID": "WinDomain",
+        "Address": "{{Address}}",
+        "UserName": "{{UserName}}",
+        "GroupName": "",
+        "GroupPlatformID": "",
+        "Properties": [
+          {
+            "Key": "Notes",
+            "Value": "Test User for CyberArk"
+          },
+          {
+            "Key": "Ticket Number",
+            "Value": "CHG100001"
+          },
+          {
+            "Key": "ExtraPass1Name",
+            "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+          },
+          {
+            "Key": "ExtraPass1Folder",
+            "Value": "Root"
+          },
+          {
+            "Key": "ExtraPass1Safe",
+            "Value": "{{Safe}}"
+          },
+          {
+            "Key": "ExtraPass3Name",
+            "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+          },
+          {
+            "Key": "ExtraPass3Folder",
+            "Value": "Root"
+          },
+          {
+            "Key": "ExtraPass3Safe",
+            "Value": "{{Safe}}"
+          },
+          {
+            "Key": "ParamName",
+            "Value": "Parameter value"
+          }
+        ]
+      },
       "type": "object",
       "properties": {
         "Folder": {
           "description": "",
+          "example": "{{Folder}}",
           "type": "string"
         },
         "AccountName": {
           "description": "",
+          "example": "{{ObjectName}}",
           "type": "string"
         },
         "DeviceType": {
           "description": "",
+          "example": "Operating System",
           "type": "string"
         },
         "PlatformID": {
           "description": "",
+          "example": "WinDomain",
           "type": "string"
         },
         "Address": {
           "description": "",
+          "example": "{{Address}}",
           "type": "string"
         },
         "UserName": {
           "description": "",
+          "example": "{{UserName}}",
           "type": "string"
         },
         "GroupName": {
@@ -4703,6 +5323,44 @@
         },
         "Properties": {
           "description": "",
+          "example": [
+            {
+              "Key": "Notes",
+              "Value": "Test User for CyberArk"
+            },
+            {
+              "Key": "Ticket Number",
+              "Value": "CHG100001"
+            },
+            {
+              "Key": "ExtraPass1Name",
+              "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
+            },
+            {
+              "Key": "ExtraPass1Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass1Safe",
+              "Value": "{{Safe}}"
+            },
+            {
+              "Key": "ExtraPass3Name",
+              "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
+            },
+            {
+              "Key": "ExtraPass3Folder",
+              "Value": "Root"
+            },
+            {
+              "Key": "ExtraPass3Safe",
+              "Value": "{{Safe}}"
+            },
+            {
+              "Key": "ParamName",
+              "Value": "Parameter value"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Property"
@@ -4735,22 +5393,27 @@
       "properties": {
         "DecisionPlatformId": {
           "description": "",
+          "example": "WinLocalAccount",
           "type": "string"
         },
         "DecisionSafeName": {
           "description": "",
+          "example": "{{Safe}}",
           "type": "string"
         },
         "IsAdminUIDFilter": {
           "description": "",
+          "example": "true",
           "type": "string"
         },
         "MachineTypeFilter": {
           "description": "",
+          "example": "Server",
           "type": "string"
         },
         "SystemTypeFilter": {
           "description": "",
+          "example": "Windows",
           "type": "string"
         },
         "UserNameFilter": {
@@ -4780,14 +5443,17 @@
       "properties": {
         "Command": {
           "description": "",
+          "example": "/bin/sh",
           "type": "string"
         },
         "CommandGroup": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "PermissionType": {
           "description": "",
+          "example": "Deny",
           "type": "string"
         },
         "Restrictions": {
@@ -4796,6 +5462,7 @@
         },
         "UserName": {
           "description": "",
+          "example": "{{ACLUserName}}",
           "type": "string"
         }
       },
@@ -4822,7 +5489,15 @@
       "type": "object",
       "properties": {
         "safe": {
-          "$ref": "#/definitions/Safe"
+          "$ref": "#/definitions/Safe",
+          "example": {
+            "SafeName": "{{Safe}}",
+            "Description": "Test, Application, CyberArk, API",
+            "OLACEnabled": false,
+            "ManagingCPM": "PasswordManager",
+            "NumberofVersionsRetention": 5,
+            "NumberofDaysRetention": 7
+          }
         }
       },
       "required": [
@@ -4831,31 +5506,45 @@
     },
     "Safe": {
       "title": "Safe",
+      "example": {
+        "SafeName": "{{Safe}}",
+        "Description": "Test, Application, CyberArk, API",
+        "OLACEnabled": false,
+        "ManagingCPM": "PasswordManager",
+        "NumberofVersionsRetention": 5,
+        "NumberofDaysRetention": 7
+      },
       "type": "object",
       "properties": {
         "SafeName": {
           "description": "",
+          "example": "{{Safe}}",
           "type": "string"
         },
         "Description": {
           "description": "",
+          "example": "Test, Application, CyberArk, API",
           "type": "string"
         },
         "OLACEnabled": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "ManagingCPM": {
           "description": "",
+          "example": "PasswordManager",
           "type": "string"
         },
         "NumberofVersionsRetention": {
           "description": "",
+          "example": 5,
           "type": "integer",
           "format": "int32"
         },
         "NumberofDaysRetention": {
           "description": "",
+          "example": 7,
           "type": "integer",
           "format": "int32"
         }
@@ -4884,7 +5573,15 @@
       "type": "object",
       "properties": {
         "safe": {
-          "$ref": "#/definitions/Safe31"
+          "$ref": "#/definitions/Safe31",
+          "example": {
+            "SafeName": "{{Safe}}",
+            "Description": "Test, Application, CyberArk, API, Update Safe Test",
+            "OLACEnabled": false,
+            "ManagingCPM": "PasswordManager",
+            "NumberOfVersionsRetention": 5,
+            "NumberOfDaysRetention": 7
+          }
         }
       },
       "required": [
@@ -4893,31 +5590,45 @@
     },
     "Safe31": {
       "title": "Safe31",
+      "example": {
+        "SafeName": "{{Safe}}",
+        "Description": "Test, Application, CyberArk, API, Update Safe Test",
+        "OLACEnabled": false,
+        "ManagingCPM": "PasswordManager",
+        "NumberOfVersionsRetention": 5,
+        "NumberOfDaysRetention": 7
+      },
       "type": "object",
       "properties": {
         "SafeName": {
           "description": "",
+          "example": "{{Safe}}",
           "type": "string"
         },
         "Description": {
           "description": "",
+          "example": "Test, Application, CyberArk, API, Update Safe Test",
           "type": "string"
         },
         "OLACEnabled": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "ManagingCPM": {
           "description": "",
+          "example": "PasswordManager",
           "type": "string"
         },
         "NumberOfVersionsRetention": {
           "description": "",
+          "example": 5,
           "type": "integer",
           "format": "int32"
         },
         "NumberOfDaysRetention": {
           "description": "",
+          "example": 7,
           "type": "integer",
           "format": "int32"
         }
@@ -4949,10 +5660,12 @@
       "properties": {
         "MemberName": {
           "description": "",
+          "example": "EPVUserTest",
           "type": "string"
         },
         "SearchIn": {
           "description": "",
+          "example": "ActiveDirectory",
           "type": "string"
         },
         "MembershipExpirationDate": {
@@ -4980,10 +5693,12 @@
       "properties": {
         "Key": {
           "description": "",
+          "example": "UseAccounts",
           "type": "string"
         },
         "Value": {
           "description": "",
+          "example": false,
           "type": "boolean"
         }
       },
@@ -5070,10 +5785,45 @@
       "properties": {
         "ApplicationName": {
           "description": "",
+          "example": "PasswordVault",
           "type": "string"
         },
         "AuthenticationMethods": {
           "description": "",
+          "example": [
+            {
+              "Enabled": true,
+              "Id": "windows"
+            },
+            {
+              "Enabled": false,
+              "Id": "pki"
+            },
+            {
+              "Enabled": true,
+              "Id": "cyberark"
+            },
+            {
+              "Enabled": false,
+              "Id": "oraclesso"
+            },
+            {
+              "Enabled": false,
+              "Id": "rsa"
+            },
+            {
+              "Enabled": true,
+              "Id": "radius"
+            },
+            {
+              "Enabled": true,
+              "Id": "ldap"
+            },
+            {
+              "Enabled": false,
+              "Id": "saml"
+            }
+          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/AuthenticationMethod"
@@ -5081,10 +5831,12 @@
         },
         "ServerId": {
           "description": "",
+          "example": "e10b6fe6-1bea-11e7-8329-000c29ebeaed",
           "type": "string"
         },
         "ServerName": {
           "description": "",
+          "example": "Vault",
           "type": "string"
         }
       },
@@ -5097,14 +5849,20 @@
     },
     "AuthenticationMethod": {
       "title": "AuthenticationMethod",
+      "example": {
+        "Enabled": true,
+        "Id": "windows"
+      },
       "type": "object",
       "properties": {
         "Enabled": {
           "description": "",
+          "example": true,
           "type": "boolean"
         },
         "Id": {
           "description": "",
+          "example": "windows",
           "type": "string"
         }
       },
@@ -5124,14 +5882,17 @@
       "properties": {
         "ExternalVersion": {
           "description": "",
+          "example": "9.9.0",
           "type": "string"
         },
         "InternalVersion": {
           "description": "",
+          "example": "9.90.0.18",
           "type": "string"
         },
         "ServerName": {
           "description": "",
+          "example": "Vault",
           "type": "string"
         }
       },
@@ -5159,42 +5920,52 @@
       "properties": {
         "UserName": {
           "description": "",
+          "example": "{{UserName}}",
           "type": "string"
         },
         "InitialPassword": {
           "description": "",
+          "example": "Cyberark1",
           "type": "string"
         },
         "Email": {
           "description": "",
+          "example": "EPVUserTest@cyberark.local",
           "type": "string"
         },
         "FirstName": {
           "description": "",
+          "example": "REST API",
           "type": "string"
         },
         "LastName": {
           "description": "",
+          "example": "EPVUserTest",
           "type": "string"
         },
         "ChangePasswordOnTheNextLogon": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "ExpiryDate": {
           "description": "",
+          "example": "yyyy-MM-dd",
           "type": "string"
         },
         "UserTypeName": {
           "description": "",
+          "example": "EPVUser",
           "type": "string"
         },
         "Disabled": {
           "description": "",
+          "example": true,
           "type": "boolean"
         },
         "Location": {
           "description": "",
+          "example": "{{Folder}}",
           "type": "string"
         }
       },
@@ -5228,22 +5999,27 @@
       "properties": {
         "NewPassword": {
           "description": "",
+          "example": "Password321",
           "type": "string"
         },
         "Email": {
           "description": "",
+          "example": "John.Doe@CyberArk.com",
           "type": "string"
         },
         "FirstName": {
           "description": "",
+          "example": "John",
           "type": "string"
         },
         "LastName": {
           "description": "",
+          "example": "Doe",
           "type": "string"
         },
         "ChangePasswordOnTheNextLogon": {
           "description": "",
+          "example": true,
           "type": "boolean"
         },
         "ExpiryDate": {
@@ -5252,14 +6028,17 @@
         },
         "UserTypeName": {
           "description": "",
+          "example": "EPVUser",
           "type": "string"
         },
         "Disabled": {
           "description": "",
+          "example": false,
           "type": "boolean"
         },
         "Location": {
           "description": "",
+          "example": "{{Folder}}",
           "type": "string"
         }
       },
@@ -5284,6 +6063,7 @@
       "properties": {
         "Suspended": {
           "description": "",
+          "example": "false",
           "type": "string"
         }
       },
@@ -5300,6 +6080,7 @@
       "properties": {
         "UserName": {
           "description": "",
+          "example": "{{UserName}}",
           "type": "string"
         }
       },
