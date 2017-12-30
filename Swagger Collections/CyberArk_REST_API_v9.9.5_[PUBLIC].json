@@ -208,7 +208,15 @@
           },
           "default": {
             "description": "Internal Server Error",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/ListAccount~1aclerrorresponse"
+            },
+            "examples": {
+              "application/json": {
+                "ErrorCode": "CAWS00001E",
+                "ErrorMessage": "Input parameter AccountAddress is obligatory. Please fix it and try again."
+              }
+            }
           }
         },
         "security": [],
@@ -578,8 +586,7 @@
             "description": ""
           },
           "400": {
-            "description": "Bad Request",
-            "schema": {}
+            "description": "Bad Request"
           }
         },
         "security": [],
@@ -3104,7 +3111,15 @@
           },
           "default": {
             "description": "Internal Server Error",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/LogoErrorResponse"
+            },
+            "examples": {
+              "application/json": {
+                "ErrorCode": "CAWS018E",
+                "ErrorMessage": "Internal error occurred, contact your administrator."
+              }
+            }
           }
         },
         "security": [],
@@ -3179,7 +3194,15 @@
           },
           "403": {
             "description": "Forbidden",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/ServerErrorResponse"
+            },
+            "examples": {
+              "application/json": {
+                "ErrorCode": "CAIWS001E",
+                "ErrorMessage": "Couldn't retrieve session token from request header."
+              }
+            }
           }
         },
         "security": [],
@@ -3776,6 +3799,30 @@
         "UserName"
       ]
     },
+    "ListAccount/aclerrorresponse": {
+      "title": "List Account/ACLErrorResponse",
+      "example": {
+        "ErrorCode": "CAWS00001E",
+        "ErrorMessage": "Input parameter AccountAddress is obligatory. Please fix it and try again."
+      },
+      "type": "object",
+      "properties": {
+        "ErrorCode": {
+          "description": "",
+          "example": "CAWS00001E",
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "description": "",
+          "example": "Input parameter AccountAddress is obligatory. Please fix it and try again.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ErrorCode",
+        "ErrorMessage"
+      ]
+    },
     "ListApplicationsresponse": {
       "title": "List ApplicationsResponse",
       "example": {
@@ -4015,28 +4062,15 @@
       "type": "object",
       "properties": {
         "application": {
-          "$ref": "#/definitions/Application8",
-          "example": {
-            "AppID": "{{AppID}}",
-            "Description": "Testing DevOps Deployments with CyberArk",
-            "Location": "/Applications",
-            "AccessPermittedFrom": 0,
-            "AccessPermittedTo": 23,
-            "ExpirationDate": "",
-            "Disabled": "No",
-            "BusinessOwnerFName": "John",
-            "BusinessOwnerLName": "Doe",
-            "BusinessOwnerEmail": "John.Doe@CyberArk.com",
-            "BusinessOwnerPhone": "555-555-1212"
-          }
+          "$ref": "#/definitions/Application9"
         }
       },
       "required": [
         "application"
       ]
     },
-    "Application8": {
-      "title": "Application8",
+    "Application9": {
+      "title": "Application9",
       "example": {
         "AppID": "{{AppID}}",
         "Description": "Testing DevOps Deployments with CyberArk",
@@ -4335,53 +4369,7 @@
       "type": "object",
       "properties": {
         "account": {
-          "$ref": "#/definitions/Account",
-          "example": {
-            "safe": "{{Safe}}",
-            "platformID": "WinDomain",
-            "address": "{{Address}}",
-            "accountName": "",
-            "password": "Password123",
-            "username": "{{UserName}}",
-            "disableAutoMgmt": "false",
-            "disableAutoMgmtReason": "N/A",
-            "groupName": "",
-            "groupPlatformID": "",
-            "properties": [
-              {
-                "Key": "Port",
-                "Value": "<port>"
-              },
-              {
-                "Key": "ExtraPass1Name",
-                "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
-              },
-              {
-                "Key": "ExtraPass1Folder",
-                "Value": "Root"
-              },
-              {
-                "Key": "ExtraPass1Safe",
-                "Value": "{{Safe}}"
-              },
-              {
-                "Key": "ExtraPass3Name",
-                "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
-              },
-              {
-                "Key": "ExtraPass3Folder",
-                "Value": "Root"
-              },
-              {
-                "Key": "ExtraPass3Safe",
-                "Value": "{{Safe}}"
-              },
-              {
-                "Key": "ParamName",
-                "Value": "Parameter value"
-              }
-            ]
-          }
+          "$ref": "#/definitions/Account"
         }
       },
       "required": [
@@ -4596,31 +4584,7 @@
       "type": "object",
       "properties": {
         "pendingAccount": {
-          "$ref": "#/definitions/PendingAccount",
-          "example": {
-            "UserName": "{{UserName}}",
-            "Address": "{{Address}}",
-            "AccountDiscoveryDate": "2016-12-19T08:19:03Z",
-            "AccountEnabled": "Disabled",
-            "AccountOSGroups": "Domain Admins",
-            "AccountType": "Domain",
-            "Domain": "joe-garcia.local",
-            "PasswordNeverExpires": "false",
-            "OSVersion": "Windows Server 2012 R2",
-            "OU": "Users",
-            "AccountCategory": "Privileged",
-            "UserDisplayName": "CA_EPVTestUser",
-            "AccountDescription": "CyberArk EPV Test User for Web Services",
-            "GID": "",
-            "UID": "",
-            "OSType": "Windows",
-            "DiscoveryPlatformType": "Windows Domain Accounts",
-            "MachineOSFamily": "server",
-            "LastLogonDate": "",
-            "LastPasswordSetDate": "2016-12-19T08:19:03Z",
-            "AccountExpirationDate": "",
-            "AccountCategoryCriteria": "<criteria>"
-          }
+          "$ref": "#/definitions/PendingAccount"
         }
       },
       "required": [
@@ -4943,7 +4907,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Account20"
+            "$ref": "#/definitions/Account21"
           }
         }
       },
@@ -4952,8 +4916,8 @@
         "accounts"
       ]
     },
-    "Account20": {
-      "title": "Account20",
+    "Account21": {
+      "title": "Account21",
       "example": {
         "AccountID": "41_4",
         "InternalProperties": [
@@ -5176,55 +5140,7 @@
       "type": "object",
       "properties": {
         "Accounts": {
-          "$ref": "#/definitions/Accounts",
-          "example": {
-            "Folder": "{{Folder}}",
-            "AccountName": "{{ObjectName}}",
-            "DeviceType": "Operating System",
-            "PlatformID": "WinDomain",
-            "Address": "{{Address}}",
-            "UserName": "{{UserName}}",
-            "GroupName": "",
-            "GroupPlatformID": "",
-            "Properties": [
-              {
-                "Key": "Notes",
-                "Value": "Test User for CyberArk"
-              },
-              {
-                "Key": "Ticket Number",
-                "Value": "CHG100001"
-              },
-              {
-                "Key": "ExtraPass1Name",
-                "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
-              },
-              {
-                "Key": "ExtraPass1Folder",
-                "Value": "Root"
-              },
-              {
-                "Key": "ExtraPass1Safe",
-                "Value": "{{Safe}}"
-              },
-              {
-                "Key": "ExtraPass3Name",
-                "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
-              },
-              {
-                "Key": "ExtraPass3Folder",
-                "Value": "Root"
-              },
-              {
-                "Key": "ExtraPass3Safe",
-                "Value": "{{Safe}}"
-              },
-              {
-                "Key": "ParamName",
-                "Value": "Parameter value"
-              }
-            ]
-          }
+          "$ref": "#/definitions/Accounts"
         }
       },
       "required": [
@@ -5489,15 +5405,7 @@
       "type": "object",
       "properties": {
         "safe": {
-          "$ref": "#/definitions/Safe",
-          "example": {
-            "SafeName": "{{Safe}}",
-            "Description": "Test, Application, CyberArk, API",
-            "OLACEnabled": false,
-            "ManagingCPM": "PasswordManager",
-            "NumberofVersionsRetention": 5,
-            "NumberofDaysRetention": 7
-          }
+          "$ref": "#/definitions/Safe"
         }
       },
       "required": [
@@ -5573,23 +5481,15 @@
       "type": "object",
       "properties": {
         "safe": {
-          "$ref": "#/definitions/Safe31",
-          "example": {
-            "SafeName": "{{Safe}}",
-            "Description": "Test, Application, CyberArk, API, Update Safe Test",
-            "OLACEnabled": false,
-            "ManagingCPM": "PasswordManager",
-            "NumberOfVersionsRetention": 5,
-            "NumberOfDaysRetention": 7
-          }
+          "$ref": "#/definitions/Safe32"
         }
       },
       "required": [
         "safe"
       ]
     },
-    "Safe31": {
-      "title": "Safe31",
+    "Safe32": {
+      "title": "Safe32",
       "example": {
         "SafeName": "{{Safe}}",
         "Description": "Test, Application, CyberArk, API, Update Safe Test",
@@ -5712,15 +5612,15 @@
       "type": "object",
       "properties": {
         "member": {
-          "$ref": "#/definitions/Member36"
+          "$ref": "#/definitions/Member37"
         }
       },
       "required": [
         "member"
       ]
     },
-    "Member36": {
-      "title": "Member36",
+    "Member37": {
+      "title": "Member37",
       "type": "object",
       "properties": {
         "MembershipExpirationDate": {
@@ -5869,6 +5769,54 @@
       "required": [
         "Enabled",
         "Id"
+      ]
+    },
+    "LogoErrorResponse": {
+      "title": "LogoErrorResponse",
+      "example": {
+        "ErrorCode": "CAWS018E",
+        "ErrorMessage": "Internal error occurred, contact your administrator."
+      },
+      "type": "object",
+      "properties": {
+        "ErrorCode": {
+          "description": "",
+          "example": "CAWS018E",
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "description": "",
+          "example": "Internal error occurred, contact your administrator.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ErrorCode",
+        "ErrorMessage"
+      ]
+    },
+    "ServerErrorResponse": {
+      "title": "ServerErrorResponse",
+      "example": {
+        "ErrorCode": "CAIWS001E",
+        "ErrorMessage": "Couldn't retrieve session token from request header."
+      },
+      "type": "object",
+      "properties": {
+        "ErrorCode": {
+          "description": "",
+          "example": "CAIWS001E",
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "description": "",
+          "example": "Couldn't retrieve session token from request header.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ErrorCode",
+        "ErrorMessage"
       ]
     },
     "ServerResponse": {
