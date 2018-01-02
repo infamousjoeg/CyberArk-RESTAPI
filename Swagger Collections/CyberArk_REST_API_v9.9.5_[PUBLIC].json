@@ -431,42 +431,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/PasswordVault/WebServices/PIMServices.svc/Applications?AppID={{AppID}}",
-              "headers": {
-                "Authorization": "{{CyberArkLogonResult}}",
-                "Content-Type": "application/json"
-              }
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "RAW",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Content-Length": "396",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Mon, 05 Jun 2017 18:51:27 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5",
-                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
-                "X-Frame-Options": "SAMEORIGIN",
-                "X-UA-Compatible": "IE=EmulateIE8"
-              },
-              "body": "{\"application\":[{\"AccessPermittedFrom\":0,\"AccessPermittedTo\":24,\"AllowExtendedAuthenticationRestrictions\":false,\"AppID\":\"RESTExamples\",\"BusinessOwnerEmail\":\"john.doecyberark.com\",\"BusinessOwnerFName\":\"John\",\"BusinessOwnerLName\":\"Doe\",\"BusinessOwnerPhone\":\"555-555-1212\",\"Description\":\"AppID for all AIM and REST Examples\",\"Disabled\":false,\"ExpirationDate\":\"null\",\"Location\":\"\\\\Applications\"}]}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "List a Specific Application",
-            "x-testDescription": "This method returns information about a specific application.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users"
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -819,42 +784,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "POST",
-              "uri": "/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
-              "headers": {
-                "Content-Type": "application/json"
-              },
-              "body": "{\r\n  \"username\":\"{{apiUsername}}\",\r\n  \"password\":\"{{apiPassword}}\",\r\n  \"useRadiusAuthentication\":\"false\",\r\n  \"connectionNumber\":\"1\"\r\n}"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "RAW",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Content-Length": "503",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Mon, 05 Jun 2017 17:16:31 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5",
-                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
-                "X-Frame-Options": "SAMEORIGIN",
-                "X-UA-Compatible": "IE=EmulateIE8"
-              },
-              "body": "{\"CyberArkLogonResult\":\"AAEAAAD\\/\\/\\/\\/\\/AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw==\"}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logon",
-            "x-testDescription": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method allows you to set a new password.\r\nYou can define the validity period of a users login for REST API and Mobile applications. After the configured timeout expires, users have to log on again using their username and password.\r\nUsers can authenticate using CyberArk, LDAP or RADIUS authentication.\r\n\r\nNOTE: *connectionNumber* allows the use of multiple accounts with REST.  It requires that a *connectionNumber* be generated and tracked by the script.  It is limited to 100 concurrent sessions.  For unlimited concurrent sessions, please see *Shared Logon Authentication*."
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -902,42 +832,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "POST",
-              "uri": "/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
-              "headers": {
-                "Authorization": "{{CyberArkLogonResult}}",
-                "Content-Type": "application/json"
-              }
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "KEYS",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Content-Length": "2",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Mon, 05 Jun 2017 17:50:00 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5",
-                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
-                "X-Frame-Options": "SAMEORIGIN",
-                "X-UA-Compatible": "IE=EmulateIE8"
-              },
-              "body": "{}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logoff",
-            "x-testDescription": "This method logs off the user and removes the Vault session."
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -1431,38 +1326,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
-              "headers": {
-                "Content-Type": "application/json"
-              }
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "RAW",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache",
-                "Content-Length": "336",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Wed, 20 Sep 2017 21:49:50 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5"
-              },
-              "body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "GetPassword",
-            "x-testDescription": "GetPassword  This service enables applications to retrieve passwords from the\r\nCentral Credential Provider.\r\n\r\n- AppID (REQUIRED)\r\n\t- Specifies the unique ID of the application issuing the password request.\r\n- Safe\r\n\t- Specifies the name of the Safe where the password is stored.\r\n- Folder\r\n\t- Specifies the name of the folder where the password is stored. (Default: Root)\r\n- Object\r\n\t- Specifies the name of the password object to retrieve.\r\n- UserName\r\n\t- Defines search criteria according to the UserName account property.\r\n- Address\r\n\t- Defines search criteria according to the Address account property.\r\n- Database\r\n\t- Defines search criteria according to the Database account property.\r\n- PolicyID\r\n\t- Defines the format that will be used in the setPolicyID method.\r\n- Reason\r\n\t- The reason for retrieving the password.  This reason will be audited in the Credential Provider audit log.\r\n- ConnectionTimeout\r\n\t- The number of seconds that the Central Credential Provider will try to retrieve the password.  The timeout is calculated when the request is sent from the web service to the Vault and returned back to the web service.\r\n\t\t- 30 (Default)\r\n- Query\r\n\t- Defines a free query using account properties, including Safe, folder, and object.  When this method is specified, all other search criteria (Safe/Folder/Object/UserName/Address/PolicyID/Database) are ignored and only the account properties that are specified in the query are passed to the Central Credential Provider in the password request.\r\n- QueryFormat\r\n\t- Defines the query format, which can optionally use regular expressions.\r\n\t- Possible values are:\r\n\t\t- Exact (Default)\r\n\t\t- Regexp\r\n- FailedRequestOnPasswordChange\r\n\t- Whether or not an error will be returned if this web service is called when a password change process is underway.\r\n\t\t- True\r\n\t\t- False (Default)"
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -2014,42 +1878,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
-              "headers": {
-                "Authorization": "{{CyberArkLogonResult}}",
-                "Content-Type": "application/json"
-              }
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "RAW",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Content-Length": "697",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Mon, 05 Jun 2017 17:48:52 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5",
-                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
-                "X-Frame-Options": "SAMEORIGIN",
-                "X-UA-Compatible": "IE=EmulateIE8"
-              },
-              "body": "{\n  \"Count\": 1,\n  \"accounts\": [\n    {\n      \"AccountID\": \"41_4\",\n      \"InternalProperties\": [\n        {\n          \"Key\": \"CPMStatus\",\n          \"Value\": \"success\"\n        },\n        {\n          \"Key\": \"CreationMethod\",\n          \"Value\": \"PVWA\"\n        },\n        {\n          \"Key\": \"RetriesCount\",\n          \"Value\": \"-1\"\n        },\n        {\n          \"Key\": \"LastTask\",\n          \"Value\": \"VerifyTask\"\n        }\n      ],\n      \"Properties\": [\n        {\n          \"Key\": \"Safe\",\n          \"Value\": \"T-APP-CYBR-RESTAPI\"\n        },\n        {\n          \"Key\": \"Folder\",\n          \"Value\": \"Root\"\n        },\n        {\n          \"Key\": \"Name\",\n          \"Value\": \"Operating System-WindowsDomainAccount-cyberark.local-test.user0001\"\n        },\n        {\n          \"Key\": \"UserName\",\n          \"Value\": \"test.user0001\"\n        },\n        {\n          \"Key\": \"PolicyID\",\n          \"Value\": \"WindowsDomainAccount\"\n        },\n        {\n          \"Key\": \"LogonDomain\",\n          \"Value\": \"CYBERARK\"\n        },\n        {\n          \"Key\": \"LastSuccessVerification\",\n          \"Value\": \"1496683713\"\n        },\n        {\n          \"Key\": \"Address\",\n          \"Value\": \"cyberark.local\"\n        },\n        {\n          \"Key\": \"DeviceType\",\n          \"Value\": \"Operating System\"\n        }\n      ]\n    }\n  ]\n}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Get Account Details [v9.3+]",
-            "x-testDescription": "This method returns information about an account. If more than one account meets the search criteria, only the first account will be returned, although the Count output parameter will display the number of accounts that were found.\r\nOnly the following users can access this account:\r\n- Users who are members of the Safe where the account is stored.\r\n- Users who have access to this specific account. For more information about object level access control, refer to Object Level Access Control in the Privileged Account Security Implementation Guide.\r\n- The user who runs this web service requires the following permission in the Safe:\r\n  - List accounts\r\nNotes:\r\n- This method does not display the actual password.\r\n- If ten or more accounts are found, the Count Output parameter will show 10."
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -3045,38 +2874,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/PasswordVault/WebServices/PIMServices.svc/Verify"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "RAW",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Content-Length": "380",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Mon, 05 Jun 2017 18:28:01 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5",
-                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
-                "X-Frame-Options": "SAMEORIGIN",
-                "X-UA-Compatible": "IE=EmulateIE8"
-              },
-              "body": "{\"ApplicationName\":\"PasswordVault\",\"AuthenticationMethods\":[{\"Enabled\":true,\"Id\":\"windows\"},{\"Enabled\":false,\"Id\":\"pki\"},{\"Enabled\":true,\"Id\":\"cyberark\"},{\"Enabled\":false,\"Id\":\"oraclesso\"},{\"Enabled\":false,\"Id\":\"rsa\"},{\"Enabled\":true,\"Id\":\"radius\"},{\"Enabled\":true,\"Id\":\"ldap\"},{\"Enabled\":false,\"Id\":\"saml\"}],\"ServerId\":\"e10b6fe6-1bea-11e7-8329-000c29ebeaed\",\"ServerName\":\"Vault\"}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Verify",
-            "x-testDescription": "This method returns the display name of the Vault configured in the ServerDisplayName configuration parameter."
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -3206,42 +3004,7 @@
           }
         },
         "security": [],
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/PasswordVault/WebServices/PIMServices.svc/Server",
-              "headers": {
-                "Authorization": "{{CyberArkLogonResult}}",
-                "Content-Type": "application/json"
-              }
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "RAW",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Content-Length": "78",
-                "Content-Type": "application/json; charset=utf-8",
-                "Date": "Mon, 05 Jun 2017 18:42:20 GMT",
-                "Expires": "-1",
-                "Pragma": "no-cache",
-                "Server": "Microsoft-IIS/8.5",
-                "Set-Cookie": "CA22222=; path=/PasswordVault/; HttpOnly",
-                "X-Frame-Options": "SAMEORIGIN",
-                "X-UA-Compatible": "IE=EmulateIE8"
-              },
-              "body": "{\"ExternalVersion\":\"9.9.0\",\"InternalVersion\":\"9.90.0.18\",\"ServerName\":\"Vault\"}"
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Server",
-            "x-testDescription": "This method returns the display name of the Vault configured in the ServerDisplayName configuration parameter."
-          }
-        ],
+        "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
