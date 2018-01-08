@@ -3145,7 +3145,7 @@
               "mode": "raw",
               "raw": "{}"
             },
-            "url": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionId}}/Terminate",
+            "url": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{PSMLiveSessionId}}/Terminate",
             "description": "This method terminates a live PSM session."
           },
           "response": []
@@ -4787,127 +4787,127 @@
   ],
   "variable": [
     {
-      "id": "542a9ad6-cc98-4157-a60b-82e7cbce4b17",
+      "id": "50435dba-d01a-4fda-b1eb-66fbcb9f18fb",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "9c0b1713-5aa3-4f59-adff-d5bf6194d10c",
+      "id": "bb860b1a-ccad-41df-9546-a94cdc6396e5",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "e5b976ee-bfaa-472a-a617-3443b69bcd6d",
+      "id": "ece8dfad-78cb-409a-87a4-0715d966bc38",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "17edfa02-8506-4bd5-a6f5-0e3df7772325",
+      "id": "aa1c0aa2-7a0c-441a-b9d8-d6461ecd65a6",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "4f1122e6-b2c6-4b4c-8381-510f93993a3c",
+      "id": "d815c0af-016e-4dc1-b995-132fb7cc2f5e",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "2898ca6c-8e27-4b47-8c28-0082023af490",
+      "id": "a64483e9-3329-4651-8dca-cbbf9dade888",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "a2223685-0d9f-4a98-a01e-a7ebe2e4fa77",
+      "id": "e78e829a-b2db-43eb-aa64-c5c27d275398",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "7bf63569-dd7e-465f-a48f-3f52cd14a61d",
+      "id": "ffa1b941-4f71-44e5-a8fb-72a20ec6bde1",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "3e7b12f6-85ec-4016-95d5-81fa3a6f4f48",
+      "id": "4a894d3b-d153-4979-bd5c-bd2a1de9ecfb",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "b78dcca9-8cc2-4091-bb0e-30535a844c8a",
+      "id": "1af63b47-e9bf-4088-af86-f4f2033d1b4d",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "d0066805-91ca-4f23-9a6b-d477a26175f7",
+      "id": "bafd4687-9c4c-49a4-a5e3-8eff364fc8ea",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "e5c57cc4-358f-4389-8e4a-e847342768b6",
+      "id": "36772530-3164-43bd-937e-8a1e03abebb2",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "b766757d-2c62-446f-913c-132c5c5866cf",
+      "id": "f7088112-7483-4a27-9dd9-e1c2e1d60d2f",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "6180aa65-68ed-4f1d-8433-d2de531eecc8",
+      "id": "27548bac-ba9c-4d82-bef7-0e3338c3982c",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "fa3b4aa0-9b65-40a2-85ef-15170232f9b1",
+      "id": "1276606b-686e-49c5-91b0-e8bd4f0bd464",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "3540d2b7-f966-4112-beb5-68c9f70d2d2b",
+      "id": "51e78391-f739-44e4-8493-29a2fb54be4c",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "fb33cd76-0f4a-4546-abe3-759e77159d9f",
+      "id": "2a456b81-c189-4f60-8b62-b00654d0e186",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "58c7c16c-f7c2-4baf-95a4-57f9794236d0",
+      "id": "a6c77513-78cc-48cd-b4d3-ea175f376eb0",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "955b8111-9e25-47a0-b5ea-09ebf65e96f5",
+      "id": "91aaf808-7475-48c6-a5a2-079fa6c980d9",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "3db88852-ead5-48e1-a33b-44061dcf30e5",
+      "id": "34a024fe-827c-47a1-b218-cf3835ec80af",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "be62ebf6-6b0d-427d-a699-e93f9ec737ca",
+      "id": "4ab950ad-3406-4e36-9387-b1d0e1bcbffa",
       "key": "RequestID",
       "value": "",
       "type": "text"
