@@ -2234,7 +2234,7 @@
         },
         {
           "_postman_id": "b9707d0c-efd7-aa10-42e5-0c610660c403",
-          "name": "Verify Credentials [v9.7+]",
+          "name": "Verify Credentials [v9.7-v9.9.5]",
           "request": {
             "method": "POST",
             "header": [
