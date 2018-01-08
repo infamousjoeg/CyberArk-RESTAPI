@@ -2936,8 +2936,7 @@
             ],
             "body": {},
             "url": {
-              "raw": "https://{{BaseURL}}/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
-              "protocol": "https",
+              "raw": "{{BaseURL}}/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
               "host": [
                 "{{BaseURL}}"
               ],
@@ -2949,51 +2948,35 @@
               "query": [
                 {
                   "key": "Limit",
-                  "value": "25",
-                  "equals": true,
-                  "description": "Determines the number of recordings that are returned in the list"
+                  "value": "25"
                 },
                 {
                   "key": "Sort",
-                  "value": "RiskScore",
-                  "equals": true,
-                  "description": "Sort can be done by each property on the recording file"
+                  "value": "RiskScore"
                 },
                 {
                   "key": "Offset",
-                  "value": "0",
-                  "equals": true,
-                  "description": "Determines which recording results will be returned, according to a specific place in the returned list.  This value defines the recording's place in the list and how many results will be skipped."
+                  "value": "0"
                 },
                 {
                   "key": "Search",
-                  "value": "adm_domain",
-                  "equals": true,
-                  "description": "Returns recordings that are filtered by properties that contain the specified search text"
+                  "value": "adm_domain"
                 },
                 {
                   "key": "Safe",
-                  "value": "{{Safe}}",
-                  "equals": true,
-                  "description": "Returns recordings from a specific safe"
+                  "value": "{{Safe}}"
                 },
                 {
                   "key": "FromTime",
-                  "value": "1514808001",
-                  "equals": true,
-                  "description": "Returns recordings from a specific date"
+                  "value": "1514808001"
                 },
                 {
                   "key": "ToTime",
-                  "value": "1515326399",
-                  "equals": true,
-                  "description": "Returns recordings before a specific date"
+                  "value": "1515326399"
                 },
                 {
                   "key": "Activities",
-                  "value": "regedit",
-                  "equals": true,
-                  "description": "Returns recordings with specific activities"
+                  "value": "regedit"
                 }
               ]
             },
@@ -4709,127 +4692,127 @@
   ],
   "variable": [
     {
-      "id": "1f397434-af89-4505-9529-f4d7197e6c7f",
+      "id": "9799c0d3-59fd-425e-b1cb-455874cd149e",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "1c3cd0ee-ac3b-4500-a504-ecb775fd2cf2",
+      "id": "62c9898b-90b6-4aa0-b729-969c4eb6d692",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "7815e930-ff6f-4c30-8bd1-2166ab386896",
+      "id": "8c109a60-4cd9-4e4d-94a4-7134d538f601",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "35ba61c7-8460-406f-8cbc-20658aa1be1a",
+      "id": "1caab5c6-341b-4e7d-8a29-9875d33b10d0",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "39797bdf-0537-468c-a4f3-11a7cdd90c43",
+      "id": "79369a64-9df6-444d-87a8-fb6329289961",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "6f934fa7-20af-4e7b-b250-22fdd86142ad",
+      "id": "dd2f38dd-e71f-4840-9b27-4557dc1b3446",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "47fffde5-b15a-48f9-96e1-b178d700ee53",
+      "id": "8176bc19-f355-4a6a-8c2d-d966d45c4f71",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "75486f66-ba74-4b5f-8185-ab15fac8fe12",
+      "id": "bbb8c33d-6583-4bf8-9014-13fc791c8430",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "ca4aa456-6c7b-4653-a3ff-b752e3407312",
+      "id": "e783f248-2329-4dc9-a1c6-addd12ec7106",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "cf0d9fdb-9c2b-469b-a82b-ede70623697e",
+      "id": "16cf7133-9244-451f-ad7e-1d7203e19927",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "75921986-ded2-4dee-abb4-d824cd64b5d0",
+      "id": "787976c5-2c90-41d2-8de2-8f8ba6770725",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "b17ab262-c83f-45e9-892e-b2e2734deac7",
+      "id": "542583d4-2df4-4c87-9ff9-5d0fd7dad33a",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "9b6187c4-b9c6-4a42-b006-571702460df8",
+      "id": "7e24d3bc-5546-482a-9294-b60ad1063136",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "0e0a90e5-f186-465f-b81a-78dc3e9e9b88",
+      "id": "ef99a74b-8477-45fb-b1cd-f7af5b7992c9",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "84106d6e-1bb9-49f1-8bc6-2212f635950f",
+      "id": "fef4e845-5c69-4ef5-b286-e6a1d5c607bf",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "b548278c-0f8c-456c-932c-db69982f09e7",
+      "id": "37101ba4-427d-431e-8302-ad9afc551d55",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "cbbc46d6-e365-4df6-9190-6c083616a94b",
+      "id": "8f290946-10d8-45ac-8c3d-a2cfddf1c185",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "06f3f307-d647-4661-b2c0-d50cc61341d4",
+      "id": "b6556b89-6603-4c39-9dc7-9a2e595997af",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "9c568765-a43c-49ef-a25d-9865bfd138e2",
+      "id": "8ef86af6-f21f-473a-a02b-ae202521ff72",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "3a2d234f-8d77-44b4-b4b6-ab04af2422d5",
+      "id": "2d5e84ec-9212-4d6e-86de-88dd318c4e5c",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "0159ca59-0c26-4b25-80c1-c91935d25c34",
+      "id": "836d548f-c11d-4da6-b60b-3787554f2640",
       "key": "RequestID",
       "value": "",
       "type": "text"
