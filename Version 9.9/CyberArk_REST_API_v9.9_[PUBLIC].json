@@ -3008,6 +3008,89 @@
             "description": "This method returns the details of recordings of PSM, PSMP or OPM sessions."
           },
           "response": []
+        },
+        {
+          "_postman_id": "6b0e2286-d260-21ad-0f27-19e738804a17",
+          "name": "Get Live Sessions [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
+              "protocol": "https",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "API",
+                "LiveSessions"
+              ],
+              "query": [
+                {
+                  "key": "Limit",
+                  "value": "25",
+                  "equals": true,
+                  "description": "Determines the number of live sessions that are returned in the list"
+                },
+                {
+                  "key": "Sort",
+                  "value": "RiskScore",
+                  "equals": true,
+                  "description": "This sort can be done by each property on the recording file"
+                },
+                {
+                  "key": "Offset",
+                  "value": "0",
+                  "equals": true,
+                  "description": "Determines which recording results will be returned, according to a specific place in the returned list.  This value defines the recording's place in the list and how many results will be skipped."
+                },
+                {
+                  "key": "Search",
+                  "value": "adm_domain",
+                  "equals": true,
+                  "description": "Returns live sessions that are filtered by properties that contain specified search text"
+                },
+                {
+                  "key": "Safe",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": "Returns live sessions that use accounts from a specific Safe"
+                },
+                {
+                  "key": "FromTime",
+                  "value": "1514808001",
+                  "equals": true,
+                  "description": "Returns live sessions from a specific date"
+                },
+                {
+                  "key": "ToTime",
+                  "value": "1515326399",
+                  "equals": true,
+                  "description": "Returns live sessions before a specific date"
+                },
+                {
+                  "key": "Activities",
+                  "value": "regedit",
+                  "equals": true,
+                  "description": "Returns live sessions with specific activities"
+                }
+              ]
+            },
+            "description": "This method returns details of live sessions."
+          },
+          "response": []
         }
       ]
     },
