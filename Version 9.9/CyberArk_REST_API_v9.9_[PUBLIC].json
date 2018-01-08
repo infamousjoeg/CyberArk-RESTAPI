@@ -2309,7 +2309,7 @@
               "mode": "raw",
               "raw": "{\n\t\"Reason\":\"Automatically connected via CyberArk Web Services on {{$timestamp}}\",\n\t\"TicketingSystemName\": \"ServiceNow\",\n\t\"TicketId\": \"INC123456\",\n\t\"ConnectionComponent\": \"PSM-RDP\",\n\t\"ConnectionParams\": {\n\t\t\"LogonDomain\": {\n\t\t\t\"Value\": \"cyberark.local\",\n\t\t\t\"ShouldSave\": \"true\"\n\t\t},\n\t\t\"AllowMappingLocalDrives\": {\n\t\t\t\"Value\": \"Yes\",\n\t\t\t\"ShouldSave\": \"false\"\n\t\t}\n\t}\n}"
             },
-            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
+            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
             "description": "This method allows you to connect with an account through PSM using an RDP file, by returning RDP settings that can be used with an RDP client application. It requires the PVWA and PSM to be configured for transparent connections through PSM with RDP files.\r\n\r\nFor more information, refer to Configuring the PSM Session User Experience for Connections Through PVWA in the Privileged Account Security Implementation Guide."
           },
           "response": []
@@ -4726,127 +4726,127 @@
   ],
   "variable": [
     {
-      "id": "972e5308-4c07-4feb-aa69-2fc8ef174725",
+      "id": "a3060a84-d99c-4bfc-b8ca-1a66b17fb73c",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "c4dbed5e-3fce-45af-9589-e57d33301747",
+      "id": "b1c803e5-bab7-47d9-9271-9db247a8fc9e",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "0fff2c16-0ddf-48b5-b8c5-dfaa5d8ebb06",
+      "id": "309103ab-20ce-41a9-9a10-8ea904b04115",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "a181ab3e-3127-46af-99d8-76dc5ad7d362",
+      "id": "f598af8d-201c-4f20-b11a-e660297cb4f5",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "eea4a61d-a14e-4154-9ce3-457bba4bada7",
+      "id": "45c28584-1223-47fe-b2e3-0d68fe12109d",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "7dbdd34a-fa9f-4266-bcda-c16828c8261d",
+      "id": "577321ff-e502-46b1-942b-a636ede04f9c",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "97a5f385-53e6-48f8-87d3-dc298df59330",
+      "id": "f066a3ac-6864-4c91-957f-6a69ecaf1e48",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "35a0d256-2118-4955-88c6-dc4dcb20ad87",
+      "id": "92ab52af-cb1e-4b22-85db-9c4bc5787949",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "dd0e7184-5c45-4543-a59d-4b201db6475f",
+      "id": "34a4cd03-71c0-4885-84e7-94d5c81cfa35",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "816dc5a5-008f-4a7a-8210-327261eb905d",
+      "id": "73b27134-b9f5-46cb-9710-80b449511f8d",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "91cca1d7-add5-47f1-8455-2018f3236589",
+      "id": "6ce51cad-7c07-4838-82ed-f50889a163a8",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "30e7ad28-30fd-4943-af54-f786a4d65b8d",
+      "id": "d700278d-dd89-453d-8814-efd117f662ac",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "0e1682e4-0377-4d33-9b1f-80d9cbbabfd9",
+      "id": "f349d96a-ecd6-4869-9ec0-7333f08d162e",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "76384c34-96d6-4b5f-a50c-04c5a5b1893b",
+      "id": "e1c5bc37-b10c-43a5-807d-22eb586a960a",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "f498c95c-8dd9-4443-92ca-2df11fcdc79b",
+      "id": "228e58dd-0d69-49a2-a2ef-916a5b6b0ef3",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "46fdcb06-27d1-4fc2-826d-881658de2f86",
+      "id": "3a0b1d34-2e10-40f7-aee4-fb1ea65af75b",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "78765f46-c020-4d85-945f-f2c3d46afdfb",
+      "id": "e150dd87-b53f-4142-8d1e-3fb61c1f9cc4",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "7bea899f-5c18-4098-8591-d98c15b14424",
+      "id": "c02c0bea-3a43-4561-b857-e223143f4795",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "9868b3ac-9c8d-49ef-916c-86ce9c7ccc28",
+      "id": "abaddbc7-5312-4279-a1e6-474afa0ecd20",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "cf5ae040-aa75-483b-8420-5853b15aecaa",
+      "id": "1bca38e5-a4be-455d-aee7-5fcbd43fce13",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "2f8e7e9d-0a39-4cfd-9f9c-4c76db192481",
+      "id": "b823ccd9-3c8e-4e10-952a-1f475c20309e",
       "key": "RequestID",
       "value": "",
       "type": "text"
