@@ -2839,6 +2839,31 @@
             "description": "This method returns a list of the end user's requests."
           },
           "response": []
+        },
+        {
+          "_postman_id": "8d2b86a7-d276-9752-0c5d-ecba4cfed6b3",
+          "name": "Delete My Request [v9.10+]",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
+            "description": "This method deletes a request made by a user."
+          },
+          "response": []
         }
       ]
     },
