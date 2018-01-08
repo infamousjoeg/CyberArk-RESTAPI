@@ -1,5 +1,4 @@
 {
-  "variables": [],
   "info": {
     "name": "CyberArk REST API v9.9.5 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
@@ -1754,167 +1753,6 @@
           },
           "response": [
             {
-              "id": "80cfb8db-c178-a67a-4be1-abb58038d074",
-              "name": "200 OK",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
-                  "host": [
-                    "{{BaseURL}}"
-                  ],
-                  "path": [
-                    "AIMWebService",
-                    "api",
-                    "Accounts"
-                  ],
-                  "query": [
-                    {
-                      "key": "AppID",
-                      "value": "{{AppID}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "Safe",
-                      "value": "{{Safe}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "Folder",
-                      "value": "{{Folder}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "Object",
-                      "value": "{{ObjectName}}",
-                      "equals": true
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache",
-                  "name": "Cache-Control",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "336",
-                  "name": "Content-Length",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
-                  "key": "Date",
-                  "value": "Wed, 20 Sep 2017 21:49:50 GMT",
-                  "name": "Date",
-                  "description": ""
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1",
-                  "name": "Expires",
-                  "description": ""
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache",
-                  "name": "Pragma",
-                  "description": ""
-                },
-                {
-                  "key": "Server",
-                  "value": "Microsoft-IIS/8.5",
-                  "name": "Server",
-                  "description": ""
-                }
-              ],
-              "cookie": [
-                {
-                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/PasswordVault/",
-                  "secure": false,
-                  "value": "",
-                  "key": "CA22222"
-                },
-                {
-                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/PasswordVault/",
-                  "secure": false,
-                  "value": "",
-                  "key": "CA11111"
-                },
-                {
-                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/PasswordVault/",
-                  "secure": false,
-                  "value": "",
-                  "key": "CA55555"
-                },
-                {
-                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/PasswordVault/",
-                  "secure": false,
-                  "value": "",
-                  "key": "CA33333"
-                },
-                {
-                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/PasswordVault/",
-                  "secure": false,
-                  "value": "Desktop",
-                  "key": "mobileState"
-                },
-                {
-                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/PasswordVault/",
-                  "secure": false,
-                  "value": "ldap",
-                  "key": "CAPreferredAuth"
-                },
-                {
-                  "expires": "Sat Jan 16 2038 11:14:07 GMT+0000 (UTC)",
-                  "httpOnly": true,
-                  "domain": "components.joe-garcia.local",
-                  "path": "/",
-                  "secure": false,
-                  "value": "t2jlmd4i1yjna3morxfbr3pv",
-                  "key": "ASP.NET_SessionId"
-                }
-              ],
-              "responseTime": "240",
-              "body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
-            },
-            {
               "id": "8cc25c81-f593-8d16-da1f-4954650771e1",
               "name": "APPAP004E - Password object matching query was not found",
               "originalRequest": {
@@ -2074,6 +1912,167 @@
               ],
               "responseTime": "1692",
               "body": "{\"ErrorCode\":\"APPAP004E\",\"ErrorMsg\":\"Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password.\"}"
+            },
+            {
+              "id": "80cfb8db-c178-a67a-4be1-abb58038d074",
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": {
+                  "raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+                  "host": [
+                    "{{BaseURL}}"
+                  ],
+                  "path": [
+                    "AIMWebService",
+                    "api",
+                    "Accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "AppID",
+                      "value": "{{AppID}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "Safe",
+                      "value": "{{Safe}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "Folder",
+                      "value": "{{Folder}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "Object",
+                      "value": "{{ObjectName}}",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache",
+                  "name": "Cache-Control",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "336",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 20 Sep 2017 21:49:50 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1",
+                  "name": "Expires",
+                  "description": ""
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache",
+                  "name": "Pragma",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/8.5",
+                  "name": "Server",
+                  "description": ""
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA22222"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA11111"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA55555"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "",
+                  "key": "CA33333"
+                },
+                {
+                  "expires": "Tue Jan 19 2038 05:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "Desktop",
+                  "key": "mobileState"
+                },
+                {
+                  "expires": "Thu Apr 12 2018 19:04:09 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/PasswordVault/",
+                  "secure": false,
+                  "value": "ldap",
+                  "key": "CAPreferredAuth"
+                },
+                {
+                  "expires": "Sat Jan 16 2038 11:14:07 GMT+0000 (UTC)",
+                  "httpOnly": true,
+                  "domain": "components.joe-garcia.local",
+                  "path": "/",
+                  "secure": false,
+                  "value": "t2jlmd4i1yjna3morxfbr3pv",
+                  "key": "ASP.NET_SessionId"
+                }
+              ],
+              "responseTime": "240",
+              "body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
             }
           ]
         }
@@ -2935,6 +2934,28 @@
               ]
             },
             "description": "This method returns information about the Safes in the Vault that meet the criteria specified in the search query."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "80d0702c-25c1-d901-1ed8-d75fedb79a17",
+          "name": "Get Safe Account Groups",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "https://{{BaseURL}}/PasswordVault/API/Safes/{{Safe}}/AccountGroups",
+            "description": "This method returns all the existing account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties"
           },
           "response": []
         }
