@@ -2217,6 +2217,28 @@
             "description": "This method returns a list of all the requests for the confirmer to respond to."
           },
           "response": []
+        },
+        {
+          "_postman_id": "41a6580c-13b2-4dfe-0555-57b69d20ea91",
+          "name": "Get Details of a Request for Confirmation [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}",
+            "description": "This method returns details of a specific request in the Incoming Requests list."
+          },
+          "response": []
         }
       ]
     },
