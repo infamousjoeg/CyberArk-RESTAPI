@@ -2792,6 +2792,53 @@
             "description": "This method creates an access request for a specific account. This account may be either a password account or an SSH Key account."
           },
           "response": []
+        },
+        {
+          "_postman_id": "a997d9a7-1833-2f69-6a82-d0e2dfaaf08f",
+          "name": "Get My Requests [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://{{BaseURL}}/PasswordVault/API/MyRequests?onlywaiting=false&expired=false",
+              "protocol": "https",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "API",
+                "MyRequests"
+              ],
+              "query": [
+                {
+                  "key": "onlywaiting",
+                  "value": "false",
+                  "equals": true,
+                  "description": "[Boolean] Only requests waiting for approval will be listed"
+                },
+                {
+                  "key": "expired",
+                  "value": "false",
+                  "equals": true,
+                  "description": "[Boolean] Expired requests will be included in the list"
+                }
+              ]
+            },
+            "description": "This method returns a list of the end user's requests."
+          },
+          "response": []
         }
       ]
     },
