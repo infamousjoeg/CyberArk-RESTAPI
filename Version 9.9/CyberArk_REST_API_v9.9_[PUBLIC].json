@@ -2293,6 +2293,38 @@
       ]
     },
     {
+      "_postman_id": "33ecc703-44d1-a656-6bda-3d766f4772b7",
+      "name": "Connections [v9.10+]",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "7c64ef3e-152f-373f-0a01-90adb510f638",
+          "name": "Connect Through PSM [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"Reason\":\"Automatically connected via CyberArk Web Services on {{$timestamp}}\",\n\t\"TicketingSystemName\": \"ServiceNow\",\n\t\"TicketId\": \"INC123456\",\n\t\"ConnectionComponent\": \"PSM-RDP\",\n\t\"ConnectionParams\": {\n\t\t\"LogonDomain\": {\n\t\t\t\"Value\": \"cyberark.local\",\n\t\t\t\"ShouldSave\": \"true\"\n\t\t},\n\t\t\"AllowMappingLocalDrives\": {\n\t\t\t\"Value\": \"Yes\",\n\t\t\t\"ShouldSave\": \"false\"\n\t\t}\n\t}\n}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
+            "description": "This method allows you to connect with an account through PSM using an RDP file, by returning RDP settings that can be used with an RDP client application. It requires the PVWA and PSM to be configured for transparent connections through PSM with RDP files.\r\n\r\nFor more information, refer to Configuring the PSM Session User Experience for Connections Through PVWA in the Privileged Account Security Implementation Guide."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "683e0b45-8cee-eeaa-4692-c4e4f3b49ed5",
       "name": "Managing Accounts",
       "description": "",
@@ -4499,38 +4531,6 @@
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
             "description": "This method adds a specific user to an existing user group in the Vault."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "33ecc703-44d1-a656-6bda-3d766f4772b7",
-      "name": "Connections [v9.10+]",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "7c64ef3e-152f-373f-0a01-90adb510f638",
-          "name": "Connect Through PSM [v9.10+]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"Reason\":\"Automatically connected via CyberArk Web Services on {{$timestamp}}\",\n\t\"TicketingSystemName\": \"ServiceNow\",\n\t\"TicketId\": \"INC123456\",\n\t\"ConnectionComponent\": \"PSM-RDP\",\n\t\"ConnectionParams\": {\n\t\t\"LogonDomain\": {\n\t\t\t\"Value\": \"cyberark.local\",\n\t\t\t\"ShouldSave\": \"true\"\n\t\t},\n\t\t\"AllowMappingLocalDrives\": {\n\t\t\t\"Value\": \"Yes\",\n\t\t\t\"ShouldSave\": \"false\"\n\t\t}\n\t}\n}"
-            },
-            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
-            "description": "This method allows you to connect with an account through PSM using an RDP file, by returning RDP settings that can be used with an RDP client application. It requires the PVWA and PSM to be configured for transparent connections through PSM with RDP files.\r\n\r\nFor more information, refer to Configuring the PSM Session User Experience for Connections Through PVWA in the Privileged Account Security Implementation Guide."
           },
           "response": []
         }
