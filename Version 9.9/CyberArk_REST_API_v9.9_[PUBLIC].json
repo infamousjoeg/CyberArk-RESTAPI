@@ -2547,6 +2547,35 @@
       ]
     },
     {
+      "_postman_id": "f7606f58-e7b9-41e7-a882-e557a497d9c7",
+      "name": "Managing Platforms",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "09e41950-19bc-ec46-0341-0b599426634e",
+          "name": "Get Platform Details [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "https://{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}",
+            "description": "This method retrieves details of a specified platform from the Vault."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "9499db3e-3c5d-c994-6855-da24bdee06d0",
       "name": "Onboarding Rules [v9.8+]",
       "description": "",
@@ -4030,35 +4059,6 @@
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
             "description": "This method adds a specific user to an existing user group in the Vault."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "f7606f58-e7b9-41e7-a882-e557a497d9c7",
-      "name": "Managing Platforms",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "09e41950-19bc-ec46-0341-0b599426634e",
-          "name": "Get Platform Details [v9.10+]",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {},
-            "url": "https://{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}",
-            "description": "This method retrieves details of a specified platform from the Vault."
           },
           "response": []
         }
