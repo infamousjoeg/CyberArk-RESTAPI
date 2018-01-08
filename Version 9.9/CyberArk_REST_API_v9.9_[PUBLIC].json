@@ -2521,6 +2521,31 @@
           "response": []
         },
         {
+          "_postman_id": "09e74b59-d061-b70d-683d-84d93ae7dd6d",
+          "name": "Change Credentials in the Vault [v10]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ChangeCredsForGroup\":\"true\",\n\t\"AutoGenerate\":\"true\",\n\t\"NewCredentials\": \"\"\n}"
+            },
+            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Update",
+            "description": "This method enables users to set the account's credentials and change it in the Vault.\r\n\r\nThis will not affect the credentials on the target device.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Update password value"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "b9707d0c-efd7-aa10-42e5-0c610660c403",
           "name": "Verify Credentials [v9.7-v9.9.5]",
           "request": {
@@ -2929,31 +2954,6 @@
               ]
             },
             "description": "This method returns the activities of a specific account that is identified by its account ID."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "09e74b59-d061-b70d-683d-84d93ae7dd6d",
-          "name": "Change Credentials in the Vault [v10]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ChangeCredsForGroup\":\"true\",\n\t\"AutoGenerate\":\"true\",\n\t\"NewCredentials\": \"\"\n}"
-            },
-            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Update",
-            "description": "This method enables users to set the account's credentials and change it in the Vault.\r\n\r\nThis will not affect the credentials on the target device.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Update password value"
           },
           "response": []
         }
@@ -4762,127 +4762,127 @@
   ],
   "variable": [
     {
-      "id": "7d167f11-8d49-4141-8f9f-d07a890534c0",
+      "id": "ca7e00f7-aeea-48d8-a4aa-5b2bcb446998",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "a7e54b22-7089-484b-b55e-0ca2b7519c9f",
+      "id": "c9fb65e8-cc02-4ecf-80cb-3332d58e9f6b",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "302fa12d-aca6-430f-aa88-7b662cb97e98",
+      "id": "8ae78f12-7d74-4ff8-8292-9264dca50a2d",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "9e566889-2db3-4aa2-83d6-8a55fd5d5574",
+      "id": "458da480-bb86-43b3-8a40-17713c0d9b8f",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "8f9ba5b2-9a52-4ae8-bc04-9def9f970d5c",
+      "id": "4c2d5494-6aac-4abc-9bac-f7067b65637a",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "8545f46b-cb86-497e-a155-fb68fe01c3eb",
+      "id": "8ee12a96-258e-487b-89de-bf2b70be6d85",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "e96a84b9-f194-4f13-bb6f-cf71046769b4",
+      "id": "b987219b-55ca-4322-9afc-dc5b16ed460a",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "9a168eaf-0ba3-4bcc-b8df-8fa2189b80aa",
+      "id": "f0a48c14-9a29-426a-b0ff-9ecaf60232dd",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "3ea2312e-6180-49cb-bd41-042bbdf80e54",
+      "id": "6a5ca56b-41f0-4e0d-bd6e-73ae238d0b92",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "e562748a-09e7-4f84-b077-48e4c04ded6a",
+      "id": "957e3e2f-8102-4e75-a2c1-7595ecff42ad",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "6a061f71-1ae8-42e0-9879-f8649304ce94",
+      "id": "ffebd182-41ae-4c46-943a-af9223151596",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "2fc6a3e3-9211-4bea-aa8a-18a811d50a09",
+      "id": "3f73b34e-1e1c-4c54-b329-3b8f01af0f72",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "7b945c62-2403-469c-b93e-111a277ecc4b",
+      "id": "57d65328-f962-4652-b1fe-ba11c88e1928",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "d843fe1e-6081-4b4e-be2d-1351197067bd",
+      "id": "04f6084a-083e-4348-b341-b35b7a160c04",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "a58c62a2-ad89-44d1-a7e4-ae5fe9c8e9c4",
+      "id": "c89fbd0a-e6fb-4bbc-94f0-03f4472aaca3",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "4bef54c1-2112-46bc-9406-332b2d4f50d4",
+      "id": "af595bef-7b78-48ad-86f2-d0101b91f218",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "723ff57b-c59e-471e-b449-d4e97087acb4",
+      "id": "07b3c2a8-21ab-479e-91e5-971427a43758",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "c2d94655-0c14-47d3-8e96-5337b0007d9c",
+      "id": "454b2e1c-fac5-44d6-ac4b-8660f608fcc7",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "e4a57e1d-8006-4728-84ff-21a0ae307702",
+      "id": "d60e6e45-954e-49a6-915a-d5d6e9af99b5",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "02912fca-113c-46e2-aa8c-1257d814bcf0",
+      "id": "513a1127-551a-4484-958f-7632ffc17281",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "d1a5201e-8e6a-4c89-936b-0bf9f9d10f61",
+      "id": "9e171863-d4b4-4986-a327-ce6a7d18471f",
       "key": "RequestID",
       "value": "",
       "type": "text"
