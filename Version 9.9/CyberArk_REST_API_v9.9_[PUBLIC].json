@@ -2416,6 +2416,31 @@
           "response": []
         },
         {
+          "_postman_id": "a0744a5e-cae5-2045-6309-80df53dc6d8e",
+          "name": "Get Password Value [v10]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"Reason\":\"Automatically retrieved password by CyberArk Web Services on {{$timestamp}}\",\n\t\"TicketingSystemName\": \"ServiceNow\",\n\t\"TicketId\": \"INC123456\",\n\t\"Version\": \"1\",\n\t\"ActionType\": \"Connect\",\n\t\"IsUse\": \"false\",\n\t\"Machine\": \"client.cyberark.local\"\n}"
+            },
+            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Retrieve",
+            "description": "This method enables users to retrieve the password or SSH key of an existing account that is identified by its Account ID. It enables users to specify a reason and ticket ID, if required.\r\n\r\nThis method can be used from v10 and replaces the Get Account Value method."
+          },
+          "response": []
+        },
+        {
           "_postman_id": "65b3e135-79fd-d949-5304-3e203b2ed7f5",
           "name": "Change Credentials [v9.3+]",
           "request": {
@@ -2879,31 +2904,6 @@
               ]
             },
             "description": "This method returns the activities of a specific account that is identified by its account ID."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "a0744a5e-cae5-2045-6309-80df53dc6d8e",
-          "name": "Get Password Value [v10]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"Reason\":\"Automatically retrieved password by CyberArk Web Services on {{$timestamp}}\",\n\t\"TicketingSystemName\": \"ServiceNow\",\n\t\"TicketId\": \"INC123456\",\n\t\"Version\": \"1\",\n\t\"ActionType\": \"Connect\",\n\t\"IsUse\": \"false\",\n\t\"Machine\": \"client.cyberark.local\"\n}"
-            },
-            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Retrieve",
-            "description": "This method enables users to retrieve the password or SSH key of an existing account that is identified by its Account ID. It enables users to specify a reason and ticket ID, if required.\r\n\r\nThis method can be used from v10 and replaces the Get Account Value method."
           },
           "response": []
         }
@@ -4712,127 +4712,127 @@
   ],
   "variable": [
     {
-      "id": "845d3912-9849-4950-930e-9246d1427ea2",
+      "id": "18cf0bc4-04e1-4145-b63e-c807c9c81c6d",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "6456bba3-9e89-4bbe-9db7-622786cb5110",
+      "id": "647959bd-f32c-4298-97a3-ef753e93a7e0",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "c027a968-7594-4f23-9e09-3dcb617fd288",
+      "id": "7d934701-9cf2-47eb-90b1-afbadc5e0aa2",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "d5a42458-a7b9-4dbc-94ab-24f242c78017",
+      "id": "4e704689-c924-4166-bdb1-4dd96b68057d",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "339a7ce1-ccef-41c9-8074-ed7501d7d8f2",
+      "id": "f3362526-ea0b-4982-a96c-9921d946ba13",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "633ad931-3072-4bca-8729-c40f7c2adb56",
+      "id": "aa1a2162-44e2-427a-b681-5cd2dd939567",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "07db1e61-4846-418b-a96b-a2b0e1971a16",
+      "id": "44ec7e87-2f3f-4933-881e-8173a1109b3b",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "84b5e748-9cf1-4e4f-b592-67dadc4e8126",
+      "id": "a0b0330a-1fff-43ed-90d5-86484b51b715",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "e5ee5593-a459-4697-9d62-212175c8d356",
+      "id": "f00c6447-a0b2-466c-8ae1-88e4a2295df6",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "97643725-4ea7-4fd3-9ea3-43396b5af8ce",
+      "id": "8c4d06fa-1862-486e-a6c0-d607b23d65c1",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "2e77815a-97da-488a-9b68-0519851042fc",
+      "id": "0baaaef6-7e5d-4143-8b32-0a4075fea5d6",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "f1f3197d-7aa6-409e-8370-769d2a5df16f",
+      "id": "162d1b80-fde8-4122-a559-7552a67298d0",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "e222699c-2140-4341-acc1-cb014d480a37",
+      "id": "3b5e2638-86c6-4150-88dd-b4107e596769",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "66ce1b00-84cc-4412-a01a-02d0eb480cd3",
+      "id": "16ef1e23-2036-4fe9-b352-3f0cf653bdcf",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "6c98687f-1886-4371-bf7b-bef16d5e48ad",
+      "id": "3acd4151-39ca-4396-8a7e-7382d3aa350e",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "3acc9402-f457-4070-9a18-166bd9f2be6f",
+      "id": "c374196c-0754-4bef-aa0e-aa4442f813f7",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "7e320be7-2c97-4ed9-b146-bedb8ad943d0",
+      "id": "1972ed1f-041e-47e1-9841-c82eb467ea6d",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "98fbca6e-9dfc-4362-b935-d27fc740a9e9",
+      "id": "6c919043-f5e5-4a33-b583-c0c82748656f",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "b90a47f9-f28b-46e4-a7ba-0986eeb0f661",
+      "id": "57ce7744-bdad-4379-ac40-d75979ef7167",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "2b01c65b-7ca0-4754-a584-fda1538a6039",
+      "id": "08e9fb19-08d6-4767-b716-66426c6f6ca9",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "bc66dde5-2a32-4206-a0d5-71e667353a8e",
+      "id": "a5f5e983-adf6-480b-a005-0133f095d3c6",
       "key": "RequestID",
       "value": "",
       "type": "text"
