@@ -2283,6 +2283,31 @@
           "response": []
         },
         {
+          "_postman_id": "89f391b1-603b-0a70-7079-4703445f6558",
+          "name": "Reconcile Credentials [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
+            "description": "This method marks an account for automatic reconciliation by the CPM.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "d777b281-01fa-dad5-5cd0-516fdc98dbf5",
           "name": "Get Account Details [v9.3+]",
           "request": {
@@ -2591,31 +2616,6 @@
               ]
             },
             "description": "This method returns the activities of a specific account that is identified by its account ID."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "89f391b1-603b-0a70-7079-4703445f6558",
-          "name": "Reconcile Credentials [v9.10+]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{}"
-            },
-            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
-            "description": "This method marks an account for automatic reconciliation by the CPM.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
           },
           "response": []
         }
