@@ -2239,6 +2239,31 @@
             "description": "This method returns details of a specific request in the Incoming Requests list."
           },
           "response": []
+        },
+        {
+          "_postman_id": "ee2cd8e6-9660-606e-f4a6-5e49cbf36bb8",
+          "name": "Confirm Request [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"Reason\":\"Automatically accepted via CyberArk Web Services on {{$timestamp}}\"\n}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Confirm",
+            "description": "This method enables a request confirmer to confirm a single request, identified by its request ID."
+          },
+          "response": []
         }
       ]
     },
