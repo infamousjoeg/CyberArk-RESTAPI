@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "CyberArk REST API v9.9.5 [PUBLIC]",
+    "name": "CyberArk REST API v9.10 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v9.9\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v9.10\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.5.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -4708,6 +4708,28 @@
           "response": []
         }
       ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "daae1e76-14e2-473d-893a-7d421e5baacc",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "68bbb54e-6d09-43b8-b273-7ae8fb536009",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
     }
   ]
 }
