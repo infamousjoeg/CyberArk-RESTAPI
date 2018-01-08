@@ -2764,6 +2764,38 @@
       ]
     },
     {
+      "_postman_id": "37cea0fc-66e8-3c3f-9ea8-93c8a339c9d2",
+      "name": "My Requests",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "e72ed065-6720-102c-7986-fadb88a8e49e",
+          "name": "Create a Request [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"AccountID\":\"{{AccountID}}\",\n\t\"Reason\":\"Access requested via CyberArk Web Services\",\n\t\"TicketingSystemName\":\"ServiceNow\"\n}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/MyRequests",
+            "description": "This method creates an access request for a specific account. This account may be either a password account or an SSH Key account."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "9499db3e-3c5d-c994-6855-da24bdee06d0",
       "name": "Onboarding Rules [v9.8+]",
       "description": "",
@@ -4247,38 +4279,6 @@
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
             "description": "This method adds a specific user to an existing user group in the Vault."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "37cea0fc-66e8-3c3f-9ea8-93c8a339c9d2",
-      "name": "My Requests",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "e72ed065-6720-102c-7986-fadb88a8e49e",
-          "name": "Create a Request [v9.10+]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"AccountID\":\"{{AccountID}}\",\n\t\"Reason\":\"Access requested via CyberArk Web Services\",\n\t\"TicketingSystemName\":\"ServiceNow\"\n}"
-            },
-            "url": "https://{{BaseURL}}/PasswordVault/API/MyRequests",
-            "description": "This method creates an access request for a specific account. This account may be either a password account or an SSH Key account."
           },
           "response": []
         }
