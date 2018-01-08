@@ -2264,6 +2264,31 @@
             "description": "This method enables a request confirmer to confirm a single request, identified by its request ID."
           },
           "response": []
+        },
+        {
+          "_postman_id": "087c47f1-c0e5-0e74-0b3c-a05c9d331f1a",
+          "name": "Reject Request [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"Reason\":\"Rejected automatically by CyberArk Web Services on {{$timestamp}}\"\n}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Reject",
+            "description": "This method enables a request confirmer to reject a single request, identified by its request ID."
+          },
+          "response": []
         }
       ]
     },
