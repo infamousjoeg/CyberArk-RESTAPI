@@ -2167,6 +2167,60 @@
       ]
     },
     {
+      "_postman_id": "9c3590b7-0e3e-b509-56f8-434ba8bc8f8d",
+      "name": "Confirm Requests",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "662ec8be-bbfd-8ef1-813a-2a485483457f",
+          "name": "Get Incoming Request List [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
+              "protocol": "https",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "API",
+                "IncomingRequests"
+              ],
+              "query": [
+                {
+                  "key": "onlywaiting",
+                  "value": "false",
+                  "equals": true,
+                  "description": "[Boolean] Only requests waiting for approval will be listed"
+                },
+                {
+                  "key": "expired",
+                  "value": "false",
+                  "equals": true,
+                  "description": "[Boolean] Expired requests will be included in the list"
+                }
+              ]
+            },
+            "description": "This method returns a list of all the requests for the confirmer to respond to."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "683e0b45-8cee-eeaa-4692-c4e4f3b49ed5",
       "name": "Managing Accounts",
       "description": "",
@@ -4373,60 +4427,6 @@
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
             "description": "This method adds a specific user to an existing user group in the Vault."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "9c3590b7-0e3e-b509-56f8-434ba8bc8f8d",
-      "name": "Confirm Requests",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "662ec8be-bbfd-8ef1-813a-2a485483457f",
-          "name": "Get Incoming Request List [v9.10+]",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
-              "protocol": "https",
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "API",
-                "IncomingRequests"
-              ],
-              "query": [
-                {
-                  "key": "onlywaiting",
-                  "value": "false",
-                  "equals": true,
-                  "description": "[Boolean] Only requests waiting for approval will be listed"
-                },
-                {
-                  "key": "expired",
-                  "value": "false",
-                  "equals": true,
-                  "description": "[Boolean] Expired requests will be included in the list"
-                }
-              ]
-            },
-            "description": "This method returns a list of all the requests for the confirmer to respond to."
           },
           "response": []
         }
