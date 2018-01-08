@@ -4034,6 +4034,12 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "f7606f58-e7b9-41e7-a882-e557a497d9c7",
+      "name": "Managing Platforms",
+      "description": "",
+      "item": []
     }
   ]
 }
