@@ -2568,6 +2568,31 @@
             "description": "This method returns the activities of a specific account that is identified by its account ID."
           },
           "response": []
+        },
+        {
+          "_postman_id": "8c89be56-a8f8-dafb-9d48-81e2606d3b52",
+          "name": "Verify Credentials [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Verify",
+            "description": "This method marks an account for verification by the CPM, and can be used in versions from v9.10.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+          },
+          "response": []
         }
       ]
     },
