@@ -2939,7 +2939,7 @@
         },
         {
           "_postman_id": "80d0702c-25c1-d901-1ed8-d75fedb79a17",
-          "name": "Get Safe Account Groups",
+          "name": "Get Safe Account Groups [v9.10+]",
           "request": {
             "method": "GET",
             "header": [
