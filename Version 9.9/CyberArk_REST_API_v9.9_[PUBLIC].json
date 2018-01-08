@@ -123,6 +123,31 @@
             "description": "This method returns all the members of an existing account group. These accounts can be either password accounts or SSH Key accounts.\n\n__NOTE: All members of account groups must be stored in the same Safe as the group itself.__\n\nThe user performing this task must have the following permissions in the Safe:\n\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders"
           },
           "response": []
+        },
+        {
+          "_postman_id": "85d81eb5-9d0a-0221-e5bc-3a51511d62ac",
+          "name": "Delete Member from Account Group [v9.10+]",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members/{{AccountID}}",
+            "description": "This method removes an account member from an account group. This account can be either a password account or an SSH Key account.\r\n\r\nThe user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
+          },
+          "response": []
         }
       ]
     },
