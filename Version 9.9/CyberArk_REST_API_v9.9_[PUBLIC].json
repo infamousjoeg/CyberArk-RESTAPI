@@ -2543,6 +2543,31 @@
             "description": "This method returns the activities of a specific account that is identified by its account ID."
           },
           "response": []
+        },
+        {
+          "_postman_id": "b66f6a77-bcf7-efe2-9345-d055f33b9d5b",
+          "name": "Change Credentials Immediately [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ChangeEntireGroup\":\"true\"\n}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Change",
+            "description": "This method marks an account for an immediate credentials change by the CPM to a new random value.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+          },
+          "response": []
         }
       ]
     },
