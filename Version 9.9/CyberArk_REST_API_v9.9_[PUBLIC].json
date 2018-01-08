@@ -2496,6 +2496,31 @@
           "response": []
         },
         {
+          "_postman_id": "57ab0cca-a141-a30f-a8bb-4fbefe9e7b43",
+          "name": "Change Credentials and Set Next Password [v10]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ChangeImmediately\":\"true\",\n\t\"NewCredentials\":\"Cyberark1\"\n}"
+            },
+            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/SetNextPassword",
+            "description": "This method enables users to set the account's credentials to use for the next CPM change.\r\n\r\nThe user who runs this web service requires the following permissions in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n* Specify next password value"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "b9707d0c-efd7-aa10-42e5-0c610660c403",
           "name": "Verify Credentials [v9.7-v9.9.5]",
           "request": {
@@ -2904,31 +2929,6 @@
               ]
             },
             "description": "This method returns the activities of a specific account that is identified by its account ID."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "57ab0cca-a141-a30f-a8bb-4fbefe9e7b43",
-          "name": "Change Credentials and Set Next Password [v10]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ChangeImmediately\":\"true\",\n\t\"NewCredentials\":\"Cyberark1\"\n}"
-            },
-            "url": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/SetNextPassword",
-            "description": "This method enables users to set the account's credentials to use for the next CPM change.\r\n\r\nThe user who runs this web service requires the following permissions in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n* Specify next password value"
           },
           "response": []
         }
@@ -4737,127 +4737,127 @@
   ],
   "variable": [
     {
-      "id": "549bd496-dd5e-4c86-ba64-0d810a6b3d04",
+      "id": "f011285a-c1bc-4a9b-9195-6ed67e081eef",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "05eecd11-3ad9-4114-8ada-eedf49c4d3eb",
+      "id": "d6ab1284-a5b7-4fa8-8304-348c836ec3ee",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "bccd8892-e620-483b-b019-fe1295239836",
+      "id": "912982f4-d5df-4e29-b48a-9c6859b3ac4c",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "9ffc0772-506f-435e-b9a4-390749f83327",
+      "id": "d16173f8-0c1d-4d14-8ba1-92ebf05a856b",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "606abe60-71d1-43bc-8228-1e27aee7c4ea",
+      "id": "60a973b0-97c3-4ff1-98be-7f184af19642",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "199f113a-126c-428e-994e-98d35bfb28dc",
+      "id": "977e4db3-689b-4429-b7aa-bd534acb721f",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "a7d0d1dc-17e7-4001-b03a-fe3b47cfcd6d",
+      "id": "60ec28df-71b4-4df5-ab5b-d602b7d86fb0",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "2ed0a119-5de0-413c-99a1-efbc90fbe249",
+      "id": "4fb45200-fe29-4ec6-a5a9-6a3a2118b1ef",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "c5c28f47-5972-4186-b8ee-cc72c4ec3c36",
+      "id": "fc028974-4279-47bc-b48e-0849f84bc376",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "54e5d47d-bb77-4646-94f0-7cd4ab2dcec4",
+      "id": "031c45d8-d2db-4fab-af58-b17faca1cfcf",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "7da68622-acb8-42ca-b22f-d8ed44007781",
+      "id": "827be214-1ea0-48b5-8c43-1a75f82f31c9",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "a227747a-1d5f-4a47-b44f-ea71e7a45e45",
+      "id": "32d4df29-a4cc-4654-b38c-a5b53dab444b",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "2b6a48a4-7b35-4348-ab67-7c726b49e03a",
+      "id": "1ca1eb8d-54d5-40c0-bd6f-98836450db3c",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "4b4f6bc2-b9f6-4cc3-8fcf-ff34c9f205cb",
+      "id": "d6487cab-6454-4211-aa20-f69eb158bc9c",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "81054cb7-40ec-4d11-a475-08a670d482ab",
+      "id": "2072a87e-d262-4674-a722-cea68d775826",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "0b632289-9bf6-4229-9203-cc8f7a3c9dbd",
+      "id": "75949146-7990-4ba2-be8c-49e3c2b001b1",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "6402a0a5-6846-49d4-a115-4cad6b818c73",
+      "id": "60bd9753-79c1-4fdb-95da-8f6f5088a242",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "5fe5dd04-f5b4-4f30-abd2-36a67754f6af",
+      "id": "741091fb-71f4-4a22-83a3-59ca46d11ca7",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "9a6ecc1f-b905-4035-b387-2db1cb670b6d",
+      "id": "f5d2e8c1-5914-4b10-a166-ed1f202e6fd8",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "44802ad6-f06e-4d80-ad37-2265c7f2dc12",
+      "id": "fcc5b2c2-e553-4d90-9804-0cee8ed5a61c",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "e30dee09-cb1b-4490-b662-7888f8fb524c",
+      "id": "97a0787d-9fc4-4605-83d2-8995f4ef6c1b",
       "key": "RequestID",
       "value": "",
       "type": "text"
