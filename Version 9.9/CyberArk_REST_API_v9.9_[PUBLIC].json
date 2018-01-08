@@ -2253,7 +2253,7 @@
               "raw": "{}"
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/VerifyCredentials",
-            "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations"
+            "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n\r\n__This endpoint has been deprecated past v9.9.5__"
           },
           "response": []
         },
