@@ -157,74 +157,6 @@
       "description": "",
       "item": [
         {
-          "_postman_id": "f5423de0-57ea-1277-b8ff-ec3af4de2c30",
-          "name": "Add Account/ACL",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"Command\":\"/bin/sh\",\n\t\"CommandGroup\":false,\n\t\"PermissionType\":\"Deny\",\n\t\"Restrictions\":\"\",\n\t\"UserName\":\"*\"\n}"
-            },
-            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
-            "description": "This method adds a new privileged command rule to the account."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "7105a23e-72b1-8635-3e7c-138657a1f088",
-          "name": "Delete Account/ACL",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
-              "host": [
-                "{{BaseURL}}"
-              ],
-              "path": [
-                "PasswordVault",
-                "WebServices",
-                "PIMServices.svc",
-                "Account",
-                "{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
-                "PrivilegedCommands",
-                ""
-              ],
-              "query": [
-                {
-                  "key": "id",
-                  "value": "1",
-                  "equals": true
-                }
-              ]
-            },
-            "description": "This method deletes privileged commands rules associated with the account."
-          },
-          "response": []
-        },
-        {
           "_postman_id": "b468f5e6-7745-58fe-4b1b-5f9f149cbeee",
           "name": "List Account/ACL",
           "request": {
@@ -440,6 +372,74 @@
               "body": "{\"ErrorCode\":\"CAWS00001E\",\"ErrorMessage\":\"Input parameter AccountAddress is obligatory. Please fix it and try again.\"}"
             }
           ]
+        },
+        {
+          "_postman_id": "f5423de0-57ea-1277-b8ff-ec3af4de2c30",
+          "name": "Add Account/ACL",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"Command\":\"/bin/sh\",\n\t\"CommandGroup\":false,\n\t\"PermissionType\":\"Deny\",\n\t\"Restrictions\":\"\",\n\t\"UserName\":\"*\"\n}"
+            },
+            "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
+            "description": "This method adds a new privileged command rule to the account."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7105a23e-72b1-8635-3e7c-138657a1f088",
+          "name": "Delete Account/ACL",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "WebServices",
+                "PIMServices.svc",
+                "Account",
+                "{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
+                "PrivilegedCommands",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "This method deletes privileged commands rules associated with the account."
+          },
+          "response": []
         }
       ]
     },
