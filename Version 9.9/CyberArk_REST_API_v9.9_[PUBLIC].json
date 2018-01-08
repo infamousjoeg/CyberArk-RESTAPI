@@ -2864,6 +2864,28 @@
             "description": "This method deletes a request made by a user."
           },
           "response": []
+        },
+        {
+          "_postman_id": "2ca140b4-9405-3641-79a4-0f8b4859deea",
+          "name": "Get Details of My Requests [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "https://{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
+            "description": "This method returns details of all the requests in My Requests list."
+          },
+          "response": []
         }
       ]
     },
