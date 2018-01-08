@@ -60,6 +60,47 @@
             "description": "This method adds an account as a member to an existing account group.  The account can contain either a password or SSH key.  All members of an account group must be stored in the same Safe as the group itself.\n\nTo add an account as a member to an account group, users require the following permissions to the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n\n**Note:** _The following characters are not support in URL values in the Body:_ **+ & % #**"
           },
           "response": []
+        },
+        {
+          "_postman_id": "ec7d53fe-c447-76b5-a0f7-907dc92bf770",
+          "name": "Get Account Group by Safe [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://{{BaseURL}}/PasswordVault/API/AccountGroups?Safe={{Safe}}",
+              "protocol": "https",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "PasswordVault",
+                "API",
+                "AccountGroups"
+              ],
+              "query": [
+                {
+                  "key": "Safe",
+                  "value": "{{Safe}}",
+                  "equals": true,
+                  "description": "Safe to return Account Groups info from"
+                }
+              ]
+            },
+            "description": "This method returns all the account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
+          },
+          "response": []
         }
       ]
     },
