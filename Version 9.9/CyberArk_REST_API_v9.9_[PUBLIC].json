@@ -101,6 +101,28 @@
             "description": "This method returns all the account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
           },
           "response": []
+        },
+        {
+          "_postman_id": "0c438a6f-868c-42ff-4921-a11c805c8919",
+          "name": "Get Account Group Members [v9.10+]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "https://{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members",
+            "description": "This method returns all the members of an existing account group. These accounts can be either password accounts or SSH Key accounts.\n\n__NOTE: All members of account groups must be stored in the same Safe as the group itself.__\n\nThe user performing this task must have the following permissions in the Safe:\n\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders"
+          },
+          "response": []
         }
       ]
     },
