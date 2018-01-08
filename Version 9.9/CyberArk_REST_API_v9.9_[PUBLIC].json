@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "CyberArk REST API v9.10 [PUBLIC]",
+    "name": "CyberArk REST API v10 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
     "description": "All available requests in CyberArk Privileged Account Security Web Services v9.10\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.5.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -4574,7 +4574,29 @@
             ],
             "body": {},
             "url": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringDetails/{{ComponentsID}}",
-            "description": "This method returns details about specific components and all their installed instances, and system health information for each one."
+            "description": "This method returns details about specific components and all their installed instances, and system health information for each one.\n\n_Valid ComponentsID values: PVWA/SessionManagement/CPM/AIM_"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7d3203c1-69bb-927f-5cee-ea22b513d164",
+          "name": "System Summary [v10]",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringSummary",
+            "description": "This method returns consolidated information about the Vault, PVWA, CPM, PSM/PSMP, and AIM, including all clients that are relevant to each specific component."
           },
           "response": []
         }
@@ -4816,127 +4838,127 @@
   ],
   "variable": [
     {
-      "id": "2c95bb14-615d-410b-a17f-215f2bc40cfd",
+      "id": "52ac219d-91bf-4c23-9223-e3bacaaf3ce4",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "2cd3ee5d-e064-4d06-90b1-166c9153d218",
+      "id": "ae139967-9b81-4250-bdd7-a8e214d21410",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "221b5c0d-1168-47f0-9ebe-642d7c1aa02e",
+      "id": "5e41ed54-2e12-4395-b5e2-f872ba80a8e6",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "09914efb-b364-40e7-ae78-5e24194ffb47",
+      "id": "456da588-0510-4fc4-b682-d2bc0c84a885",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "ab763ecd-5f7b-4c81-9703-c4a5c7f9b9e7",
+      "id": "5b746ae2-2058-4f44-8790-44a8b59fd58f",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "b1cac44f-8717-49e1-a3a2-68048a2594fb",
+      "id": "31f16c42-5f8b-4c6a-a3c9-98464d6bec10",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "b73cc5b6-2202-4cab-8969-c1258f335084",
+      "id": "8849e1c9-2bec-41e2-a355-7d072f6d0299",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "3edbe1fe-a94a-467a-b24b-c667e12f25c7",
+      "id": "79d7050f-6151-420c-a68a-2dd79587b47a",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "dec489cf-60a7-4183-8631-b4fe8dd21132",
+      "id": "ffd6b504-ff21-475b-9819-a4dca107bb88",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "61a521f6-aa7a-4ae3-8ddf-82ae3225c287",
+      "id": "0178b115-d02e-4a4a-8e81-d0def4c6a08a",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "02c6ab32-de7e-4321-afe3-2700a9114114",
+      "id": "88ac9679-d23c-400c-9789-184c760b063a",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "c0260413-9c71-4c7c-9943-5680f052b255",
+      "id": "356f599e-7a7f-4d91-9c7a-8bc51bd6ff50",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "660df368-6bd3-48d2-ab88-6a1cc8c79724",
+      "id": "45edac48-b64e-43ad-9429-5e429ca3ae05",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "c9295a80-a090-4d61-adfc-15a20aa9007e",
+      "id": "b1e9236a-8bfa-4b37-bd6f-86b5606f10d4",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "4c94ac32-eb81-44a3-ad21-b64ddd7ded81",
+      "id": "0eb61aa8-c522-4473-82ab-874ed835a43b",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "23e9833c-81b0-45b8-a038-c0432b3ffe1a",
+      "id": "2769be77-874f-4c1c-926f-391cf666fec3",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "f4412e1b-602c-46aa-9f74-4c80b45a2d49",
+      "id": "4f309fed-6abc-4633-88e5-7cffdbf331d6",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "9e352f36-9d1c-4e8e-b775-822caaaa7ac5",
+      "id": "d3142690-997f-4a72-8ed4-899864cc53b8",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "f41fb999-5582-4997-bb1b-b028fea5cd85",
+      "id": "50022d1b-6cb1-457a-8d65-dec7e6819efa",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "cc7a8f1e-a870-480d-a9cf-4975c0c736e5",
+      "id": "878d6a69-a4fe-4aef-96e8-698a27334314",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "0c321e36-f32b-47dc-8c22-bde5842cfb8d",
+      "id": "5610b9b1-baee-44f3-9e68-9919d4b3d76f",
       "key": "RequestID",
       "value": "",
       "type": "text"
