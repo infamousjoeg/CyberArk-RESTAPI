@@ -1323,6 +1323,18 @@
                 "PasswordChangeInProcess": "False"
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/GetPasswordErrorResponse"
+            },
+            "examples": {
+              "application/json": {
+                "ErrorCode": "APPAP004E",
+                "ErrorMsg": "Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password."
+              }
+            }
           }
         },
         "security": [],
@@ -3992,6 +4004,30 @@
         "PublicSSHKey"
       ]
     },
+    "GetPasswordErrorResponse": {
+      "title": "GetPasswordErrorResponse",
+      "example": {
+        "ErrorCode": "APPAP004E",
+        "ErrorMsg": "Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password."
+      },
+      "type": "object",
+      "properties": {
+        "ErrorCode": {
+          "description": "",
+          "example": "APPAP004E",
+          "type": "string"
+        },
+        "ErrorMsg": {
+          "description": "",
+          "example": "Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ErrorCode",
+        "ErrorMsg"
+      ]
+    },
     "GetPasswordResponse": {
       "title": "GetPasswordResponse",
       "example": {
@@ -4670,7 +4706,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Account21"
+            "$ref": "#/definitions/Account22"
           }
         }
       },
@@ -4679,8 +4715,8 @@
         "accounts"
       ]
     },
-    "Account21": {
-      "title": "Account21",
+    "Account22": {
+      "title": "Account22",
       "example": {
         "AccountID": "41_4",
         "InternalProperties": [
@@ -5244,15 +5280,15 @@
       "type": "object",
       "properties": {
         "safe": {
-          "$ref": "#/definitions/Safe32"
+          "$ref": "#/definitions/Safe33"
         }
       },
       "required": [
         "safe"
       ]
     },
-    "Safe32": {
-      "title": "Safe32",
+    "Safe33": {
+      "title": "Safe33",
       "example": {
         "SafeName": "{{Safe}}",
         "Description": "Test, Application, CyberArk, API, Update Safe Test",
@@ -5375,15 +5411,15 @@
       "type": "object",
       "properties": {
         "member": {
-          "$ref": "#/definitions/Member37"
+          "$ref": "#/definitions/Member38"
         }
       },
       "required": [
         "member"
       ]
     },
-    "Member37": {
-      "title": "Member37",
+    "Member38": {
+      "title": "Member38",
       "type": "object",
       "properties": {
         "MembershipExpirationDate": {
