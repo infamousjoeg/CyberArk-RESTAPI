@@ -2578,6 +2578,31 @@
           "response": []
         },
         {
+          "_postman_id": "157b9db2-8beb-fe09-1e55-63bd50550047",
+          "name": "Check-In Exclusive Account [v9.10+]",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{CyberArkLogonResult}}",
+                "description": "Session Authorization Token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
+            "description": "This method checks an exclusive account into the Vault.\r\n\r\n* If the account is managed automatically by the CPM, after it is checked in, the password is changed immediately.\r\n* If the account is managed manually, a notification is sent to a user who is authorized to change the password. The account is checked in automatically after it has been changed.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "b7c3d022-7007-4f23-e2b1-c614cfe6bd85",
           "name": "List Activity by ID [v9.7+]",
           "request": {
@@ -2616,31 +2641,6 @@
               ]
             },
             "description": "This method returns the activities of a specific account that is identified by its account ID."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "157b9db2-8beb-fe09-1e55-63bd50550047",
-          "name": "Check-In Exclusive Account [v9.10+]",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{CyberArkLogonResult}}",
-                "description": "Session Authorization Token"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{}"
-            },
-            "url": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
-            "description": "This method checks an exclusive account into the Vault.\r\n\r\n* If the account is managed automatically by the CPM, after it is checked in, the password is changed immediately.\r\n* If the account is managed manually, a notification is sent to a user who is authorized to change the password. The account is checked in automatically after it has been changed.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
           },
           "response": []
         }
