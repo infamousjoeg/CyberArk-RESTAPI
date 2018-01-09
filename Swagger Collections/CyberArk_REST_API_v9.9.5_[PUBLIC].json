@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "CyberArk REST API v9.9.5 [PUBLIC]",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v9.9\n\nTo use Environment Variables, please select \"No Environment\" from the upper-right corner and select \"CyberArk Environment v9.9.template\" before clicking \"Run in Postman\".\n\nNOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues.",
+    "title": "CyberArk REST API v10 [PUBLIC]",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
     "license": {
       "name": "MIT",
       "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
@@ -133,6 +133,192 @@
           },
           {
             "name": "GroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/AccountGroups": {
+      "get": {
+        "description": "This method returns all the account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders",
+        "summary": "Get Account Group by Safe [v9.10+]",
+        "tags": [
+          "Account Groups [v9.9.5+]"
+        ],
+        "operationId": "PasswordVaultAPIAccountGroupsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Safe",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/API/AccountGroups?Safe={{Safe}}",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get Account Group by Safe [v9.10+]",
+            "x-testDescription": "This method returns all the account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/AccountGroups/{GroupName}/Members": {
+      "get": {
+        "description": "This method returns all the members of an existing account group. These accounts can be either password accounts or SSH Key accounts.\n\n__NOTE: All members of account groups must be stored in the same Safe as the group itself.__\n\nThe user performing this task must have the following permissions in the Safe:\n\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders",
+        "summary": "Get Account Group Members [v9.10+]",
+        "tags": [
+          "Account Groups [v9.9.5+]"
+        ],
+        "operationId": "PasswordVaultAPIAccountGroupsMembersByGroupNameGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "GroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/AccountGroups/{GroupName}/Members/{AccountID}": {
+      "delete": {
+        "description": "This method removes an account member from an account group. This account can be either a password account or an SSH Key account.\r\n\r\nThe user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders",
+        "summary": "Delete Member from Account Group [v9.10+]",
+        "tags": [
+          "Account Groups [v9.9.5+]"
+        ],
+        "operationId": "PasswordVaultAPIAccountGroupsMembersByGroupNameAndAccountIDDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "GroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1347,6 +1533,308 @@
         }
       }
     },
+    "/PasswordVault/API/IncomingRequests": {
+      "get": {
+        "description": "This method returns a list of all the requests for the confirmer to respond to.",
+        "summary": "Get Incoming Request List [v9.10+]",
+        "tags": [
+          "Confirm Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIIncomingRequestsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "onlywaiting",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "description": ""
+          },
+          {
+            "name": "expired",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get Incoming Request List [v9.10+]",
+            "x-testDescription": "This method returns a list of all the requests for the confirmer to respond to."
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/IncomingRequests/{RequestID}": {
+      "get": {
+        "description": "This method returns details of a specific request in the Incoming Requests list.",
+        "summary": "Get Details of a Request for Confirmation [v9.10+]",
+        "tags": [
+          "Confirm Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIIncomingRequestsByRequestIDGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "RequestID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/IncomingRequests/{RequestID}/Confirm": {
+      "post": {
+        "description": "This method enables a request confirmer to confirm a single request, identified by its request ID.",
+        "summary": "Confirm Request [v9.10+]",
+        "tags": [
+          "Confirm Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIIncomingRequestsConfirmByRequestIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConfirmRequest[v9.10+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "RequestID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/IncomingRequests/{RequestID}/Reject": {
+      "post": {
+        "description": "This method enables a request confirmer to reject a single request, identified by its request ID.",
+        "summary": "Reject Request [v9.10+]",
+        "tags": [
+          "Confirm Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIIncomingRequestsRejectByRequestIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RejectRequest[v9.10+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "RequestID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Accounts/{AccountID}/PSMConnect": {
+      "post": {
+        "description": "This method allows you to connect with an account through PSM using an RDP file, by returning RDP settings that can be used with an RDP client application. It requires the PVWA and PSM to be configured for transparent connections through PSM with RDP files.\r\n\r\nFor more information, refer to Configuring the PSM Session User Experience for Connections Through PVWA in the Privileged Account Security Implementation Guide.",
+        "summary": "Connect Through PSM [v9.10+]",
+        "tags": [
+          "Connections [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIAccountsPSMConnectByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConnectThroughPsm[v9.10+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/PasswordVault/WebServices/PIMServices.svc/Account": {
       "post": {
         "description": "This method adds a new privileged account to the Vault.",
@@ -1605,7 +2093,7 @@
     "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/Credentials": {
       "get": {
         "description": "This method enables users to retrieve the password of an existing account that is identified by its Account ID.\r\n- This web service will not return SSH Keys. If the request was sent for an SSH key, the following error will be returned: \"Failed to get the credentials of <AccountID>. Reason: The account is of type SSH Key.\"\r\n- This web service will not be able to retrieve the password if a reason is required (according to its effective Master Policy), and an error will be returned.",
-        "summary": "Get Account Value [v9.7+]",
+        "summary": "Get Account Value [v9.7-9.10]",
         "tags": [
           "Managing Accounts"
         ],
@@ -1614,6 +2102,64 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Accounts/{AccountID}/Password/Retrieve": {
+      "post": {
+        "description": "This method enables users to retrieve the password or SSH key of an existing account that is identified by its Account ID. It enables users to specify a reason and ticket ID, if required.\r\n\r\nThis method can be used from v10 and replaces the Get Account Value method.",
+        "summary": "Get Password Value [v10]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsPasswordRetrieveByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetPasswordValue[v10]request"
+            }
+          },
           {
             "name": "Authorization",
             "in": "header",
@@ -1716,14 +2262,304 @@
         }
       }
     },
+    "/PasswordVault/API/Accounts/{AccountID}/Change": {
+      "post": {
+        "description": "This method marks an account for an immediate credentials change by the CPM to a new random value.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations",
+        "summary": "Change Credentials Immediately [v9.10+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsChangeByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ChangeCredentialsImmediately[v9.10+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Accounts/{AccountID}/SetNextPassword": {
+      "post": {
+        "description": "This method enables users to set the account's credentials to use for the next CPM change.\r\n\r\nThe user who runs this web service requires the following permissions in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n* Specify next password value",
+        "summary": "Change Credentials and Set Next Password [v10]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsSetNextPasswordByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ChangeCredentialsAndSetNextPassword[v10]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Accounts/{AccountID}/Password/Update": {
+      "post": {
+        "description": "This method enables users to set the account's credentials and change it in the Vault.\r\n\r\nThis will not affect the credentials on the target device.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Update password value",
+        "summary": "Change Credentials in the Vault [v10]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsPasswordUpdateByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ChangeCredentialsInTheVault[v10]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/VerifyCredentials": {
       "post": {
-        "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations",
-        "summary": "Verify Credentials [v9.7+]",
+        "description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n\r\n__This endpoint has been deprecated past v9.9.5__",
+        "summary": "Verify Credentials [v9.7-v9.9.5]",
         "tags": [
           "Managing Accounts"
         ],
         "operationId": "PasswordVaultWebServicesPIMServicesSvcAccountsVerifyCredentialsByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Accounts/{AccountID}/Verify": {
+      "post": {
+        "description": "This method marks an account for verification by the CPM, and can be used in versions from v9.10.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations",
+        "summary": "Verify Credentials [v9.10+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsVerifyByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Accounts/{AccountID}/Reconcile": {
+      "post": {
+        "description": "This method marks an account for automatic reconciliation by the CPM.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations",
+        "summary": "Reconcile Credentials [v9.10+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsReconcileByAccountIDPost",
         "produces": [
           "application/json"
         ],
@@ -1899,6 +2735,64 @@
         }
       }
     },
+    "/PasswordVault/API/Accounts/{AccountID}/CheckIn": {
+      "post": {
+        "description": "This method checks an exclusive account into the Vault.\r\n\r\n* If the account is managed automatically by the CPM, after it is checked in, the password is changed immediately.\r\n* If the account is managed manually, a notification is sent to a user who is authorized to change the password. The account is checked in automatically after it has been changed.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations",
+        "summary": "Check-In Exclusive Account [v9.10+]",
+        "tags": [
+          "Managing Accounts"
+        ],
+        "operationId": "PasswordVaultAPIAccountsCheckInByAccountIDPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/PasswordVault/WebServices/PIMServices.svc/Accounts/{AccountID}/Activities": {
       "get": {
         "description": "This method returns the activities of a specific account that is identified by its account ID.",
@@ -1934,6 +2828,620 @@
           },
           {
             "name": "AccountID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Platforms/{PlatformName}": {
+      "get": {
+        "description": "This method retrieves details of a specified platform from the Vault.",
+        "summary": "Get Platform Details [v9.10+]",
+        "tags": [
+          "Managing Platforms [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIPlatformsByPlatformNameGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "PlatformName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/Recordings": {
+      "get": {
+        "description": "This method returns the details of recordings of PSM, PSMP or OPM sessions.",
+        "summary": "Get Recordings [v9.10+]",
+        "tags": [
+          "Monitor Sessions [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIRecordingsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Limit",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Sort",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Offset",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Search",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "FromTime",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "ToTime",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Activities",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get Recordings [v9.10+]",
+            "x-testDescription": "This method returns the details of recordings of PSM, PSMP or OPM sessions."
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/LiveSessions": {
+      "get": {
+        "description": "This method returns details of live sessions.",
+        "summary": "Get Live Sessions [v9.10+]",
+        "tags": [
+          "Monitor Sessions [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPILiveSessionsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Limit",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Sort",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Offset",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Search",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "FromTime",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "ToTime",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Activities",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/API/LiveSessions?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get Live Sessions [v9.10+]",
+            "x-testDescription": "This method returns details of live sessions."
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/LiveSessions/{PSMLiveSessionId}/Terminate": {
+      "post": {
+        "description": "This method terminates a live PSM session.",
+        "summary": "Terminate Live Session [v10]",
+        "tags": [
+          "Monitor Sessions [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPILiveSessionsTerminateByPSMLiveSessionIdPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "PSMLiveSessionId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/MyRequests": {
+      "get": {
+        "description": "This method returns a list of the end user's requests.",
+        "summary": "Get My Requests [v9.10+]",
+        "tags": [
+          "My Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIMyRequestsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "onlywaiting",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "description": ""
+          },
+          {
+            "name": "expired",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/API/MyRequests?onlywaiting=false&expired=false",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get My Requests [v9.10+]",
+            "x-testDescription": "This method returns a list of the end user's requests."
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "This method creates an access request for a specific account. This account may be either a password account or an SSH Key account.",
+        "summary": "Create a Request [v9.10+]",
+        "tags": [
+          "My Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIMyRequestsPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateARequest[v9.10+]request"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/PasswordVault/API/MyRequests",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "{{CyberArkLogonResult}}"
+              },
+              "body": "{\n\t\"AccountID\":\"{{AccountID}}\",\n\t\"Reason\":\"Access requested via CyberArk Web Services\",\n\t\"TicketingSystemName\":\"ServiceNow\"\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Create a Request [v9.10+]",
+            "x-testDescription": "This method creates an access request for a specific account. This account may be either a password account or an SSH Key account."
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/MyRequests/{RequestID}": {
+      "get": {
+        "description": "This method returns details of all the requests in My Requests list.",
+        "summary": "Get Details of My Requests [v9.10+]",
+        "tags": [
+          "My Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIMyRequestsByRequestIDGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "RequestID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "This method deletes a request made by a user.",
+        "summary": "Delete My Request [v9.10+]",
+        "tags": [
+          "My Requests [v9.10+]"
+        ],
+        "operationId": "PasswordVaultAPIMyRequestsByRequestIDDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "RequestID",
             "in": "path",
             "required": true,
             "type": "string",
@@ -2600,6 +4108,55 @@
         }
       }
     },
+    "/PasswordVault/API/Safes/{Safe}/AccountGroups": {
+      "get": {
+        "description": "This method returns all the existing account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties",
+        "summary": "Get Safe Account Groups [v9.10+]",
+        "tags": [
+          "Safe Management"
+        ],
+        "operationId": "PasswordVaultAPISafesAccountGroupsBySafeGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/PasswordVault/WebServices/PIMServices.svc/Safes/{Safe}/Members": {
       "get": {
         "description": "This method returns a list of the members of the Safe. The user performing this task must have the following permissions in the Safe:\r\n- View Safe Members",
@@ -3017,6 +4574,120 @@
         },
         "security": [],
         "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/ComponentsMonitoringDetails/{ComponentsID}": {
+      "get": {
+        "description": "This method returns details about specific components and all their installed instances, and system health information for each one.\n\n_Valid ComponentsID values: PVWA/SessionManagement/CPM/AIM_",
+        "summary": "System Details [v10]",
+        "tags": [
+          "System Health [v10]"
+        ],
+        "operationId": "PasswordVaultAPIComponentsMonitoringDetailsByComponentsIDGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "ComponentsID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/PasswordVault/API/ComponentsMonitoringSummary": {
+      "get": {
+        "description": "This method returns consolidated information about the Vault, PVWA, CPM, PSM/PSMP, and AIM, including all clients that are relevant to each specific component.",
+        "summary": "System Summary [v10]",
+        "tags": [
+          "System Health [v10]"
+        ],
+        "operationId": "PasswordVaultAPIComponentsMonitoringSummaryGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/PasswordVault/API/ComponentsMonitoringSummary",
+              "headers": {
+                "Authorization": "{{CyberArkLogonResult}}",
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "System Summary [v10]",
+            "x-testDescription": "This method returns consolidated information about the Vault, PVWA, CPM, PSM/PSMP, and AIM, including all clients that are relevant to each specific component."
+          }
+        ],
         "x-operation-settings": {
           "CollectParameters": false,
           "AllowDynamicQueryParameters": false,
@@ -3530,6 +5201,30 @@
         "AccountID"
       ]
     },
+    "ListAccount/aclerrorresponse": {
+      "title": "List Account/ACLErrorResponse",
+      "example": {
+        "ErrorCode": "CAWS00001E",
+        "ErrorMessage": "Input parameter AccountAddress is obligatory. Please fix it and try again."
+      },
+      "type": "object",
+      "properties": {
+        "ErrorCode": {
+          "description": "",
+          "example": "CAWS00001E",
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "description": "",
+          "example": "Input parameter AccountAddress is obligatory. Please fix it and try again.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ErrorCode",
+        "ErrorMessage"
+      ]
+    },
     "AddAccount/aclrequest": {
       "title": "Add Account/ACLRequest",
       "example": {
@@ -3572,30 +5267,6 @@
         "PermissionType",
         "Restrictions",
         "UserName"
-      ]
-    },
-    "ListAccount/aclerrorresponse": {
-      "title": "List Account/ACLErrorResponse",
-      "example": {
-        "ErrorCode": "CAWS00001E",
-        "ErrorMessage": "Input parameter AccountAddress is obligatory. Please fix it and try again."
-      },
-      "type": "object",
-      "properties": {
-        "ErrorCode": {
-          "description": "",
-          "example": "CAWS00001E",
-          "type": "string"
-        },
-        "ErrorMessage": {
-          "description": "",
-          "example": "Input parameter AccountAddress is obligatory. Please fix it and try again.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "ErrorCode",
-        "ErrorMessage"
       ]
     },
     "ListApplicationsresponse": {
@@ -4115,6 +5786,166 @@
         "PasswordChangeInProcess"
       ]
     },
+    "ConfirmRequest[v9.10+]request": {
+      "title": "Confirm Request [v9.10+]Request",
+      "example": {
+        "Reason": "Automatically accepted via CyberArk Web Services on 1515499767"
+      },
+      "type": "object",
+      "properties": {
+        "Reason": {
+          "description": "",
+          "example": "Automatically accepted via CyberArk Web Services on 1515499767",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Reason"
+      ]
+    },
+    "RejectRequest[v9.10+]request": {
+      "title": "Reject Request [v9.10+]Request",
+      "example": {
+        "Reason": "Rejected automatically by CyberArk Web Services on 1515499767"
+      },
+      "type": "object",
+      "properties": {
+        "Reason": {
+          "description": "",
+          "example": "Rejected automatically by CyberArk Web Services on 1515499767",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Reason"
+      ]
+    },
+    "ConnectThroughPsm[v9.10+]request": {
+      "title": "Connect Through PSM [v9.10+]Request",
+      "example": {
+        "Reason": "Automatically connected via CyberArk Web Services on 1515499767",
+        "TicketingSystemName": "ServiceNow",
+        "TicketId": "INC123456",
+        "ConnectionComponent": "PSM-RDP",
+        "ConnectionParams": {
+          "LogonDomain": {
+            "Value": "cyberark.local",
+            "ShouldSave": "true"
+          },
+          "AllowMappingLocalDrives": {
+            "Value": "Yes",
+            "ShouldSave": "false"
+          }
+        }
+      },
+      "type": "object",
+      "properties": {
+        "Reason": {
+          "description": "",
+          "example": "Automatically connected via CyberArk Web Services on 1515499767",
+          "type": "string"
+        },
+        "TicketingSystemName": {
+          "description": "",
+          "example": "ServiceNow",
+          "type": "string"
+        },
+        "TicketId": {
+          "description": "",
+          "example": "INC123456",
+          "type": "string"
+        },
+        "ConnectionComponent": {
+          "description": "",
+          "example": "PSM-RDP",
+          "type": "string"
+        },
+        "ConnectionParams": {
+          "$ref": "#/definitions/ConnectionParams"
+        }
+      },
+      "required": [
+        "Reason",
+        "TicketingSystemName",
+        "TicketId",
+        "ConnectionComponent",
+        "ConnectionParams"
+      ]
+    },
+    "ConnectionParams": {
+      "title": "ConnectionParams",
+      "example": {
+        "LogonDomain": {
+          "Value": "cyberark.local",
+          "ShouldSave": "true"
+        },
+        "AllowMappingLocalDrives": {
+          "Value": "Yes",
+          "ShouldSave": "false"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "LogonDomain": {
+          "$ref": "#/definitions/LogonDomain"
+        },
+        "AllowMappingLocalDrives": {
+          "$ref": "#/definitions/AllowMappingLocalDrives"
+        }
+      },
+      "required": [
+        "LogonDomain",
+        "AllowMappingLocalDrives"
+      ]
+    },
+    "LogonDomain": {
+      "title": "LogonDomain",
+      "example": {
+        "Value": "cyberark.local",
+        "ShouldSave": "true"
+      },
+      "type": "object",
+      "properties": {
+        "Value": {
+          "description": "",
+          "example": "cyberark.local",
+          "type": "string"
+        },
+        "ShouldSave": {
+          "description": "",
+          "example": "true",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Value",
+        "ShouldSave"
+      ]
+    },
+    "AllowMappingLocalDrives": {
+      "title": "AllowMappingLocalDrives",
+      "example": {
+        "Value": "Yes",
+        "ShouldSave": "false"
+      },
+      "type": "object",
+      "properties": {
+        "Value": {
+          "description": "",
+          "example": "Yes",
+          "type": "string"
+        },
+        "ShouldSave": {
+          "description": "",
+          "example": "false",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Value",
+        "ShouldSave"
+      ]
+    },
     "AddAccount[v9.0+]request": {
       "title": "Add Account [v9.0+]Request",
       "example": {
@@ -4550,6 +6381,65 @@
         "AccountCategoryCriteria"
       ]
     },
+    "GetPasswordValue[v10]request": {
+      "title": "Get Password Value [v10]Request",
+      "example": {
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1515499767",
+        "TicketingSystemName": "ServiceNow",
+        "TicketId": "INC123456",
+        "Version": "1",
+        "ActionType": "Connect",
+        "IsUse": "false",
+        "Machine": "client.cyberark.local"
+      },
+      "type": "object",
+      "properties": {
+        "Reason": {
+          "description": "",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1515499767",
+          "type": "string"
+        },
+        "TicketingSystemName": {
+          "description": "",
+          "example": "ServiceNow",
+          "type": "string"
+        },
+        "TicketId": {
+          "description": "",
+          "example": "INC123456",
+          "type": "string"
+        },
+        "Version": {
+          "description": "",
+          "example": "1",
+          "type": "string"
+        },
+        "ActionType": {
+          "description": "",
+          "example": "Connect",
+          "type": "string"
+        },
+        "IsUse": {
+          "description": "",
+          "example": "false",
+          "type": "string"
+        },
+        "Machine": {
+          "description": "",
+          "example": "client.cyberark.local",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Reason",
+        "TicketingSystemName",
+        "TicketId",
+        "Version",
+        "ActionType",
+        "IsUse",
+        "Machine"
+      ]
+    },
     "ChangeCredentials[v9.3+]request": {
       "title": "Change Credentials [v9.3+]Request",
       "example": {
@@ -4565,6 +6455,77 @@
       },
       "required": [
         "ChangeCredsForGroup"
+      ]
+    },
+    "ChangeCredentialsImmediately[v9.10+]request": {
+      "title": "Change Credentials Immediately [v9.10+]Request",
+      "example": {
+        "ChangeEntireGroup": "true"
+      },
+      "type": "object",
+      "properties": {
+        "ChangeEntireGroup": {
+          "description": "",
+          "example": "true",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ChangeEntireGroup"
+      ]
+    },
+    "ChangeCredentialsAndSetNextPassword[v10]request": {
+      "title": "Change Credentials and Set Next Password [v10]Request",
+      "example": {
+        "ChangeImmediately": "true",
+        "NewCredentials": "Cyberark1"
+      },
+      "type": "object",
+      "properties": {
+        "ChangeImmediately": {
+          "description": "",
+          "example": "true",
+          "type": "string"
+        },
+        "NewCredentials": {
+          "description": "",
+          "example": "Cyberark1",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ChangeImmediately",
+        "NewCredentials"
+      ]
+    },
+    "ChangeCredentialsInTheVault[v10]request": {
+      "title": "Change Credentials in the Vault [v10]Request",
+      "example": {
+        "ChangeCredsForGroup": "true",
+        "AutoGenerate": "true",
+        "NewCredentials": ""
+      },
+      "type": "object",
+      "properties": {
+        "ChangeCredsForGroup": {
+          "description": "",
+          "example": "true",
+          "type": "string"
+        },
+        "AutoGenerate": {
+          "description": "",
+          "example": "true",
+          "type": "string"
+        },
+        "NewCredentials": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ChangeCredsForGroup",
+        "AutoGenerate",
+        "NewCredentials"
       ]
     },
     "GetAccountDetails[v9.3+]response": {
@@ -4706,7 +6667,7 @@
           ],
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Account22"
+            "$ref": "#/definitions/Account32"
           }
         }
       },
@@ -4715,8 +6676,8 @@
         "accounts"
       ]
     },
-    "Account22": {
-      "title": "Account22",
+    "Account32": {
+      "title": "Account32",
       "example": {
         "AccountID": "41_4",
         "InternalProperties": [
@@ -5094,6 +7055,37 @@
         "Properties"
       ]
     },
+    "CreateARequest[v9.10+]request": {
+      "title": "Create a Request [v9.10+]Request",
+      "example": {
+        "AccountID": "{{AccountID}}",
+        "Reason": "Access requested via CyberArk Web Services",
+        "TicketingSystemName": "ServiceNow"
+      },
+      "type": "object",
+      "properties": {
+        "AccountID": {
+          "description": "",
+          "example": "{{AccountID}}",
+          "type": "string"
+        },
+        "Reason": {
+          "description": "",
+          "example": "Access requested via CyberArk Web Services",
+          "type": "string"
+        },
+        "TicketingSystemName": {
+          "description": "",
+          "example": "ServiceNow",
+          "type": "string"
+        }
+      },
+      "required": [
+        "AccountID",
+        "Reason",
+        "TicketingSystemName"
+      ]
+    },
     "AddOnboardingRulerequest": {
       "title": "Add Onboarding RuleRequest",
       "example": {
@@ -5280,15 +7272,15 @@
       "type": "object",
       "properties": {
         "safe": {
-          "$ref": "#/definitions/Safe33"
+          "$ref": "#/definitions/Safe44"
         }
       },
       "required": [
         "safe"
       ]
     },
-    "Safe33": {
-      "title": "Safe33",
+    "Safe44": {
+      "title": "Safe44",
       "example": {
         "SafeName": "{{Safe}}",
         "Description": "Test, Application, CyberArk, API, Update Safe Test",
@@ -5411,15 +7403,15 @@
       "type": "object",
       "properties": {
         "member": {
-          "$ref": "#/definitions/Member38"
+          "$ref": "#/definitions/Member49"
         }
       },
       "required": [
         "member"
       ]
     },
-    "Member38": {
-      "title": "Member38",
+    "Member49": {
+      "title": "Member49",
       "type": "object",
       "properties": {
         "MembershipExpirationDate": {
