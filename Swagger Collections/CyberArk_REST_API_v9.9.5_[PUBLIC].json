@@ -3,16 +3,16 @@
   "info": {
     "version": "1.0",
     "title": "CyberArk REST API v10 [PUBLIC]",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
     "license": {
       "name": "MIT",
       "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
     }
   },
-  "host": "DefaultParameterValue",
-  "basePath": "/API/AccountGroups",
+  "host": "example.com",
+  "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -21,14 +21,14 @@
     "application/json"
   ],
   "paths": {
-    "/": {
+    "/API/AccountGroups/": {
       "post": {
         "description": "This method enables application managers to define a new account group automatically, and manage accounts as part of a group.\n\nTo create an account group, users require the following permissions in the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders\n\n**Note:** _The following characters are not supported in URL values in the Body:_ **+ & % #**",
         "summary": "Add Account Group",
         "tags": [
           "Account Groups [v9.9.5+]"
         ],
-        "operationId": "UnnammedEndpointPost",
+        "operationId": "APIAccountGroupsPost",
         "produces": [
           "application/json"
         ],
@@ -67,7 +67,7 @@
           {
             "request": {
               "method": "POST",
-              "uri": "/",
+              "uri": "/API/AccountGroups/",
               "headers": {
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
@@ -96,14 +96,14 @@
         }
       }
     },
-    "/{GroupName}/Members": {
+    "/API/AccountGroups/{GroupName}/Members": {
       "post": {
         "description": "This method adds an account as a member to an existing account group.  The account can contain either a password or SSH key.  All members of an account group must be stored in the same Safe as the group itself.\n\nTo add an account as a member to an account group, users require the following permissions to the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n\n**Note:** _The following characters are not support in URL values in the Body:_ **+ & % #**",
         "summary": "Add Account to Account Group",
         "tags": [
           "Account Groups [v9.9.5+]"
         ],
-        "operationId": "MembersByGroupNamePost",
+        "operationId": "APIAccountGroupsMembersByGroupNamePost",
         "produces": [
           "application/json"
         ],
@@ -5788,13 +5788,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1515585700"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1515673354"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1515585700",
+          "example": "Automatically accepted via CyberArk Web Services on 1515673354",
           "type": "string"
         }
       },
@@ -5805,13 +5805,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1515585700"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1515673354"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1515585700",
+          "example": "Rejected automatically by CyberArk Web Services on 1515673354",
           "type": "string"
         }
       },
@@ -5822,7 +5822,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1515585700",
+        "Reason": "Automatically connected via CyberArk Web Services on 1515673354",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -5841,7 +5841,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1515585700",
+          "example": "Automatically connected via CyberArk Web Services on 1515673354",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6383,7 +6383,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1515585700",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1515673354",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -6395,7 +6395,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1515585700",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1515673354",
           "type": "string"
         },
         "TicketingSystemName": {
