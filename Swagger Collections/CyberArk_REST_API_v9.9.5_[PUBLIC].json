@@ -4754,7 +4754,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
               },
-              "body": "{\r\n  \"NewPassword\":\"Password321\",\r\n  \"Email\":\"John.Doe@CyberArk.com\",\r\n  \"FirstName\":\"John\",\r\n  \"LastName\":\"Doe\",\r\n  \"ChangePasswordOnTheNextLogon\":true,\r\n  \"ExpiryDate\":\"\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":false,\r\n  \"Location\":\"{{Folder}}\"\r\n}"
+              "body": "{\r\n  \"NewPassword\":\"Password321\",\r\n  \"Email\":\"John.Doe@CyberArk.com\",\r\n  \"FirstName\":\"John\",\r\n  \"LastName\":\"Doe\",\r\n  \"ChangePasswordOnTheNextLogon\":true,\r\n  \"ExpiryDate\":\"\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":false,\r\n  \"Location\":\"\\\\\"\r\n}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -4827,7 +4827,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
               },
-              "body": "{\r\n  \"UserName\":\"{{UserName}}\",\r\n  \"InitialPassword\":\"Cyberark1\",\r\n  \"Email\":\"EPVUserTest@cyberark.local\",\r\n  \"FirstName\":\"REST API\",\r\n  \"LastName\":\"EPVUserTest\",\r\n  \"ChangePasswordOnTheNextLogon\":false,\r\n  \"ExpiryDate\":\"yyyy-MM-dd\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":true,\r\n  \"Location\":\"{{Folder}}\"\r\n}"
+              "body": "{\r\n  \"UserName\":\"{{UserName}}\",\r\n  \"InitialPassword\":\"Cyberark1\",\r\n  \"Email\":\"EPVUserTest@cyberark.local\",\r\n  \"FirstName\":\"REST API\",\r\n  \"LastName\":\"EPVUserTest\",\r\n  \"ChangePasswordOnTheNextLogon\":false,\r\n  \"ExpiryDate\":\"yyyy-MM-dd\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":true,\r\n  \"Location\":\"\\\\\"\r\n}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -5788,13 +5788,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1515673354"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1515759529"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1515673354",
+          "example": "Automatically accepted via CyberArk Web Services on 1515759529",
           "type": "string"
         }
       },
@@ -5805,13 +5805,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1515673354"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1515759529"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1515673354",
+          "example": "Rejected automatically by CyberArk Web Services on 1515759529",
           "type": "string"
         }
       },
@@ -5822,7 +5822,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1515673354",
+        "Reason": "Automatically connected via CyberArk Web Services on 1515759529",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -5841,7 +5841,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1515673354",
+          "example": "Automatically connected via CyberArk Web Services on 1515759529",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6383,7 +6383,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1515673354",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1515759529",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -6395,7 +6395,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1515673354",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1515759529",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -7652,7 +7652,7 @@
         "ExpiryDate": "yyyy-MM-dd",
         "UserTypeName": "EPVUser",
         "Disabled": true,
-        "Location": "{{Folder}}"
+        "Location": "\\"
       },
       "type": "object",
       "properties": {
@@ -7703,7 +7703,7 @@
         },
         "Location": {
           "description": "",
-          "example": "{{Folder}}",
+          "example": "\\",
           "type": "string"
         }
       },
@@ -7731,7 +7731,7 @@
         "ExpiryDate": "",
         "UserTypeName": "EPVUser",
         "Disabled": false,
-        "Location": "{{Folder}}"
+        "Location": "\\"
       },
       "type": "object",
       "properties": {
@@ -7776,7 +7776,7 @@
         },
         "Location": {
           "description": "",
-          "example": "{{Folder}}",
+          "example": "\\",
           "type": "string"
         }
       },
