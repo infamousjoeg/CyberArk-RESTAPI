@@ -1,22 +1,18 @@
 ## CyberArk REST API
 
-All available requests in CyberArk Privileged Account Security Web Services v9.9.5.
+All available requests in CyberArk Privileged Account Security Web Services v10.1.
+
+_THIS IS UNOFFICIAL DOCUMENTATION_
 
 ### Postman Live Documentation
 
-[View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPIv99)
+[View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPIv10)
 
 ### Access the Proper Collection
 
 If you're using [Postman](https://www.getpostman.com/), you'll use the JSON collection located in [Version 9.9](Version%209.9).
 
 If you're using [Swagger](https://swagger.io), you'll use the JSON collection located in [Swagger Collection](Swagger%20Collections).
-
-### Having trouble getting the collection imported? ###
-
-You can select the `Import` button in Postman and select `Import from URL`.
-
-The URL to use is `https://www.getpostman.com/collections/4597fc82349cda7d2857`.
 
 ### Get Accounts via REST - PowerShell Example
 
