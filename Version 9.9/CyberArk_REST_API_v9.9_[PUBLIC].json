@@ -2883,7 +2883,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomain\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-LogonAcct\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-ReconAcct\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+              "raw": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomain\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
             "description": "This method updates an existing account's details. In order to execute this web service, all the accounts details must be entered in the web service request. If the existing accounts properties are not sent as part of the request, the properties will be removed from the account. Any values sent in the request that were changed will be updated. All other properties values will remain the same.\r\nWhen you change the name or folder of a service account that has multiple dependencies (usages), the connection between it and its dependencies will be automatically maintained.\r\nIn addition, when you change the name or a folder of an account that is linked to another account, whether logon, reconciliation or verification, the links will be automatically updated.\r\nNotes:\r\nThis web service has the following limitations:\r\n- Dependencies (usages) cannot be updated.\r\n- Accounts that do not have a policy ID cannot be updated.\r\nPermissions\r\n- To update account properties, Safe members require the following permission:\r\n  - Update password properties\r\n- To rename accounts, Safe members require the following permission:\r\n  - Rename accounts\r\n- To move accounts to a different folder, Safe members require the following permission:\r\n  - Move accounts/folders"
@@ -4838,127 +4838,127 @@
   ],
   "variable": [
     {
-      "id": "1a1e8e11-c7c1-459a-9531-cd7372265e38",
+      "id": "1ceeab50-41e5-420d-aa63-b737a1fd043e",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "cb8842ad-e416-4738-a786-db343891c8a0",
+      "id": "56f5945c-6295-4c34-a93e-64f5a3e8a1e3",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "b21653e3-6848-4bb2-bd17-cf0fdfc97521",
+      "id": "4f838b8b-542b-4270-a15f-450b77779b79",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "ba922a61-1df4-4de9-8dda-5450ecf8b7d2",
+      "id": "368cdf65-1d80-457b-b7a7-87862c6deb16",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "805ba20b-8f94-4e5a-a8f4-3e3db028ae1b",
+      "id": "19193bbd-7c40-48c7-accd-6398dc0f11c5",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "c400c80b-6516-4229-8076-2f0592b223b7",
+      "id": "016a9b5a-e08c-44a1-add0-b32c78383ec4",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "6855b3d1-24eb-4c06-9543-5f0eff08f529",
+      "id": "a1a73859-172d-4edb-b91d-46e2558bcba0",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "ff48a6b7-80c1-4490-85c9-1718f33ff845",
+      "id": "e917e632-21b1-4251-84e5-c6bf1807ebe3",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "8fc2b1ab-71ce-455c-8b0f-7bf8e656fc28",
+      "id": "681163e1-3e4f-4726-8d99-c354904d036b",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "4c9a5794-270e-40e0-9fef-3377806bd124",
+      "id": "244e28d8-47f7-4ce0-9f4c-8f8f65c04a8a",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "ccc7f74d-c766-42d2-affb-3b98414bb660",
+      "id": "be2e9089-bbd4-4d63-88c8-c5839f05d48d",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "f497409d-f486-406e-b98a-96a28ce851c9",
+      "id": "a79e0279-d657-43a6-a842-1775345a1402",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "0fcccce7-24f1-4c9f-b8fb-3c63ecd9dec0",
+      "id": "f20b77a8-e94c-4c85-bea0-07e82f62e787",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "d14dcfc8-fda6-42fe-ac65-ffb71f3caa1d",
+      "id": "b845c690-7802-4f0a-bcdc-4b4b49f2c952",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "8746f8da-5dfb-4fb0-b1fe-9d3e51e4fc22",
+      "id": "06de9da4-cb7f-4d2c-955f-e852f1ab1a5a",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "2b3210e1-611c-4312-9875-7b5fd1795f52",
+      "id": "96c9f72b-9221-4987-adbf-64a50ded61c5",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "22b0f8d5-05d0-45b1-8a18-f0554c1f7c1b",
+      "id": "adc43f9d-d627-439e-9687-b60c8e4ef743",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "b1b596bf-1126-439e-b8e7-607990b9e11a",
+      "id": "961a9a97-6b7a-43a3-afdd-46eb6c2f0451",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "010716f8-b398-404a-a60c-3d01c53b00b5",
+      "id": "83bd4fa3-da84-445d-af1b-3b86d423aedd",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "d06e693d-845b-4ef0-a4b5-f861c66795a2",
+      "id": "e4b2d59c-efd6-47cf-adcf-7e700db0ea17",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "f520816b-4c0b-4040-83cc-01ed53bd8048",
+      "id": "9741d59b-69cc-4695-b6ee-4ab1b8ce24eb",
       "key": "RequestID",
       "value": "",
       "type": "text"
