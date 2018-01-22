@@ -2,7 +2,11 @@
 
 All available requests in CyberArk Privileged Account Security Web Services v10.1.
 
-_THIS IS UNOFFICIAL DOCUMENTATION_
+**THIS IS UNOFFICIAL DOCUMENTATION**
+
+### Getting Started Guide
+
+[Getting Started with REST Using Postman](Getting Started with REST Using Postman.pdf) (PDF)
 
 ### Postman Live Documentation
 
