@@ -2,7 +2,7 @@
   "info": {
     "name": "CyberArk REST API v10 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -4838,127 +4838,127 @@
   ],
   "variable": [
     {
-      "id": "5034088f-4aee-41ee-865c-882362811154",
+      "id": "3a621e06-27cc-47f0-8db4-fd2679cab70e",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "6bdfaf5c-b1fe-45e5-9b8c-fbbe805a2395",
+      "id": "50e17eb4-9006-4fed-a2a5-c41df8d9fda9",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "78d6ebb6-28e9-4df8-88c0-5c0737dee18a",
+      "id": "35ebae38-5915-4ebd-a056-c55732472572",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "1a28dad2-2799-40cd-9f78-bb9d4599d4b0",
+      "id": "7749ec6f-7207-490c-8bc7-bab2afa9502b",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "53ba9f5c-5afe-4d59-ba55-c2370d248844",
+      "id": "4353e459-533c-44e0-8248-e23a7731b671",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "38493408-7e9e-420b-a90f-2aa82ee30a18",
+      "id": "e6817cba-2c54-4f0c-b8ee-0acf527f0533",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "8a87a1dc-284a-45d2-a79e-fc28f4652e89",
+      "id": "ff3c884f-b473-4cb9-bfbf-3b078738b2ba",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "e114d86b-c34d-4d61-a65f-5ff94c8c0a61",
+      "id": "2ccab025-3bda-4daa-9128-586229da95cf",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "a80eb939-f5a9-4748-b3d1-a1655dd92059",
+      "id": "13abfdea-5373-42c5-83df-49e4ff98cf2b",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "85d680ad-ac01-49d8-882e-6f2cc2245dfb",
+      "id": "7303a6bd-2cd6-4d4d-9591-add76ab7b2de",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "913f2d0e-46fa-4207-9c62-eb165fdf39ff",
+      "id": "0f65ab94-4165-4ffa-9074-eb15fe097c0e",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "df4254c6-7140-47bf-be29-056f5f59a9f8",
+      "id": "8e5cabbb-e537-4f7d-b7b6-932b74b328cd",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "4d7fe80f-4122-4f3f-8950-9224bd915986",
+      "id": "7948da6c-252f-445a-83be-d5f5258f9d24",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "0993bb41-61b5-41d6-852d-42c890c3e749",
+      "id": "bc6c4ce1-4bdb-4408-aa67-6e8a8e4042b9",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "4a980a02-26f1-420d-bb5e-565656cb5c6d",
+      "id": "b25072e7-44cd-4e78-97f8-a5d5b86e702c",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "f11eaecd-86f0-4d42-a7a3-1363ac2101c0",
+      "id": "3bf1673c-0371-41df-b6ad-105ac30bc0ee",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "c6356b30-6bfc-4ef4-adb9-7cff89b5a77d",
+      "id": "096997db-08de-425f-b9bb-a99f192a8b6a",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "e8bd495d-f8c7-47e6-a852-7b879dfab595",
+      "id": "f6f852c3-71a2-43ac-8f0d-7425054596bf",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "fec99bf6-c06c-41cb-aaaa-f02467418929",
+      "id": "f836e55f-60a6-471c-aac3-89d6684867d2",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "eb49b28c-f051-4db6-8914-1ae8cf136dd7",
+      "id": "1a0cd2fd-616c-46e1-b684-c42e30f90329",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "74ed79e1-16cf-4be4-8ab8-e160c5aef2fb",
+      "id": "3920ca10-5445-4b33-adca-737f3be62de8",
       "key": "RequestID",
       "value": "",
       "type": "text"
