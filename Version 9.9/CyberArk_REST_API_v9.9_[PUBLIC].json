@@ -2339,7 +2339,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-LogonAcct\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-ReconAcct\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+              "raw": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
             },
             "url": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account",
             "description": "This method adds a new privileged account to the Vault."
@@ -4838,127 +4838,127 @@
   ],
   "variable": [
     {
-      "id": "3a621e06-27cc-47f0-8db4-fd2679cab70e",
+      "id": "a1f1d261-dc60-47d4-8cb1-d48ce8799804",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "50e17eb4-9006-4fed-a2a5-c41df8d9fda9",
+      "id": "03a79bbc-a981-4800-8770-5a8df32c3304",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "35ebae38-5915-4ebd-a056-c55732472572",
+      "id": "f912f8ed-801c-4e61-ab81-1e4cf6a9c22b",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "7749ec6f-7207-490c-8bc7-bab2afa9502b",
+      "id": "63eddae6-c9be-4d81-b4fb-a3e9db954219",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "4353e459-533c-44e0-8248-e23a7731b671",
+      "id": "c385d547-d8cc-4f3b-8638-54a7ca50369b",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "e6817cba-2c54-4f0c-b8ee-0acf527f0533",
+      "id": "2d0a48a1-bda9-4667-92f9-5343e43016d2",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "ff3c884f-b473-4cb9-bfbf-3b078738b2ba",
+      "id": "c2dc7018-d0f7-44de-aab0-6571dae84995",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "2ccab025-3bda-4daa-9128-586229da95cf",
+      "id": "eeacb81b-f43a-4c57-bc16-f689d6f0a6f6",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "13abfdea-5373-42c5-83df-49e4ff98cf2b",
+      "id": "9373e119-3720-4a30-ade6-12165a9c1dbf",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "7303a6bd-2cd6-4d4d-9591-add76ab7b2de",
+      "id": "c8a0a0b2-2658-49bd-b55d-62771b6e6fd2",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "0f65ab94-4165-4ffa-9074-eb15fe097c0e",
+      "id": "1527940c-38b9-4315-bb78-10d43ea52738",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "8e5cabbb-e537-4f7d-b7b6-932b74b328cd",
+      "id": "b6627838-d931-48d6-9145-01fd23bb331c",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "7948da6c-252f-445a-83be-d5f5258f9d24",
+      "id": "091bae1c-c5f3-4172-ac8c-440d9b246d39",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "bc6c4ce1-4bdb-4408-aa67-6e8a8e4042b9",
+      "id": "0c638312-1b05-4064-9390-1c523a2deff0",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "b25072e7-44cd-4e78-97f8-a5d5b86e702c",
+      "id": "f15e1086-5288-4bdb-9c6b-9c8dffbdc7c9",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "3bf1673c-0371-41df-b6ad-105ac30bc0ee",
+      "id": "435ed008-9f4c-40a5-84ba-9aab2346c4fb",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "096997db-08de-425f-b9bb-a99f192a8b6a",
+      "id": "017d2a7b-698f-4d35-8962-c5f33fe901ce",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "f6f852c3-71a2-43ac-8f0d-7425054596bf",
+      "id": "f770f725-ff1a-40f4-b633-c87a921321ce",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "f836e55f-60a6-471c-aac3-89d6684867d2",
+      "id": "10c18668-6758-4278-9de2-4ccff54f1308",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "1a0cd2fd-616c-46e1-b684-c42e30f90329",
+      "id": "6899f547-3425-446a-bd03-41b5f98cf269",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "3920ca10-5445-4b33-adca-737f3be62de8",
+      "id": "119cea81-2f61-47dd-ae61-091a4395276b",
       "key": "RequestID",
       "value": "",
       "type": "text"
