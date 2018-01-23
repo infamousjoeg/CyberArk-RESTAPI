@@ -2,7 +2,7 @@
   "info": {
     "name": "CyberArk REST API v10 [PUBLIC]",
     "_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Status Codes\n\n* Success [200] - The request succeeded. The actual response will depend on the request method used.\n* Created [201] - The request was fulfilled and resulted in a new resource being created.\n* Bad Request [400] - The request could not be understood by the server due to incorrect syntax.\n* Unauthorized [401] = The request requires user authentication.\n* Forbidden [403] = The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated.\n* Not Found [404] - The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent.\n* Conflict [409] - The request could not be completed due to a conflict with the current state of the resource.\n* Internal Server Error [500] - The server encountered an unexpected condition which prevented it from fulfilling the request.\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -4838,127 +4838,127 @@
   ],
   "variable": [
     {
-      "id": "a1f1d261-dc60-47d4-8cb1-d48ce8799804",
+      "id": "f40bb9d1-5d6f-4861-afb5-2a0d7215cce7",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "text"
     },
     {
-      "id": "03a79bbc-a981-4800-8770-5a8df32c3304",
+      "id": "e0c13bd2-8a31-43cd-898d-defa1fc2ab83",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "text"
     },
     {
-      "id": "f912f8ed-801c-4e61-ab81-1e4cf6a9c22b",
+      "id": "09b84b72-1503-4230-a719-c9e7e5f09b9e",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "text"
     },
     {
-      "id": "63eddae6-c9be-4d81-b4fb-a3e9db954219",
+      "id": "ca984784-6ed3-4f16-8954-d37904192a7b",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "text"
     },
     {
-      "id": "c385d547-d8cc-4f3b-8638-54a7ca50369b",
+      "id": "734b94d9-74cd-4e05-b06f-5b2ada298023",
       "key": "SAMLToken",
       "value": "",
       "type": "text"
     },
     {
-      "id": "2d0a48a1-bda9-4667-92f9-5343e43016d2",
+      "id": "cfc2f6b8-349c-474d-b24a-f36eebf2d0c0",
       "key": "AccountID",
       "value": "41_3",
       "type": "text"
     },
     {
-      "id": "c2dc7018-d0f7-44de-aab0-6571dae84995",
+      "id": "6f67c327-9a90-4bbd-ac0b-64b3fa6e81f5",
       "key": "Keywords",
       "value": "Svc_",
       "type": "text"
     },
     {
-      "id": "eeacb81b-f43a-4c57-bc16-f689d6f0a6f6",
+      "id": "282db8e5-5c59-4fb2-a990-92d04e8c6622",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "text"
     },
     {
-      "id": "9373e119-3720-4a30-ade6-12165a9c1dbf",
+      "id": "cf9db6fe-e98f-438c-8a8a-0f4a8556823a",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "text"
     },
     {
-      "id": "c8a0a0b2-2658-49bd-b55d-62771b6e6fd2",
+      "id": "49b3acf4-2b43-47b5-b0de-86525bb60d4d",
       "key": "Folder",
       "value": "Root",
       "type": "text"
     },
     {
-      "id": "1527940c-38b9-4315-bb78-10d43ea52738",
+      "id": "b9752dfd-3c1b-44dd-80bc-09cf7bbc6e8a",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "b6627838-d931-48d6-9145-01fd23bb331c",
+      "id": "9638c253-c2b2-4322-8ce1-c749ecc01a2f",
       "key": "ACLAddress",
       "value": "",
       "type": "text"
     },
     {
-      "id": "091bae1c-c5f3-4172-ac8c-440d9b246d39",
+      "id": "c04213a1-9310-4056-8c71-f4553d4aeb6a",
       "key": "ACLUserName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "0c638312-1b05-4064-9390-1c523a2deff0",
+      "id": "eccd2e6e-8589-4f37-8795-37a04ab20fe4",
       "key": "ACLPolicyID",
       "value": "",
       "type": "text"
     },
     {
-      "id": "f15e1086-5288-4bdb-9c6b-9c8dffbdc7c9",
+      "id": "b3712f37-f0f0-4960-bad7-53b761422139",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "text"
     },
     {
-      "id": "435ed008-9f4c-40a5-84ba-9aab2346c4fb",
+      "id": "ba877f60-c4c2-4ea7-9241-1fc2c2ff9504",
       "key": "Address",
       "value": "cyberark.local",
       "type": "text"
     },
     {
-      "id": "017d2a7b-698f-4d35-8962-c5f33fe901ce",
+      "id": "66ba6fee-27fd-41c6-8936-b3811f56eb27",
       "key": "Query",
       "value": "T-APP-",
       "type": "text"
     },
     {
-      "id": "f770f725-ff1a-40f4-b633-c87a921321ce",
+      "id": "8784ea76-b5a1-44d0-b688-e012d29cd204",
       "key": "GroupName",
       "value": "",
       "type": "text"
     },
     {
-      "id": "10c18668-6758-4278-9de2-4ccff54f1308",
+      "id": "6e647132-4b19-462f-aecb-18750efb2689",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "text"
     },
     {
-      "id": "6899f547-3425-446a-bd03-41b5f98cf269",
+      "id": "a0ec408f-7beb-4634-a191-7d46ab3906ee",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "text"
     },
     {
-      "id": "119cea81-2f61-47dd-ae61-091a4395276b",
+      "id": "5f1ac13c-070f-40fc-a2a6-7ace5a3ead35",
       "key": "RequestID",
       "value": "",
       "type": "text"
