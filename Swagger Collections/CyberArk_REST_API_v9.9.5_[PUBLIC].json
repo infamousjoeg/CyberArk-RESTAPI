@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0",
     "title": "CyberArk REST API v10 [PUBLIC]",
-    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+    "description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Status Codes\n\n* **Success [200]** The request succeeded. The actual response will depend on the request method used.\n* **Created [201]** The request was fulfilled and resulted in a new resource being created.\n* **Bad Request [400]** The request could not be understood by the server due to incorrect syntax.\n* **Unauthorized [401]** The request requires user authentication.\n* **Forbidden [403]** The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated.\n* **Not Found [404]** The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent.\n* **Conflict [409]** The request could not be completed due to a conflict with the current state of the resource.\n* **Internal Server Error [500]** The server encountered an unexpected condition which prevented it from fulfilling the request.\n\n# Whats New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
     "license": {
       "name": "MIT",
       "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
@@ -2022,7 +2022,7 @@
                 "Content-Type": "application/json",
                 "Authorization": "{{CyberArkLogonResult}}"
               },
-              "body": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ExtraPass1Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-LogonAcct\"},\r\n      {\"Key\":\"ExtraPass1Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass1Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ExtraPass3Name\", \"Value\":\"Operating System-WinDomain-cyberark.local-ReconAcct\"},\r\n      {\"Key\":\"ExtraPass3Folder\", \"Value\":\"Root\"},\r\n      {\"Key\":\"ExtraPass3Safe\", \"Value\":\"{{Safe}}\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+              "body": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -6025,13 +6025,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1516708892"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1516795283"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1516708892",
+          "example": "Automatically accepted via CyberArk Web Services on 1516795283",
           "type": "string"
         }
       },
@@ -6042,13 +6042,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1516708892"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1516795283"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1516708892",
+          "example": "Rejected automatically by CyberArk Web Services on 1516795283",
           "type": "string"
         }
       },
@@ -6059,7 +6059,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1516708892",
+        "Reason": "Automatically connected via CyberArk Web Services on 1516795283",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -6078,7 +6078,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1516708892",
+          "example": "Automatically connected via CyberArk Web Services on 1516795283",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6202,30 +6202,6 @@
               "Value": "<port>"
             },
             {
-              "Key": "ExtraPass1Name",
-              "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
-            },
-            {
-              "Key": "ExtraPass1Folder",
-              "Value": "Root"
-            },
-            {
-              "Key": "ExtraPass1Safe",
-              "Value": "{{Safe}}"
-            },
-            {
-              "Key": "ExtraPass3Name",
-              "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
-            },
-            {
-              "Key": "ExtraPass3Folder",
-              "Value": "Root"
-            },
-            {
-              "Key": "ExtraPass3Safe",
-              "Value": "{{Safe}}"
-            },
-            {
               "Key": "ParamName",
               "Value": "Parameter value"
             }
@@ -6259,30 +6235,6 @@
           {
             "Key": "Port",
             "Value": "<port>"
-          },
-          {
-            "Key": "ExtraPass1Name",
-            "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
-          },
-          {
-            "Key": "ExtraPass1Folder",
-            "Value": "Root"
-          },
-          {
-            "Key": "ExtraPass1Safe",
-            "Value": "{{Safe}}"
-          },
-          {
-            "Key": "ExtraPass3Name",
-            "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
-          },
-          {
-            "Key": "ExtraPass3Folder",
-            "Value": "Root"
-          },
-          {
-            "Key": "ExtraPass3Safe",
-            "Value": "{{Safe}}"
           },
           {
             "Key": "ParamName",
@@ -6345,30 +6297,6 @@
             {
               "Key": "Port",
               "Value": "<port>"
-            },
-            {
-              "Key": "ExtraPass1Name",
-              "Value": "Operating System-WinDomain-cyberark.local-LogonAcct"
-            },
-            {
-              "Key": "ExtraPass1Folder",
-              "Value": "Root"
-            },
-            {
-              "Key": "ExtraPass1Safe",
-              "Value": "{{Safe}}"
-            },
-            {
-              "Key": "ExtraPass3Name",
-              "Value": "Operating System-WinDomain-cyberark.local-ReconAcct"
-            },
-            {
-              "Key": "ExtraPass3Folder",
-              "Value": "Root"
-            },
-            {
-              "Key": "ExtraPass3Safe",
-              "Value": "{{Safe}}"
             },
             {
               "Key": "ParamName",
@@ -6620,7 +6548,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1516708892",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1516795283",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -6632,7 +6560,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1516708892",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1516795283",
           "type": "string"
         },
         "TicketingSystemName": {
