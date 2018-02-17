@@ -4008,7 +4008,7 @@
         "tags": [
           "Safe Management"
         ],
-        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesGet3",
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesGet2",
         "produces": [
           "application/json"
         ],
@@ -4227,6 +4227,53 @@
       }
     },
     "/PasswordVault/WebServices/PIMServices.svc/Safes/{Safe}": {
+      "get": {
+        "description": "This method returns information about a specific Safe in the Vault.",
+        "summary": "Get Safe Details [v9.7+]",
+        "tags": [
+          "Safe Management"
+        ],
+        "operationId": "PasswordVaultWebServicesPIMServicesSvcSafesBySafeGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Safe",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
       "delete": {
         "description": "This method deletes a Safe from the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Manage Safe",
         "summary": "Delete Safe [v9.3+]",
@@ -6021,13 +6068,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1518782434"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1518868864"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1518782434",
+          "example": "Automatically accepted via CyberArk Web Services on 1518868864",
           "type": "string"
         }
       },
@@ -6038,13 +6085,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1518782434"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1518868864"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1518782434",
+          "example": "Rejected automatically by CyberArk Web Services on 1518868864",
           "type": "string"
         }
       },
@@ -6055,7 +6102,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1518782434",
+        "Reason": "Automatically connected via CyberArk Web Services on 1518868864",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -6074,7 +6121,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1518782434",
+          "example": "Automatically connected via CyberArk Web Services on 1518868864",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6544,7 +6591,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1518782434",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1518868864",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -6556,7 +6603,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1518782434",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1518868864",
           "type": "string"
         },
         "TicketingSystemName": {
