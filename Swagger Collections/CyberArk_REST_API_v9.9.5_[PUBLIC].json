@@ -391,7 +391,7 @@
           "default": {
             "description": "Internal Server Error",
             "schema": {
-              "$ref": "#/definitions/ListAccount~1aclerrorresponse"
+              "$ref": "#/definitions/500InternalServerError(acladdressRequired)"
             },
             "examples": {
               "application/json": {
@@ -588,7 +588,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/ListASpecificApplicationresponse"
+              "$ref": "#/definitions/200Ok"
             },
             "examples": {
               "application/json": {
@@ -991,7 +991,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/Cyberark[v9.0+]~1ldap[v9.7+]~1radius[v9.7+]Logonresponse"
+              "$ref": "#/definitions/200Ok11"
             },
             "examples": {
               "application/json": {
@@ -1593,7 +1593,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/GetPasswordResponse"
+              "$ref": "#/definitions/200Ok14"
             },
             "examples": {
               "application/json": {
@@ -1614,7 +1614,7 @@
           "404": {
             "description": "Not Found",
             "schema": {
-              "$ref": "#/definitions/GetPasswordErrorResponse"
+              "$ref": "#/definitions/Appap004e  password object matching query was not found"
             },
             "examples": {
               "application/json": {
@@ -2787,7 +2787,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/GetAccountDetails[v9.3+]response"
+              "$ref": "#/definitions/200Ok31"
             },
             "examples": {
               "application/json": {
@@ -4611,7 +4611,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/VerifyResponse"
+              "$ref": "#/definitions/200Ok51"
             },
             "examples": {
               "application/json": {
@@ -4724,7 +4724,7 @@
           "default": {
             "description": "Internal Server Error",
             "schema": {
-              "$ref": "#/definitions/LogoErrorResponse"
+              "$ref": "#/definitions/500InternalServerError"
             },
             "examples": {
               "application/json": {
@@ -4794,7 +4794,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/ServerResponse"
+              "$ref": "#/definitions/200Ok55"
             },
             "examples": {
               "application/json": {
@@ -4807,7 +4807,7 @@
           "403": {
             "description": "Forbidden",
             "schema": {
-              "$ref": "#/definitions/ServerErrorResponse"
+              "$ref": "#/definitions/403Forbidden(checkYourAuthorization~1authentication)"
             },
             "examples": {
               "application/json": {
@@ -5481,8 +5481,8 @@
         "AccountID"
       ]
     },
-    "ListAccount/aclerrorresponse": {
-      "title": "List Account/ACLErrorResponse",
+    "500InternalServerError(acladdressRequired)": {
+      "title": "500 Internal Server Error (ACLAddress Required)",
       "example": {
         "ErrorCode": "CAWS00001E",
         "ErrorMessage": "Input parameter AccountAddress is obligatory. Please fix it and try again."
@@ -5549,8 +5549,8 @@
         "UserName"
       ]
     },
-    "ListApplicationsresponse": {
-      "title": "List ApplicationsResponse",
+    "200Ok": {
+      "title": "200 OK",
       "example": {
         "application": [
           {
@@ -5717,56 +5717,6 @@
         "Location"
       ]
     },
-    "ListASpecificApplicationresponse": {
-      "title": "List a Specific ApplicationResponse",
-      "example": {
-        "application": [
-          {
-            "AccessPermittedFrom": 0,
-            "AccessPermittedTo": 24,
-            "AllowExtendedAuthenticationRestrictions": false,
-            "AppID": "RESTExamples",
-            "BusinessOwnerEmail": "john.doecyberark.com",
-            "BusinessOwnerFName": "John",
-            "BusinessOwnerLName": "Doe",
-            "BusinessOwnerPhone": "555-555-1212",
-            "Description": "AppID for all AIM and REST Examples",
-            "Disabled": false,
-            "ExpirationDate": null,
-            "Location": "\\Applications"
-          }
-        ]
-      },
-      "type": "object",
-      "properties": {
-        "application": {
-          "description": "",
-          "example": [
-            {
-              "AccessPermittedFrom": 0,
-              "AccessPermittedTo": 24,
-              "AllowExtendedAuthenticationRestrictions": false,
-              "AppID": "RESTExamples",
-              "BusinessOwnerEmail": "john.doecyberark.com",
-              "BusinessOwnerFName": "John",
-              "BusinessOwnerLName": "Doe",
-              "BusinessOwnerPhone": "555-555-1212",
-              "Description": "AppID for all AIM and REST Examples",
-              "Disabled": false,
-              "ExpirationDate": null,
-              "Location": "\\Applications"
-            }
-          ],
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Application"
-          }
-        }
-      },
-      "required": [
-        "application"
-      ]
-    },
     "AddApplicationrequest": {
       "title": "Add ApplicationRequest",
       "example": {
@@ -5920,8 +5870,8 @@
         "connectionNumber"
       ]
     },
-    "Cyberark[v9.0+]/ldap[v9.7+]/radius[v9.7+]Logonresponse": {
-      "title": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] LogonResponse",
+    "200Ok11": {
+      "title": "200 OK11",
       "example": {
         "CyberArkLogonResult": "AAEAAAD/////AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw=="
       },
@@ -5954,8 +5904,8 @@
         "PublicSSHKey"
       ]
     },
-    "GetPasswordErrorResponse": {
-      "title": "GetPasswordErrorResponse",
+    "Appap004e  password object matching query was not found": {
+      "title": "APPAP004E - Password object matching query was not found",
       "example": {
         "ErrorCode": "APPAP004E",
         "ErrorMsg": "Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password."
@@ -5978,8 +5928,8 @@
         "ErrorMsg"
       ]
     },
-    "GetPasswordResponse": {
-      "title": "GetPasswordResponse",
+    "200Ok14": {
+      "title": "200 OK14",
       "example": {
         "Content": "Cyberark1",
         "CreationMethod": "PVWA",
@@ -6068,13 +6018,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1519128914"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1519214452"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1519128914",
+          "example": "Automatically accepted via CyberArk Web Services on 1519214452",
           "type": "string"
         }
       },
@@ -6085,13 +6035,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1519128914"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1519214452"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1519128914",
+          "example": "Rejected automatically by CyberArk Web Services on 1519214452",
           "type": "string"
         }
       },
@@ -6102,7 +6052,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1519128914",
+        "Reason": "Automatically connected via CyberArk Web Services on 1519214452",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -6121,7 +6071,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1519128914",
+          "example": "Automatically connected via CyberArk Web Services on 1519214452",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6591,7 +6541,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1519128914",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1519214452",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -6603,7 +6553,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1519128914",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1519214452",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6735,8 +6685,8 @@
         "NewCredentials"
       ]
     },
-    "GetAccountDetails[v9.3+]response": {
-      "title": "Get Account Details [v9.3+]Response",
+    "200Ok31": {
+      "title": "200 OK31",
       "example": {
         "Count": 1,
         "accounts": [
@@ -7566,8 +7516,8 @@
         "Permissions"
       ]
     },
-    "VerifyResponse": {
-      "title": "VerifyResponse",
+    "200Ok51": {
+      "title": "200 OK51",
       "example": {
         "ApplicationName": "PasswordVault",
         "AuthenticationMethods": [
@@ -7697,8 +7647,8 @@
         "Id"
       ]
     },
-    "LogoErrorResponse": {
-      "title": "LogoErrorResponse",
+    "500InternalServerError": {
+      "title": "500 Internal Server Error",
       "example": {
         "ErrorCode": "CAWS018E",
         "ErrorMessage": "Internal error occurred, contact your administrator."
@@ -7721,8 +7671,8 @@
         "ErrorMessage"
       ]
     },
-    "ServerErrorResponse": {
-      "title": "ServerErrorResponse",
+    "403Forbidden(checkYourAuthorization/authentication)": {
+      "title": "403 Forbidden (Check your authorization/authentication)",
       "example": {
         "ErrorCode": "CAIWS001E",
         "ErrorMessage": "Couldn't retrieve session token from request header."
@@ -7745,8 +7695,8 @@
         "ErrorMessage"
       ]
     },
-    "ServerResponse": {
-      "title": "ServerResponse",
+    "200Ok55": {
+      "title": "200 OK55",
       "example": {
         "ExternalVersion": "9.9.0",
         "InternalVersion": "9.90.0.18",
