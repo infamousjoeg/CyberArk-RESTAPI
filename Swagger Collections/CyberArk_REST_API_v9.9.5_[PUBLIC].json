@@ -1801,7 +1801,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{\"Reason\":\"Automatically accepted via CyberArk Web Services on 1529323295\"}"
+              "body": "{\"Reason\":\"Automatically accepted via CyberArk Web Services on 1529409680\"}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -1867,7 +1867,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{\"Reason\":\"Rejected automatically by CyberArk Web Services on 1529323295\"}"
+              "body": "{\"Reason\":\"Rejected automatically by CyberArk Web Services on 1529409680\"}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -1933,7 +1933,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{\"Reason\":\"Automatically connected via CyberArk Web Services on 1529323295\",\"TicketingSystemName\":\"ServiceNow\",\"TicketId\":\"INC123456\",\"ConnectionComponent\":\"PSM-RDP\",\"ConnectionParams\":{\"LogonDomain\":{\"Value\":\"cyberark.local\",\"ShouldSave\":\"true\"},\"AllowMappingLocalDrives\":{\"Value\":\"Yes\",\"ShouldSave\":\"false\"}}}"
+              "body": "{\"Reason\":\"Automatically connected via CyberArk Web Services on 1529409680\",\"TicketingSystemName\":\"ServiceNow\",\"TicketId\":\"INC123456\",\"ConnectionComponent\":\"PSM-RDP\",\"ConnectionParams\":{\"LogonDomain\":{\"Value\":\"cyberark.local\",\"ShouldSave\":\"true\"},\"AllowMappingLocalDrives\":{\"Value\":\"Yes\",\"ShouldSave\":\"false\"}}}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -2307,7 +2307,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{\"Reason\":\"Automatically retrieved password by CyberArk Web Services on 1529323295\",\"TicketingSystemName\":\"ServiceNow\",\"TicketId\":\"INC123456\",\"Version\":\"1\",\"ActionType\":\"Connect\",\"IsUse\":\"false\",\"Machine\":\"client.cyberark.local\"}"
+              "body": "{\"Reason\":\"Automatically retrieved password by CyberArk Web Services on 1529409680\",\"TicketingSystemName\":\"ServiceNow\",\"TicketId\":\"INC123456\",\"Version\":\"1\",\"ActionType\":\"Connect\",\"IsUse\":\"false\",\"Machine\":\"client.cyberark.local\"}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -5988,13 +5988,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1529323295"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1529409680"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1529323295",
+          "example": "Automatically accepted via CyberArk Web Services on 1529409680",
           "type": "string"
         }
       },
@@ -6005,13 +6005,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1529323295"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1529409680"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1529323295",
+          "example": "Rejected automatically by CyberArk Web Services on 1529409680",
           "type": "string"
         }
       },
@@ -6022,7 +6022,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1529323295",
+        "Reason": "Automatically connected via CyberArk Web Services on 1529409680",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -6041,7 +6041,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1529323295",
+          "example": "Automatically connected via CyberArk Web Services on 1529409680",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -6511,7 +6511,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1529323295",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1529409680",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -6523,7 +6523,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1529323295",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1529409680",
           "type": "string"
         },
         "TicketingSystemName": {
