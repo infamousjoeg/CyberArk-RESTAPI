@@ -5400,13 +5400,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1531396910"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1531397010"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1531396910",
+          "example": "Automatically accepted via CyberArk Web Services on 1531397010",
           "type": "string"
         }
       },
@@ -5417,13 +5417,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1531396910"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1531397010"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1531396910",
+          "example": "Rejected automatically by CyberArk Web Services on 1531397010",
           "type": "string"
         }
       },
@@ -5434,7 +5434,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1531396910",
+        "Reason": "Automatically connected via CyberArk Web Services on 1531397010",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -5453,7 +5453,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1531396910",
+          "example": "Automatically connected via CyberArk Web Services on 1531397010",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -5923,7 +5923,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1531396910",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1531397010",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -5935,7 +5935,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1531396910",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1531397010",
           "type": "string"
         },
         "TicketingSystemName": {
