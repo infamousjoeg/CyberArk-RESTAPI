@@ -1810,7 +1810,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{\"account\":{\"safe\":\"T-APP-CYBR-RESTAPI\",\"platformID\":\"WinDomain\",\"address\":\"cyberark.local\",\"accountName\":\"\",\"password\":\"Password123\",\"username\":\"Svc_BambooHR\",\"disableAutoMgmt\":\"false\",\"disableAutoMgmtReason\":\"N/A\",\"groupName\":\"\",\"groupPlatformID\":\"\",\"properties\":[{\"Key\":\"Port\",\"Value\":\"<port>\"},{\"Key\":\"ParamName\",\"Value\":\"Parameter value\"}]}}"
+              "body": "{\"account\":{\"safe\":\"T-APP-CYBR-RESTAPI\",\"platformID\":\"WinDomain\",\"address\":\"cyberark.local\",\"accountName\":\"AccountName\",\"password\":\"Password123\",\"username\":\"Svc_BambooHR\",\"disableAutoMgmt\":\"false\",\"disableAutoMgmtReason\":\"N/A\",\"groupName\":\"\",\"groupPlatformID\":\"\",\"properties\":[{\"Key\":\"Port\",\"Value\":\"<port>\"},{\"Key\":\"ParamName\",\"Value\":\"Parameter value\"}]}}"
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
@@ -5400,13 +5400,13 @@
     "ConfirmRequest[v9.10+]request": {
       "title": "Confirm Request [v9.10+]Request",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1532002054"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1532088116"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically accepted via CyberArk Web Services on 1532002054",
+          "example": "Automatically accepted via CyberArk Web Services on 1532088116",
           "type": "string"
         }
       },
@@ -5417,13 +5417,13 @@
     "RejectRequest[v9.10+]request": {
       "title": "Reject Request [v9.10+]Request",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1532002054"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1532088116"
       },
       "type": "object",
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Rejected automatically by CyberArk Web Services on 1532002054",
+          "example": "Rejected automatically by CyberArk Web Services on 1532088116",
           "type": "string"
         }
       },
@@ -5434,7 +5434,7 @@
     "ConnectThroughPsm[v9.10+]request": {
       "title": "Connect Through PSM [v9.10+]Request",
       "example": {
-        "Reason": "Automatically connected via CyberArk Web Services on 1532002054",
+        "Reason": "Automatically connected via CyberArk Web Services on 1532088116",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "ConnectionComponent": "PSM-RDP",
@@ -5453,7 +5453,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically connected via CyberArk Web Services on 1532002054",
+          "example": "Automatically connected via CyberArk Web Services on 1532088116",
           "type": "string"
         },
         "TicketingSystemName": {
@@ -5564,7 +5564,7 @@
           "safe": "T-APP-CYBR-RESTAPI",
           "platformID": "WinDomain",
           "address": "cyberark.local",
-          "accountName": "",
+          "accountName": "AccountName",
           "password": "Password123",
           "username": "Svc_BambooHR",
           "disableAutoMgmt": "false",
@@ -5599,7 +5599,7 @@
         "safe": "T-APP-CYBR-RESTAPI",
         "platformID": "WinDomain",
         "address": "cyberark.local",
-        "accountName": "",
+        "accountName": "AccountName",
         "password": "Password123",
         "username": "Svc_BambooHR",
         "disableAutoMgmt": "false",
@@ -5636,6 +5636,7 @@
         },
         "accountName": {
           "description": "",
+          "example": "AccountName",
           "type": "string"
         },
         "password": {
@@ -5923,7 +5924,7 @@
     "GetPasswordValue[v10]request": {
       "title": "Get Password Value [v10]Request",
       "example": {
-        "Reason": "Automatically retrieved password by CyberArk Web Services on 1532002054",
+        "Reason": "Automatically retrieved password by CyberArk Web Services on 1532088116",
         "TicketingSystemName": "ServiceNow",
         "TicketId": "INC123456",
         "Version": "1",
@@ -5935,7 +5936,7 @@
       "properties": {
         "Reason": {
           "description": "",
-          "example": "Automatically retrieved password by CyberArk Web Services on 1532002054",
+          "example": "Automatically retrieved password by CyberArk Web Services on 1532088116",
           "type": "string"
         },
         "TicketingSystemName": {
