@@ -1,0 +1,5591 @@
+{
+	"info": {
+		"_postman_id": "1ab85eca-c6a6-ca60-ad8c-e87ecebf348a",
+		"name": "CyberArk REST API v10 [PUBLIC]",
+		"description": "All available requests in CyberArk Privileged Account Security Web Services v10.1\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Status Codes\n\n* **Success [200]** The request succeeded. The actual response will depend on the request method used.\n* **Created [201]** The request was fulfilled and resulted in a new resource being created.\n* **Bad Request [400]** The request could not be understood by the server due to incorrect syntax.\n* **Unauthorized [401]** The request requires user authentication.\n* **Forbidden [403]** The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated.\n* **Not Found [404]** The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent.\n* **Conflict [409]** The request could not be completed due to a conflict with the current state of the resource.\n* **Internal Server Error [500]** The server encountered an unexpected condition which prevented it from fulfilling the request.\n\n# What’s New?\n\nThe following web services are now available:\n\n## Manage accounts\n\nDetermine how the CPM resets a password. You can initiate a password change process and specify the credentials for the CPM to use, or initiate a password change process in the account stored in the Vault but not in the corresponding account on the\ntarget machine.\n\n* Change Credentials and Set Next Password\n* Change Credentials in the Vault\n\n## Password retrieval\n\nRetrieve the password or SSH key of an existing account that is identified by its Account ID, and specify a reason and ticket ID, if required. This method can be used from v10 and replaces the Get Account Value method.\n\n* Get Password Value\n\n## Manage live sessions\n\nTerminate live sessions using a REST API\n\n* Terminate Live Session\n\n## System Health\n\nGet details of a specific component's current health in-depth or get a full summary of every component installed and configured.\n\n* System Details\n* System Summary\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account Groups [v9.9.5+]",
+			"item": [
+				{
+					"name": "Add Account Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"GroupName\":\"{{GroupName}}\",\r\n  \"GroupPlatform\":\"{{PlatformID}}\",\r\n  \"Safe\":\"{{Safe}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/API/AccountGroups/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"API",
+								"AccountGroups",
+								""
+							]
+						},
+						"description": "This method enables application managers to define a new account group automatically, and manage accounts as part of a group.\n\nTo create an account group, users require the following permissions in the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders\n\n**Note:** _The following characters are not supported in URL values in the Body:_ **+ & % #**"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Account to Account Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AccountID\":\"{{AccountID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/API/AccountGroups/{{GroupName}}/Members",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"API",
+								"AccountGroups",
+								"{{GroupName}}",
+								"Members"
+							]
+						},
+						"description": "This method adds an account as a member to an existing account group.  The account can contain either a password or SSH key.  All members of an account group must be stored in the same Safe as the group itself.\n\nTo add an account as a member to an account group, users require the following permissions to the Safe where the group is created:\n* Add accounts\n* Update account content\n* Update account properties\n\n**Note:** _The following characters are not support in URL values in the Body:_ **+ & % #**"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Group by Safe [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups?Safe={{Safe}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"AccountGroups"
+							],
+							"query": [
+								{
+									"key": "Safe",
+									"value": "{{Safe}}"
+								}
+							]
+						},
+						"description": "This method returns all the account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Group Members [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"AccountGroups",
+								"{{GroupName}}",
+								"Members"
+							]
+						},
+						"description": "This method returns all the members of an existing account group. These accounts can be either password accounts or SSH Key accounts.\n\n__NOTE: All members of account groups must be stored in the same Safe as the group itself.__\n\nThe user performing this task must have the following permissions in the Safe:\n\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member from Account Group [v9.10+]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members/{{AccountID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"AccountGroups",
+								"{{GroupName}}",
+								"Members",
+								"{{AccountID}}"
+							]
+						},
+						"description": "This method removes an account member from an account group. This account can be either a password account or an SSH Key account.\r\n\r\nThe user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
+					},
+					"response": []
+				}
+			],
+			"description": "The following methods enable you to manage account groups:\n* Add Account Group\n* Add Account to Account Group"
+		},
+		{
+			"name": "Account/ACL Methods [v9.0+]",
+			"item": [
+				{
+					"name": "List Account/ACL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Account",
+								"{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
+								"PrivilegedCommands"
+							]
+						},
+						"description": "This method gets a list of the privileged commands (OPM rules) associated with this account."
+					},
+					"response": [
+						{
+							"name": "500 Internal Server Error (ACLAddress Required)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Account",
+										"{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
+										"PrivilegedCommands"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "CA-ErrorCode",
+									"value": "",
+									"name": "CA-ErrorCode",
+									"description": ""
+								},
+								{
+									"key": "CA-ErrorMessage",
+									"value": "Input parameter AccountAddress is obligatory. Please fix it and try again.",
+									"name": "CA-ErrorMessage",
+									"description": ""
+								},
+								{
+									"key": "CA-ErrorMessageBase64Encoded",
+									"value": "SW5wdXQgcGFyYW1ldGVyIEFjY291bnRBZGRyZXNzIGlzIG9ibGlnYXRvcnkuIFBsZWFzZSBmaXggaXQgYW5kIHRyeSBhZ2Fpbi4=",
+									"name": "CA-ErrorMessageBase64Encoded",
+									"description": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "118",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 21:08:01 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 15:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\"ErrorCode\":\"CAWS00001E\",\"ErrorMessage\":\"Input parameter AccountAddress is obligatory. Please fix it and try again.\"}"
+						}
+					]
+				},
+				{
+					"name": "Add Account/ACL",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Command\":\"/bin/sh\",\n  \"CommandGroup\":false,\n  \"PermissionType\":\"Deny\",\n  \"Restrictions\":\"\",\n  \"UserName\":\"*\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Account",
+								"{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
+								"PrivilegedCommands"
+							]
+						},
+						"description": "This method adds a new privileged command rule to the account."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account/ACL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Account",
+								"{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}",
+								"PrivilegedCommands",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "This method deletes privileged commands rules associated with the account."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Applications [v9.1+]",
+			"item": [
+				{
+					"name": "List Applications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								""
+							],
+							"query": [
+								{
+									"key": "Location",
+									"value": "\\"
+								},
+								{
+									"key": "IncludeSublocations",
+									"value": "true"
+								}
+							]
+						},
+						"description": "This method returns a list of all the applications in the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users"
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Applications",
+										""
+									],
+									"query": [
+										{
+											"key": "Location",
+											"value": "\\"
+										},
+										{
+											"key": "IncludeSublocations",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "771",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:49:26 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "{\n  \"application\": [\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"AIMWebService\",\n      \"BusinessOwnerEmail\": \"\",\n      \"BusinessOwnerFName\": \"\",\n      \"BusinessOwnerLName\": \"\",\n      \"BusinessOwnerPhone\": \"\",\n      \"Description\": \"This application is for the web service installed for the Central Credential Provider.\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\\"\n    },\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"RESTExamples\",\n      \"BusinessOwnerEmail\": \"john.doe@cyberark.com\",\n      \"BusinessOwnerFName\": \"John\",\n      \"BusinessOwnerLName\": \"Doe\",\n      \"BusinessOwnerPhone\": \"555-555-1212\",\n      \"Description\": \"AppID for all AIM and REST Examples\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\Applications\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "List a Specific Application",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								""
+							],
+							"query": [
+								{
+									"key": "AppID",
+									"value": "{{AppID}}"
+								}
+							]
+						},
+						"description": "This method returns information about a specific application.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users"
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Applications",
+										""
+									],
+									"query": [
+										{
+											"key": "AppID",
+											"value": "{{AppID}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "396",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:51:27 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "{\n  \"application\": [\n    {\n      \"AccessPermittedFrom\": 0,\n      \"AccessPermittedTo\": 24,\n      \"AllowExtendedAuthenticationRestrictions\": false,\n      \"AppID\": \"RESTExamples\",\n      \"BusinessOwnerEmail\": \"john.doecyberark.com\",\n      \"BusinessOwnerFName\": \"John\",\n      \"BusinessOwnerLName\": \"Doe\",\n      \"BusinessOwnerPhone\": \"555-555-1212\",\n      \"Description\": \"AppID for all AIM and REST Examples\",\n      \"Disabled\": false,\n      \"ExpirationDate\": null,\n      \"Location\": \"\\\\Applications\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Application",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"application\":\r\n  {\r\n    \"AppID\":\"{{AppID}}\",\r\n    \"Description\":\"Testing DevOps Deployments with CyberArk\",\r\n    \"Location\":\"/Applications\",\r\n    \"AccessPermittedFrom\":0,\r\n    \"AccessPermittedTo\":23,\r\n    \"ExpirationDate\":\"\",\r\n    \"Disabled\":\"No\",\r\n    \"BusinessOwnerFName\":\"John\",\r\n    \"BusinessOwnerLName\":\"Doe\",\r\n    \"BusinessOwnerEmail\":\"John.Doe@CyberArk.com\",\r\n    \"BusinessOwnerPhone\":\"555-555-1212\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								""
+							]
+						},
+						"description": "This method adds a new application to the Vault.\r\nThe user who adds this application requires the following permission in the Vault:\r\n- Manage Users"
+					},
+					"response": [
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"application\":\r\n  {\r\n    \"AppID\":\"{{AppID}}2\",\r\n    \"Description\":\"Testing DevOps Deployments with CyberArk\",\r\n    \"Location\":\"/Applications\",\r\n    \"AccessPermittedFrom\":0,\r\n    \"AccessPermittedTo\":23,\r\n    \"ExpirationDate\":\"\",\r\n    \"Disabled\":\"No\",\r\n    \"BusinessOwnerFName\":\"John\",\r\n    \"BusinessOwnerLName\":\"Doe\",\r\n    \"BusinessOwnerEmail\":\"John.Doe@CyberArk.com\",\r\n    \"BusinessOwnerPhone\":\"555-555-1212\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Applications",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "1647",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:46:42 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n  <head>\r\n    <title>Request Error</title>\r\n    <style>BODY { color: #000000; background-color: white; font-family: Verdana; margin-left: 0px; margin-top: 0px; } #content { margin-left: 30px; font-size: .70em; padding-bottom: 2em; } A:link { color: #336699; font-weight: bold; text-decoration: underline; } A:visited { color: #6699cc; font-weight: bold; text-decoration: underline; } A:active { color: #336699; font-weight: bold; text-decoration: underline; } .heading1 { background-color: #003366; border-bottom: #336699 6px solid; color: #ffffff; font-family: Tahoma; font-size: 26px; font-weight: normal;margin: 0em 0em 10px -20px; padding-bottom: 8px; padding-left: 30px;padding-top: 16px;} pre { font-size:small; background-color: #e5e5cc; padding: 5px; font-family: Courier New; margin-top: 0px; border: 1px #f0f0e0 solid; white-space: pre-wrap; white-space: -pre-wrap; word-wrap: break-word; } table { border-collapse: collapse; border-spacing: 0px; font-family: Verdana;} table th { border-right: 2px white solid; border-bottom: 2px white solid; font-weight: bold; background-color: #cecf9c;} table td { border-right: 2px white solid; border-bottom: 2px white solid; background-color: #e5e5cc;}</style>\r\n  </head>\r\n  <body>\r\n    <div id=\"content\">\r\n      <p class=\"heading1\">Request Error</p>\r\n      <p>The server encountered an error processing the request. See server logs for more details.</p>\r\n    </div>\r\n  </body>\r\n</html>"
+						}
+					]
+				},
+				{
+					"name": "List all Authentication Methods of a Specific Application",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								"{{AppID}}",
+								"Authentications"
+							]
+						},
+						"description": "This method returns information about all the authentications methods of a specific application.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Specific Application",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								""
+							],
+							"query": [
+								{
+									"key": "AppID",
+									"value": "{{AppID}}"
+								}
+							]
+						},
+						"description": "This method deletes a specific application.\r\nThe user requires the following permission in the Vault:\r\n- Manage Users"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"authentication\":\r\n  {\r\n    \"AuthType\":\"path/osuser/hash\",\r\n    \"AuthValue\":\"<Path string>/<OSUser Name>/<Hash Value>\",\r\n    \"IsFolder\":<true/false>,\r\n    \"AllowInternalScripts\":<true/false>\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								"{{AppID}}",
+								"Authentications",
+								""
+							]
+						},
+						"description": "This method adds a new authentication method to a specific application in the Vault.\r\nThe user who adds this authentication method requires the following permissions in the Vault:\r\n- Manage Users"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Specific Authentication",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Applications",
+								"{{AppID}}",
+								"Authentications",
+								""
+							],
+							"query": [
+								{
+									"key": "AuthID",
+									"value": "1"
+								}
+							]
+						},
+						"description": "This method deletes a specific authentication method from a defined application.\r\nThe user requires the following permission in the Vault:\r\n- Manage Users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\":\"{{apiUsername}}\",\r\n  \"password\":\"{{apiPassword}}\",\r\n  \"useRadiusAuthentication\":\"false\",\r\n  \"connectionNumber\":\"1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"auth",
+								"Cyberark",
+								"CyberArkAuthenticationService.svc",
+								"Logon"
+							]
+						},
+						"description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method allows you to set a new password.\r\nYou can define the validity period of a user’s login for REST API and Mobile applications. After the configured timeout expires, users have to log on again using their username and password.\r\nUsers can authenticate using CyberArk, LDAP or RADIUS authentication.\r\n\r\nNOTE: *connectionNumber* allows the use of multiple accounts with REST.  It requires that a *connectionNumber* be generated and tracked by the script.  It is limited to 100 concurrent sessions.  For unlimited concurrent sessions, please see *Shared Logon Authentication*."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"{{apiUsername}}\",\r\n  \"password\":\"{{apiPassword}}\",\r\n  \"useRadiusAuthentication\":\"false\",\r\n  \"connectionNumber\":\"1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"auth",
+										"Cyberark",
+										"CyberArkAuthenticationService.svc",
+										"Logon"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "503",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 17:16:31 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sun Jan 17 2038 04:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\"CyberArkLogonResult\":\"AAEAAAD\\/\\/\\/\\/\\/AQAAAAAAAAAMAgAAAFhDeWJlckFyay5TZXJ2aWNlcy5XZWIsIFZlcnNpb249OC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00MGJlMWRiYzg3MTg2NzBmBQEAAAAoQ3liZXJBcmsuU2VydmljZXMuV2ViLlNlc3Npb25JZGVudGlmaWVycwQAAAAFVG9rZW4ESW5mbwlTZXNzaW9uSWQEVHlwZQEBAQECAAAABgMAAAAQMzYyNTkyRUY2ODhCRTA4QgYEAAAAUDAwMDAwMDAyOTQxQTVFMjA5OUY2NjU3MzY5MUQxM0VENThCOTdCNDVFNUM0RDBCMzEzNzNDNjZGRDIwOUU5NkE0QjM0MjdDMzAwMDAwMDAwBgUAAAAkMzFhYzg3Y2EtNzkzMS00MWY0LWFkZTctMTRlYTdiZmQzYzA0BgYAAAAACw==\"}"
+						}
+					]
+				},
+				{
+					"name": "CyberArk [v9.0+]/LDAP [v9.7+]/Radius [v9.7+] Logoff",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"auth",
+								"Cyberark",
+								"CyberArkAuthenticationService.svc",
+								"Logoff"
+							]
+						},
+						"description": "This method logs off the user and removes the Vault session."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"auth",
+										"Cyberark",
+										"CyberArkAuthenticationService.svc",
+										"Logoff"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "2",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 17:50:00 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 19:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "SAML Authentication Logon [v9.7+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{SAMLToken}}",
+								"description": "Session SAML Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logon",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"auth",
+								"SAML",
+								"SAMLAuthenticationService.svc",
+								"Logon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SAML Authentication Logoff [v9.7+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{SAMLToken}}",
+								"description": "Session SAML Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logoff",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"auth",
+								"SAML",
+								"SAMLAuthenticationService.svc",
+								"Logoff"
+							]
+						},
+						"description": "This method logs off the user and removes the Vault session.\r\nThis web service is used to log off when the user authenticated with SAML authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "Shared Logon Authentication Logon [v9.7+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logon",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"auth",
+								"Shared",
+								"RestfulAuthenticationService.svc",
+								"Logon"
+							]
+						},
+						"description": "This method authenticates to the Vault with a shared webservices user and returns a token that will be used in subsequent web services calls.\n-------------------------\nShared authentication is based on a user credential file that is stored in the PVWA web server. During shared authentication, only the user defined in the credential file can logon to the PVWA, but multiple users can use the logon token.\nThis type of authentication requires the application using the REST services to manage the users as the Vault can't identify which specific user performs each action.\nMultiple concurrent connections can be created using the same token, without affecting each other.\nThe shared user is defined in a user credential file, whose location is specified in the WSCredentialFile parameter, in the appsettings section of the PVWA web.config file:\n`<add key=\"WSCredentialFile\" value=\"C:\\CyberArk\\Password Vault Web Access\\CredFiles\\WSUser.ini\"/>`\n- Make sure that this user can access the the PVWA interface.\n- Make sure the user only has the permissions in the Vault that they require.\nFor information about securing communication when using the SDK, refer to the following:\n- Securing Communication between Applications and the REST Web Services\n- Configuring Client Authentication via Client Certificates\n\nNOTE: Allows unlimited concurrent sessions, does not require a *connectionNumber* to be passed or generated."
+					},
+					"response": []
+				},
+				{
+					"name": "Shared Logon Authentication Logoff [v9.7+]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"auth",
+								"Shared",
+								"RestfulAuthenticationService.svc",
+								"Logoff"
+							]
+						},
+						"description": "This method logs off the shared user and removes the Vault session.\n-------------------------\nShared authentication is based on a user credential file that is stored in the PVWA web server. During shared authentication, only the user defined in the credential file can logon to the PVWA, but multiple users can use the logon token.\nThis type of authentication requires the application using the REST services to manage the users as the Vault can't identify which specific user performs each action.\nMultiple concurrent connections can be created using the same token, without affecting each other.\nThe shared user is defined in a user credential file, whose location is specified in the WSCredentialFile parameter, in the appsettings section of the PVWA web.config file:\n<add key=\"WSCredentialFile\" value=\"C:\\CyberArk\\Password Vault Web\nAccess\\CredFiles\\WSUser.ini\"/>\n- Make sure that this user can access the the PVWA interface.\n- Make sure the user only has the permissions in the Vault that they require.\nFor information about securing communication when using the SDK, refer to the following:\n- Securing Communication between Applications and the REST Web Services\n- Configuring Client Authentication via Client Certificates"
+					},
+					"response": []
+				},
+				{
+					"name": "SSH - Add a Public SSH Key [v9.6+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"PublicSSHKey\":\"<public-key>\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users",
+								"{{UserName}}",
+								"AuthenticationMethods",
+								"SSHKeyAuthentication",
+								"AuthorizedKeys"
+							]
+						},
+						"description": "This method adds an authorized public SSH key for a specific user in the Vault, allowing them to authenticate to the Vault through PSMP using a corresponding private SSH key.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Reset Users' Passwords\r\nIn addition, the user who runs this web service must be in the same Vault Location or higher as the user whose public SSH keys are added.\r\nNote: A user cannot manage their own public SSH keys."
+					},
+					"response": []
+				},
+				{
+					"name": "SSH - Get Public SSH Keys [v9.6+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users",
+								"{{UserName}}",
+								"AuthenticationMethods",
+								"SSHKeyAuthentication",
+								"AuthorizedKeys"
+							]
+						},
+						"description": "This method retrieves all public SSH keys that are authorized for a specific user.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Reset Users' Passwords\r\nIn addition, the user who runs this web service must be in the same Vault Location or higher as the user whose public SSH keys are retrieved.\r\nNote: A user cannot manage their own public SSH keys."
+					},
+					"response": []
+				},
+				{
+					"name": "SSH - Delete Public SSH Key [v9.6+]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/?KeyID=1",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users",
+								"{{UserName}}",
+								"AuthenticationMethods",
+								"SSHKeyAuthentication",
+								"AuthorizedKeys",
+								""
+							],
+							"query": [
+								{
+									"key": "KeyID",
+									"value": "1"
+								}
+							]
+						},
+						"description": "This method deletes an authorized public SSH key for a specific user in the Vault, preventing them from authenticating to the Vault through PSMP using a corresponding private SSH key.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Reset Users' Passwords\r\nIn addition, the user who runs this web service must be in the same Vault Location or higher as the user whose public SSH keys are deleted.\r\nNote: A user cannot manage their own public SSH keys."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Central Credential Provider (CCP) [v9.8+]",
+			"item": [
+				{
+					"name": "GetPassword",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"AIMWebService",
+								"api",
+								"Accounts"
+							],
+							"query": [
+								{
+									"key": "AppID",
+									"value": "{{AppID}}"
+								},
+								{
+									"key": "Safe",
+									"value": "{{Safe}}"
+								},
+								{
+									"key": "Folder",
+									"value": "{{Folder}}"
+								},
+								{
+									"key": "Object",
+									"value": "{{ObjectName}}"
+								}
+							]
+						},
+						"description": "GetPassword – This service enables applications to retrieve passwords from the\r\nCentral Credential Provider.\r\n\r\n- AppID (REQUIRED)\r\n  - Specifies the unique ID of the application issuing the password request.\r\n- Safe\r\n  - Specifies the name of the Safe where the password is stored.\r\n- Folder\r\n  - Specifies the name of the folder where the password is stored. (Default: Root)\r\n- Object\r\n  - Specifies the name of the password object to retrieve.\r\n- UserName\r\n  - Defines search criteria according to the UserName account property.\r\n- Address\r\n  - Defines search criteria according to the Address account property.\r\n- Database\r\n  - Defines search criteria according to the Database account property.\r\n- PolicyID\r\n  - Defines the format that will be used in the setPolicyID method.\r\n- Reason\r\n  - The reason for retrieving the password.  This reason will be audited in the Credential Provider audit log.\r\n- ConnectionTimeout\r\n  - The number of seconds that the Central Credential Provider will try to retrieve the password.  The timeout is calculated when the request is sent from the web service to the Vault and returned back to the web service.\r\n    - 30 (Default)\r\n- Query\r\n  - Defines a free query using account properties, including Safe, folder, and object.  When this method is specified, all other search criteria (Safe/Folder/Object/UserName/Address/PolicyID/Database) are ignored and only the account properties that are specified in the query are passed to the Central Credential Provider in the password request.\r\n- QueryFormat\r\n  - Defines the query format, which can optionally use regular expressions.\r\n  - Possible values are:\r\n    - Exact (Default)\r\n    - Regexp\r\n- FailedRequestOnPasswordChange\r\n  - Whether or not an error will be returned if this web service is called when a password change process is underway.\r\n    - True\r\n    - False (Default)"
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"AIMWebService",
+										"api",
+										"Accounts"
+									],
+									"query": [
+										{
+											"key": "AppID",
+											"value": "{{AppID}}"
+										},
+										{
+											"key": "Safe",
+											"value": "{{Safe}}"
+										},
+										{
+											"key": "Folder",
+											"value": "{{Folder}}"
+										},
+										{
+											"key": "Object",
+											"value": "{{ObjectName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "336",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Sep 2017 21:49:50 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
+						},
+						{
+							"name": "APPAP004E - Password object matching query was not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"AIMWebService",
+										"api",
+										"Accounts"
+									],
+									"query": [
+										{
+											"key": "AppID",
+											"value": "{{AppID}}"
+										},
+										{
+											"key": "Safe",
+											"value": "{{Safe}}"
+										},
+										{
+											"key": "Folder",
+											"value": "{{Folder}}"
+										},
+										{
+											"key": "Object",
+											"value": "{{ObjectName}}"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "415",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Sep 2017 21:45:44 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\"ErrorCode\":\"APPAP004E\",\"ErrorMsg\":\"Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password.\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Confirm Requests [v9.10+]",
+			"item": [
+				{
+					"name": "Get Incoming Request List [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"IncomingRequests"
+							],
+							"query": [
+								{
+									"key": "onlywaiting",
+									"value": "false"
+								},
+								{
+									"key": "expired",
+									"value": "false"
+								}
+							]
+						},
+						"description": "This method returns a list of all the requests for the confirmer to respond to."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of a Request for Confirmation [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"IncomingRequests",
+								"{{RequestID}}"
+							]
+						},
+						"description": "This method returns details of a specific request in the Incoming Requests list."
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Request [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Reason\":\"Automatically accepted via CyberArk Web Services on {{$timestamp}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Confirm",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"IncomingRequests",
+								"{{RequestID}}",
+								"Confirm"
+							]
+						},
+						"description": "This method enables a request confirmer to confirm a single request, identified by its request ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Reject Request [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Reason\":\"Rejected automatically by CyberArk Web Services on {{$timestamp}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Reject",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"IncomingRequests",
+								"{{RequestID}}",
+								"Reject"
+							]
+						},
+						"description": "This method enables a request confirmer to reject a single request, identified by its request ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Connections [v9.10+]",
+			"item": [
+				{
+					"name": "Connect Through PSM [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Reason\":\"Automatically connected via CyberArk Web Services on {{$timestamp}}\",\n  \"TicketingSystemName\": \"ServiceNow\",\n  \"TicketId\": \"INC123456\",\n  \"ConnectionComponent\": \"PSM-RDP\",\n  \"ConnectionParams\": {\n    \"LogonDomain\": {\n      \"Value\": \"cyberark.local\",\n      \"ShouldSave\": \"true\"\n    },\n    \"AllowMappingLocalDrives\": {\n      \"Value\": \"Yes\",\n      \"ShouldSave\": \"false\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"PSMConnect"
+							]
+						},
+						"description": "This method allows you to connect with an account through PSM using an RDP file, by returning RDP settings that can be used with an RDP client application. It requires the PVWA and PSM to be configured for transparent connections through PSM with RDP files.\r\n\r\nFor more information, refer to Configuring the PSM Session User Experience for Connections Through PVWA in the Privileged Account Security Implementation Guide."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Managing Accounts",
+			"item": [
+				{
+					"name": "Add Account [v9.0+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"AccountName\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Account"
+							]
+						},
+						"description": "This method adds a new privileged account to the Vault."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Pending Account [v9.7+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pendingAccount\":{\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"AccountDiscoveryDate\":\"2016-12-19T08:19:03Z\",\r\n    \"AccountEnabled\":\"Disabled\",\r\n    \"AccountOSGroups\":\"Domain Admins\",\r\n    \"AccountType\":\"Domain\",\r\n    \"Domain\":\"joe-garcia.local\",\r\n    \"PasswordNeverExpires\":\"false\",\r\n    \"OSVersion\":\"Windows Server 2012 R2\",\r\n    \"OU\":\"Users\",\r\n    \"AccountCategory\":\"Privileged\",\r\n    \"UserDisplayName\":\"CA_EPVTestUser\",\r\n    \"AccountDescription\":\"CyberArk EPV Test User for Web Services\",\r\n    \"GID\":\"\",\r\n    \"UID\":\"\",\r\n    \"OSType\":\"Windows\",\r\n    \"DiscoveryPlatformType\":\"Windows Domain Accounts\",\r\n    \"MachineOSFamily\":\"server\",\r\n    \"LastLogonDate\":\"\",\r\n    \"LastPasswordSetDate\":\"2016-12-19T08:19:03Z\",\r\n    \"AccountExpirationDate\":\"\",\r\n    \"AccountCategoryCriteria\":\"<criteria>\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"PendingAccounts"
+							]
+						},
+						"description": "This method enables an account that is discovered by an external scanner to be added as a pending account to the Accounts Feed. This facilitates the privileged account workflow, during which users can identify privileged accounts and determine which are onboarded to the Vault.\r\nNote: This method adds password accounts only. It does not add SSH Keys."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account [v9.3+]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts",
+								"{{AccountID}}"
+							]
+						},
+						"description": "This method deletes a specific account in the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Delete accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Value [v9.7-9.10]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts",
+								"{{AccountID}}",
+								"Credentials"
+							]
+						},
+						"description": "This method enables users to retrieve the password of an existing account that is identified by its Account ID.\r\n- This web service will not return SSH Keys. If the request was sent for an SSH key, the following error will be returned: \"Failed to get the credentials of <AccountID>. Reason: The account is of type SSH Key.\"\r\n- This web service will not be able to retrieve the password if a reason is required (according to its effective Master Policy), and an error will be returned."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Password Value [v10]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Reason\":\"Automatically retrieved password by CyberArk Web Services on {{$timestamp}}\",\n  \"TicketingSystemName\": \"ServiceNow\",\n  \"TicketId\": \"INC123456\",\n  \"Version\": \"1\",\n  \"ActionType\": \"Connect\",\n  \"IsUse\": \"false\",\n  \"Machine\": \"client.cyberark.local\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Retrieve",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"Password",
+								"Retrieve"
+							]
+						},
+						"description": "This method enables users to retrieve the password or SSH key of an existing account that is identified by its Account ID. It enables users to specify a reason and ticket ID, if required.\r\n\r\nThis method can be used from v10 and replaces the Get Account Value method."
+					},
+					"response": []
+				},
+				{
+					"name": "Change Credentials [v9.3+]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "ImmediateChangeByCPM",
+								"value": "Yes",
+								"description": "Accepted: Yes or No"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ChangeCredsForGroup\":\"No\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts",
+								"{{AccountID}}",
+								"ChangeCredentials"
+							]
+						},
+						"description": "This method marks the account for an immediate password change by the CPM to a new random password.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n- Initiate CPM password management operations\r\n\r\nNOTE: 'ImmediateChangeByCPM' is in the Web Services SDK as part of the body, but it should be included in the header as it is here."
+					},
+					"response": []
+				},
+				{
+					"name": "Change Credentials Immediately [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ChangeEntireGroup\":\"true\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Change",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"Change"
+							]
+						},
+						"description": "This method marks an account for an immediate credentials change by the CPM to a new random value.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Credentials and Set Next Password [v10]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ChangeImmediately\":\"true\",\n  \"NewCredentials\":\"Cyberark1\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/SetNextPassword",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"SetNextPassword"
+							]
+						},
+						"description": "This method enables users to set the account's credentials to use for the next CPM change.\r\n\r\nThe user who runs this web service requires the following permissions in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n* Specify next password value"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Credentials in the Vault [v10]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ChangeCredsForGroup\":\"true\",\n  \"AutoGenerate\":\"true\",\n  \"NewCredentials\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Update",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"Password",
+								"Update"
+							]
+						},
+						"description": "This method enables users to set the account's credentials and change it in the Vault.\r\n\r\nThis will not affect the credentials on the target device.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Update password value"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Credentials [v9.7-v9.9.5]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/VerifyCredentials",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts",
+								"{{AccountID}}",
+								"VerifyCredentials"
+							]
+						},
+						"description": "This method marks an account for verification by the CPM.\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations\r\n\r\n__This endpoint has been deprecated past v9.9.5__"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Credentials [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Verify",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"Verify"
+							]
+						},
+						"description": "This method marks an account for verification by the CPM, and can be used in versions from v9.10.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+					},
+					"response": []
+				},
+				{
+					"name": "Reconcile Credentials [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"Reconcile"
+							]
+						},
+						"description": "This method marks an account for automatic reconciliation by the CPM.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Details [v9.3+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts"
+							],
+							"query": [
+								{
+									"key": "Keywords",
+									"value": "{{Keywords}}"
+								},
+								{
+									"key": "Safe",
+									"value": "{{Safe}}"
+								}
+							]
+						},
+						"description": "This method returns information about an account. If more than one account meets the search criteria, only the first account will be returned, although the Count output parameter will display the number of accounts that were found.\r\nOnly the following users can access this account:\r\n- Users who are members of the Safe where the account is stored.\r\n- Users who have access to this specific account. For more information about object level access control, refer to Object Level Access Control in the Privileged Account Security Implementation Guide.\r\n- The user who runs this web service requires the following permission in the Safe:\r\n  - List accounts\r\nNotes:\r\n- This method does not display the actual password.\r\n- If ten or more accounts are found, the Count Output parameter will show 10."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Accounts"
+									],
+									"query": [
+										{
+											"key": "Keywords",
+											"value": "{{Keywords}}"
+										},
+										{
+											"key": "Safe",
+											"value": "{{Safe}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "697",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 17:48:52 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 20:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\n  \"Count\": 1,\n  \"accounts\": [\n    {\n      \"AccountID\": \"41_4\",\n      \"InternalProperties\": [\n        {\n          \"Key\": \"CPMStatus\",\n          \"Value\": \"success\"\n        },\n        {\n          \"Key\": \"CreationMethod\",\n          \"Value\": \"PVWA\"\n        },\n        {\n          \"Key\": \"RetriesCount\",\n          \"Value\": \"-1\"\n        },\n        {\n          \"Key\": \"LastTask\",\n          \"Value\": \"VerifyTask\"\n        }\n      ],\n      \"Properties\": [\n        {\n          \"Key\": \"Safe\",\n          \"Value\": \"T-APP-CYBR-RESTAPI\"\n        },\n        {\n          \"Key\": \"Folder\",\n          \"Value\": \"Root\"\n        },\n        {\n          \"Key\": \"Name\",\n          \"Value\": \"Operating System-WindowsDomainAccount-cyberark.local-test.user0001\"\n        },\n        {\n          \"Key\": \"UserName\",\n          \"Value\": \"test.user0001\"\n        },\n        {\n          \"Key\": \"PolicyID\",\n          \"Value\": \"WindowsDomainAccount\"\n        },\n        {\n          \"Key\": \"LogonDomain\",\n          \"Value\": \"CYBERARK\"\n        },\n        {\n          \"Key\": \"LastSuccessVerification\",\n          \"Value\": \"1496683713\"\n        },\n        {\n          \"Key\": \"Address\",\n          \"Value\": \"cyberark.local\"\n        },\n        {\n          \"Key\": \"DeviceType\",\n          \"Value\": \"Operating System\"\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Account Details [v9.5+]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomain\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts",
+								"{{AccountID}}"
+							]
+						},
+						"description": "This method updates an existing account's details. In order to execute this web service, all the account’s details must be entered in the web service request. If the existing accounts properties are not sent as part of the request, the properties will be removed from the account. Any values sent in the request that were changed will be updated. All other properties values will remain the same.\r\nWhen you change the name or folder of a service account that has multiple dependencies (usages), the connection between it and its dependencies will be automatically maintained.\r\nIn addition, when you change the name or a folder of an account that is linked to another account, whether logon, reconciliation or verification, the links will be automatically updated.\r\nNotes:\r\nThis web service has the following limitations:\r\n- Dependencies (usages) cannot be updated.\r\n- Accounts that do not have a policy ID cannot be updated.\r\nPermissions\r\n- To update account properties, Safe members require the following permission:\r\n  - Update password properties\r\n- To rename accounts, Safe members require the following permission:\r\n  - Rename accounts\r\n- To move accounts to a different folder, Safe members require the following permission:\r\n  - Move accounts/folders"
+					},
+					"response": []
+				},
+				{
+					"name": "Check-In Exclusive Account [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Accounts",
+								"{{AccountID}}",
+								"CheckIn"
+							]
+						},
+						"description": "This method checks an exclusive account into the Vault.\r\n\r\n* If the account is managed automatically by the CPM, after it is checked in, the password is changed immediately.\r\n* If the account is managed manually, a notification is sent to a user who is authorized to change the password. The account is checked in automatically after it has been changed.\r\n\r\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\r\n\r\n* Initiate CPM password management operations"
+					},
+					"response": []
+				},
+				{
+					"name": "List Activity by ID [v9.7+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Accounts",
+								"{{AccountID}}",
+								"Activities"
+							],
+							"query": [
+								{
+									"key": "SafeName",
+									"value": "{{Safe}}"
+								}
+							]
+						},
+						"description": "This method returns the activities of a specific account that is identified by its account ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Managing Platforms [v9.10+]",
+			"item": [
+				{
+					"name": "Get Platform Details [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Platforms",
+								"{{PlatformName}}"
+							]
+						},
+						"description": "This method retrieves details of a specified platform from the Vault."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Monitor Sessions [v9.10+]",
+			"item": [
+				{
+					"name": "Get Recordings [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Recordings"
+							],
+							"query": [
+								{
+									"key": "Limit",
+									"value": "25"
+								},
+								{
+									"key": "Sort",
+									"value": "RiskScore"
+								},
+								{
+									"key": "Offset",
+									"value": "0"
+								},
+								{
+									"key": "Search",
+									"value": "adm_domain"
+								},
+								{
+									"key": "Safe",
+									"value": "{{Safe}}"
+								},
+								{
+									"key": "FromTime",
+									"value": "1514808001"
+								},
+								{
+									"key": "ToTime",
+									"value": "1515326399"
+								},
+								{
+									"key": "Activities",
+									"value": "regedit"
+								}
+							]
+						},
+						"description": "This method returns the details of recordings of PSM, PSMP or OPM sessions."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Live Sessions [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"LiveSessions"
+							],
+							"query": [
+								{
+									"key": "Limit",
+									"value": "25"
+								},
+								{
+									"key": "Sort",
+									"value": "RiskScore"
+								},
+								{
+									"key": "Offset",
+									"value": "0"
+								},
+								{
+									"key": "Search",
+									"value": "adm_domain"
+								},
+								{
+									"key": "Safe",
+									"value": "{{Safe}}"
+								},
+								{
+									"key": "FromTime",
+									"value": "1514808001"
+								},
+								{
+									"key": "ToTime",
+									"value": "1515326399"
+								},
+								{
+									"key": "Activities",
+									"value": "regedit"
+								}
+							]
+						},
+						"description": "This method returns details of live sessions."
+					},
+					"response": []
+				},
+				{
+					"name": "Terminate Live Session [v10]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{PSMLiveSessionId}}/Terminate",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"LiveSessions",
+								"{{PSMLiveSessionId}}",
+								"Terminate"
+							]
+						},
+						"description": "This method terminates a live PSM session."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "My Requests [v9.10+]",
+			"item": [
+				{
+					"name": "Create a Request [v9.10+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AccountID\":\"{{AccountID}}\",\n  \"Reason\":\"Access requested via CyberArk Web Services\",\n  \"TicketingSystemName\":\"ServiceNow\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/MyRequests",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"MyRequests"
+							]
+						},
+						"description": "This method creates an access request for a specific account. This account may be either a password account or an SSH Key account."
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Requests [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/MyRequests?onlywaiting=false&expired=false",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"MyRequests"
+							],
+							"query": [
+								{
+									"key": "onlywaiting",
+									"value": "false"
+								},
+								{
+									"key": "expired",
+									"value": "false"
+								}
+							]
+						},
+						"description": "This method returns a list of the end user's requests."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete My Request [v9.10+]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"MyRequests",
+								"{{RequestID}}"
+							]
+						},
+						"description": "This method deletes a request made by a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of My Requests [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"MyRequests",
+								"{{RequestID}}"
+							]
+						},
+						"description": "This method returns details of all the requests in My Requests list."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Onboarding Rules [v9.8+]",
+			"item": [
+				{
+					"name": "Add Onboarding Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TargetPlatformId\": \"string\",\r\n  \"TargetSafeName\": \"string\",\r\n  \"IsAdminIDFilter\": true,\r\n  \"MachineTypeFilter\": 0,\r\n  \"SystemTypeFilter\": 0,\r\n  \"UserNameFilter\": \"string\",\r\n  \"RuleName\": \"string\",\r\n  \"RuleDescription\": \"string\",\r\n  \"UserNameMethod\": 0,\r\n  \"AddressFilter\": \"string\",\r\n  \"AddressMethod\": 0,\r\n  \"AccountCategoryFilter\": 0\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"api",
+								"AutomaticOnboardingRules"
+							]
+						},
+						"description": "This method adds a new onboarding rule to the Vault that filters discovered local privileged pending accounts. When a discovered pending account matches a rule, it will automatically be onboarded to the Safe that is defined in the rule and the password will be reconciled.\r\nNote: The Safe and the reconcile account must be created according to the rule’s definition before you run this API in order to onboard the pending account automatically. The reconcile account must be associated to the platform that is defined in the rule.\r\nThe user who runs this web service must belong to the following group:\r\n- Vault Admins"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Onboarding Rule",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/?id=1",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"api",
+								"AutomaticOnboardingRules",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Rule ID to delete"
+								}
+							]
+						},
+						"description": "This method deletes an automatic onboarding rule from the Vault.\r\nThe user who runs this web service must belong to the following group:\r\n- Vault Admins"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Onboarding Rule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"api",
+								"AutomaticOnboardingRules",
+								""
+							]
+						},
+						"description": "This method returns information about all the defined onboarding rules.\r\nThe user who runs this web service must belong to the following group:\r\n- Vault Admins"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policy/ACL Methods [v9.0+]",
+			"item": [
+				{
+					"name": "List Policy/ACL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Policy",
+								"{{ACLPolicyID}}",
+								"PrivilegedCommands"
+							]
+						},
+						"description": "This method gets a list of the privileged commands (OPM rules) associated with this policy."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Policy/ACL",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Command\":\"/bin/sh\",\r\n  \"CommandGroup\":false,\r\n  \"PermissionType\":\"Deny\",\r\n  \"Restrictions\":\"\",\r\n  \"UserName\":\"{{ACLUserName}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Policy",
+								"{{ACLPolicyID}}",
+								"PrivilegedCommands"
+							]
+						},
+						"description": "This method adds a new privileged command rule to the policy."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Policy/ACL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands/?id=1",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Policy",
+								"{{ACLPolicyID}}",
+								"PrivilegedCommands",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "This method deletes all privileged commands rules associated with the policy."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Safe Management",
+			"item": [
+				{
+					"name": "List Safes [v9.7+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes"
+							]
+						},
+						"description": "This method returns information about all of the user’s Safes in the Vault."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Safe Details [v9.7+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								"{{Safe}}"
+							]
+						},
+						"description": "This method returns information about a specific Safe in the Vault."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Safe [v9.2+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"safe\":\n  {\n    \"SafeName\":\"{{Safe}}\",\n    \"Description\":\"Test, Application, CyberArk, API\",\n    \"OLACEnabled\":false,\n    \"ManagingCPM\":\"PasswordManager\",\n    \"NumberofVersionsRetention\":5,\n    \"NumberofDaysRetention\":7\n  }\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes"
+							]
+						},
+						"description": "This method adds a new Safe to the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Add Safes"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Safe [v9.3+]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"safe\":\r\n  {\r\n    \"SafeName\":\"{{Safe}}\",\r\n    \"Description\":\"Test, Application, CyberArk, API, Update Safe Test\",\r\n    \"OLACEnabled\":false,\r\n    \"ManagingCPM\":\"PasswordManager\",\r\n    \"NumberOfVersionsRetention\":5,\r\n    \"NumberOfDaysRetention\":7\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/?SafeName={{Safe}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								""
+							],
+							"query": [
+								{
+									"key": "SafeName",
+									"value": "{{Safe}}"
+								}
+							]
+						},
+						"description": "This method updates a single Safe in the Vault. The user who runs this web service requires the following permission in the Vault:\r\n- Manage Safe"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Safe [v9.3+]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								"{{Safe}}"
+							]
+						},
+						"description": "This method deletes a Safe from the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Manage Safe"
+					},
+					"response": []
+				},
+				{
+					"name": "Search for a Safe [v9.7+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "{{Query}}"
+								}
+							]
+						},
+						"description": "This method returns information about the Safes in the Vault that meet the criteria specified in the search query."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Safe Account Groups [v9.10+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Safes/{{Safe}}/AccountGroups",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Safes",
+								"{{Safe}}",
+								"AccountGroups"
+							]
+						},
+						"description": "This method returns all the existing account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Safe Members",
+			"item": [
+				{
+					"name": "List Safe Members [v9.7+]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								"{{Safe}}",
+								"Members"
+							]
+						},
+						"description": "This method returns a list of the members of the Safe. The user performing this task must have the following permissions in the Safe:\r\n- View Safe Members"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Safe Member [v9.3+]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"member\":\r\n  {\r\n    \"MemberName\"        :\"EPVUserTest\",\r\n    \"SearchIn\"          :\"ActiveDirectory\",\r\n    \"MembershipExpirationDate\"  :\"\",\r\n    \"Permissions\":\r\n    [\r\n      {\"Key\":\"UseAccounts\", \"Value\":false},\r\n      {\"Key\":\"RetrieveAccounts\", \"Value\":false},\r\n      {\"Key\":\"ListAccounts\", \"Value\":true},\r\n      {\"Key\":\"AddAccounts\", \"Value\":false},\r\n      {\"Key\":\"UpdateAccountContent\",\"Value\":false},\r\n      {\"Key\":\"UpdateAccountProperties\",\"Value\":false},\r\n      {\"Key\":\"InitiateCPMAccountManagementOperations\",\"Value\":false},\r\n      {\"Key\":\"SpecifyNextAccountContent\",\"Value\":false},\r\n      {\"Key\":\"RenameAccounts\", \"Value\":false},\r\n      {\"Key\":\"DeleteAccounts\", \"Value\":false},\r\n      {\"Key\":\"UnlockAccounts\", \"Value\":false},\r\n      {\"Key\":\"ManageSafe\", \"Value\":false},\r\n      {\"Key\":\"ManageSafeMembers\", \"Value\":false},\r\n      {\"Key\":\"BackupSafe\", \"Value\":false},\r\n      {\"Key\":\"ViewAuditLog\", \"Value\":true},\r\n      {\"Key\":\"ViewSafeMembers\", \"Value\":true},\r\n      {\"Key\":\"RequestsAuthorizationLevel\",\"Value\":0},\r\n      {\"Key\":\"AccessWithoutConfirmation\",\"Value\":false},\r\n      {\"Key\":\"CreateFolders\", \"Value\":false},\r\n      {\"Key\":\"DeleteFolders\", \"Value\":false},\r\n      {\"Key\":\"MoveAccountsAndFolders\",\"Value\":false}\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								"{{Safe}}",
+								"Members"
+							]
+						},
+						"description": "This method adds an existing user as a Safe member.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Manage Safe Members"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Safe Member [v9.3+]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"member\":\r\n  {\r\n    \"MembershipExpirationDate\":\"\",\r\n    \"Permissions\":\r\n    [\r\n      {\"Key\":\"UseAccounts\", \"Value\":false},\r\n      {\"Key\":\"RetrieveAccounts\", \"Value\":false},\r\n      {\"Key\":\"ListAccounts\", \"Value\":true},\r\n      {\"Key\":\"AddAccounts\", \"Value\":false},\r\n      {\"Key\":\"UpdateAccountContent\",\"Value\":false},\r\n      {\"Key\":\"UpdateAccountProperties\",\"Value\":false},\r\n      {\"Key\":\"InitiateCPMAccountManagementOperations\",\"Value\":false},\r\n      {\"Key\":\"SpecifyNextAccountContent\",\"Value\":false},\r\n      {\"Key\":\"RenameAccounts\", \"Value\":false},\r\n      {\"Key\":\"DeleteAccounts\", \"Value\":false},\r\n      {\"Key\":\"UnlockAccounts\", \"Value\":false},\r\n      {\"Key\":\"ManageSafe\", \"Value\":false},\r\n      {\"Key\":\"ManageSafeMembers\", \"Value\":false},\r\n      {\"Key\":\"BackupSafe\", \"Value\":false},\r\n      {\"Key\":\"ViewAuditLog\", \"Value\":true},\r\n      {\"Key\":\"ViewSafeMembers\", \"Value\":true},\r\n      {\"Key\":\"RequestsAuthorizationLevel\",\"Value\":0},\r\n      {\"Key\":\"AccessWithoutConfirmation\",\"Value\":false},\r\n      {\"Key\":\"CreateFolders\", \"Value\":false},\r\n      {\"Key\":\"DeleteFolders\", \"Value\":false},\r\n      {\"Key\":\"MoveAccountsAndFolders\",\"Value\":false}\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members?MemberName={{SafeMember}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								"{{Safe}}",
+								"Members"
+							],
+							"query": [
+								{
+									"key": "MemberName",
+									"value": "{{SafeMember}}"
+								}
+							]
+						},
+						"description": "This method updates an existing Safe member.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Manage Safe Members"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Safe Member [v9.3+]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members/{{SafeMember}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Safes",
+								"{{Safe}}",
+								"Members",
+								"{{SafeMember}}"
+							]
+						},
+						"description": "This method removes a specific member from a Safe.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Manage Safe Members"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Server Web Services [v9.7+]",
+			"item": [
+				{
+					"name": "Verify",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Verify",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Verify"
+							]
+						},
+						"description": "This method returns the display name of the Vault configured in the ServerDisplayName configuration parameter."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Verify",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Verify"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "380",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:28:01 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "{\"ApplicationName\":\"PasswordVault\",\"AuthenticationMethods\":[{\"Enabled\":true,\"Id\":\"windows\"},{\"Enabled\":false,\"Id\":\"pki\"},{\"Enabled\":true,\"Id\":\"cyberark\"},{\"Enabled\":false,\"Id\":\"oraclesso\"},{\"Enabled\":false,\"Id\":\"rsa\"},{\"Enabled\":true,\"Id\":\"radius\"},{\"Enabled\":true,\"Id\":\"ldap\"},{\"Enabled\":false,\"Id\":\"saml\"}],\"ServerId\":\"e10b6fe6-1bea-11e7-8329-000c29ebeaed\",\"ServerName\":\"Vault\"}"
+						}
+					]
+				},
+				{
+					"name": "Logo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Logo?type=Square",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Logo"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Square"
+								}
+							]
+						},
+						"description": "This method returns the configuration of the logo that will be displayed in the CyberArk SafeShare logon screen and account settings.\n\nNOTE: SafeShare is no longer available from CyberArk."
+					},
+					"response": [
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Logo?type=Square",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Logo"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "Square"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "CA-ErrorCode",
+									"value": "CAWS018E",
+									"name": "CA-ErrorCode",
+									"description": ""
+								},
+								{
+									"key": "CA-ErrorMessage",
+									"value": "Internal error occurred, contact your administrator.",
+									"name": "CA-ErrorMessage",
+									"description": ""
+								},
+								{
+									"key": "CA-ErrorMessageBase64Encoded",
+									"value": "SW50ZXJuYWwgZXJyb3Igb2NjdXJyZWQsIGNvbnRhY3QgeW91ciBhZG1pbmlzdHJhdG9yLg==",
+									"name": "CA-ErrorMessageBase64Encoded",
+									"description": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "94",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:38:53 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "{\"ErrorCode\":\"CAWS018E\",\"ErrorMessage\":\"Internal error occurred, contact your administrator.\"}"
+						}
+					]
+				},
+				{
+					"name": "Server",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Server"
+							]
+						},
+						"description": "This method returns the display name of the Vault configured in the ServerDisplayName configuration parameter."
+					},
+					"response": [
+						{
+							"name": "403 Forbidden (Check your authorization/authentication)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Server"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "CA-ErrorCode",
+									"value": "CAIWS001E",
+									"name": "CA-ErrorCode",
+									"description": ""
+								},
+								{
+									"key": "CA-ErrorMessage",
+									"value": "Couldn't retrieve session token from request header.",
+									"name": "CA-ErrorMessage",
+									"description": ""
+								},
+								{
+									"key": "CA-ErrorMessageBase64Encoded",
+									"value": "Q291bGRuJ3QgcmV0cmlldmUgc2Vzc2lvbiB0b2tlbiBmcm9tIHJlcXVlc3QgaGVhZGVyLg==",
+									"name": "CA-ErrorMessageBase64Encoded",
+									"description": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "95",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:40:46 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "{\"ErrorCode\":\"CAIWS001E\",\"ErrorMessage\":\"Couldn't retrieve session token from request header.\"}"
+						},
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Server"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "78",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jun 2017 18:42:20 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; HttpOnly",
+									"name": "Set-Cookie",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8",
+									"name": "X-UA-Compatible",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								}
+							],
+							"body": "{\"ExternalVersion\":\"9.9.0\",\"InternalVersion\":\"9.90.0.18\",\"ServerName\":\"Vault\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "System Health [v10]",
+			"item": [
+				{
+					"name": "System Details [v10]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringDetails/{{ComponentsID}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"ComponentsMonitoringDetails",
+								"{{ComponentsID}}"
+							]
+						},
+						"description": "This method returns details about specific components and all their installed instances, and system health information for each one.\n\n_Valid ComponentsID values: PVWA/SessionManagement/CPM/AIM_"
+					},
+					"response": []
+				},
+				{
+					"name": "System Summary [v10]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringSummary",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"ComponentsMonitoringSummary"
+							]
+						},
+						"description": "This method returns consolidated information about the Vault, PVWA, CPM, PSM/PSMP, and AIM, including all clients that are relevant to each specific component."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management [v9.7+]",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"UserName\":\"{{UserName}}\",\r\n  \"InitialPassword\":\"Cyberark1\",\r\n  \"Email\":\"EPVUserTest@cyberark.local\",\r\n  \"FirstName\":\"REST API\",\r\n  \"LastName\":\"EPVUserTest\",\r\n  \"ChangePasswordOnTheNextLogon\":false,\r\n  \"ExpiryDate\":\"yyyy-MM-dd\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":true,\r\n  \"Location\":\"\\\\\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users"
+							]
+						},
+						"description": "This method adds a new user to the Vault."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"NewPassword\":\"Password321\",\r\n  \"Email\":\"John.Doe@CyberArk.com\",\r\n  \"FirstName\":\"John\",\r\n  \"LastName\":\"Doe\",\r\n  \"ChangePasswordOnTheNextLogon\":true,\r\n  \"ExpiryDate\":\"\",\r\n  \"UserTypeName\":\"EPVUser\",\r\n  \"Disabled\":false,\r\n  \"Location\":\"\\\\\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/?UserName={{UserName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users",
+								""
+							],
+							"query": [
+								{
+									"key": "UserName",
+									"value": "{{UserName}}"
+								}
+							]
+						},
+						"description": "This method updates an existing Vault user."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Conte",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/API.svc/Users/?UserName={{UserName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"API.svc",
+								"Users",
+								""
+							],
+							"query": [
+								{
+									"key": "UserName",
+									"value": "{{UserName}}"
+								}
+							]
+						},
+						"description": "This method deletes a specific User in the Vault."
+					},
+					"response": []
+				},
+				{
+					"name": "Logged on User Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/User",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"User"
+							]
+						},
+						"description": "This method returns user information of the user who is logged on."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users",
+								"{{UserName}}"
+							]
+						},
+						"description": "This method returns information about a specific User in the Vault."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Suspended\":\"false\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Users",
+								"{{UserName}}"
+							]
+						},
+						"description": "This method activates an existing Vault user."
+					},
+					"response": []
+				},
+				{
+					"name": "Add User to Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"UserName\":\"{{UserName}}\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Groups",
+								"{{GroupName}}",
+								"Users"
+							]
+						},
+						"description": "This method adds a specific user to an existing user group in the Vault."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "daae1e76-14e2-473d-893a-7d421e5baacc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "68bbb54e-6d09-43b8-b273-7ae8fb536009",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f27479fe-8339-44c8-8766-044184e8583b",
+			"key": "BaseURL",
+			"value": "https://components.cyberark.local",
+			"type": "string"
+		},
+		{
+			"id": "e4abfc0b-e97b-44e9-8420-7588b2d18fdb",
+			"key": "apiUsername",
+			"value": "Svc_CyberArkAPI",
+			"type": "string"
+		},
+		{
+			"id": "813f1d61-7150-4eb4-b694-6fbb2e1dbf40",
+			"key": "apiPassword",
+			"value": "Cyberark1",
+			"type": "string"
+		},
+		{
+			"id": "5bac3599-4236-471e-a3ff-86699d371665",
+			"key": "CyberArkLogonResult",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "01557973-4c22-40d4-83a7-7efb441e13f8",
+			"key": "SAMLToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "b7209b0b-a330-4a66-be6f-6b2183866c06",
+			"key": "AccountID",
+			"value": "41_3",
+			"type": "string"
+		},
+		{
+			"id": "f0bc22f0-82e3-4bdd-a142-7063412a4b95",
+			"key": "Keywords",
+			"value": "Svc_",
+			"type": "string"
+		},
+		{
+			"id": "29042bfe-89c2-470f-a26a-45ccb333faab",
+			"key": "Safe",
+			"value": "T-APP-CYBR-RESTAPI",
+			"type": "string"
+		},
+		{
+			"id": "c1c70f5a-70a1-4f13-9dce-ac569636b729",
+			"key": "AppID",
+			"value": "RESTExamples",
+			"type": "string"
+		},
+		{
+			"id": "de134f41-6390-4e8d-b655-e1135896f548",
+			"key": "Folder",
+			"value": "Root",
+			"type": "string"
+		},
+		{
+			"id": "f91ace26-3c95-423f-85c7-2a84c4862293",
+			"key": "ObjectName",
+			"value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
+			"type": "string"
+		},
+		{
+			"id": "fa716945-a007-4449-aa92-0b05cb812807",
+			"key": "ACLAddress",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "a591b067-8969-4980-9cdc-fdbd7d36decd",
+			"key": "ACLUserName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "0eaf0440-5ca9-4df5-b8db-124d0a8e37bf",
+			"key": "ACLPolicyID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ba2a1b36-fab0-4586-baad-c9a59089eb4f",
+			"key": "UserName",
+			"value": "Svc_BambooHR",
+			"type": "string"
+		},
+		{
+			"id": "adb7d56c-a20b-4846-b737-6102e61638b5",
+			"key": "Address",
+			"value": "cyberark.local",
+			"type": "string"
+		},
+		{
+			"id": "856dc0a3-414a-4d34-831c-1436f9696f6d",
+			"key": "Query",
+			"value": "T-APP-",
+			"type": "string"
+		},
+		{
+			"id": "71099479-1d79-4671-918d-8dfe57a9d8cb",
+			"key": "GroupName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "52dddde1-5249-4608-8a86-e808129b438d",
+			"key": "SafeMember",
+			"value": "EPVUserTest",
+			"type": "string"
+		},
+		{
+			"id": "e4fcbc06-a65e-4932-ae78-4fd5927a60d4",
+			"key": "PlatformName",
+			"value": "CyberArkVault",
+			"type": "string"
+		},
+		{
+			"id": "94b69010-4881-44d0-8605-22fbc1f85fb7",
+			"key": "RequestID",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
