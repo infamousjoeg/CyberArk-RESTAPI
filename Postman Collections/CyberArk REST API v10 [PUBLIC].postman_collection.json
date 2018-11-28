@@ -93,7 +93,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups?Safe={{Safe}}",
 							"host": [
@@ -130,7 +133,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members",
 							"host": [
@@ -206,7 +212,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
 							"host": [
@@ -239,7 +248,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
 									"host": [
@@ -529,7 +541,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
 							"host": [
@@ -571,7 +586,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
 									"host": [
@@ -751,7 +769,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
 							"host": [
@@ -789,7 +810,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
 									"host": [
@@ -1173,7 +1197,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications",
 							"host": [
@@ -1934,7 +1961,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
 							"host": [
@@ -2013,7 +2043,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
 							"host": [
@@ -2056,7 +2089,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
 									"host": [
@@ -2211,7 +2247,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
 									"host": [
@@ -2378,7 +2417,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
 							"host": [
@@ -2419,7 +2461,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}",
 							"host": [
@@ -2672,7 +2717,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
 							"host": [
@@ -3003,7 +3051,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
 							"host": [
@@ -3044,7 +3095,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
 									"host": [
@@ -3313,7 +3367,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
 							"host": [
@@ -3358,7 +3415,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}",
 							"host": [
@@ -3395,7 +3455,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
 							"host": [
@@ -3460,7 +3523,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
 							"host": [
@@ -3600,7 +3666,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/MyRequests?onlywaiting=false&expired=false",
 							"host": [
@@ -3676,7 +3745,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
 							"host": [
@@ -3786,7 +3858,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/",
 							"host": [
@@ -3823,7 +3898,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
 							"host": [
@@ -3940,7 +4018,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
 							"host": [
@@ -3972,7 +4053,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
 							"host": [
@@ -4115,7 +4199,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
 							"host": [
@@ -4153,7 +4240,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/Safes/{{Safe}}/AccountGroups",
 							"host": [
@@ -4191,7 +4281,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
 							"host": [
@@ -4338,7 +4431,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Verify",
 							"host": [
@@ -4359,7 +4455,10 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Verify",
 									"host": [
@@ -4518,7 +4617,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Logo?type=Square",
 							"host": [
@@ -4545,7 +4647,10 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Logo?type=Square",
 									"host": [
@@ -4738,7 +4843,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
 							"host": [
@@ -4769,7 +4877,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
 									"host": [
@@ -4954,7 +5065,10 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
 									"host": [
@@ -5128,7 +5242,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringDetails/{{ComponentsID}}",
 							"host": [
@@ -5160,7 +5277,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringSummary",
 							"host": [
@@ -5312,7 +5432,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/User",
 							"host": [
@@ -5344,7 +5467,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
 							"host": [
@@ -5462,127 +5588,127 @@
 	],
 	"variable": [
 		{
-			"id": "f27479fe-8339-44c8-8766-044184e8583b",
+			"id": "f7bfd14c-2c19-48d6-9257-1d9b1fdb648a",
 			"key": "BaseURL",
 			"value": "https://components.cyberark.local",
 			"type": "string"
 		},
 		{
-			"id": "e4abfc0b-e97b-44e9-8420-7588b2d18fdb",
+			"id": "3908b131-c444-4e52-a229-9550d56a447e",
 			"key": "apiUsername",
 			"value": "Svc_CyberArkAPI",
 			"type": "string"
 		},
 		{
-			"id": "813f1d61-7150-4eb4-b694-6fbb2e1dbf40",
+			"id": "d9b32076-9194-4e30-87e6-2394529f1b5f",
 			"key": "apiPassword",
 			"value": "Cyberark1",
 			"type": "string"
 		},
 		{
-			"id": "5bac3599-4236-471e-a3ff-86699d371665",
+			"id": "84d5b3ef-83c9-4505-957a-7081097aa5d9",
 			"key": "CyberArkLogonResult",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "01557973-4c22-40d4-83a7-7efb441e13f8",
+			"id": "89048990-0abd-4e07-bfbf-0b616caa223f",
 			"key": "SAMLToken",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b7209b0b-a330-4a66-be6f-6b2183866c06",
+			"id": "2c938ef8-c662-4f81-a144-5e4420b95681",
 			"key": "AccountID",
 			"value": "41_3",
 			"type": "string"
 		},
 		{
-			"id": "f0bc22f0-82e3-4bdd-a142-7063412a4b95",
+			"id": "c850dce3-2632-4ec8-88d7-e267bce6edf3",
 			"key": "Keywords",
 			"value": "Svc_",
 			"type": "string"
 		},
 		{
-			"id": "29042bfe-89c2-470f-a26a-45ccb333faab",
+			"id": "ae9b0cf2-f104-4942-844f-6d186e47cfc5",
 			"key": "Safe",
 			"value": "T-APP-CYBR-RESTAPI",
 			"type": "string"
 		},
 		{
-			"id": "c1c70f5a-70a1-4f13-9dce-ac569636b729",
+			"id": "9e19fbbf-6aa7-4036-b2a5-088634b04ac8",
 			"key": "AppID",
 			"value": "RESTExamples",
 			"type": "string"
 		},
 		{
-			"id": "de134f41-6390-4e8d-b655-e1135896f548",
+			"id": "4ce65955-2cb5-433f-afb0-752089a588e3",
 			"key": "Folder",
 			"value": "Root",
 			"type": "string"
 		},
 		{
-			"id": "f91ace26-3c95-423f-85c7-2a84c4862293",
+			"id": "5899a480-e53f-46af-b09e-db2b0bc81aaa",
 			"key": "ObjectName",
 			"value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
 			"type": "string"
 		},
 		{
-			"id": "fa716945-a007-4449-aa92-0b05cb812807",
+			"id": "f122ceb0-4fe5-44d7-9906-7306f9790deb",
 			"key": "ACLAddress",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a591b067-8969-4980-9cdc-fdbd7d36decd",
+			"id": "79b46cb3-5b6d-451f-a626-f2b5456e3925",
 			"key": "ACLUserName",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0eaf0440-5ca9-4df5-b8db-124d0a8e37bf",
+			"id": "9cff8533-3ab4-462d-84d7-acce4b7149e8",
 			"key": "ACLPolicyID",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ba2a1b36-fab0-4586-baad-c9a59089eb4f",
+			"id": "8c30d80a-4ac4-4a14-9537-163e716cc27e",
 			"key": "UserName",
 			"value": "Svc_BambooHR",
 			"type": "string"
 		},
 		{
-			"id": "adb7d56c-a20b-4846-b737-6102e61638b5",
+			"id": "d96c0bda-fa13-48f1-8852-5dc66cba955d",
 			"key": "Address",
 			"value": "cyberark.local",
 			"type": "string"
 		},
 		{
-			"id": "856dc0a3-414a-4d34-831c-1436f9696f6d",
+			"id": "19abc5c5-0cab-41b4-b244-4a5d3f9485d8",
 			"key": "Query",
 			"value": "T-APP-",
 			"type": "string"
 		},
 		{
-			"id": "71099479-1d79-4671-918d-8dfe57a9d8cb",
+			"id": "e698d230-8396-4221-8f51-36efdefe53be",
 			"key": "GroupName",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "52dddde1-5249-4608-8a86-e808129b438d",
+			"id": "b047decc-74d3-44d0-b753-3d47c96cdc00",
 			"key": "SafeMember",
 			"value": "EPVUserTest",
 			"type": "string"
 		},
 		{
-			"id": "e4fcbc06-a65e-4932-ae78-4fd5927a60d4",
+			"id": "db68adab-6c81-4143-81be-ddb0dbc9d067",
 			"key": "PlatformName",
 			"value": "CyberArkVault",
 			"type": "string"
 		},
 		{
-			"id": "94b69010-4881-44d0-8605-22fbc1f85fb7",
+			"id": "f11fc8b6-578a-45a8-9fe6-7c11f0be1c0b",
 			"key": "RequestID",
 			"value": "",
 			"type": "string"
