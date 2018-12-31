@@ -4818,127 +4818,127 @@
   ],
   "variable": [
     {
-      "id": "d354e4b3-1100-4edd-a819-d7e898020911",
+      "id": "0551abfa-6f7c-4031-9414-600732fbf768",
       "key": "BaseURL",
       "value": "https://components.cyberark.local",
       "type": "string"
     },
     {
-      "id": "a8954b69-3a9c-40d3-87d6-53c8953b4782",
+      "id": "7e4067b5-61fa-4e19-9fe9-6a398f573469",
       "key": "apiUsername",
       "value": "Svc_CyberArkAPI",
       "type": "string"
     },
     {
-      "id": "d9d0de09-e499-44b9-891e-49be8bf60fc4",
+      "id": "867ec3e5-a7a1-4714-8753-874045faf884",
       "key": "apiPassword",
       "value": "Cyberark1",
       "type": "string"
     },
     {
-      "id": "266a0027-f170-4e93-bea9-de1d3055b71f",
+      "id": "31d5e9df-4fb9-4f7e-8e5e-68540a283bcb",
       "key": "CyberArkLogonResult",
       "value": "",
       "type": "string"
     },
     {
-      "id": "d600bac8-994b-4715-986d-d28c0ce7b2ba",
+      "id": "1ba9f994-2af7-4fb7-86b2-84bf43a312a0",
       "key": "SAMLToken",
       "value": "",
       "type": "string"
     },
     {
-      "id": "46d6675a-f973-4647-8c2e-37644c620a6e",
+      "id": "f48754cc-bb5a-4433-8d36-898e9dc34912",
       "key": "AccountID",
       "value": "41_3",
       "type": "string"
     },
     {
-      "id": "1d63729b-9b3b-4f78-aef2-02a6db7c39ea",
+      "id": "47359a1b-8093-497c-91ba-9bb55061a74d",
       "key": "Keywords",
       "value": "Svc_",
       "type": "string"
     },
     {
-      "id": "50ec21ba-1556-4a2d-a8d0-941391a7b3b8",
+      "id": "f5ec5d53-3cc3-4755-8326-2f841749b91f",
       "key": "Safe",
       "value": "T-APP-CYBR-RESTAPI",
       "type": "string"
     },
     {
-      "id": "7beacb19-4e1a-4ae7-bf3c-2a55a4f6b5b9",
+      "id": "bd147895-cf50-40e0-a87c-9f2ca667b693",
       "key": "AppID",
       "value": "RESTExamples",
       "type": "string"
     },
     {
-      "id": "0d17a64d-9436-4ab4-b0d1-b1a5838e21d4",
+      "id": "f4c26ac2-b33e-460d-9e99-2a00c808045f",
       "key": "Folder",
       "value": "Root",
       "type": "string"
     },
     {
-      "id": "b28e758f-7d6b-40da-9852-982f11b8cea8",
+      "id": "10a6897a-2da7-40fc-b57f-b9f847757977",
       "key": "ObjectName",
       "value": "Database-MicrosoftSQLServer-sql01.cyberark.local-Svc_BambooHR",
       "type": "string"
     },
     {
-      "id": "d43c5630-f5a5-49ea-9a9d-7a3609754733",
+      "id": "8bca5941-55dd-4af2-b4b4-fe8349824e38",
       "key": "ACLAddress",
       "value": "",
       "type": "string"
     },
     {
-      "id": "862eea46-e8cb-4a7b-8659-28179359ff3e",
+      "id": "21f1a196-94db-4910-a7e4-ed3663c4ba90",
       "key": "ACLUserName",
       "value": "",
       "type": "string"
     },
     {
-      "id": "abcfe313-c5fa-4ce1-a2ea-ba67be6a2586",
+      "id": "77f7490d-1fbf-45ad-878d-6e5bd181a327",
       "key": "ACLPolicyID",
       "value": "",
       "type": "string"
     },
     {
-      "id": "640ebe02-5782-4d24-90b9-49d9c9d034be",
+      "id": "55a27c4f-0c7f-4aa8-b4a7-4e4372b192db",
       "key": "UserName",
       "value": "Svc_BambooHR",
       "type": "string"
     },
     {
-      "id": "ece54a67-8ade-4a07-8f4b-337e97abf489",
+      "id": "08a7fc3f-1fa6-4dbc-abcd-5d61a6433abd",
       "key": "Address",
       "value": "cyberark.local",
       "type": "string"
     },
     {
-      "id": "5b07d4e8-a3bd-4bf3-a854-9c8fe5b71a57",
+      "id": "71e23aec-f17f-4e13-a729-cb3e26c6b172",
       "key": "Query",
       "value": "T-APP-",
       "type": "string"
     },
     {
-      "id": "21976e93-b64b-449f-a67c-ccaff3168f4a",
+      "id": "a7e4a68e-6c98-4c10-be00-37bdb73313ec",
       "key": "GroupName",
       "value": "",
       "type": "string"
     },
     {
-      "id": "fd45ef67-3a0e-49b2-a0b2-3973f614efd6",
+      "id": "70dfd868-eef8-4e21-813e-429c7cc5de3b",
       "key": "SafeMember",
       "value": "EPVUserTest",
       "type": "string"
     },
     {
-      "id": "2b713dae-8144-475f-b540-8a1ab852f45e",
+      "id": "7dc31bca-be7a-4685-b05a-8238765d8c72",
       "key": "PlatformName",
       "value": "CyberArkVault",
       "type": "string"
     },
     {
-      "id": "5462b33f-09ca-44e1-b793-92cfde3e2922",
+      "id": "9c7dcd50-9bce-4a72-be8c-7512bd1f32c5",
       "key": "RequestID",
       "value": "",
       "type": "string"
