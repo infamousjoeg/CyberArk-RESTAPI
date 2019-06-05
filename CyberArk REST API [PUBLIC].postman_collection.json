@@ -29,8 +29,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -189,7 +188,7 @@
 							],
 							"cookie": [
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -198,7 +197,7 @@
 									"key": "CA22222"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -207,7 +206,7 @@
 									"key": "CA11111"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -216,7 +215,7 @@
 									"key": "CA55555"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -225,7 +224,7 @@
 									"key": "CA33333"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -234,7 +233,7 @@
 									"key": "mobileState"
 								},
 								{
-									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (Eastern Daylight Time)",
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -243,7 +242,7 @@
 									"key": "CAPreferredAuth"
 								},
 								{
-									"expires": "Sat Jan 16 2038 15:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Sat Jan 16 2038 15:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/",
@@ -276,8 +275,7 @@
 							"raw": "{\n  \"Command\":\"/bin/sh\",\n  \"CommandGroup\":false,\n  \"PermissionType\":\"Deny\",\n  \"Restrictions\":\"\",\n  \"UserName\":\"*\"\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -311,8 +309,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account/{{ACLAddress}}|{{ACLUserName}}|{{ACLPolicyID}}/PrivilegedCommands/?id=1",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -366,8 +363,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts?",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts?search={{Keywords}}&sort=UserName",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -380,14 +376,12 @@
 										{
 											"key": "search",
 											"value": "{{Keywords}}",
-											"description": "List of keywords separated with space to search in accounts.",
-											"disabled": true
+											"description": "List of keywords separated with space to search in accounts."
 										},
 										{
 											"key": "sort",
-											"value": "UserNamemInt}}m",
-											"description": "Property or properties (comma-separated) to sort returned accounts, followed by asc (default) or desc to control sort direction. Multiple sorts are comma-separated. Maximum number of properties is 3.",
-											"disabled": true
+											"value": "UserName",
+											"description": "Property or properties (comma-separated) to sort returned accounts, followed by asc (default) or desc to control sort direction. Multiple sorts are comma-separated. Maximum number of properties is 3."
 										},
 										{
 											"key": "offset",
@@ -397,7 +391,7 @@
 										},
 										{
 											"key": "limit",
-											"value": "1000}}0",
+											"value": "1000",
 											"description": "Maximum number of returned accounts. If not specified, the default value is 50. The maximum number that can be specified is 1000.",
 											"disabled": true
 										},
@@ -581,8 +575,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -734,8 +727,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -871,11 +863,8 @@
 						},
 						{
 							"name": "Get Password Value",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
@@ -894,8 +883,7 @@
 									"raw": "{\n\t\"reason\":\"<Reason>\",\n\t\"TicketingSystemName\": \"<Ticketing system>\",\n\t\"TicketId\": \"<Ticketid>\",\n\t\"Version\": <version number>,\n\t\"ActionType\": \"<action type - show\\copy\\connect>\n\t\"isUse\": <true\\false>,\n\t\"Machine\": \"<my remote machine address>\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/Password/Retrieve",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/Password/Retrieve",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -933,8 +921,7 @@
 									"raw": "{\n\t\"name\": \"string\",\n\t\"address\": \"string\",\n\t\"userName\": \"string\",\n\t\"platformId\": \"string\",\n\t\"safeName\": \"string\",\n\t\"secretType\": \"key\",\n\t\"secret\": \"string\",\n\t\"platformAccountProperties\": {\n\t\t\"LogonDomain\": \"string\",\n\t\t\"Port\": \"integer\"\n\t},\n\t\"secretManagement\": {\n\t\t\"automaticManagementEnabled\": true,\n\t\t\"manualManagementReason\": \"string\"\n\t},\n\t\"remoteMachinesAccess\": {\n\t\t\"remoteMachines\": \"string\",\n\t\t\"accessRestrictedToRemoteMachines\": true\n\t}\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -948,7 +935,42 @@
 							"response": []
 						},
 						{
-							"name": "Add Discovered Accounts",
+							"name": "Add Discovered Accounts (v10.5-v10.7)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Session Authorization Token",
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{CyberArkLogonResult}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n\t\"userName\":\"user_dd\",\n\t\"address\":\"win8.IT.com\",\n\t\"platformTypeAccountProperties\": {\n\t\t\"SID\":\"S-1-5-21-304654729-3147011263-1431158397-3154\"\n\t},\n\t\"accountEnabled\":true,\n\t\"osGroups\":\"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n\t\"platformType\":\"Windows Server Local\",\n\t\"domain\":\"MyDomain.com\",\n\t\"lastLogonDateTime\":\"1530635686\",\n\t\"lastPasswordSetDateTime\":\"1530635686\",\n\t\"passwordNeverExpires\":false,\n\t\"osVersion\":\"Windows Server 2012 R2 Standard\",\n\t\"privileged\":false,\n\t\"userDisplayName\":\"User Display Name\",\n\t\"description\":\"User Description\",\n\t\"passwordExpirationDateTime\":\"1530635686\",\n\t\"osFamily\":\"Server\",\n\t\"OrganizationalUnit\":\"CN=WINSERVER, OU=QA testing,DC=IT,DC=com\",\n\t\"additionalProperties\": {\n\t\t\"Port\":445,\n\t\t\"UserDN\":\"CN=user1,CN=Users,DC=example,DC=com\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"DiscoveredAccounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Discovered Accounts (v10.8+)",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -966,11 +988,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{ \n\t\"userName\":\"user_dd\",\n\t\"address\":\"win8.IT.com\",\n\t\"platformTypeAccountProperties\": {\n\t\t\"SID\":\"S-1-5-21-304654729-3147011263-1431158397-3154\"\n\t},\n\t\"accountEnabled\":true,\n\t\"osGroups\":\"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n\t\"platformType\":\"Windows Server Local\",\n\t\"domain\":\"MyDomain.com\",\n\t\"lastLogonDateTime\":\"1530635686\",\n\t\"lastPasswordSetDateTime\":\"1530635686\",\n\t\"passwordNeverExpires\":false,\n\t\"osVersion\":\"Windows Server 2012 R2 Standard\",\n\t\"privileged\":false,\n\t\"userDisplayName\":\"User Display Name\",\n\t\"description\":\"User Description\",\n\t\"passwordExpirationDateTime\":\"1530635686\",\n\t\"osFamily\":\"Server\",\n\t\"OrganizationalUnit\":\"CN=WINSERVER, OU=QA testing,DC=IT,DC=com\",\n\t\"additionalProperties\": {\n\t\t\"Port\":445,\n\t\t\"UserDN\":\"CN=user1,CN=Users,DC=example,DC=com\"\n\t}\n}"
+									"raw": "{\n    \"userName\": \"{{Username}}\",\n    \"address\": \"{{Address}}\",\n    \"platformTypeAccountProperties\": {\n        \"SID\": \"S-1-5-21-304654729-3147011263-1431158397-3154\"\n    },\n    \"accountEnabled\": true,\n    \"osGroups\": \"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n    \"platformType\": \"{{PlatformName}}\",\n    \"domain\": \"example.com\",\n    \"lastLogonDateTime\": \"1530635686\",\n    \"lastPasswordSetDateTime\": \"1530635786\",\n    \"passwordNeverExpires\": false,\n    \"osVersion\": \"Windows Server 2012 R2 Standard\",\n    \"privileged\": false,\n    \"userDisplayName\": \"User Display Name\",\n    \"description\": \"User Description\",\n    \"passwordExpirationDateTime\": \"1530645686\",\n    \"osFamily\": \"Server\",\n    \"OrganizationalUnit\": \"CN=Users,DC=example,DC=com\",\n    \"additionalProperties\": {\n        \"Port\": 445,\n        \"UserDN\": \"CN=user1,CN=Users,DC=example,DC=com\"\n    },\n    \"Dependencies\": [\n        {\n            \"name\": \"ServiceDep\",\n            \"address\": \"{{Address}}\",\n            \"type\": \"Windows Service\"\n        }\n    ]\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1005,8 +1026,7 @@
 									"raw": "{\n\t\"pendingAccount\": {\n\t\t\"UserName\":\"<user name>\",\n\t\t\"Address\":\"<address>\",\n\t\t\"AccountDiscoveryDate\":\"<YYYY-MM-DDThh:mm:ssZ>\",\n\t\t\"AccountEnabled\":\"<enabled/disabled>\", \n\t\t\"AccountOSGroups\":\"<group name>\",\n\t\t\"AccountType\":\"<domain/local>\",\n\t\t\"Domain\":\"<domain name>\",\n\t\t\"PasswordNeverExpires\":\"<true/false>\",\n\t\t\"OSVersion\":\"<OS version>\",\n\t\t\"OU\":\"<OU>\",\n\t\t\"AccountCategory\":\"<Privileged/Non-privileged>\",\n\t\t\"UserDisplayName\":\"<user display name>\",\n\t\t\"AccountDescription\":\"<description>\",\n\t\t\"GID\":\"<GID>\",\n\t\t\"UID\":\"<UID>\",\n\t\t\"OSType\":\"<Windows/Unix>\",\n\t\t\"DiscoveryPlatformType\":\"<platform name>\",\n\t\t\"MachineOSFamily\":\"<workstation/server>\",\n\t\t\"LastLogonDate\":\"<YYYY-MM-DDThh:mm:ssZ>\",\n\t\t\"LastPasswordSetDate\":\"<YYYY-MM-DDThh:mm:ssZ>\",\n\t\t\"AccountExpirationDate\":\"<YYYY-MM-DDThh:mm:ssZ>\",\n\t\t\"AccountCategoryCriteria\":\"<criteria>\"\n\t}\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1042,8 +1062,7 @@
 									"raw": "{\n\t\"ChangeEntireGroup\" : true\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Change",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Change",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1080,8 +1099,7 @@
 									"raw": "{\n\t\"ChangeImmediately\" : true,\n\t\"NewCredentials\": \"<credentials>\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/passwordvault/api/Accounts/{{AccountID}}/SetNextPassword",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/passwordvault/api/Accounts/{{AccountID}}/SetNextPassword",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1118,8 +1136,7 @@
 									"raw": "{\n\t\"ChangeEntireGroup\": false,\n\t\"NewCredentials\": \"<string>\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/Password/Update",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/Password/Update",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1157,8 +1174,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1195,8 +1211,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/grantAdministrativeAccess",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/grantAdministrativeAccess",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1234,8 +1249,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1272,8 +1286,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Verify",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Verify",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1310,8 +1323,7 @@
 									"raw": "[\n\t{\n\t\t\"op\": \"replace\",\n\t\t\"path\": \"/address\",\n\t\t\"value\": \"NewAddress\"\n\t},\n\t{\n\t\t\"op\": \"add\",\n\t\t\"path\": \"/port\",\n\t\t\"value\": \"3306\"\n\t},\n\t{\n\t\t\"op\": \"remove\",\n\t\t\"path\": \"/ticketnumber\",\n\t\t\"value\": \"\"\n\t}\n]"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1463,8 +1475,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1527,8 +1538,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords={{Keywords}}&Safe={{Safe}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1685,7 +1695,7 @@
 									],
 									"cookie": [
 										{
-											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -1694,7 +1704,7 @@
 											"key": "CA22222"
 										},
 										{
-											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -1703,7 +1713,7 @@
 											"key": "CA11111"
 										},
 										{
-											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -1712,7 +1722,7 @@
 											"key": "CA55555"
 										},
 										{
-											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -1721,7 +1731,7 @@
 											"key": "CA33333"
 										},
 										{
-											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -1730,7 +1740,7 @@
 											"key": "mobileState"
 										},
 										{
-											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (Eastern Daylight Time)",
+											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -1739,7 +1749,7 @@
 											"key": "CAPreferredAuth"
 										},
 										{
-											"expires": "Sat Jan 16 2038 20:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Sat Jan 16 2038 20:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/",
@@ -1772,8 +1782,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Activities?SafeName={{Safe}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1816,8 +1825,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/Credentials",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1854,8 +1862,7 @@
 									"raw": "{\r\n  \"account\" : {\r\n    \"safe\":\"{{Safe}}\",\r\n    \"platformID\":\"WinDomain\",\r\n    \"address\":\"{{Address}}\",\r\n    \"accountName\":\"AccountName\",\r\n    \"password\":\"Password123\",\r\n    \"username\":\"{{UserName}}\",\r\n    \"disableAutoMgmt\":\"false\",\r\n    \"disableAutoMgmtReason\":\"N/A\",\r\n    \"groupName\":\"\",\r\n    \"groupPlatformID\":\"\",\r\n    \"properties\":\r\n    [\r\n      {\"Key\":\"Port\", \"Value\":\"<port>\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Account",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1890,8 +1897,7 @@
 									"raw": "{\r\n  \"pendingAccount\":{\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"AccountDiscoveryDate\":\"2016-12-19T08:19:03Z\",\r\n    \"AccountEnabled\":\"Disabled\",\r\n    \"AccountOSGroups\":\"Domain Admins\",\r\n    \"AccountType\":\"Domain\",\r\n    \"Domain\":\"joe-garcia.local\",\r\n    \"PasswordNeverExpires\":\"false\",\r\n    \"OSVersion\":\"Windows Server 2012 R2\",\r\n    \"OU\":\"Users\",\r\n    \"AccountCategory\":\"Privileged\",\r\n    \"UserDisplayName\":\"CA_EPVTestUser\",\r\n    \"AccountDescription\":\"CyberArk EPV Test User for Web Services\",\r\n    \"GID\":\"\",\r\n    \"UID\":\"\",\r\n    \"OSType\":\"Windows\",\r\n    \"DiscoveryPlatformType\":\"Windows Domain Accounts\",\r\n    \"MachineOSFamily\":\"server\",\r\n    \"LastLogonDate\":\"\",\r\n    \"LastPasswordSetDate\":\"2016-12-19T08:19:03Z\",\r\n    \"AccountExpirationDate\":\"\",\r\n    \"AccountCategoryCriteria\":\"<criteria>\"\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/PendingAccounts",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1926,8 +1932,7 @@
 									"raw": "{\n  \"ChangeEntireGroup\":\"true\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Change",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Change",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -1963,8 +1968,7 @@
 									"raw": "{\n  \"ChangeImmediately\":\"true\",\n  \"NewCredentials\":\"Cyberark1\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/SetNextPassword",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/SetNextPassword",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2000,8 +2004,7 @@
 									"raw": "{\n  \"ChangeCredsForGroup\":\"true\",\n  \"AutoGenerate\":\"true\",\n  \"NewCredentials\": \"\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Update",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Update",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2038,8 +2041,7 @@
 									"raw": "{}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/CheckIn",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2075,8 +2077,7 @@
 									"raw": "{\n  \"Reason\":\"Automatically retrieved password by CyberArk Web Services on {{$timestamp}}\",\n  \"TicketingSystemName\": \"ServiceNow\",\n  \"TicketId\": \"INC123456\",\n  \"Version\": \"1\",\n  \"ActionType\": \"Connect\",\n  \"IsUse\": \"false\",\n  \"Machine\": \"client.cyberark.local\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Retrieve",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Password/Retrieve",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2113,8 +2114,7 @@
 									"raw": "{}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Reconcile",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2150,8 +2150,7 @@
 									"raw": "{}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/VerifyCredentials",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/VerifyCredentials",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2188,8 +2187,7 @@
 									"raw": "{}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Verify",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/Verify",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2230,8 +2228,7 @@
 									"raw": "{\n  \"ChangeCredsForGroup\":\"No\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2268,8 +2265,7 @@
 									"raw": "{\r\n  \"Accounts\":\r\n  {\r\n    \"Folder\":\"{{Folder}}\",\r\n    \"AccountName\":\"{{ObjectName}}\",\r\n    \"DeviceType\":\"Operating System\",\r\n    \"PlatformID\":\"WinDomain\",\r\n    \"Address\":\"{{Address}}\",\r\n    \"UserName\":\"{{UserName}}\",\r\n    \"GroupName\":\"\",\r\n    \"GroupPlatformID\":\"\",\r\n    \"Properties\":\r\n    [\r\n      {\"Key\":\"Notes\", \"Value\":\"Test User for CyberArk\"},\r\n      {\"Key\":\"Ticket Number\", \"Value\":\"CHG100001\"},\r\n      {\"Key\":\"ParamName\", \"Value\":\"Parameter value\"}\r\n    ]\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2302,8 +2298,7 @@
 								],
 								"body": {},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2345,8 +2340,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/AccountGroups?Safe={{Safe}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups?Safe={{Safe}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2387,8 +2381,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2424,8 +2417,7 @@
 									"raw": "{\r\n  \"GroupName\":\"{{GroupName}}\",\r\n  \"GroupPlatform\":\"{{PlatformID}}\",\r\n  \"Safe\":\"{{Safe}}\"\r\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/API/AccountGroups/",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/API/AccountGroups/",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2459,8 +2451,7 @@
 									"raw": "{\n  \"AccountID\":\"{{AccountID}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/API/AccountGroups/{{GroupName}}/Members",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/API/AccountGroups/{{GroupName}}/Members",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2495,8 +2486,7 @@
 									"raw": "{}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members/{{AccountID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/AccountGroups/{{GroupName}}/Members/{{AccountID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2540,8 +2530,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2576,8 +2565,7 @@
 									"raw": "{\r\n  \"DecisionPlatformId\":\"WinLocalAccount\",\r\n  \"DecisionSafeName\":\"{{Safe}}\",\r\n  \"IsAdminUIDFilter\":\"true\",\r\n  \"MachineTypeFilter\":\"Server\",\r\n  \"SystemTypeFilter\":\"Windows\",\r\n  \"UserNameFilter\":\"\"\r\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2613,8 +2601,7 @@
 									"raw": "{\n\t\"TargetPlatformId\": \"<platform ID>\",\n\t\"TargetSafeName\": \"<Safe name>\",\n\t\"IsAdminIDFilter\": <False>,\n\t\"MachineTypeFilter\": \"<Server>\",\n\t\"SystemTypeFilter\": \"<Windows>\",\n\t\"UserNameFilter\": \"<filter>\",\n\t\"UserNameMethod\": \"<Begins>\",\n\t\"AddressFilter\": \"<filter>\",\n\t\"AddressMethod\": \"<Equals>\",\n\t\"AccountCategoryFilter\": \"<Any>\",\n\t\"RuleName\": \"<rule name>\",\n\t\"RuleDescription\": \"<description>\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules?id=1",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules?id=1",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2650,8 +2637,7 @@
 								],
 								"body": {},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/?id=1",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/AutomaticOnboardingRules/?id=1",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -2701,8 +2687,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?Location=\\&IncludeSublocations=true",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -2861,7 +2846,7 @@
 							],
 							"cookie": [
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -2870,7 +2855,7 @@
 									"key": "CA22222"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -2879,7 +2864,7 @@
 									"key": "CA11111"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -2888,7 +2873,7 @@
 									"key": "CA55555"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -2897,7 +2882,7 @@
 									"key": "CA33333"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -3054,8 +3039,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -3218,8 +3202,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -3372,8 +3355,7 @@
 							"raw": "{\r\n  \"application\":\r\n  {\r\n    \"AppID\":\"{{AppID}}\",\r\n    \"Description\":\"Testing DevOps Deployments with CyberArk\",\r\n    \"Location\":\"/Applications\",\r\n    \"AccessPermittedFrom\":0,\r\n    \"AccessPermittedTo\":23,\r\n    \"ExpirationDate\":\"\",\r\n    \"Disabled\":\"No\",\r\n    \"BusinessOwnerFName\":\"John\",\r\n    \"BusinessOwnerLName\":\"Doe\",\r\n    \"BusinessOwnerEmail\":\"John.Doe@CyberArk.com\",\r\n    \"BusinessOwnerPhone\":\"555-555-1212\"\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -3512,7 +3494,7 @@
 							],
 							"cookie": [
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -3521,7 +3503,7 @@
 									"key": "CA22222"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -3530,7 +3512,7 @@
 									"key": "CA11111"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -3539,7 +3521,7 @@
 									"key": "CA55555"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -3548,7 +3530,7 @@
 									"key": "CA33333"
 								},
 								{
-									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (Eastern Standard Time)",
+									"expires": "Tue Jan 19 2038 02:14:07 GMT-0500 (EST)",
 									"httpOnly": true,
 									"domain": "components.joe-garcia.local",
 									"path": "/PasswordVault/",
@@ -3581,8 +3563,7 @@
 							"raw": "{\r\n  \"authentication\":\r\n  {\r\n    \"AuthType\":\"path/osuser/hash\",\r\n    \"AuthValue\":\"<Path string>/<OSUser Name>/<Hash Value>\",\r\n    \"IsFolder\":<true/false>,\r\n    \"AllowInternalScripts\":<true/false>\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -3617,8 +3598,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/?AppID={{AppID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -3657,8 +3637,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/?AuthID=1",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -3705,8 +3684,7 @@
 									"raw": "{\n\t\"username\": \"{{apiUsername}}\",\n\t\"password\": \"{{apiPassword}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Auth/CyberArk/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Auth/CyberArk/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -3847,8 +3825,7 @@
 									"raw": "{\n\t\"username\": \"{{apiUsername}}\",\n\t\"password\": \"{{apiPassword}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Auth/LDAP/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Auth/LDAP/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -3990,8 +3967,7 @@
 									"raw": "{\n\t\"Username\": \"{{apiUsername}}\",\n\t\"Password\": \"{{apiPassword}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Auth/radius/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Auth/radius/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4022,8 +3998,7 @@
 									"raw": "{\n\t\"username\": \"{{apiUsername}}\",\n\t\"password\": \"{{apiPassword}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/auth/Windows/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/auth/Windows/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4055,8 +4030,7 @@
 								],
 								"body": {},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/Auth/Logoff",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/Auth/Logoff",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4202,8 +4176,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4327,7 +4300,7 @@
 									],
 									"cookie": [
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4336,7 +4309,7 @@
 											"key": "CA22222"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4345,7 +4318,7 @@
 											"key": "CA11111"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4354,7 +4327,7 @@
 											"key": "CA55555"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4363,7 +4336,7 @@
 											"key": "CA33333"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4372,7 +4345,7 @@
 											"key": "mobileState"
 										},
 										{
-											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (Eastern Daylight Time)",
+											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4381,7 +4354,7 @@
 											"key": "CAPreferredAuth"
 										},
 										{
-											"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/",
@@ -4485,7 +4458,7 @@
 									],
 									"cookie": [
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4494,7 +4467,7 @@
 											"key": "CA22222"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4503,7 +4476,7 @@
 											"key": "CA11111"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4512,7 +4485,7 @@
 											"key": "CA55555"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4521,7 +4494,7 @@
 											"key": "CA33333"
 										},
 										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4530,7 +4503,7 @@
 											"key": "mobileState"
 										},
 										{
-											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (Eastern Daylight Time)",
+											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/PasswordVault/",
@@ -4539,7 +4512,7 @@
 											"key": "CAPreferredAuth"
 										},
 										{
-											"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (Eastern Standard Time)",
+											"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
 											"httpOnly": true,
 											"domain": "components.joe-garcia.local",
 											"path": "/",
@@ -4596,8 +4569,7 @@
 									"raw": "{\n\t\"username\": \"{{apiUsername}}\",\n\t\"password\": \"{{apiPassword}}\",\n\t\"useRadiusAuthentication\": \"False\",\n\t\"connectionNumber\": \"1\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4634,8 +4606,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4679,8 +4650,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4718,8 +4688,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logoff",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/SAML/SAMLAuthenticationService.svc/Logoff",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4757,8 +4726,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logon",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logon",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4795,8 +4763,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4839,8 +4806,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -4998,8 +4964,7 @@
 									"raw": "{\n\t\"PublicSSHKey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDVhosq/CGJ06Lgj6flNVn9YbKUtilGPqvErArXC8mTNajx9r5rYtNBu5pkz4wuHuaHwR8nQivY2iTS+UO+FdoM/k+9o+VeJ3VtFPQq6/5mIIXCGs3L6IAkDOYvP45T/aEvnh/EG4C8xpZEEku1COfXWO6m3OdWtqoGMwDu8OymppcpXC7acZ/xgcue3aKJAvIQM29y3EGdFc6jFgelJLPCytA9rKY+OZMvLp0MqVL8Ukh2e/5zo+oqmVm9hXsjNiNOUmwdPm9TUxNcdzIETAZJwF65sgBD2ka8YmBKF80Xnb3ZMhDioqABQO9uuEoA3UhQ2M61jyrQ7HY4mXJaKo/If4Mo1q4tcE/0EHiB0uRFgZOSSq8mO22C7Lw8xz+9gTpFQFi7n4HNu5HrTyTsSX0FHv7xi4Z3wbqkrmPlmmXgV5VnyOA+ApqWHzoZqlwxUiUbYrnKHjWaivNqjXSyFHgV/cBYk/yH+f2wJaOlM1Dh8mvGpy6mojWAUHBC8xcENzJ7DIs2AgB43Ri+s6wqYRmNjwe9zBW1yi0IEq51KqVT2f+DYLNQ6FJl9jHBDl7npvZPKnK9uKKZmfZ+6GLgMCX8FRL+WOA9Ft51VcvIOlZeN59AW70AwXe7lh/ZdTRiyveYKmrSdWrFr3XYHaX7CANmIgoH1ZFG4RjG/cQ+e2jYMQ==\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -5157,8 +5122,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/{{KeyID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/{{KeyID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -5295,6 +5259,40 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PTA Authentication",
+					"item": [
+						{
+							"name": "Get Auth Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"{{apiUsername}}\",\n\t\"password\": \"{{apiPassword}}\"\n}"
+								},
+								"url": {
+									"raw": "{{PTABaseURL}}/api/getauthtoken",
+									"host": [
+										"{{PTABaseURL}}"
+									],
+									"path": [
+										"api",
+										"getauthtoken"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			],
 			"event": [
@@ -5317,6 +5315,375 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "Central Credential Provider (CCP)",
+			"item": [
+				{
+					"name": "GetPassword",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"AIMWebService",
+								"api",
+								"Accounts"
+							],
+							"query": [
+								{
+									"key": "AppID",
+									"value": "{{AppID}}"
+								},
+								{
+									"key": "Safe",
+									"value": "{{Safe}}"
+								},
+								{
+									"key": "Folder",
+									"value": "{{Folder}}"
+								},
+								{
+									"key": "Object",
+									"value": "{{ObjectName}}"
+								}
+							]
+						},
+						"description": "GetPassword – This service enables applications to retrieve passwords from the\r\nCentral Credential Provider.\r\n\r\n- AppID (REQUIRED)\r\n  - Specifies the unique ID of the application issuing the password request.\r\n- Safe\r\n  - Specifies the name of the Safe where the password is stored.\r\n- Folder\r\n  - Specifies the name of the folder where the password is stored. (Default: Root)\r\n- Object\r\n  - Specifies the name of the password object to retrieve.\r\n- UserName\r\n  - Defines search criteria according to the UserName account property.\r\n- Address\r\n  - Defines search criteria according to the Address account property.\r\n- Database\r\n  - Defines search criteria according to the Database account property.\r\n- PolicyID\r\n  - Defines the format that will be used in the setPolicyID method.\r\n- Reason\r\n  - The reason for retrieving the password.  This reason will be audited in the Credential Provider audit log.\r\n- ConnectionTimeout\r\n  - The number of seconds that the Central Credential Provider will try to retrieve the password.  The timeout is calculated when the request is sent from the web service to the Vault and returned back to the web service.\r\n    - 30 (Default)\r\n- Query\r\n  - Defines a free query using account properties, including Safe, folder, and object.  When this method is specified, all other search criteria (Safe/Folder/Object/UserName/Address/PolicyID/Database) are ignored and only the account properties that are specified in the query are passed to the Central Credential Provider in the password request.\r\n- QueryFormat\r\n  - Defines the query format, which can optionally use regular expressions.\r\n  - Possible values are:\r\n    - Exact (Default)\r\n    - Regexp\r\n- FailedRequestOnPasswordChange\r\n  - Whether or not an error will be returned if this web service is called when a password change process is underway.\r\n    - True\r\n    - False (Default)"
+					},
+					"response": [
+						{
+							"name": "APPAP004E - Password object matching query was not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"AIMWebService",
+										"api",
+										"Accounts"
+									],
+									"query": [
+										{
+											"key": "AppID",
+											"value": "{{AppID}}"
+										},
+										{
+											"key": "Safe",
+											"value": "{{Safe}}"
+										},
+										{
+											"key": "Folder",
+											"value": "{{Folder}}"
+										},
+										{
+											"key": "Object",
+											"value": "{{ObjectName}}"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "415",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Sep 2017 21:45:44 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\"ErrorCode\":\"APPAP004E\",\"ErrorMsg\":\"Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password.\"}"
+						},
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"AIMWebService",
+										"api",
+										"Accounts"
+									],
+									"query": [
+										{
+											"key": "AppID",
+											"value": "{{AppID}}"
+										},
+										{
+											"key": "Safe",
+											"value": "{{Safe}}"
+										},
+										{
+											"key": "Folder",
+											"value": "{{Folder}}"
+										},
+										{
+											"key": "Object",
+											"value": "{{ObjectName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "336",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Sep 2017 21:49:50 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "-1",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5",
+									"name": "Server",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA22222"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA11111"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA55555"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "",
+									"key": "CA33333"
+								},
+								{
+									"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "Desktop",
+									"key": "mobileState"
+								},
+								{
+									"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/PasswordVault/",
+									"secure": false,
+									"value": "ldap",
+									"key": "CAPreferredAuth"
+								},
+								{
+									"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
+									"httpOnly": true,
+									"domain": "components.joe-garcia.local",
+									"path": "/",
+									"secure": false,
+									"value": "t2jlmd4i1yjna3morxfbr3pv",
+									"key": "ASP.NET_SessionId"
+								}
+							],
+							"body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
+						}
+					]
 				}
 			]
 		},
@@ -5345,8 +5712,7 @@
 							"raw": "{\n\t\"UserName\":\"<User Name>\",\n\t\"Secret\":\"<password>\",\n\t\"Address\":\"<Address>\",\n\t\"PlatformId\":\"<Secure Connect Platform>\",\n\t\"extraFields\":{},\n\t\"PSMConnectPrerequisites\": {\n\t\t\"ConnectionComponent\":\"<Connection Component ID>\"\n\t}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault//api/Accounts/AdHocConnect",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault//api/Accounts/AdHocConnect",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -5381,8 +5747,7 @@
 							"raw": "{\n  \"Reason\":\"Automatically connected via CyberArk Web Services on {{$timestamp}}\",\n  \"TicketingSystemName\": \"ServiceNow\",\n  \"TicketId\": \"INC123456\",\n  \"ConnectionComponent\": \"PSM-RDP\",\n  \"ConnectionParams\": {\n    \"LogonDomain\": {\n      \"Value\": \"cyberark.local\",\n      \"ShouldSave\": \"true\"\n    },\n    \"AllowMappingLocalDrives\": {\n      \"Value\": \"Yes\",\n      \"ShouldSave\": \"false\"\n    }\n  }\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -5420,8 +5785,7 @@
 							"raw": "{\n\t\"ImportFile\": {zip file in the format of BASE 64 array}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/API/ConnectionComponents/Import",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/API/ConnectionComponents/Import",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -5437,14 +5801,59 @@
 			]
 		},
 		{
-			"name": "Event Security",
+			"name": "Groups",
 			"item": [
 				{
-					"name": "Events",
-					"item": [
+					"name": "Get Groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/api/UserGroups",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"api",
+								"UserGroups"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "groupType eq Vault",
+									"description": "groupType eq <Directory|Vault>",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "Fin Audit",
+									"description": "Search will match when ALL search terms appear in the group name",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
 						{
-							"name": "Get Security Events",
-							"request": {
+							"name": "200 OK",
+							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
@@ -5457,12 +5866,6 @@
 										"key": "Content-Type",
 										"value": "application/json",
 										"type": "text"
-									},
-									{
-										"key": "lastUpdatedEventDate",
-										"value": "1309737600",
-										"description": "Epoch Timestamp",
-										"type": "text"
 									}
 								],
 								"body": {
@@ -5470,189 +5873,227 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/pta/API/Events/",
+									"raw": "https://{{BaseURL}}/PasswordVault/api/UserGroups",
 									"protocol": "https",
 									"host": [
 										"{{BaseURL}}"
 									],
 									"path": [
 										"PasswordVault",
-										"API",
-										"pta",
-										"API",
-										"Events",
-										""
+										"api",
+										"UserGroups"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "groupType eq Vault",
+											"description": "groupType eq <Directory|Vault>",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "Fin Audit",
+											"description": "Search will match when ALL search terms appear in the group name",
+											"disabled": true
+										}
 									]
 								}
 							},
-							"response": []
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=BE36C14D1FE1AAFA; path=/PasswordVault/; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=00000002A2FA411668862E3FD3D87ACCFC25E30E79362257102F7C6E3D265BFB2223998300000000; path=/PasswordVault/; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=cyberark; path=/PasswordVault/; secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; secure; HttpOnly"
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-FRAME-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Warning"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Nov 2018 21:23:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1831"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"value\": [\n        {\n            \"id\": 26,\n            \"groupName\": \"CyberArk Vault Admins\",\n            \"groupType\": \"Directory\",\n            \"description\": \"\",\n            \"location\": \"\\\\\",\n            \"directory\": \"cyberarkdemo.com\",\n            \"dn\": \"CN=CyberArk Vault Admins,OU=Groups,OU=CyberArk,DC=cyberarkdemo,DC=com\"\n        },\n        {\n            \"id\": 27,\n            \"groupName\": \"CyberArk Auditors\",\n            \"groupType\": \"Directory\",\n            \"description\": \"\",\n            \"location\": \"\\\\\",\n            \"directory\": \"cyberarkdemo.com\",\n            \"dn\": \"CN=CyberArk Auditors,OU=Groups,OU=CyberArk,DC=cyberarkdemo,DC=com\"\n        },\n        {\n            \"id\": 8,\n            \"groupName\": \"Auditors\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Auditors group\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 12,\n            \"groupName\": \"Notification Engines\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Notification Engines group\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 18,\n            \"groupName\": \"PVWAMonitor\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 19,\n            \"groupName\": \"PVWAUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 20,\n            \"groupName\": \"PVWAGWAccounts\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 21,\n            \"groupName\": \"PVWAAppUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 40,\n            \"groupName\": \"PSMMaster\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 41,\n            \"groupName\": \"PSMAppUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 43,\n            \"groupName\": \"PSMP_ADB_AppUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 48,\n            \"groupName\": \"PSMLiveSessionTerminators\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 7,\n            \"groupName\": \"Backup Users\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Backup users group\",\n            \"location\": \"\\\\System\"\n        },\n        {\n            \"id\": 9,\n            \"groupName\": \"Operators\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Operators group\",\n            \"location\": \"\\\\System\"\n        },\n        {\n            \"id\": 10,\n            \"groupName\": \"DR Users\",\n            \"groupType\": \"Vault\",\n            \"description\": \"DR users group\",\n            \"location\": \"\\\\System\"\n        },\n        {\n            \"id\": 11,\n            \"groupName\": \"Vault Admins\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Vault Admins group\",\n            \"location\": \"\\\\System\"\n        }\n    ],\n    \"count\": 16\n}"
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				},
 				{
-					"name": "Event Security Settings",
-					"item": [
-						{
-							"name": "Get Settings",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}",
-										"type": "text",
-										"description": "Session Authorization Token"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/pta/API/Settings",
-									"protocol": "https",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"API",
-										"pta",
-										"API",
-										"Settings"
-									]
-								}
+					"name": "Add User to Group (Legacy)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
 							},
-							"response": []
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\":\"{{UserName}}\"\n}"
 						},
-						{
-							"name": "Add New Rule",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}",
-										"type": "text",
-										"description": "Session Authorization Token"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"category\": \"KEYSTROKES\",\n\t\"regex\": \"(.*)netsh(.*)wlan(.*)key=clear(.*)\", \n\t\"score\": 40, \n\t\"description\": \"Indication of a privileged user using a decoding command in clear text to retrieve a WIFI password.\", \n\t\"response\": \"NONE\", \n\t\"active\": true,\n\t\"scope\": { \n\t\t\"vaultUsers\": {\n\t\t\t\"mode\":\"EXCLUDE\",\n\t\t\t\"list\":[\"john*\"]\n\t\t}, \n\t\t\"machines\":{\n\t\t\t\"mode\":\"INCLUDE\",\n\t\t\t\"list\":[\"*\"]\n\t\t} \n\t}\n}"
-								},
-								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/pta/API/Settings/RiskyActivity/",
-									"protocol": "https",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"API",
-										"pta",
-										"API",
-										"Settings",
-										"RiskyActivity",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Existing Rule",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}",
-										"type": "text",
-										"description": "Session Authorization Token"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"id\": \"0\", \n\t\"category\": \"KEYSTROKES\",\n\t\"regex\": \"(.*)netsh(.*)wlan(.*)key=clear(.*)\", \n\t\"score\": 40, \n\t\"description\": \"Indication of a privileged user using a decoding command in clear text to retrieve a WIFI password.\", \n\t\"response\": \"NONE\", \n\t\"active\": true\n\t\"scope\": { \n\t\t\"vaultUsers\": {\n\t\t\t\"mode\":\"EXCLUDE\",\n\t\t\t\"list\":[\"anna\"]\n\t\t}, \n\t\t\"machines\": {\n\t\t\t\"mode\":\"include\",\n\t\t\t\"list\":[\"*\"]\n\t\t} \n\t}\n}"
-								},
-								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/pta/API/Settings/RiskyActivity/",
-									"protocol": "https",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"API",
-										"pta",
-										"API",
-										"Settings",
-										"RiskyActivity",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Automatic Remediation Configuration",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}",
-										"type": "text",
-										"description": "Session Authorization Token"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/pta/API/Settings/AutomaticRemediations/",
-									"protocol": "https",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"API",
-										"pta",
-										"API",
-										"Settings",
-										"AutomaticRemediations",
-										""
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Groups",
+								"{{GroupName}}",
+								"Users"
+							]
 						}
-					],
-					"_postman_isSubFolder": true
+					},
+					"response": []
+				},
+				{
+					"name": "Add User to Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"memberId\": \"string\",\n\t\"memberType\": \"Vault\",\n\t\"domainName\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/api/UserGroups/{{GroupID}}/Members/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"api",
+								"UserGroups",
+								"{{GroupID}}",
+								"Members",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User from Group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/api/UserGroups/{{GroupID}}/Members/{{Member}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"api",
+								"UserGroups",
+								"{{GroupID}}",
+								"Members",
+								"{{Member}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -5681,8 +6122,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -5836,8 +6276,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{LDAPID}}/",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{LDAPID}}/",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -5995,8 +6434,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6035,8 +6473,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings/{{MappingID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings/{{MappingID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6076,8 +6513,7 @@
 							"raw": "{\n\t\"DirectoryType\": \"MicrosoftADProfile.ini\",\n\t\"HostAddresses\": [\n\t\t\"string\"\n\t],\n\t\"BindUsername\": \"string\",\n\t\"BindPassword\": \"string\",\n\t\"Port\": 389,\n\t\"DomainName\": \"string\",\n\t\"DomainBaseContext\": \"string\"\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6231,8 +6667,7 @@
 							"raw": "{\n\t\"MappingName\": \"Test\",\n\t\"LDAPBranch\": \"OU=Test,DC=cyberarkdemo,DC=com\",\n\t\"DomainGroups\": [\n\t\t\"TestDomainGroup\"\n\t],\n\t\"MappingAuthorizations\": [\n\t\t1\n\t]\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6271,8 +6706,7 @@
 							"raw": "{\n\t\"LDAPBranch\": \"string\",\n\t\"VaultGroups\": [\n\t\t\"string\"\n\t],\n\t\"MappingAuthorizations\": [\n\t\t\"AddUpdateUsers\"\n\t],\n\t\"Location\": \"string\",\n\t\"AuthenticationMethod\": [\n\t\t\"AuthTypePass\"\n\t],\n\t\"UserType\": \"string\",\n\t\"DisableUser\": true,\n\t\"UserActivityLogPeriod\": 0,\n\t\"UserExpiration\": 0,\n\t\"LogonFromHour\": 0,\n\t\"LogonToHour\": 0,\n\t\"MappingID\": 0,\n\t\"DirectoryMappingOrder\": 0,\n\t\"MappingName\": \"string\",\n\t\"LDAPQuery\": \"string\",\n\t\"DomainGroups\": [\n\t\t\"string\"\n\t]\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings/{{MappingID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{DirectoryUID}}/Mappings/{{MappingID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6312,8 +6746,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{LDAPID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/Configuration/LDAP/Directories/{{LDAPID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6354,8 +6787,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6431,8 +6863,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6467,8 +6898,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/activities",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/activities",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6504,8 +6934,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/properties",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/properties",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6541,8 +6970,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Recordings?Limit=25&Sort=RiskScore&Offset=0&Search=adm_domain&Safe={{Safe}}&FromTime=1514808001&ToTime=1515326399&Activities=regedit",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6618,8 +7046,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Recordings/{{RecordingsID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Recordings/{{RecordingsID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6654,8 +7081,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Recordings/{{RecordingsID}}/activities",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Recordings/{{RecordingsID}}/activities",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6691,8 +7117,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Recordings/{{RecordingsID}}/properties",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Recordings/{{RecordingsID}}/properties",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6730,8 +7155,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/LiveSessions/{{LiveSessionID}}/Monitor",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/LiveSessions/{{LiveSessionID}}/Monitor",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6768,8 +7192,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/api/recordings/{{RecordingsID}}/Play",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/api/recordings/{{RecordingsID}}/Play",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6806,8 +7229,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/Resume",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/Resume",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6844,8 +7266,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/Suspend",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/Suspend",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6882,8 +7303,7 @@
 							"raw": "{}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/Terminate",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/LiveSessions/{{LiveSessionID}}/Terminate",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -6925,8 +7345,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7078,8 +7497,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}/Export",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Platforms/{{PlatformName}}/Export",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7238,8 +7656,7 @@
 							"raw": "{\n\t\"ImportFile\": {zip file in the format of BASE 64 array}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/API/Platforms/Import",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/API/Platforms/Import",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7277,8 +7694,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7315,8 +7731,7 @@
 							"raw": "{\r\n  \"Command\":\"/bin/sh\",\r\n  \"CommandGroup\":false,\r\n  \"PermissionType\":\"Deny\",\r\n  \"Restrictions\":\"\",\r\n  \"UserName\":\"{{ACLUserName}}\"\r\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7350,8 +7765,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands/?id=1",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Policy/{{ACLPolicyID}}/PrivilegedCommands/?id=1",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7372,6 +7786,160 @@
 							]
 						},
 						"description": "This method deletes all privileged commands rules associated with the policy."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PTA Installation",
+			"item": [
+				{
+					"name": "Install PTA",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{PTAAuthToken}}",
+								"type": "text",
+								"description": "A session token that was returned from the \"Logon\" method"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currentPassword\": \"currentPass\",\n    \"newPassword\": \"newpass\",\n    \"timezone\": \"Israel\",\n    \"epochTime\": \"1525246349\",\n    \"ntp\": \"10.10.0.50\",\n    \"vault\": {\n        \"ip\": \"10.10.10.10, 10.10.10.11\",\n        \"port\": \"10000\",\n        \"ipDR\": \"10.10.50.10, 10.10.50.11\",\n        \"timezone\": \"Israel\",\n        \"adminUser\": \"admin\",\n        \"adminPassword\": \"fkdshsfkd23392hk!\",\n        \"daysActivity\": \"200\"\n    },\n    \"pvwa\": {\n        \"connectionMethod\": \"http\",\n        \"host\": \"pvwa-host\",\n        \"port\": \"30456\",\n        \"appContext\": \"PasswordVault\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{PTABaseURL}}/installer/api/installation",
+							"host": [
+								"{{PTABaseURL}}"
+							],
+							"path": [
+								"installer",
+								"api",
+								"installation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PTA Installation Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{PTAAuthToken}}",
+								"type": "text",
+								"description": "A session token that was returned from the \"Logon\" method"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PTABaseURL}}/installer/api/installation",
+							"host": [
+								"{{PTABaseURL}}"
+							],
+							"path": [
+								"installer",
+								"api",
+								"installation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Server Encryption Key",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{PTAAuthToken}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PTABaseURL}}/installer/api/encryptionkey",
+							"host": [
+								"{{PTABaseURL}}"
+							],
+							"path": [
+								"installer",
+								"api",
+								"encryptionkey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PTA Server Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{apiUsername}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{apiPassword}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PTABaseURL}}/installer/api/getauthtoken",
+							"host": [
+								"{{PTABaseURL}}"
+							],
+							"path": [
+								"installer",
+								"api",
+								"getauthtoken"
+							]
+						}
 					},
 					"response": []
 				}
@@ -7403,8 +7971,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests?onlywaiting=false&expired=false",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7450,8 +8017,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7486,8 +8052,7 @@
 									"raw": "{\n  \"Reason\":\"Automatically accepted via CyberArk Web Services on {{$timestamp}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Confirm",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Confirm",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7523,8 +8088,7 @@
 									"raw": "{\n  \"Reason\":\"Rejected automatically by CyberArk Web Services on {{$timestamp}}\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Reject",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/IncomingRequests/{{RequestID}}/Reject",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7566,8 +8130,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/MyRequests?onlywaiting=false&expired=false",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/MyRequests?onlywaiting=false&expired=false",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7613,8 +8176,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7649,8 +8211,7 @@
 									"raw": "{\n  \"AccountID\":\"{{AccountID}}\",\n  \"Reason\":\"Access requested via CyberArk Web Services\",\n  \"TicketingSystemName\":\"ServiceNow\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/MyRequests",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/MyRequests",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7684,8 +8245,7 @@
 									"raw": "{}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/API/MyRequests/{{RequestID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -7730,8 +8290,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7769,8 +8328,7 @@
 							"raw": "{\n\t\"member\": {\n\t\t\"MemberName\":\"<The name of the user to add as a Safe member>\",\n\t\t\"SearchIn\":\"<Search for the member in the Vault or Domain>\",\n\t\t\"MembershipExpirationDate\":\"<MM\\DD\\YY or empty if there is no expiration date>\",\n\t\t\"Permissions\":<User’s permissions in the Safe>\n\t\t[\n\t\t\t{\"Key\":\"UseAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"RetrieveAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ListAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"AddAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"UpdateAccountContent\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"UpdateAccountProperties\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"InitiateCPMAccountManagementOperations\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"SpecifyNextAccountContent\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"RenameAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"DeleteAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"UnlockAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ManageSafe\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ManageSafeMembers\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"BackupSafe\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ViewAuditLog\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ViewSafeMembers\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"RequestsAuthorizationLevel\", \"Value\":<0/1/2>},\n\t\t\t{\"Key\":\"AccessWithoutConfirmation\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"CreateFolders\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"DeleteFolders\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"MoveAccountsAndFolders\", \"Value\":<true/false>}\n\t\t]\n\t}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7808,8 +8366,7 @@
 							"raw": "{\n\t\"member\": {\n\t\t\"MembershipExpirationDate\":\"<MM\\DD\\YY or empty for no expiration>\",\n\t\t\"Permissions\":<User’s permissions in the Safe>\n\t\t[\n\t\t\t{\"Key\":\"UseAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"RetrieveAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ListAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"AddAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"UpdateAccountContent\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"UpdateAccountProperties\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"InitiateCPMAccountManagementOperations\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"SpecifyNextAccountContent\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"RenameAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"DeleteAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"UnlockAccounts\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ManageSafe\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ManageSafeMembers\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"BackupSafe\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ViewAuditLog\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"ViewSafeMembers\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"RequestsAuthorizationLevel\", \"Value\":<0/1/2>},\n\t\t\t{\"Key\":\"AccessWithoutConfirmation\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"CreateFolders\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"DeleteFolders\", \"Value\":<true/false>},\n\t\t\t{\"Key\":\"MoveAccountsAndFolders\", \"Value\":<true/false>}\n\t\t]\n\t}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members/{{SafeMember}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members/{{SafeMember}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7848,8 +8405,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members/{{SafeMember}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}/Members/{{SafeMember}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -7893,8 +8449,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8046,8 +8601,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes?query={{Query}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8213,8 +8767,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8368,8 +8921,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/Safes/{{Safe}}/AccountGroups",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/Safes/{{Safe}}/AccountGroups",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8523,8 +9075,7 @@
 							"raw": "{\n\t\"safe\": {\n\t\t\"SafeName\":\"<Safe name>\",\n\t\t\"Description\":\"<Description>\",\n\t\t\"OLACEnabled\":<true/false>,\n\t\t\"ManagingCPM\":\"<CPM user>\",\n\t\t\"NumberOfVersionsRetention\":<1-999>,\n\t\t\"NumberOfDaysRetention\":<1-3650>\n\t}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8560,8 +9111,7 @@
 							"raw": "{\n\t\"safe\": {\n\t\t\"SafeName\":\"<The name of the Safe>\",\n\t\t\"Description\":\"<Description of the Safe>\",\n\t\t\"OLACEnabled\":<true/false>,\n\t\t\"ManagingCPM\":\"<Name of CPM user managing the Safe>\",\n\t\t\"NumberOfVersionsRetention\":<1-999>,\n\t\t\"NumberOfDaysRetention\":<1-3650>\n\t}\n}"
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8715,8 +9265,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Safes/{{Safe}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8757,8 +9306,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Server",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -8903,8 +9451,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Verify",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Verify",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -9031,6 +9578,209 @@
 			]
 		},
 		{
+			"name": "Security Events",
+			"item": [
+				{
+					"name": "Get Security Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "lastUpdatedEventDate",
+								"value": "1309737600",
+								"description": "Epoch Timestamp",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/pta/API/Events/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"pta",
+								"API",
+								"Events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Security Settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/pta/API/Settings",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"pta",
+								"API",
+								"Settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Security Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"category\": \"KEYSTROKES\",\n\t\"regex\": \"(.*)netsh(.*)wlan(.*)key=clear(.*)\", \n\t\"score\": 40, \n\t\"description\": \"Indication of a privileged user using a decoding command in clear text to retrieve a WIFI password.\", \n\t\"response\": \"NONE\", \n\t\"active\": true,\n\t\"scope\": { \n\t\t\"vaultUsers\": {\n\t\t\t\"mode\":\"EXCLUDE\",\n\t\t\t\"list\":[\"john*\"]\n\t\t}, \n\t\t\"machines\":{\n\t\t\t\"mode\":\"INCLUDE\",\n\t\t\t\"list\":[\"*\"]\n\t\t} \n\t}\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/pta/API/Settings/RiskyActivity/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"pta",
+								"API",
+								"Settings",
+								"RiskyActivity",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Security Rule",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"0\", \n\t\"category\": \"KEYSTROKES\",\n\t\"regex\": \"(.*)netsh(.*)wlan(.*)key=clear(.*)\", \n\t\"score\": 40, \n\t\"description\": \"Indication of a privileged user using a decoding command in clear text to retrieve a WIFI password.\", \n\t\"response\": \"NONE\", \n\t\"active\": true\n\t\"scope\": { \n\t\t\"vaultUsers\": {\n\t\t\t\"mode\":\"EXCLUDE\",\n\t\t\t\"list\":[\"anna\"]\n\t\t}, \n\t\t\"machines\": {\n\t\t\t\"mode\":\"include\",\n\t\t\t\"list\":[\"*\"]\n\t\t} \n\t}\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/pta/API/Settings/RiskyActivity/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"pta",
+								"API",
+								"Settings",
+								"RiskyActivity",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Automatic Remediation",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/pta/API/Settings/AutomaticRemediations/",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"pta",
+								"API",
+								"Settings",
+								"AutomaticRemediations",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "System Health",
 			"item": [
 				{
@@ -9053,8 +9803,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/ComponentsMonitoringDetails/{{ComponentsID}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringDetails/{{ComponentsID}}",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -9542,8 +10291,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/API/ComponentsMonitoringSummary",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/PasswordVault/API/ComponentsMonitoringSummary",
 							"host": [
 								"{{BaseURL}}"
 							],
@@ -9669,17 +10417,105 @@
 							"body": "{\n    \"Components\": [\n        {\n            \"ComponentID\": \"PVWA\",\n            \"ComponentName\": \"PVWA\",\n            \"Description\": \"Active Users\",\n            \"ConnectedComponentCount\": 1,\n            \"ComponentTotalCount\": 1,\n            \"ComponentSpecificStat\": 1\n        },\n        {\n            \"ComponentID\": \"CPM\",\n            \"ComponentName\": \"CPM\",\n            \"Description\": \"Managed Accounts\",\n            \"ConnectedComponentCount\": 1,\n            \"ComponentTotalCount\": 1,\n            \"ComponentSpecificStat\": 32\n        },\n        {\n            \"ComponentID\": \"SessionManagement\",\n            \"ComponentName\": \"PSM/PSMP\",\n            \"Description\": \"Concurrent Sessions\",\n            \"ConnectedComponentCount\": 2,\n            \"ComponentTotalCount\": 2,\n            \"ComponentSpecificStat\": 0\n        },\n        {\n            \"ComponentID\": \"AIM\",\n            \"ComponentName\": \"AIM Credential Provider\",\n            \"Description\": \"Applications\",\n            \"ConnectedComponentCount\": 1,\n            \"ComponentTotalCount\": 1,\n            \"ComponentSpecificStat\": 4\n        }\n    ],\n    \"Vaults\": [\n        {\n            \"IP\": \"192.168.3.101\",\n            \"Role\": \"Primary\",\n            \"IsLoggedOn\": true\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Get PTA System Health",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{apiPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{apiUsername}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PTABaseURL}}/monitoring/federate?match[]=%7Bjob%3D~%22ptaaa_.%2B%22%7D",
+							"host": [
+								"{{PTABaseURL}}"
+							],
+							"path": [
+								"monitoring",
+								"federate"
+							],
+							"query": [
+								{
+									"key": "match[]",
+									"value": "%7Bjob%3D~%22ptaaa_.%2B%22%7D",
+									"description": "Series selection to expose. Each match[] argument must specify an instant vector selector. match[] must be URL encoded."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PTA Replication Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PTAAuthToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PTABaseURL}}/api/monitoring",
+							"host": [
+								"{{PTABaseURL}}"
+							],
+							"path": [
+								"api",
+								"monitoring"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "User",
+			"name": "Users",
 			"item": [
 				{
-					"name": "Groups",
+					"name": "Current",
 					"item": [
 						{
-							"name": "Get Groups",
+							"name": "Get User Details",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -9700,29 +10536,16 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/UserGroups",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
 									"host": [
 										"{{BaseURL}}"
 									],
 									"path": [
 										"PasswordVault",
-										"api",
-										"UserGroups"
-									],
-									"query": [
-										{
-											"key": "filter",
-											"value": "groupType eq Vault",
-											"description": "groupType eq <Directory|Vault>",
-											"disabled": true
-										},
-										{
-											"key": "search",
-											"value": "Fin Audit",
-											"description": "Search will match when ALL search terms appear in the group name",
-											"disabled": true
-										}
+										"WebServices",
+										"PIMServices.svc",
+										"Users",
+										"{{UserName}}"
 									]
 								}
 							},
@@ -9749,29 +10572,17 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{BaseURL}}/PasswordVault/api/UserGroups",
+											"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
 											"protocol": "https",
 											"host": [
 												"{{BaseURL}}"
 											],
 											"path": [
 												"PasswordVault",
-												"api",
-												"UserGroups"
-											],
-											"query": [
-												{
-													"key": "filter",
-													"value": "groupType eq Vault",
-													"description": "groupType eq <Directory|Vault>",
-													"disabled": true
-												},
-												{
-													"key": "search",
-													"value": "Fin Audit",
-													"description": "Search will match when ALL search terms appear in the group name",
-													"disabled": true
-												}
+												"WebServices",
+												"PIMServices.svc",
+												"Users",
+												"{{UserName}}"
 											]
 										}
 									},
@@ -9845,22 +10656,22 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 11 Nov 2018 21:23:56 GMT"
+											"value": "Sun, 11 Nov 2018 21:23:43 GMT"
 										},
 										{
 											"key": "Content-Length",
-											"value": "1831"
+											"value": "218"
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"value\": [\n        {\n            \"id\": 26,\n            \"groupName\": \"CyberArk Vault Admins\",\n            \"groupType\": \"Directory\",\n            \"description\": \"\",\n            \"location\": \"\\\\\",\n            \"directory\": \"cyberarkdemo.com\",\n            \"dn\": \"CN=CyberArk Vault Admins,OU=Groups,OU=CyberArk,DC=cyberarkdemo,DC=com\"\n        },\n        {\n            \"id\": 27,\n            \"groupName\": \"CyberArk Auditors\",\n            \"groupType\": \"Directory\",\n            \"description\": \"\",\n            \"location\": \"\\\\\",\n            \"directory\": \"cyberarkdemo.com\",\n            \"dn\": \"CN=CyberArk Auditors,OU=Groups,OU=CyberArk,DC=cyberarkdemo,DC=com\"\n        },\n        {\n            \"id\": 8,\n            \"groupName\": \"Auditors\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Auditors group\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 12,\n            \"groupName\": \"Notification Engines\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Notification Engines group\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 18,\n            \"groupName\": \"PVWAMonitor\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 19,\n            \"groupName\": \"PVWAUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 20,\n            \"groupName\": \"PVWAGWAccounts\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 21,\n            \"groupName\": \"PVWAAppUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 40,\n            \"groupName\": \"PSMMaster\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 41,\n            \"groupName\": \"PSMAppUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 43,\n            \"groupName\": \"PSMP_ADB_AppUsers\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 48,\n            \"groupName\": \"PSMLiveSessionTerminators\",\n            \"groupType\": \"Vault\",\n            \"description\": \"\",\n            \"location\": \"\\\\\"\n        },\n        {\n            \"id\": 7,\n            \"groupName\": \"Backup Users\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Backup users group\",\n            \"location\": \"\\\\System\"\n        },\n        {\n            \"id\": 9,\n            \"groupName\": \"Operators\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Operators group\",\n            \"location\": \"\\\\System\"\n        },\n        {\n            \"id\": 10,\n            \"groupName\": \"DR Users\",\n            \"groupType\": \"Vault\",\n            \"description\": \"DR users group\",\n            \"location\": \"\\\\System\"\n        },\n        {\n            \"id\": 11,\n            \"groupName\": \"Vault Admins\",\n            \"groupType\": \"Vault\",\n            \"description\": \"Vault Admins group\",\n            \"location\": \"\\\\System\"\n        }\n    ],\n    \"count\": 16\n}"
+									"body": "{\n    \"AgentUser\": false,\n    \"Disabled\": false,\n    \"Email\": \"\",\n    \"Expired\": false,\n    \"ExpiryDate\": null,\n    \"FirstName\": \"\",\n    \"LastName\": \"\",\n    \"Location\": \"\\\\\",\n    \"Source\": \"Internal\",\n    \"Suspended\": false,\n    \"UserName\": \"Svc_AnsibleREST\",\n    \"UserTypeName\": \"EPVUser\"\n}"
 								}
 							]
 						},
 						{
-							"name": "Add User to Group (Legacy)",
+							"name": "Logged On User Details",
 							"request": {
-								"method": "POST",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
@@ -9876,11 +10687,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"UserName\":\"{{UserName}}\"\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Groups/{{GroupName}}/Users",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/User",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -9888,16 +10698,130 @@
 										"PasswordVault",
 										"WebServices",
 										"PIMServices.svc",
-										"Groups",
-										"{{GroupName}}",
-										"Users"
+										"User"
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/User",
+											"protocol": "https",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"PasswordVault",
+												"WebServices",
+												"PIMServices.svc",
+												"User"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Server",
+											"value": "Microsoft-IIS/10.0"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA22222=BE36C14D1FE1AAFA; path=/PasswordVault/; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA11111=00000002A2FA411668862E3FD3D87ACCFC25E30E79362257102F7C6E3D265BFB2223998300000000; path=/PasswordVault/; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA55555=cyberark; path=/PasswordVault/; secure"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA33333=; path=/PasswordVault/; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "mobileState=Desktop; path=/PasswordVault/; secure; HttpOnly"
+										},
+										{
+											"key": "X-UA-Compatible",
+											"value": "IE=EmulateIE8"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-FRAME-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Warning"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 11 Nov 2018 21:23:17 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"AgentUser\": false,\n    \"Disabled\": false,\n    \"Email\": \"\",\n    \"Expired\": false,\n    \"ExpiryDate\": null,\n    \"FirstName\": \"\",\n    \"LastName\": \"\",\n    \"Location\": \"\\\\\",\n    \"Source\": \"Internal\",\n    \"Suspended\": false,\n    \"UserName\": \"Administrator\",\n    \"UserTypeName\": \"Built-InAdmins\"\n}"
+								}
+							]
 						},
 						{
-							"name": "Add User to Group",
+							"name": "Add User",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -9915,28 +10839,98 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"memberId\": \"string\",\n\t\"memberType\": \"Vault\",\n\t\"domainName\": \"string\"\n}"
+									"raw": "{\n    \"username\":\"newUser\",\n    \"userType\": \"EPVUser\",\n    \"initialPassword\": \"123Cyber\",\n    \"authenticationMethod\": [\"AuthTypePass\"],\n    \"location\": \"\\\\\",\n    \"unAuthorizedInterfaces\": [\"PSM\", \"PSMP\"],\n    \"expiryDate\": 1577836800,\n    \"vaultAuthorization\": [\"AddSafes\", \"AuditUsers\" ],\n    \"enableUser\": true,\n    \"changePassOnNextLogon\": true,\n    \"passwordNeverExpires\": true,\n    \"distinguishedName\": \"newUser@cyberark\",\n    \"description\": \"This user is privileged\",\n    \"businessAddress\":\n     {\n     \"workStreet\": \"Hapssagot 9\",\n     \"workCity\": \"Petah Tikva\",\n     \"workState\": \"Israel\",\n     \"workZip\": \"9999999\",\n     \"workCountry\": \"Israel\"\n     },\n    \"internet\":\n     {\n     \"homePage\": \"Cyberark.com\",\n     \"homeEmail\": \"user@gmail.com\",\n     \"businessEmail\": \"user@cyberark.com\",\n     \"otherEmail\": \"user2@gmail.com\"\n     },\n    \"phones\": {\n     \"homeNumber\": \"555123456\",\n     \"businessNumber\": \"555456789\",\n     \"cellularNumber\": \"555789789\",\n     \"faxNumber\": \"999999\",\n     \"pagerNumber\": \"111111\"\n  },\n  \"personalDetails\": {\n    \"street\": \"Dizzengof 56\",\n    \"city\": \"Tel Aviv\",\n    \"state\": \"Israel\",\n    \"zip\": \"123456\",\n    \"country\": \"Israel\",\n    \"title\": \"Mr. VIP\",\n    \"organization\": \"Cyber ark\",\n    \"department\": \"R&D\",\n    \"profession\": \"software development\",\n    \"firstName\": \"John\",\n    \"middleName\": \"Doe\",\n    \"lastName\": \"Smith\"\n  }\n}\n"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/UserGroups/{{GroupID}}/Members/",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/api/Users",
 									"host": [
 										"{{BaseURL}}"
 									],
 									"path": [
 										"PasswordVault",
 										"api",
-										"UserGroups",
-										"{{GroupID}}",
-										"Members",
-										""
+										"Users"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Remove User from Group",
+							"name": "Activate User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Users",
+										"{{UserName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"NewPassword\":\"<string>\",\n\t\"Email\":\"<string>\",\n\t\"FirstName\":\"<string>\",\n\t\"LastName\":\"<string>\",\n\t\"ChangePasswordOnTheNextLogon\":<bool>,\n\t\"ExpiryDate\":\"<string>\",\n\t\"UserTypeName\":\"<string>\",\n\t\"Disabled\":<bool>,\n\t\"Location\":\"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Users",
+										"{{UserName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -9957,87 +10951,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/api/UserGroups/{{GroupID}}/Members/{{Member}}",
-									"protocol": "https",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"api",
-										"UserGroups",
-										"{{GroupID}}",
-										"Members",
-										"{{Member}}"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Get User Details",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"type": "text",
-								"description": "Session Authorization Token"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
-							"protocol": "https",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"PasswordVault",
-								"WebServices",
-								"PIMServices.svc",
-								"Users",
-								"{{UserName}}"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "200 OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}",
-										"type": "text",
-										"description": "Session Authorization Token"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -10050,128 +10964,18 @@
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA22222=BE36C14D1FE1AAFA; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA11111=00000002A2FA411668862E3FD3D87ACCFC25E30E79362257102F7C6E3D265BFB2223998300000000; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA55555=cyberark; path=/PasswordVault/; secure"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA33333=; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "mobileState=Desktop; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "X-UA-Compatible",
-									"value": "IE=EmulateIE8"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-FRAME-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "Warning"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=31536000; includeSubDomains"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 11 Nov 2018 21:23:43 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "218"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"AgentUser\": false,\n    \"Disabled\": false,\n    \"Email\": \"\",\n    \"Expired\": false,\n    \"ExpiryDate\": null,\n    \"FirstName\": \"\",\n    \"LastName\": \"\",\n    \"Location\": \"\\\\\",\n    \"Source\": \"Internal\",\n    \"Suspended\": false,\n    \"UserName\": \"Svc_AnsibleREST\",\n    \"UserTypeName\": \"EPVUser\"\n}"
+							"response": []
 						}
-					]
+					],
+					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Logged On User Details",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"type": "text",
-								"description": "Session Authorization Token"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/User",
-							"protocol": "https",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"PasswordVault",
-								"WebServices",
-								"PIMServices.svc",
-								"User"
-							]
-						}
-					},
-					"response": [
+					"name": "Legacy",
+					"item": [
 						{
-							"name": "200 OK",
-							"originalRequest": {
-								"method": "GET",
+							"name": "Add User",
+							"request": {
+								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
@@ -10187,11 +10991,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": ""
+									"raw": "{\n\t\"UserName\":\"<string>\",\n\t\"InitialPassword\":\"<string>\",\n\t\"Email\":\"<string>\",\n\t\"FirstName\":\"<string>\",\n\t\"LastName\":\"<string>\",\n\t\"ChangePasswordOnTheNextLogon\":<bool>,\n\t\"ExpiryDate\":\"<string>\",\n\t\"UserTypeName\":\"<string>\",\n\t\"Disabled\":<bool>,\n\t\"Location\":\"<string>\"\n}"
 								},
 								"url": {
-									"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/User",
-									"protocol": "https",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -10199,242 +11002,14 @@
 										"PasswordVault",
 										"WebServices",
 										"PIMServices.svc",
-										"User"
+										"Users"
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA22222=BE36C14D1FE1AAFA; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA11111=00000002A2FA411668862E3FD3D87ACCFC25E30E79362257102F7C6E3D265BFB2223998300000000; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA55555=cyberark; path=/PasswordVault/; secure"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "CA33333=; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "Set-Cookie",
-									"value": "mobileState=Desktop; path=/PasswordVault/; secure; HttpOnly"
-								},
-								{
-									"key": "X-UA-Compatible",
-									"value": "IE=EmulateIE8"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-FRAME-Options",
-									"value": "SAMEORIGIN"
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "Warning"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=31536000; includeSubDomains"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 11 Nov 2018 21:23:17 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "223"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"AgentUser\": false,\n    \"Disabled\": false,\n    \"Email\": \"\",\n    \"Expired\": false,\n    \"ExpiryDate\": null,\n    \"FirstName\": \"\",\n    \"LastName\": \"\",\n    \"Location\": \"\\\\\",\n    \"Source\": \"Internal\",\n    \"Suspended\": false,\n    \"UserName\": \"Administrator\",\n    \"UserTypeName\": \"Built-InAdmins\"\n}"
+							"response": []
 						}
-					]
-				},
-				{
-					"name": "Add User",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"type": "text",
-								"description": "Session Authorization Token"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"UserName\":\"<string>\",\n\t\"InitialPassword\":\"<string>\",\n\t\"Email\":\"<string>\",\n\t\"FirstName\":\"<string>\",\n\t\"LastName\":\"<string>\",\n\t\"ChangePasswordOnTheNextLogon\":<bool>,\n\t\"ExpiryDate\":\"<string>\",\n\t\"UserTypeName\":\"<string>\",\n\t\"Disabled\":<bool>,\n\t\"Location\":\"<string>\"\n}"
-						},
-						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users",
-							"protocol": "https",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"PasswordVault",
-								"WebServices",
-								"PIMServices.svc",
-								"Users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Activate User",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"type": "text",
-								"description": "Session Authorization Token"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
-							"protocol": "https",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"PasswordVault",
-								"WebServices",
-								"PIMServices.svc",
-								"Users",
-								"{{UserName}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update User",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"type": "text",
-								"description": "Session Authorization Token"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"NewPassword\":\"<string>\",\n\t\"Email\":\"<string>\",\n\t\"FirstName\":\"<string>\",\n\t\"LastName\":\"<string>\",\n\t\"ChangePasswordOnTheNextLogon\":<bool>,\n\t\"ExpiryDate\":\"<string>\",\n\t\"UserTypeName\":\"<string>\",\n\t\"Disabled\":<bool>,\n\t\"Location\":\"<string>\"\n}"
-						},
-						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
-							"protocol": "https",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"PasswordVault",
-								"WebServices",
-								"PIMServices.svc",
-								"Users",
-								"{{UserName}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete User",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"type": "text",
-								"description": "Session Authorization Token"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
-							"protocol": "https",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"PasswordVault",
-								"WebServices",
-								"PIMServices.svc",
-								"Users",
-								"{{UserName}}"
-							]
-						}
-					},
-					"response": []
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		}
