@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "676230f3-7895-4a35-a20f-57bd846e1a92",
 		"name": "CyberArk REST API [PUBLIC]",
-		"description": "All available requests in CyberArk Privileged Account Security Web Services for All Versions\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## API Versioning\n\nBy default, all called REST APIs are the latest version. You can manually change the version of the selected API by specifying the version to implement in the URL.\n\n`https://<IIS_Server_Ip>/PasswordVault/api/v10.6/Accounts`\n\n_Best practice: We recommend specifying the version number in the REST API URL as REST APIs may change behavior in each new version._\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n|---|---|---|\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+		"description": "All available requests in CyberArk Privileged Account Security Web Services for All Versions\n\n**Last Updated Version:** v10.10\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nhttps://git.joeco.de/CyberArk-RESTAPI/\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n* [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n* [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n* [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n\n## Code Examples\n\n* [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n* [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n* [OTFL Webinar - REST API from Start-to-Finish: CyberArk Account Factory](https://github.com/infamousjoeg/cyberark-account-factory)\n* [OTFL Webinar - REST API from Start-to-Finish: CyberArk Safe Factory](https://github.com/infamousjoeg/cyberark-safe-factory)\n\n## YouTube Videos Playlist\n\n* [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n|---|---|---|\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -402,7 +402,8 @@
 											"disabled": true
 										}
 									]
-								}
+								},
+								"description": "This method returns a list of all the accounts in the Vault.\n\nThe user who runs this web service requires **List Accounts** permissions in the Safe."
 							},
 							"response": [
 								{
@@ -585,7 +586,8 @@
 										"Accounts",
 										"{{AccountID}}"
 									]
-								}
+								},
+								"description": "This method returns information about an account identified by its ID.\n\nThe user who runs this web service requires **List Accounts** permissions in the Safe where the account is located inside the Vault."
 							},
 							"response": [
 								{
@@ -739,7 +741,8 @@
 										"{{AccountID}}",
 										"Activities"
 									]
-								}
+								},
+								"description": "This method returns the activities of a specific account that is identified by its account ID."
 							},
 							"response": [
 								{
@@ -862,44 +865,6 @@
 							]
 						},
 						{
-							"name": "Get Password Value",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}",
-										"type": "text",
-										"description": "Session Authorization Token"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"reason\":\"<Reason>\",\n\t\"TicketingSystemName\": \"<Ticketing system>\",\n\t\"TicketId\": \"<Ticketid>\",\n\t\"Version\": <version number>,\n\t\"ActionType\": \"<action type - show\\copy\\connect>\n\t\"isUse\": <true\\false>,\n\t\"Machine\": \"<my remote machine address>\"\n}"
-								},
-								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/Password/Retrieve",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"api",
-										"Accounts",
-										"{{AccountID}}",
-										"Password",
-										"Retrieve"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Add Account",
 							"request": {
 								"method": "POST",
@@ -930,7 +895,8 @@
 										"api",
 										"Accounts"
 									]
-								}
+								},
+								"description": "This method adds a new privileged account or SSH key to the Vault.\n\nTo run this web service, a user requires the following permission in the Vault:\n\n* Add account\n\nAND either\n\n* Update password\n\nOR\n\n* Update password properties\n\n**Note:** You require an additional license to add SSH keys to the Vault. For more information, contact your CyberArk representative."
 							},
 							"response": []
 						},
@@ -965,7 +931,8 @@
 										"api",
 										"DiscoveredAccounts"
 									]
-								}
+								},
+								"description": "This RPC service adds newly discovered accounts.\n\nThe discovered account is onboarded according to matching onboarding rules or added directly to the Pending Accounts list.\n\nIf the account already exists in the Pending Account list, it will be updated as needed.\n\nIf onboarding failed for any reason, the account will be added to the Pending Accounts list.\n\nThe user who runs this web service requires the following users and permissions:\n\nTo add pending accounts:\n\n* **User:** Owner of PasswordManager_Pending Safe\n* **Permissions:**\n  * Add account\n  * Update account properties\n\nTo onboard the account:\n\n* **User:** Owner of the target Safe of the onboarding rule.\n* **Permissions:**\n  * Add account\n  * Update account properties\n  * Initiate CPM account management operations"
 							},
 							"response": []
 						},
@@ -1000,7 +967,8 @@
 										"api",
 										"DiscoveredAccounts"
 									]
-								}
+								},
+								"description": "This method adds newly discovered accounts and their dependencies.\n\n| Action | Description |\n| --- | --- |\n| Discovered account | Discovered accounts are added to the Pending Accounts list. |\n| Discovered dependency | Discovered dependencies are added to the Pending Accounts list or are automatically added to the corresponding master account that has already been onboarded. |\n| Automatic onboarding | Discovered accounts are onboarded according to matching onboarding rules. If automatic onboarding fails for any reason, the account is added to the Pending Accounts list. |\n\nCurrently, Private SSH Keys are not supported.\n\nThe user who runs this web service requires the following users and permissions:\n\nTo add pending accounts:\n\n* **User:** Owner of PasswordManager_Pending Safe\n* **Permissions:**\n  * Add account\n  * List files\n  * Update account properties\n\nTo onboard the account:\n\n* **User:** Owner of the target Safe of the onboarding rule.\n* **Permissions:**\n  * Add account\n  * Update account properties\n  * Initiate CPM account management operations"
 							},
 							"response": []
 						},
@@ -1036,7 +1004,8 @@
 										"PIMServices.svc",
 										"PendingAccounts"
 									]
-								}
+								},
+								"description": "This method enables an account or SSH key that is discovered by an external scanner to be added as a pending account to the Accounts Feed. This facilitates the privileged account workflow, during which users can identify privileged accounts and determine which are onboarded to the Vault.\n\n**Note:** In order to add SSH keys to the Vault, you require an additional license. For more information, contact your CyberArk representative."
 							},
 							"response": []
 						},
@@ -1073,7 +1042,8 @@
 										"{{AccountID}}",
 										"Change"
 									]
-								}
+								},
+								"description": "This method marks an account for an immediate credentials change by the CPM to a new random value.\n\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\n\n* Initiate CPM password management operations"
 							},
 							"response": []
 						},
@@ -1110,7 +1080,8 @@
 										"{{AccountID}}",
 										"SetNextPassword"
 									]
-								}
+								},
+								"description": "This method enables users to set the account's credentials to use for the next CPM change.\n\nThe user who runs this web service requires the following permissions in the Safe where the privileged account is stored:\n\n* Initiate CPM password management operations\n* Specify next password value"
 							},
 							"response": []
 						},
@@ -1148,7 +1119,8 @@
 										"Password",
 										"Update"
 									]
-								}
+								},
+								"description": "This method enables users to set account credentials and change them in the Vault. This will not affect credentials on the target device.\n\nThe user who runs this web service requires **Update password value** permission in the Safe where the privileged account is stored."
 							},
 							"response": []
 						},
@@ -1185,7 +1157,8 @@
 										"{{AccountID}}",
 										"CheckIn"
 									]
-								}
+								},
+								"description": "This method checks an exclusive account into the Vault.\n\n* If the account is managed automatically by the CPM, after it is checked in, the password is changed immediately.\n* If the account is managed manually, a notification is sent to a user who is authorized to change the password. The account is checked in automatically after it has been changed.\n\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\n\n* Initiate CPM password management operations"
 							},
 							"response": []
 						},
@@ -1228,6 +1201,45 @@
 							"response": []
 						},
 						{
+							"name": "Get Password Value",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"reason\":\"<Reason>\",\n\t\"TicketingSystemName\": \"<Ticketing system>\",\n\t\"TicketId\": \"<Ticketid>\",\n\t\"Version\": <version number>,\n\t\"ActionType\": \"<action type - show\\copy\\connect>\n\t\"isUse\": <true\\false>,\n\t\"Machine\": \"<my remote machine address>\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Accounts/{{AccountID}}/Password/Retrieve",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Accounts",
+										"{{AccountID}}",
+										"Password",
+										"Retrieve"
+									]
+								},
+								"description": "This method enables users to retrieve the password or SSH key of an existing account that is identified by its Account ID. It enables users to specify a reason and ticket ID, if required.\n\n**Note:** The ability to retrieve credentials using this REST API is intended for human use only and is not recommended for applications or automated processes, where application-based authentication is required.\n\nFor application or automated processes use cases, refer to the [AAM Credential Providers Online Help](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-CP/Latest/en/Default.htm)."
+							},
+							"response": []
+						},
+						{
 							"name": "Reconcile Password",
 							"request": {
 								"method": "POST",
@@ -1260,7 +1272,8 @@
 										"{{AccountID}}",
 										"Reconcile"
 									]
-								}
+								},
+								"description": "This method marks an account for automatic reconciliation by the CPM.\n\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\n\n* Initiate CPM password management operations"
 							},
 							"response": []
 						},
@@ -1297,7 +1310,47 @@
 										"{{AccountID}}",
 										"Verify"
 									]
-								}
+								},
+								"description": "This method marks an account for verification by the CPM, and can be used in versions from v9.10.\n\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\n\n* Initiate CPM password management operations"
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ImmediateChangeByCPM\": <true/false>,\n\t\"ChangeCredsForGroup\": <true/false>\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Accounts/{{AccountID}}/ChangeCredentials",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"WebServices",
+										"PIMServices.svc",
+										"Accounts",
+										"{{AccountID}}",
+										"ChangeCredentials"
+									]
+								},
+								"description": "This method marks the account for an immediate password change by the CPM to a new random password.\n\nThe user who runs this web service requires the following permission in the Safe where the privileged account is stored:\n\n* Initiate CPM password management operations"
 							},
 							"response": []
 						},
@@ -1333,7 +1386,8 @@
 										"Accounts",
 										"{{AccountID}}"
 									]
-								}
+								},
+								"description": "This method updates an existing account's details. It is not mandatory to send all the account’s details. Any changed values sent in the request will be updated. All other properties values will remain the same.\n\nOn each property, the following operations can be performed:\n\n* Replace - replace the existing value of a property\n* Remove (to remove the property from the account)\n* Add (to add that property to the account)\n\nIt is possible to set several properties using the same command using the following structure:\n\n```json\n{\n    \"op\": \"replace\",\n    \"path\": \"/platformaccountproperties\",\n    \"value\": \"{\n        \\\"{PropertyID1}\\\":\\\"{Value}\\\",\n        \\\"{PropertyID2}\\\":\\\"{Value}\\\",\n        \\\"{PropertyID3}\\\":\\\"{Value}\\\"\n    }\"\n}\n```\n\nWhen sending several operations on the same property, only the last operation will affect the property."
 							},
 							"response": [
 								{
@@ -1485,7 +1539,8 @@
 										"Accounts",
 										"{{AccountID}}"
 									]
-								}
+								},
+								"description": "This method deletes a specific account in the Vault.\n\nThe user who runs this web service requires **Delete Accounts** permissions in the Vault."
 							},
 							"response": []
 						}
@@ -3560,7 +3615,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"authentication\":\r\n  {\r\n    \"AuthType\":\"path/osuser/hash\",\r\n    \"AuthValue\":\"<Path string>/<OSUser Name>/<Hash Value>\",\r\n    \"IsFolder\":<true/false>,\r\n    \"AllowInternalScripts\":<true/false>\r\n  }\r\n}"
+							"raw": "{\r\n  \"authentication\":\r\n  {\r\n    \"AuthType\":\"path/osuser/hash/machineAddress\",\r\n    \"AuthValue\":\"<Path string>/<OSUser Name>/<Hash Value>/<Machine Address/CIDR>\",\r\n    \"IsFolder\":<true/false>,\r\n    \"AllowInternalScripts\":<true/false>\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Applications/{{AppID}}/Authentications/",
@@ -3695,7 +3750,8 @@
 										"CyberArk",
 										"Logon"
 									]
-								}
+								},
+								"description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method enables you to set a new password."
 							},
 							"response": [
 								{
@@ -3836,7 +3892,8 @@
 										"LDAP",
 										"Logon"
 									]
-								}
+								},
+								"description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method enables you to set a new password."
 							},
 							"response": [
 								{
@@ -3978,7 +4035,8 @@
 										"radius",
 										"Logon"
 									]
-								}
+								},
+								"description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method enables you to set a new password."
 							},
 							"response": []
 						},
@@ -4009,7 +4067,8 @@
 										"Windows",
 										"Logon"
 									]
-								}
+								},
+								"description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method enables you to set a new password."
 							},
 							"response": []
 						},
@@ -4040,7 +4099,8 @@
 										"Auth",
 										"Logoff"
 									]
-								}
+								},
+								"description": "This method logs off the user and removes the Vault session."
 							},
 							"response": [
 								{
@@ -4159,398 +4219,6 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Central Credential Provider",
-					"item": [
-						{
-							"name": "GetPassword",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"AIMWebService",
-										"api",
-										"Accounts"
-									],
-									"query": [
-										{
-											"key": "AppID",
-											"value": "{{AppID}}"
-										},
-										{
-											"key": "Safe",
-											"value": "{{Safe}}"
-										},
-										{
-											"key": "Folder",
-											"value": "{{Folder}}"
-										},
-										{
-											"key": "Object",
-											"value": "{{ObjectName}}"
-										}
-									]
-								},
-								"description": "GetPassword – This service enables applications to retrieve passwords from the\r\nCentral Credential Provider.\r\n\r\n- AppID (REQUIRED)\r\n  - Specifies the unique ID of the application issuing the password request.\r\n- Safe\r\n  - Specifies the name of the Safe where the password is stored.\r\n- Folder\r\n  - Specifies the name of the folder where the password is stored. (Default: Root)\r\n- Object\r\n  - Specifies the name of the password object to retrieve.\r\n- UserName\r\n  - Defines search criteria according to the UserName account property.\r\n- Address\r\n  - Defines search criteria according to the Address account property.\r\n- Database\r\n  - Defines search criteria according to the Database account property.\r\n- PolicyID\r\n  - Defines the format that will be used in the setPolicyID method.\r\n- Reason\r\n  - The reason for retrieving the password.  This reason will be audited in the Credential Provider audit log.\r\n- ConnectionTimeout\r\n  - The number of seconds that the Central Credential Provider will try to retrieve the password.  The timeout is calculated when the request is sent from the web service to the Vault and returned back to the web service.\r\n    - 30 (Default)\r\n- Query\r\n  - Defines a free query using account properties, including Safe, folder, and object.  When this method is specified, all other search criteria (Safe/Folder/Object/UserName/Address/PolicyID/Database) are ignored and only the account properties that are specified in the query are passed to the Central Credential Provider in the password request.\r\n- QueryFormat\r\n  - Defines the query format, which can optionally use regular expressions.\r\n  - Possible values are:\r\n    - Exact (Default)\r\n    - Regexp\r\n- FailedRequestOnPasswordChange\r\n  - Whether or not an error will be returned if this web service is called when a password change process is underway.\r\n    - True\r\n    - False (Default)"
-							},
-							"response": [
-								{
-									"name": "APPAP004E - Password object matching query was not found",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": ""
-										},
-										"url": {
-											"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
-											"host": [
-												"{{BaseURL}}"
-											],
-											"path": [
-												"AIMWebService",
-												"api",
-												"Accounts"
-											],
-											"query": [
-												{
-													"key": "AppID",
-													"value": "{{AppID}}"
-												},
-												{
-													"key": "Safe",
-													"value": "{{Safe}}"
-												},
-												{
-													"key": "Folder",
-													"value": "{{Folder}}"
-												},
-												{
-													"key": "Object",
-													"value": "{{ObjectName}}"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Cache-Control",
-											"value": "no-cache",
-											"name": "Cache-Control",
-											"description": ""
-										},
-										{
-											"key": "Content-Length",
-											"value": "415",
-											"name": "Content-Length",
-											"description": ""
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8",
-											"name": "Content-Type",
-											"description": ""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 20 Sep 2017 21:45:44 GMT",
-											"name": "Date",
-											"description": ""
-										},
-										{
-											"key": "Expires",
-											"value": "-1",
-											"name": "Expires",
-											"description": ""
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache",
-											"name": "Pragma",
-											"description": ""
-										},
-										{
-											"key": "Server",
-											"value": "Microsoft-IIS/8.5",
-											"name": "Server",
-											"description": ""
-										}
-									],
-									"cookie": [
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA22222"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA11111"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA55555"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA33333"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "Desktop",
-											"key": "mobileState"
-										},
-										{
-											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "ldap",
-											"key": "CAPreferredAuth"
-										},
-										{
-											"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/",
-											"secure": false,
-											"value": "t2jlmd4i1yjna3morxfbr3pv",
-											"key": "ASP.NET_SessionId"
-										}
-									],
-									"body": "{\"ErrorCode\":\"APPAP004E\",\"ErrorMsg\":\"Password object matching query [Folder=Root;Object=Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST;Safe=T-APP-CYBR-RESTAPI] was not found (Diagnostic Info: 9). Please check that there is a password object that answers your query in the Vault and that both the Provider and the application user have the appropriate permissions needed in order to use the password.\"}"
-								},
-								{
-									"name": "200 OK",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": ""
-										},
-										"url": {
-											"raw": "{{BaseURL}}/AIMWebService/api/Accounts?AppID={{AppID}}&Safe={{Safe}}&Folder={{Folder}}&Object={{ObjectName}}",
-											"host": [
-												"{{BaseURL}}"
-											],
-											"path": [
-												"AIMWebService",
-												"api",
-												"Accounts"
-											],
-											"query": [
-												{
-													"key": "AppID",
-													"value": "{{AppID}}"
-												},
-												{
-													"key": "Safe",
-													"value": "{{Safe}}"
-												},
-												{
-													"key": "Folder",
-													"value": "{{Folder}}"
-												},
-												{
-													"key": "Object",
-													"value": "{{ObjectName}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Cache-Control",
-											"value": "no-cache",
-											"name": "Cache-Control",
-											"description": ""
-										},
-										{
-											"key": "Content-Length",
-											"value": "336",
-											"name": "Content-Length",
-											"description": ""
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8",
-											"name": "Content-Type",
-											"description": ""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 20 Sep 2017 21:49:50 GMT",
-											"name": "Date",
-											"description": ""
-										},
-										{
-											"key": "Expires",
-											"value": "-1",
-											"name": "Expires",
-											"description": ""
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache",
-											"name": "Pragma",
-											"description": ""
-										},
-										{
-											"key": "Server",
-											"value": "Microsoft-IIS/8.5",
-											"name": "Server",
-											"description": ""
-										}
-									],
-									"cookie": [
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA22222"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA11111"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA55555"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "",
-											"key": "CA33333"
-										},
-										{
-											"expires": "Tue Jan 19 2038 00:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "Desktop",
-											"key": "mobileState"
-										},
-										{
-											"expires": "Thu Apr 12 2018 15:04:09 GMT-0400 (EDT)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/PasswordVault/",
-											"secure": false,
-											"value": "ldap",
-											"key": "CAPreferredAuth"
-										},
-										{
-											"expires": "Sat Jan 16 2038 06:14:07 GMT-0500 (EST)",
-											"httpOnly": true,
-											"domain": "components.joe-garcia.local",
-											"path": "/",
-											"secure": false,
-											"value": "t2jlmd4i1yjna3morxfbr3pv",
-											"key": "ASP.NET_SessionId"
-										}
-									],
-									"body": "{\"Content\":\"Cyberark1\",\"CreationMethod\":\"PVWA\",\"Address\":\"joe-garcia.local\",\"Safe\":\"T-APP-CYBR-RESTAPI\",\"UserName\":\"Svc_CyberArkREST\",\"Name\":\"Operating System-WinDomain-joe-garcia.local-Svc_CyberArkREST\",\"LogonDomain\":\"JOE-GARCIA\",\"PolicyID\":\"WinDomain\",\"DeviceType\":\"Operating System\",\"Folder\":\"Root\",\"PasswordChangeInProcess\":\"False\"}"
-								}
-							]
-						}
-					],
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "66cde887-4e6f-4f9a-8b1e-139d581cff46",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "fcc8f736-6712-44ac-b7f9-0818a982d4b2",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
 					"name": "CyberArk/LDAP/RADIUS Authentication",
 					"item": [
 						{
@@ -4581,7 +4249,8 @@
 										"CyberArkAuthenticationService.svc",
 										"Logon"
 									]
-								}
+								},
+								"description": "This method authenticates a user to the Vault and returns a token that can be used in subsequent web services calls. In addition, this method allows you to set a new password.\n\nUsers can authenticate using CyberArk, LDAP or RADIUS authentication."
 							},
 							"response": []
 						},
@@ -4618,7 +4287,8 @@
 										"CyberArkAuthenticationService.svc",
 										"Logoff"
 									]
-								}
+								},
+								"description": "This method logs off the user and removes the Vault session."
 							},
 							"response": []
 						}
@@ -4662,7 +4332,8 @@
 										"SAMLAuthenticationService.svc",
 										"Logon"
 									]
-								}
+								},
+								"description": "This method authenticates a user to the Vault using SAML authentication and returns a token that can be used in subsequent web services calls."
 							},
 							"response": []
 						},
@@ -4700,7 +4371,8 @@
 										"SAMLAuthenticationService.svc",
 										"Logoff"
 									]
-								}
+								},
+								"description": "This method logs off the user and removes the Vault session. This web service is used to log off when the user authenticated with SAML authentication."
 							},
 							"response": []
 						}
@@ -4738,7 +4410,8 @@
 										"RestfulAuthenticationService.svc",
 										"Logon"
 									]
-								}
+								},
+								"description": "Shared authentication is based on a user credential file that is stored in the PVWA web server. During shared authentication, only the user defined in the credential file can log on to the PVWA, but multiple users can use the logon token.\n\nThis type of authentication **requires** the application using the REST services to manage the users as the Vault can't identify which specific user performs each action.\n\nMultiple concurrent connections can be created using the same token, without affecting each other.\n\nThe shared user is defined in a user credential file, whose location is specified in the WSCredentialFile parameter, in the appsettings section of the PVWAweb.config file:\n\n```\n<add key=\"WSCredentialFile\" value=\"C:\\CyberArk\\Password Vault Web Access\\CredFiles\\WSUser.ini\"/>\n```\n\n* Make sure that this user can access the PVWA interface.\n* Make sure the user only has the permissions in the Vault that they require.\n\nFor information about securing communication when using the SDK, refer to the following:\n\n* [Securing application-to-REST communication](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Securing%20Communication.htm)\n* [Configuring client authentication via certificates](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Configuring%20Client%20Authentication%20via%20Client%20Certificates.htm)\n\nThis method authenticates to the Vault with a shared webservices user and returns a token that will be used in subsequent web services calls.\n\nThis is supported for CyberArk authentication only, and not for third party authentication."
 							},
 							"response": []
 						},
@@ -4775,7 +4448,8 @@
 										"RestfulAuthenticationService.svc",
 										"Logoff"
 									]
-								}
+								},
+								"description": "This method logs off the shared user and removes the Vault session."
 							},
 							"response": []
 						}
@@ -4820,7 +4494,8 @@
 										"SSHKeyAuthentication",
 										"AuthorizedKeys"
 									]
-								}
+								},
+								"description": "This method retrieves all public SSH keys that are authorized for a specific user.\n\nThe user who runs this web service requires the following permission in the Vault:\n\n* Reset Users' Passwords\n\nIn addition, the user who runs this web service must be in the same Vault Location or higher as the user whose public SSH keys are retrieved.\n\n**Note:** A user cannot manage their own public SSH keys."
 							},
 							"response": [
 								{
@@ -4978,7 +4653,8 @@
 										"SSHKeyAuthentication",
 										"AuthorizedKeys"
 									]
-								}
+								},
+								"description": "This method adds an authorized public SSH key for a specific user in the Vault, allowing them to authenticate to the Vault through PSM for SSH using a corresponding private SSH key.\n\nThe user who runs this web service requires **Reset Users' Passwords** permissions in the Vault.\n\nIn addition, the user who runs this web service must be in the same Vault location as or higher than the user whose public SSH keys are added.\n\n**Note:** A user cannot manage their own public SSH keys."
 							},
 							"response": [
 								{
@@ -5137,7 +4813,8 @@
 										"AuthorizedKeys",
 										"{{KeyID}}"
 									]
-								}
+								},
+								"description": "This method deletes an authorized public SSH key for a specific user in the Vault, preventing them from authenticating to the Vault via PSM for SSH using a corresponding private SSH key.\n\nThe user who runs this web service requires **Reset Users' Passwords** permission in the Vault.\n\nIn addition, the user who runs this web service must be in the same Vault location as or higher than the user whose public SSH keys are deleted.\n\n**Note:** A user cannot manage their own public SSH keys."
 							},
 							"response": [
 								{
@@ -5287,7 +4964,8 @@
 										"api",
 										"getauthtoken"
 									]
-								}
+								},
+								"description": "This method enables a user to get a token upon Web application authentication. You can use this method to monitor the PTA system health, as shown in [Get PTA replication status](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/PTA_System_Health.htm)."
 							},
 							"response": []
 						}
@@ -5723,28 +5401,35 @@
 								"Accounts",
 								"AdHocConnect"
 							]
-						}
+						},
+						"description": "This method allows you to connect through PSM without using an existing account, by returning settings that can be used with an RDP client application or for the HTML5 gateway.\n\nYou must enable Privileged Session Monitoring and ad-hoc connection via PVWA configuration. For more details, see [Ad Hoc Connections](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-Secure-Connect.htm)."
 					},
 					"response": []
 				},
 				{
-					"name": "Connect Through PSM",
+					"name": "Connect Using PSM",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
+								"description": "Session Authorization Token",
 								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}",
-								"description": "Session Authorization Token"
+								"value": "{{CyberArkLogonResult}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "RDP",
+								"description": "See Description for more details and options",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"Reason\":\"Automatically connected via CyberArk Web Services on {{$timestamp}}\",\n  \"TicketingSystemName\": \"ServiceNow\",\n  \"TicketId\": \"INC123456\",\n  \"ConnectionComponent\": \"PSM-RDP\",\n  \"ConnectionParams\": {\n    \"LogonDomain\": {\n      \"Value\": \"cyberark.local\",\n      \"ShouldSave\": \"true\"\n    },\n    \"AllowMappingLocalDrives\": {\n      \"Value\": \"Yes\",\n      \"ShouldSave\": \"false\"\n    }\n  }\n}"
+							"raw": "{\n\t\"reason\":\"<Reason>\",\n\t\"TicketingSystemName\":\"<Ticketing system>\",\n\t\"TicketId\":\"<Ticketid>\",\n\t\"ConnectionComponent\":\"<Connection component id>\",\n\t\"ConnectionParams\": {\n\t\t\"<Connection parameter name>\": {\n\t\t\t\"value\":\"<Connection parameter value>\",\n\t\t\t\"ShouldSave\":<true\\false>\n\t\t},\n\t\t\"<Connection parameter name>\": {\n\t\t\t\"value\":\"<Connection parameter value>\",\n\t\t\t\"ShouldSave\":<true\\false>\n\t\t}\n\t}\n}"
 						},
 						"url": {
 							"raw": "{{BaseURL}}/PasswordVault/API/Accounts/{{AccountID}}/PSMConnect",
@@ -5759,7 +5444,7 @@
 								"PSMConnect"
 							]
 						},
-						"description": "This method allows you to connect with an account through PSM using an RDP file, by returning RDP settings that can be used with an RDP client application. It requires the PVWA and PSM to be configured for transparent connections through PSM with RDP files.\r\n\r\nFor more information, refer to Configuring the PSM Session User Experience for Connections Through PVWA in the Privileged Account Security Implementation Guide."
+						"description": "This method enables you to connect to an account through PSM (PSMConnect) using a connection method defined in the PVWA.\n\nA response header defines which connection method is returned.\n\nFor more information, refer to [Privileged Session Management Interface](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-the-Privileged-Session-Management-Interface.htm).\n\n## Header Parameter\n\nParameter: Accept\n\nType: String\n\nDescription: The table below describes the expected response format depending on the value of the Accept header in the request, per connection method configuration (RDP File or PSM Gateway).\n\n| PVWA configuration | Optional values | Connection method |\n| --- | --- | --- |\n| RDP | application/json, application/octet-stream (default), `*/ *` | RDPFile (JSON), RDPFile (octet-stream raw) |\n| PSMGW | `* / *` | PSMGW (JSON) - Returns the HTML5 connection data. |\n\n**Note:** To use PSMGW, PSMGW must be configured before using this REST API in order to receive a PSMGW response."
 					},
 					"response": []
 				},
@@ -5794,7 +5479,8 @@
 								"ConnectionComponents",
 								"Import"
 							]
-						}
+						},
+						"description": "This method enables administrators to import a new connection component."
 					},
 					"response": []
 				}
@@ -5804,7 +5490,7 @@
 			"name": "Groups",
 			"item": [
 				{
-					"name": "Get Groups",
+					"name": "Get Groups (v10.6+)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -5848,7 +5534,8 @@
 									"disabled": true
 								}
 							]
-						}
+						},
+						"description": "This method returns a list of all existing user groups.\n\nThe user performing this task:\n\n* Must have **Audit users** permissions in the Safe.\n* Can see groups either **only** on the **same** level, or **lower** in the Vault hierarchy.\n\nThis depends on the HideVaultUsersTree parameter defined in the dbparam.ini. If HideVaultUsersTree is set to **No**, all groups will be returned (not only those in the same level or lower in the Vault hierarchy). If this parameter is set to **Yes**, only auditors and managers will be allowed to get all groups.\n \t\n**Note:**\n* Filtering for this task is supported only from Vault v10.5.\n* Retrieving more than 1,000 groups may cause a slowdown in response."
 					},
 					"response": [
 						{
@@ -6015,12 +5702,13 @@
 								"{{GroupName}}",
 								"Users"
 							]
-						}
+						},
+						"description": "This method adds a specific user to an existing user group in the Vault."
 					},
 					"response": []
 				},
 				{
-					"name": "Add User to Group",
+					"name": "Add User to Group (v10.6+)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -6053,12 +5741,13 @@
 								"Members",
 								""
 							]
-						}
+						},
+						"description": "This method adds a user as a member to an existing Vault group. This is relevant for regular Vault users, LDAP mapped groups or LDAP users.\n\nThe user who runs this web service requires the **Add/Update users** permissions in the Vault."
 					},
 					"response": []
 				},
 				{
-					"name": "Remove User from Group",
+					"name": "Remove User from Group (v10.6+)",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -6091,7 +5780,8 @@
 								"Members",
 								"{{Member}}"
 							]
-						}
+						},
+						"description": "This method removes a specific user from a user group in the Vault."
 					},
 					"response": []
 				}
@@ -6133,7 +5823,8 @@
 								"LDAP",
 								"Directories"
 							]
-						}
+						},
+						"description": "This method returns a list of existing directories in the Vault. Each directory will be returned with its own data.\n\nTo run this web service, the user must be a member of the Vault Admins group."
 					},
 					"response": [
 						{
@@ -6289,7 +5980,8 @@
 								"{{LDAPID}}",
 								""
 							]
-						}
+						},
+						"description": "This method returns all the details of a specific directory in the Vault. Each directory will be returned with its own data.\n\nTo run this web service, the user must be a member of the Vault Admins group and have the following permission:\n\n* Audit Users"
 					},
 					"response": [
 						{
@@ -6447,7 +6139,8 @@
 								"{{DirectoryUID}}",
 								"Mappings"
 							]
-						}
+						},
+						"description": "This method returns a list of existing directory mappings in the Vault.\n\nTo run this web service, the user must be a member of the Vault Admins group and have the following permissions:\n\n* Manage Directory Mapping"
 					},
 					"response": []
 				},
@@ -6487,7 +6180,8 @@
 								"Mappings",
 								"{{MappingID}}"
 							]
-						}
+						},
+						"description": "This method returns all the details of specific directory mapping that is defined in the Vault.\n\nTo run this web service, the user must be a member of the Vault Admins group and have the following permissions:\n\n* Add/Update users\n* Manage Directory Mapping"
 					},
 					"response": []
 				},
@@ -6524,7 +6218,8 @@
 								"LDAP",
 								"Directories"
 							]
-						}
+						},
+						"description": "This method creates a directory in the Vault. Any user who is a member of the Vault Admins group can run this web service.\n\nCreating a new directory in the Vault sets up an automated process that obtains user identification and security information via LDAP, and that automatically provisions Vault users based on the external user account, group membership, and attributes."
 					},
 					"response": [
 						{
@@ -6680,7 +6375,8 @@
 								"{{DirectoryUID}}",
 								"Mappings"
 							]
-						}
+						},
+						"description": "This method creates a directory mapping in the Vault.\n\nTo run this web service, the user must be a member of the Vault Admins group and have the following permissions:\n\n* Audit Users\n* Add/Update users\n* Manage Directory Mapping"
 					},
 					"response": []
 				},
@@ -6720,7 +6416,8 @@
 								"Mappings",
 								"{{MappingID}}"
 							]
-						}
+						},
+						"description": "This method edits an existing directory mapping.\n\nTo run this web service, the user must be a member of the Vault Admins group and have the following permissions:\n\n* Audit users\n* Add/Update users\n* Manage Directory Mapping"
 					},
 					"response": []
 				},
@@ -6758,7 +6455,8 @@
 								"Directories",
 								"{{LDAPID}}"
 							]
-						}
+						},
+						"description": "This method deletes a specific directory configuration in the Vault and its mappings.\n\nTo run this web service, the user must be a member of the Vault Admins group and have the following permissions:\n\n* Audit users\n* Add/Update users\n* Manage Directory mappings\n* Add Safes\n* Reset Users' Passwords\n* Activate Users\n* Add Network Areas\n* Manage Server File Categories\n* Backup All Safes\n* Restore All Safes\n\n**Caution:** After a mapping has been deleted, all LDAP users that were created in the Vault and are mapped to that mapping will be automatically deleted in the Vault during the next periodic LDAP synchronization."
 					},
 					"response": []
 				}
@@ -7166,7 +6864,8 @@
 								"{{LiveSessionID}}",
 								"Monitor"
 							]
-						}
+						},
+						"description": "This method enables you to monitor an active PSM session using a connection method defined in the PVWA. For details on configuration, see [Active session monitoring settings](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-Live-Session-Monitoring.htm#ActiveSessionMonitoringSettings).\n\nA response header defines which connection method is returned.\n\nFor details, see [Privileged Session Management Interface](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-the-Privileged-Session-Management-Interface.htm)."
 					},
 					"response": []
 				},
@@ -7203,7 +6902,8 @@
 								"{{RecordingsID}}",
 								"Play"
 							]
-						}
+						},
+						"description": "This method returns a data stream of a specific recorded session."
 					},
 					"response": []
 				},
@@ -7240,7 +6940,8 @@
 								"{{LiveSessionID}}",
 								"Resume"
 							]
-						}
+						},
+						"description": "The system will resume the suspended active session and allow the privileged user to continue working.\n\nFor more information on configuration, see [Active session monitoring settings](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-Live-Session-Monitoring.htm#ActiveSessionMonitoringSettings)."
 					},
 					"response": []
 				},
@@ -7277,7 +6978,8 @@
 								"{{LiveSessionID}}",
 								"Suspend"
 							]
-						}
+						},
+						"description": "The system will prevent a user from interacting with an active session until a security manager resumes it. This allows security teams to review the potentially risky session's audit trail to determine whether to allow the privileged user to continue their work.\n\nFor more information on configuration, see [Active session monitoring settings](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-Live-Session-Monitoring.htm#ActiveSessionMonitoringSettings)."
 					},
 					"response": []
 				},
@@ -7314,7 +7016,8 @@
 								"{{LiveSessionID}}",
 								"Terminate"
 							]
-						}
+						},
+						"description": "This method enables the system to terminate an active PSM session immediately to prevent high-risk activities. For more information on configuration, see [Active session monitoring settings](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/Configuring-Live-Session-Monitoring.htm#ActiveSessionMonitoringSettings)."
 					},
 					"response": []
 				}
@@ -7355,7 +7058,8 @@
 								"Platforms",
 								"{{PlatformName}}"
 							]
-						}
+						},
+						"description": "This method retrieves details of a specified platform from the Vault."
 					},
 					"response": [
 						{
@@ -7665,7 +7369,8 @@
 								"Platforms",
 								"Import"
 							]
-						}
+						},
+						"description": "This method enables administrators to import new platforms and dependencies."
 					},
 					"response": []
 				}
@@ -7828,7 +7533,8 @@
 								"api",
 								"installation"
 							]
-						}
+						},
+						"description": "This method installs the PTA Server."
 					},
 					"response": []
 				},
@@ -7863,7 +7569,8 @@
 								"api",
 								"installation"
 							]
-						}
+						},
+						"description": "This method returns the status of the installation of the PTA server."
 					},
 					"response": []
 				},
@@ -7898,7 +7605,8 @@
 								"api",
 								"encryptionkey"
 							]
-						}
+						},
+						"description": "This method generates and returns an RSA encryption key as base 64 string that is used by the installer for encrypting sensitive fields.\n\nTo encrypt the sensitive fields, encrypt the data value using the RSA algorithm that uses the generated key as the encryption key. Add an **{encrypted}** prefix string to the encrypted value to indicate to the PTA server to decrypt the data."
 					},
 					"response": []
 				},
@@ -7939,7 +7647,8 @@
 								"api",
 								"getauthtoken"
 							]
-						}
+						},
+						"description": "This method generates a token that enables the user to authenticate to the PTA Server using the machine credentials for the installation process. This method can be run with an encrypted or clear text password. To encrypt the password, see [Get Server encryption key](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/ServerEncryption.htm)."
 					},
 					"response": []
 				}
@@ -8302,7 +8011,8 @@
 								"{{Safe}}",
 								"Members"
 							]
-						}
+						},
+						"description": "This method returns a list of the members of the Safe. The user performing this task must have **ViewSafeMembers** permissions in the Safe."
 					},
 					"response": []
 				},
@@ -8340,7 +8050,8 @@
 								"{{Safe}}",
 								"Members"
 							]
-						}
+						},
+						"description": "This method adds an existing user as a Safe member.\n\nThe user who runs this web service requires **Manage Safe Members** permissions in the Vault."
 					},
 					"response": []
 				},
@@ -8379,7 +8090,8 @@
 								"Members",
 								"{{SafeMember}}"
 							]
-						}
+						},
+						"description": "This method updates an existing Safe member.\n\nThe user who runs this web service requires **Manage Safe Members** permissions in the Vault."
 					},
 					"response": []
 				},
@@ -8418,7 +8130,8 @@
 								"Members",
 								"{{SafeMember}}"
 							]
-						}
+						},
+						"description": "This method removes a specific member from a Safe.\n\nThe user who runs this web service requires **Manage Safe Members** permissions in the Vault."
 					},
 					"response": []
 				}
@@ -8459,7 +8172,8 @@
 								"PIMServices.svc",
 								"Safes"
 							]
-						}
+						},
+						"description": "This method returns information about all of the user’s Safes in the Vault."
 					},
 					"response": [
 						{
@@ -8618,7 +8332,8 @@
 									"description": "The search query"
 								}
 							]
-						}
+						},
+						"description": "This method returns information about the Safes in the Vault that meet the criteria specified in the search query."
 					},
 					"response": [
 						{
@@ -8778,7 +8493,8 @@
 								"Safes",
 								"{{Safe}}"
 							]
-						}
+						},
+						"description": "This method returns information about a specific Safe in the Vault."
 					},
 					"response": [
 						{
@@ -8932,7 +8648,8 @@
 								"{{Safe}}",
 								"AccountGroups"
 							]
-						}
+						},
+						"description": "This method returns all the existing account groups in a specific Safe. The user performing this task must have the following permissions in the Safe:\n\n* Add accounts\n* Update account content\n* Update account properties\n* Create folders"
 					},
 					"response": [
 						{
@@ -9085,7 +8802,8 @@
 								"PIMServices.svc",
 								"Safes"
 							]
-						}
+						},
+						"description": "This method adds a new Safe to the Vault.\n\nThe user who runs this web service requires **Add Safes** permissions in the Vault."
 					},
 					"response": []
 				},
@@ -9122,7 +8840,8 @@
 								"Safes",
 								"{{Safe}}"
 							]
-						}
+						},
+						"description": "This method updates a single Safe in the Vault. The user who runs this web service requires the following permissions:\n\nIn the Vault:\n* Manage Safes\n\nIn the Safe:\n* View Safe Members"
 					},
 					"response": [
 						{
@@ -9276,7 +8995,8 @@
 								"Safes",
 								"{{Safe}}"
 							]
-						}
+						},
+						"description": "This method deletes a Safe from the Vault.\n\nThe user who runs this web service requires **Manage Safe** permissions in the Vault."
 					},
 					"response": []
 				}
@@ -9285,6 +9005,44 @@
 		{
 			"name": "Server",
 			"item": [
+				{
+					"name": "Logo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Logo?type=square",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"WebServices",
+								"PIMServices.svc",
+								"Logo"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "square",
+									"description": "square (default) or watermark"
+								}
+							]
+						},
+						"description": "This method returns the configuration of the logo that will be displayed in the CyberArk SafeShare logon screen and account settings."
+					},
+					"response": []
+				},
 				{
 					"name": "Server",
 					"request": {
@@ -9316,7 +9074,8 @@
 								"PIMServices.svc",
 								"Server"
 							]
-						}
+						},
+						"description": "This method returns the display name of the Vault configured in the **ServerDisplayName** configuration parameter."
 					},
 					"response": [
 						{
@@ -9461,7 +9220,8 @@
 								"PIMServices.svc",
 								"Verify"
 							]
-						}
+						},
+						"description": "This method returns the display name of the Vault configured in the **ServerDisplayName** configuration parameter."
 					},
 					"response": [
 						{
@@ -9620,7 +9380,8 @@
 								"Events",
 								""
 							]
-						}
+						},
+						"description": "This method returns all PTA Security Events."
 					},
 					"response": []
 				},
@@ -9657,7 +9418,8 @@
 								"API",
 								"Settings"
 							]
-						}
+						},
+						"description": "This method returns risky activities rules and automatic remediation settings of the PTA Server configuration."
 					},
 					"response": []
 				},
@@ -9696,7 +9458,8 @@
 								"RiskyActivity",
 								""
 							]
-						}
+						},
+						"description": "This method adds a new Risky Activity rule in the PTA server configuration."
 					},
 					"response": []
 				},
@@ -9735,7 +9498,8 @@
 								"RiskyActivity",
 								""
 							]
-						}
+						},
+						"description": "This method updates an existing Risky Activity rule in the PTA server configuration."
 					},
 					"response": []
 				},
@@ -9774,7 +9538,8 @@
 								"AutomaticRemediations",
 								""
 							]
-						}
+						},
+						"description": "This method updates the automatic remediation properties in the PTA server configuration."
 					},
 					"response": []
 				}
@@ -10464,7 +10229,8 @@
 									"description": "Series selection to expose. Each match[] argument must specify an instant vector selector. match[] must be URL encoded."
 								}
 							]
-						}
+						},
+						"description": "This method returns Prometheus monitor metrics about the PTA Server and database. When you run the API for the first time, you are redirected to the PTA Login screen.\n\n1. Log in to the PTA Server using **monitor** as the user and **DiamondMonitor** (case sensitive) as the password. You are then prompted to change the password.\n2. After you change the password, encode the user (**monitor**) and the new password in BASE 64.\n* Enter the data in the format **username:password**.\n* The encoded result is entered in the **Authorization** header parameter in the format **Basic <encoded result>**. _In this Postman collection, we use the **Authorization** tab to automatically do this for us instead._\n\nYou can use Grafana or similar tools to display the results in a user-friendly format."
 					},
 					"response": []
 				},
@@ -10502,7 +10268,8 @@
 								"api",
 								"monitoring"
 							]
-						}
+						},
+						"description": "This method returns details about the health of the PTA Server and Application."
 					},
 					"response": []
 				}
@@ -10536,7 +10303,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -10545,9 +10312,10 @@
 										"WebServices",
 										"PIMServices.svc",
 										"Users",
-										"{{UserName}}"
+										"{{UserID}}"
 									]
-								}
+								},
+								"description": "This method returns information about a specific user in the Vault.\n\nTo run this Web service, you must have the following permissions:\n\n* Audit users"
 							},
 							"response": [
 								{
@@ -10669,6 +10437,45 @@
 							]
 						},
 						{
+							"name": "Get Users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"filter\": \"userType or componentUser\",\n\t\"search\": \"username, first name, or last name\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Users",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Users"
+									]
+								},
+								"description": "This method returns a list of all existing users in the Vault except for the Master and the Batch built-in users.\n\nTo run this Web service, you must have the following permissions:\n\n* **Audit users**\n\nYou can retrieve only users on the same level as you or lower in the Vault hierarchy.\n\n**Note:** This Web service returns up to 6000 users in up to 20 seconds. If the number of users is higher, the response time may be higher."
+							},
+							"response": []
+						},
+						{
 							"name": "Logged On User Details",
 							"request": {
 								"method": "GET",
@@ -10700,7 +10507,8 @@
 										"PIMServices.svc",
 										"User"
 									]
-								}
+								},
+								"description": "This method returns user information of the user who is logged on."
 							},
 							"response": [
 								{
@@ -10851,7 +10659,46 @@
 										"api",
 										"Users"
 									]
-								}
+								},
+								"description": "This method adds a new user to the Vault.\n\nTo run this Web service, you must have the following permissions:\n\n* Add Users\n* Update Users"
+							},
+							"response": []
+						},
+						{
+							"name": "Reset User Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"<integer>\",\n\t\"newPassword\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Users/{{UserID}}/ResetPassword",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Users",
+										"{{UserID}}",
+										"ResetPassword"
+									]
+								},
+								"description": "This method resets an existing Vault user's password.\n\nTo run this Web service, you must have the following permissions:\n\n* **Audit users**\n* **Reset Users' Passwords**\n\nThe user who runs this Web service must be in the same Vault Location or higher as the user whose password is being reset."
 							},
 							"response": []
 						},
@@ -10877,7 +10724,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -10886,9 +10733,10 @@
 										"WebServices",
 										"PIMServices.svc",
 										"Users",
-										"{{UserName}}"
+										"{{UserID}}"
 									]
-								}
+								},
+								"description": "This method activates an existing Vault user who was suspended after entering incorrect credentials multiple times.\n\n**Note:** This method activates a suspended user. It does not activate an inactive user."
 							},
 							"response": []
 						},
@@ -10914,7 +10762,7 @@
 									"raw": "{\n\t\"NewPassword\":\"<string>\",\n\t\"Email\":\"<string>\",\n\t\"FirstName\":\"<string>\",\n\t\"LastName\":\"<string>\",\n\t\"ChangePasswordOnTheNextLogon\":<bool>,\n\t\"ExpiryDate\":\"<string>\",\n\t\"UserTypeName\":\"<string>\",\n\t\"Disabled\":<bool>,\n\t\"Location\":\"<string>\"\n}"
 								},
 								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -10923,9 +10771,10 @@
 										"WebServices",
 										"PIMServices.svc",
 										"Users",
-										"{{UserName}}"
+										"{{UserID}}"
 									]
-								}
+								},
+								"description": "This method updates an existing Vault user."
 							},
 							"response": []
 						},
@@ -10951,7 +10800,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserName}}",
+									"raw": "{{BaseURL}}/PasswordVault/WebServices/PIMServices.svc/Users/{{UserID}}",
 									"host": [
 										"{{BaseURL}}"
 									],
@@ -10960,9 +10809,10 @@
 										"WebServices",
 										"PIMServices.svc",
 										"Users",
-										"{{UserName}}"
+										"{{UserID}}"
 									]
-								}
+								},
+								"description": "This method deletes a specific user in the Vault."
 							},
 							"response": []
 						}
