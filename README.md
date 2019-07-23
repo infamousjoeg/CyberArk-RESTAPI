@@ -10,13 +10,7 @@ All available requests in CyberArk Privileged Account Security Web Services v10.
 
 ### Postman Live Documentation
 
-[View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPIv10)
-
-### Access the Proper Collection
-
-If you're using [Postman](https://www.getpostman.com/), you'll use the JSON collection located in [Version 9.9](Version%209.9).
-
-If you're using [Swagger](https://swagger.io), you'll use the JSON collection located in [Swagger Collection](Swagger%20Collections).
+[View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPI)
 
 ### Get Accounts via REST - PowerShell Example
 
