@@ -1,6 +1,8 @@
 ## CyberArk REST API
 
-All available requests in CyberArk Privileged Account Security Web Services v10.1.
+All available requests in CyberArk Privileged Account Security (PAS) REST API.
+
+LAST UPDATED: v11.6
 
 **THIS IS UNOFFICIAL DOCUMENTATION**
 
@@ -20,7 +22,7 @@ This example demonstrates how to create a function in PowerShell for each REST c
 function PASREST-Logon {
 
     # Declaration
-    $webServicesLogon = "$PVWA_URL/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logon"
+    $webServicesLogon = "$PVWA_URL/PasswordVault/api/auth/ldap/logon"
 
     # Authentication
     $bodyParams = @{username = "Svc_CyberArkAPI"; password = "password"} | ConvertTo-JSON
@@ -28,7 +30,7 @@ function PASREST-Logon {
     # Execution
     try {
         $logonResult = Invoke-RestMethod -Uri $webServicesLogon -Method POST -ContentType "application/json" -Body $bodyParams -ErrorVariable logonResultErr
-        Return $logonResult.CyberArkLogonResult
+        Return $logonResult.Trim('"')
     }
     catch {
         Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value__
@@ -41,7 +43,7 @@ function PASREST-Logon {
 function PASREST-Logoff ([string]$Authorization) {
 
     # Declaration
-    $webServicesLogoff = "$PVWA_URL/PasswordVault/WebServices/auth/Cyberark/CyberArkAuthenticationService.svc/Logoff"
+    $webServicesLogoff = "$PVWA_URL/PasswordVault/api/auth/logoff"
 
     # Authorization
     $headerParams = @{}
@@ -63,7 +65,7 @@ function PASREST-Logoff ([string]$Authorization) {
 function PASREST-GetAccount ([string]$Authorization) {
 
     # Declaration
-    $webServicesGA = "$PVWA_URL/PasswordVault/WebServices/PIMServices.svc/Accounts?Keywords=$Keywords&Safe=$Safe"
+    $webServicesGA = "$PVWA_URL/PasswordVault/api/Accounts?Keywords=$Keywords&Safe=$Safe"
 
     # Authorization
     $headerParams = @{}
