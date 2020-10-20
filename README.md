@@ -2,7 +2,7 @@
 
 All available requests in CyberArk Privileged Account Security (PAS) REST API.
 
-LAST UPDATED: v11.6
+LAST UPDATED: v11.7
 
 **THIS IS UNOFFICIAL DOCUMENTATION**
 
