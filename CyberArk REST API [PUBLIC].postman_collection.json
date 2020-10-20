@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "676230f3-7895-4a35-a20f-57bd846e1a92",
 		"name": "CyberArk REST API [PUBLIC]",
-		"description": "All available requests in CyberArk Privileged Account Security Web Services for All Versions\n\n**Last Updated Version:** v11.6\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\n## New Features & Additions\n\n* Initial documentation of CyberArk's IDaptive Identity Platform API is available within the \"IDaptive Identity Platform\" folder.\n\nHappy automating!\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n* [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n* [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n* [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n\n## Code Examples\n\n* [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n* [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n* [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n\n## YouTube Videos Playlist\n\n* [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n|---|---|---|\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+		"description": "All available requests in CyberArk Privileged Account Security Web Services for All Versions\n\n**Last Updated Version:** v11.7\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\n## New Features & Additions\n\n* Bulk Upload Accounts endpoints now available in Accounts > Bulk Upload Accounts.\n* Authentication Methods can be managed via API.\n* All Platform Management can be managed via API.\n* Initial documentation of CyberArk's IDaptive Identity Platform API is available within the \"IDaptive Identity Platform\" folder.\n\nHappy automating!\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n* [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n* [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n* [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n\n## Code Examples\n\n* [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n* [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n* [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n\n## YouTube Videos Playlist\n\n* [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n|---|---|---|\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -211,7 +211,7 @@
 							]
 						},
 						{
-							"name": "List Activity by ID",
+							"name": "Get Account Activity",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -497,78 +497,6 @@
 									"body": "{\n    \"id\": \"29_7\",\n    \"name\": \"Database-MySQL-db2.joegarcia.dev-cluster02sqluser01\",\n    \"address\": \"db2.joegarcia.dev\",\n    \"userName\": \"cluster02sqluser01\",\n    \"platformId\": \"MySQLServer-DualAccounts\",\n    \"safeName\": \"D-MySQL-Users\",\n    \"secretType\": \"password\",\n    \"platformAccountProperties\": {\n        \"Index\": \"1\",\n        \"DualAccountStatus\": \"Active\",\n        \"VirtualUsername\": \"cluster02sqluser\"\n    },\n    \"secretManagement\": {\n        \"automaticManagementEnabled\": false,\n        \"manualManagementReason\": \"testing\",\n        \"lastModifiedTime\": 1581084295\n    },\n    \"createdTime\": 1581084295\n}"
 								}
 							]
-						},
-						{
-							"name": "Add Discovered Accounts (v10.5-v10.7)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "{{CyberArkLogonResult}}"
-									},
-									{
-										"value": "application/json",
-										"key": "Content-Type",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \n\t\"userName\":\"user_dd\",\n\t\"address\":\"win8.IT.com\",\n\t\"platformTypeAccountProperties\": {\n\t\t\"SID\":\"S-1-5-21-304654729-3147011263-1431158397-3154\"\n\t},\n\t\"accountEnabled\":true,\n\t\"osGroups\":\"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n\t\"platformType\":\"Windows Server Local\",\n\t\"domain\":\"MyDomain.com\",\n\t\"lastLogonDateTime\":\"1530635686\",\n\t\"lastPasswordSetDateTime\":\"1530635686\",\n\t\"passwordNeverExpires\":false,\n\t\"osVersion\":\"Windows Server 2012 R2 Standard\",\n\t\"privileged\":false,\n\t\"userDisplayName\":\"User Display Name\",\n\t\"description\":\"User Description\",\n\t\"passwordExpirationDateTime\":\"1530635686\",\n\t\"osFamily\":\"Server\",\n\t\"OrganizationalUnit\":\"CN=WINSERVER, OU=QA testing,DC=IT,DC=com\",\n\t\"additionalProperties\": {\n\t\t\"Port\":445,\n\t\t\"UserDN\":\"CN=user1,CN=Users,DC=example,DC=com\"\n\t}\n}",
-									"options": {}
-								},
-								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"api",
-										"DiscoveredAccounts"
-									]
-								},
-								"description": "This RPC service adds newly discovered accounts.\n\nThe discovered account is onboarded according to matching onboarding rules or added directly to the Pending Accounts list.\n\nIf the account already exists in the Pending Account list, it will be updated as needed.\n\nIf onboarding failed for any reason, the account will be added to the Pending Accounts list.\n\nThe user who runs this web service requires the following users and permissions:\n\nTo add pending accounts:\n\n* **User:** Owner of PasswordManager_Pending Safe\n* **Permissions:**\n  * Add account\n  * Update account properties\n\nTo onboard the account:\n\n* **User:** Owner of the target Safe of the onboarding rule.\n* **Permissions:**\n  * Add account\n  * Update account properties\n  * Initiate CPM account management operations"
-							},
-							"response": []
-						},
-						{
-							"name": "Add Discovered Accounts (v10.8+)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"type": "text",
-										"key": "Authorization",
-										"value": "{{CyberArkLogonResult}}"
-									},
-									{
-										"type": "text",
-										"value": "application/json",
-										"key": "Content-Type"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"userName\": \"{{Username}}\",\n    \"address\": \"{{Address}}\",\n    \"platformTypeAccountProperties\": {\n        \"SID\": \"S-1-5-21-304654729-3147011263-1431158397-3154\"\n    },\n    \"accountEnabled\": true,\n    \"osGroups\": \"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n    \"platformType\": \"{{PlatformName}}\",\n    \"domain\": \"example.com\",\n    \"lastLogonDateTime\": \"1530635686\",\n    \"lastPasswordSetDateTime\": \"1530635786\",\n    \"passwordNeverExpires\": false,\n    \"osVersion\": \"Windows Server 2012 R2 Standard\",\n    \"privileged\": false,\n    \"userDisplayName\": \"User Display Name\",\n    \"description\": \"User Description\",\n    \"passwordExpirationDateTime\": \"1530645686\",\n    \"osFamily\": \"Server\",\n    \"OrganizationalUnit\": \"CN=Users,DC=example,DC=com\",\n    \"additionalProperties\": {\n        \"Port\": 445,\n        \"UserDN\": \"CN=user1,CN=Users,DC=example,DC=com\"\n    },\n    \"Dependencies\": [\n        {\n            \"name\": \"ServiceDep\",\n            \"address\": \"{{Address}}\",\n            \"type\": \"Windows Service\"\n        }\n    ]\n}",
-									"options": {}
-								},
-								"url": {
-									"raw": "{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
-									"host": [
-										"{{BaseURL}}"
-									],
-									"path": [
-										"PasswordVault",
-										"api",
-										"DiscoveredAccounts"
-									]
-								},
-								"description": "This method adds newly discovered accounts and their dependencies.\n\n| Action | Description |\n| --- | --- |\n| Discovered account | Discovered accounts are added to the Pending Accounts list. |\n| Discovered dependency | Discovered dependencies are added to the Pending Accounts list or are automatically added to the corresponding master account that has already been onboarded. |\n| Automatic onboarding | Discovered accounts are onboarded according to matching onboarding rules. If automatic onboarding fails for any reason, the account is added to the Pending Accounts list. |\n\nCurrently, Private SSH Keys are not supported.\n\nThe user who runs this web service requires the following users and permissions:\n\nTo add pending accounts:\n\n* **User:** Owner of PasswordManager_Pending Safe\n* **Permissions:**\n  * Add account\n  * List files\n  * Update account properties\n\nTo onboard the account:\n\n* **User:** Owner of the target Safe of the onboarding rule.\n* **Permissions:**\n  * Add account\n  * Update account properties\n  * Initiate CPM account management operations"
-							},
-							"response": []
 						},
 						{
 							"name": "Add Pending Account",
@@ -2152,6 +2080,365 @@
 								"description": "This method removes an account member from an account group. This account can be either a password account or an SSH Key account.\r\n\r\nThe user performing this task must have the following permissions in the Safe:\r\n\r\n* Add accounts\r\n* Update account content\r\n* Update account properties\r\n* Create folders"
 							},
 							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Bulk Upload of Accounts",
+					"item": [
+						{
+							"name": "Get All Bulk Account Uploads for User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/bulkactions/accounts",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"bulkactions",
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "",
+											"description": "status - returns all bulk account uploads that meet the required status",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "50",
+											"description": "number of accounts to return, starting from first account",
+											"disabled": true
+										}
+									]
+								},
+								"description": "This method gets the status of all bulk account uploads that the user performed.\n\n**Note:** Bulk account uploads are returned sorted by their creation time in descending order - from the most recent to the oldest. The bulk account uploads that are returned are ones that a specific user created and has authorization to view."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Bulk Account Upload Result",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/bulkactions/accounts/{{BulkID}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"bulkactions",
+										"accounts",
+										"{{BulkID}}"
+									]
+								},
+								"description": "This method returns the result of the bulk account upload, which is identified by the ID of the bulk account upload. When the upload has finished, the API returns the result. The result contains a list of all the accounts that succeeded or failed to upload.\n  \t\n\n**Note:** Only the user that created the bulk account upload can receive the result of the upload using this API."
+							},
+							"response": []
+						},
+						{
+							"name": "Create Bulk Upload of Accounts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"source\": \"filename.csv\",\n    \"accountsList\": [\n        {\n            \"uploadIndex\": \"1\",\n            \"username\": \"JohnDoe\",\n            \"address\": \"192.0.2.0\",\n            \"platformId\": \"WinDomain\",\n            \"safeName\": \"WinDomainSafe\",\n            \"secret\": \"123456\",\n            \"platformAccountProperties\": {\n                \"port\": \"111\"\n            },\n            \"secretManagement\": {\n                \"automaticManagementEnabled\": true,\n                \"manualManagementReason\": \"\"\n            },\n            \"remoteMachinesAccess\": {\n                \"accessRestrictedToRemoteMachines\": true,\n                \"remoteMachines\": \"example.com\"\n            },\n            \"groupName\": \"DomainGroup\"\n        },\n        {\n            \"uploadIndex\": \"2\",\n            \"username\": \"JaneDoe\",\n            \"address\": \"198.51.100.0\",\n            \"platformId\": \"WinDesktopLocal\",\n            \"safeName\": \"WinUsersSafe\",\n            \"secret\": \"123456\",\n            \"platformAccountProperties\": {\n                \"port\": \"222\"\n            },\n            \"secretManagement\": {\n                \"automaticManagementEnabled\": true,\n                \"manualManagementReason\": \"\"\n            },\n            \"remoteMachinesAccess\": {\n                \"accessRestrictedToRemoteMachines\": true,\n                \"remoteMachines\": \"example.net\"\n            },\n            \"groupName\": \"WinGroup\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/bulkactions/accounts",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"bulkactions",
+										"accounts"
+									]
+								},
+								"description": "This method allows a developer to add multiple accounts to existing Safes. The response contains the ID of the bulk account upload that was performed.\n  \t\n**Note:** This option is only available if you have **Add accounts**, **Update account content**, and **Update account properties** authorization in at least one Safe."
+							},
+							"response": []
+						}
+					],
+					"description": "This section includes three methods that enable you to perform a bulk upload of multiple accounts, and review the results.\n\nFirst, to add multiple accounts at one time to the system, use the Create bulk upload of accounts REST API.\n\nNext, to check the status of all the bulk account uploads that were performed by a user, use the Get all bulk account uploads for user REST API.\n\nLast, to review a summary of uploaded accounts and accounts that failed for a specific bulk upload, use the Get bulk account upload result REST API.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cc47166f-ea41-431e-9340-21563e3cb410",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0571425b-6272-46de-add8-3f47f7e53f6f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Discovered Accounts",
+					"item": [
+						{
+							"name": "v2 API",
+							"item": [
+								{
+									"name": "Get Discovered Account Details",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/passwordvault/api/DiscoveredAccounts/{{AccountID}}",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"passwordvault",
+												"api",
+												"DiscoveredAccounts",
+												"{{AccountID}}"
+											]
+										},
+										"description": "This method returns information about a discovered account and its dependencies from the Pending Accounts list. The discovered account is identified by its ID.\n\nTo run this web service, the user must be a member of the Vault admins group.\n\n**Note:** Discovered accounts that were onboarded either manually or automatically, according to predefined rules, won't be returned using this method."
+									},
+									"response": []
+								},
+								{
+									"name": "Get Discovered Accounts",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/passwordvault/api/DiscoveredAccounts?filter=platformType eq Windows Server Local AND privileged eq true AND accountEnabled eq true&search=admin&searchType=contains&offset=0&limit=100",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"passwordvault",
+												"api",
+												"DiscoveredAccounts"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "platformType eq Windows Server Local AND privileged eq true AND accountEnabled eq true",
+													"description": "search accounts using platformType, privileged, and/or accountEnabled values"
+												},
+												{
+													"key": "search",
+													"value": "admin",
+													"description": "search is supported for username and address"
+												},
+												{
+													"key": "searchType",
+													"value": "contains",
+													"description": "keyword is contained (contains, DEFAULT) or beginning (startswith)"
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "the offset of the first returned account in the list of results"
+												},
+												{
+													"key": "limit",
+													"value": "100",
+													"description": "the maximum number of accounts to return (maximum value allowed is 1000)"
+												}
+											]
+										},
+										"description": "This method returns a list of all the discovered accounts from the Pending Accounts list. To run this web service, the user must be a member of the Vault admins group.\n  \t\n**Note:** Discovered accounts that were onboarded either manually or automatically, according to predefined rules, won't be returned using this method.\n\nFor more information on available filters, please visit [Filter Parameters](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/11.6/en/Content/WebServices/Get-discovered-accounts.htm#filter-parameters) in the CyberArk API Documentation."
+									},
+									"response": []
+								},
+								{
+									"name": "Add Discovered Accounts (v10.8+)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"type": "text",
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}"
+											},
+											{
+												"type": "text",
+												"value": "application/json",
+												"key": "Content-Type"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"userName\": \"{{Username}}\",\n        \"address\": \"{{Address}}\",\n        \"platformTypeAccountProperties\": {\n            \"SID\": \"S-1-5-21-304654729-3147011263-1431158397-3154\"\n        },\n        \"accountEnabled\": true,\n        \"osGroups\": \"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n        \"platformType\": \"{{PlatformName}}\",\n        \"domain\": \"example.com\",\n        \"lastLogonDateTime\": \"1530635686\",\n        \"lastPasswordSetDateTime\": \"1530635786\",\n        \"passwordNeverExpires\": false,\n        \"osVersion\": \"Windows Server 2012 R2 Standard\",\n        \"privileged\": false,\n        \"userDisplayName\": \"User Display Name\",\n        \"description\": \"User Description\",\n        \"passwordExpirationDateTime\": \"1530645686\",\n        \"osFamily\": \"Server\",\n        \"OrganizationalUnit\": \"CN=Users,DC=example,DC=com\",\n        \"additionalProperties\": {\n            \"Port\": 445,\n            \"UserDN\": \"CN=user1,CN=Users,DC=example,DC=com\"\n        },\n        \"Dependencies\": [\n            {\n                \"name\": \"ServiceDep\",\n                \"address\": \"{{Address}}\",\n                \"type\": \"Windows Service\"\n            }\n        ]\n    },\n    {\n        \"userName\": \"amazon_accesskey_user\",\n        \"address\": \"aws.com\",\n        \"discoveryDate\": \"2018-05-03T13:00:00Z\",\n        \"platformType\": \"AWS Access Keys\",\n        \"privileged\": true,\n        \"platformTypeAccountProperties\": {\n            \"awsAccessKeyID\": \"ASASASASSA\",\n            \"awsAccountID\": \"123123123123\"\n        }\n    },\n    {\n        \"userName\": \"amazon_dashboard_user\",\n        \"address\": \"aws.com\",\n        \"discoveryDate\": \"2018-05-03T13:00:00Z\",\n        \"platformType\": \"AWS\",\n        \"privileged\": true,\n        \"platformTypeAccountProperties\": {\n            \"awsAccountID\": \"123123123123\"\n        }\n    },\n    {\n        \"userName\": string,\n        \"address\": string,\n        \"discoveryDate\": \"1530635689\",\n        \"platformType\": \"Azure Password Management\",\n        \"accountEnabled\": true,\n        \"privileged\": true,\n        \"privilegedCriteria\": string,\n        \"platformTypeAccountProperties\": {\n            \"activeDirectoryID\": string\n        }\n    }\n]",
+											"options": {}
+										},
+										"url": {
+											"raw": "{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"PasswordVault",
+												"api",
+												"DiscoveredAccounts"
+											]
+										},
+										"description": "This method adds newly discovered accounts and their dependencies.\n\n| Action | Description |\n| --- | --- |\n| Discovered account | Discovered accounts are added to the Pending Accounts list. |\n| Discovered dependency | Discovered dependencies are added to the Pending Accounts list or are automatically added to the corresponding master account that has already been onboarded. |\n| Automatic onboarding | Discovered accounts are onboarded according to matching onboarding rules. If automatic onboarding fails for any reason, the account is added to the Pending Accounts list. |\n\nCurrently, Private SSH Keys are not supported.\n\nThe user who runs this web service requires the following users and permissions:\n\nTo add pending accounts:\n\n* **User:** Owner of PasswordManager_Pending Safe\n* **Permissions:**\n  * Add account\n  * List files\n  * Update account properties\n\nTo onboard the account:\n\n* **User:** Owner of the target Safe of the onboarding rule.\n* **Permissions:**\n  * Add account\n  * Update account properties\n  * Initiate CPM account management operations"
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "v1 API",
+							"item": [
+								{
+									"name": "Add Discovered Accounts (v10.5-v10.7)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "{{CyberArkLogonResult}}"
+											},
+											{
+												"value": "application/json",
+												"key": "Content-Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{ \n\t\"userName\":\"user_dd\",\n\t\"address\":\"win8.IT.com\",\n\t\"platformTypeAccountProperties\": {\n\t\t\"SID\":\"S-1-5-21-304654729-3147011263-1431158397-3154\"\n\t},\n\t\"accountEnabled\":true,\n\t\"osGroups\":\"Backup Operators,IIS_IUSRS,Network Configuration Operators\",\n\t\"platformType\":\"Windows Server Local\",\n\t\"domain\":\"MyDomain.com\",\n\t\"lastLogonDateTime\":\"1530635686\",\n\t\"lastPasswordSetDateTime\":\"1530635686\",\n\t\"passwordNeverExpires\":false,\n\t\"osVersion\":\"Windows Server 2012 R2 Standard\",\n\t\"privileged\":false,\n\t\"userDisplayName\":\"User Display Name\",\n\t\"description\":\"User Description\",\n\t\"passwordExpirationDateTime\":\"1530635686\",\n\t\"osFamily\":\"Server\",\n\t\"OrganizationalUnit\":\"CN=WINSERVER, OU=QA testing,DC=IT,DC=com\",\n\t\"additionalProperties\": {\n\t\t\"Port\":445,\n\t\t\"UserDN\":\"CN=user1,CN=Users,DC=example,DC=com\"\n\t}\n}",
+											"options": {}
+										},
+										"url": {
+											"raw": "{{BaseURL}}/PasswordVault/api/DiscoveredAccounts",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"PasswordVault",
+												"api",
+												"DiscoveredAccounts"
+											]
+										},
+										"description": "This RPC service adds newly discovered accounts.\n\nThe discovered account is onboarded according to matching onboarding rules or added directly to the Pending Accounts list.\n\nIf the account already exists in the Pending Account list, it will be updated as needed.\n\nIf onboarding failed for any reason, the account will be added to the Pending Accounts list.\n\nThe user who runs this web service requires the following users and permissions:\n\nTo add pending accounts:\n\n* **User:** Owner of PasswordManager_Pending Safe\n* **Permissions:**\n  * Add account\n  * Update account properties\n\nTo onboard the account:\n\n* **User:** Owner of the target Safe of the onboarding rule.\n* **Permissions:**\n  * Add account\n  * Update account properties\n  * Initiate CPM account management operations"
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"description": "This section includes REST APIs for discovered accounts. ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "78226631-bf3f-42bd-b634-40185597e88b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1cd95e05-8b26-4ce4-bd42-650cd0de7e9f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -3777,6 +4064,385 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Authentication Methods Config",
+					"item": [
+						{
+							"name": "Get Specific Authentication Method",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Configuration/AuthenticationMethods/{{authID}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Configuration",
+										"AuthenticationMethods",
+										"{{authID}}"
+									]
+								},
+								"description": "This method returns a specific authentication method. Any user who is a member of the Vault Admins group can run this web service."
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/PasswordVault/api/Configuration/AuthenticationMethods/{{authID}}",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"PasswordVault",
+												"api",
+												"Configuration",
+												"AuthenticationMethods",
+												"{{authID}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache,no-store, no-cache, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache,no-cache"
+										},
+										{
+											"key": "Content-Length",
+											"value": "288"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA22222=7E8A61F4E4D93A92; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA11111=000000026D4CE685405C9F6384A1470D20CF85E65CD2B6F87C6293EC75EFE7FEB204632700000000; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA55555=ldap; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+										},
+										{
+											"key": "X-FRAME-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=3159600;includeSubdomains;"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-UA-Compatible",
+											"value": "IE=EmulateIE8"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Warning"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 24 Sep 2020 00:45:20 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"saml\",\n    \"displayName\": \"IDaptive SAML\",\n    \"enabled\": true,\n    \"mobileEnabled\": false,\n    \"logoffUrl\": \"https://tenantid.my.idaptive.app/applogout/appkey/acredacted/customerid/redacted\",\n    \"secondFactorAuth\": null,\n    \"signInLabel\": \"\",\n    \"usernameFieldLabel\": \"\",\n    \"passwordFieldLabel\": \"\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Authentication Methods",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Configuration/AuthenticationMethods",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Configuration",
+										"AuthenticationMethods"
+									]
+								},
+								"description": "This method returns a list of all existing authentication methods. Any user who is a member of the Vault admins group can run this web service."
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/PasswordVault/api/Configuration/AuthenticationMethods",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"PasswordVault",
+												"api",
+												"Configuration",
+												"AuthenticationMethods"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache,no-store, no-cache, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache,no-cache"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1674"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA22222=7E8A61F4E4D93A92; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA11111=000000026D4CE685405C9F6384A1470D20CF85E65CD2B6F87C6293EC75EFE7FEB204632700000000; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA55555=ldap; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+										},
+										{
+											"key": "X-FRAME-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=3159600;includeSubdomains;"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-UA-Compatible",
+											"value": "IE=EmulateIE8"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Warning"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 24 Sep 2020 00:43:30 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"Methods\": [\n        {\n            \"id\": \"windows\",\n            \"displayName\": \"\",\n            \"enabled\": false,\n            \"mobileEnabled\": false,\n            \"logoffUrl\": \"\",\n            \"secondFactorAuth\": null,\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"pki\",\n            \"displayName\": \"\",\n            \"enabled\": false,\n            \"mobileEnabled\": false,\n            \"logoffUrl\": \"\",\n            \"secondFactorAuth\": null,\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"cyberark\",\n            \"displayName\": \"\",\n            \"enabled\": true,\n            \"mobileEnabled\": true,\n            \"logoffUrl\": \"\",\n            \"secondFactorAuth\": \"cyberark\",\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"oraclesso\",\n            \"displayName\": \"\",\n            \"enabled\": false,\n            \"mobileEnabled\": false,\n            \"logoffUrl\": \"http://[ssoserver]:7777/sso/logout?p_done_url=http://[iisserver]/PasswordVault\",\n            \"secondFactorAuth\": null,\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"rsa\",\n            \"displayName\": \"\",\n            \"enabled\": false,\n            \"mobileEnabled\": false,\n            \"logoffUrl\": \"/WebID/IISWebAgentIF.dll?logoff?referrer=/passwordvault\",\n            \"secondFactorAuth\": null,\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"radius\",\n            \"displayName\": \"Duo (RADIUS)\",\n            \"enabled\": true,\n            \"mobileEnabled\": true,\n            \"logoffUrl\": \"\",\n            \"secondFactorAuth\": \"radius\",\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"ldap\",\n            \"displayName\": \"\",\n            \"enabled\": true,\n            \"mobileEnabled\": true,\n            \"logoffUrl\": \"\",\n            \"secondFactorAuth\": null,\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        },\n        {\n            \"id\": \"saml\",\n            \"displayName\": \"IDaptive SAML\",\n            \"enabled\": true,\n            \"mobileEnabled\": false,\n            \"logoffUrl\": \"https://tentantid.my.idaptive.app/applogout/appkey/acredacted/customerid/redacted\",\n            \"secondFactorAuth\": null,\n            \"signInLabel\": \"\",\n            \"usernameFieldLabel\": \"\",\n            \"passwordFieldLabel\": \"\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Add Authentication Method",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"saml\",\n    \"displayName\": \"IDaptive SAML\",\n    \"enabled\": true,\n    \"mobileEnabled\": false,\n    \"logoffUrl\": \"https://domain.com/idp/logoff\",\n    \"secondFactorAuth\": null,\n    \"signInLabel\": \"\",\n    \"usernameFieldLabel\": \"\",\n    \"passwordFieldLabel\": \"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Configuration/AuthenticationMethods",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Configuration",
+										"AuthenticationMethods"
+									]
+								},
+								"description": "This method adds a new authentication method. Any user who is a member of the Vault admins group can run this web service."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Authentication Method",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"displayName\": \"\",\n    \"enabled\": true,\n    \"mobileEnabled\": false,\n    \"logoffUrl\": \"https://domain.com/idp/logoff\",\n    \"secondFactorAuth\": null,\n    \"signInLabel\": \"\",\n    \"usernameFieldLabel\": \"\",\n    \"passwordFieldLabel\": \"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/api/Configuration/AuthenticationMethods/{{authID}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"api",
+										"Configuration",
+										"AuthenticationMethods",
+										"{{authID}}"
+									]
+								},
+								"description": "This method updates the properties for a specific authentication method. Any user who is a member of the Vault admins group can run this web service."
+							},
+							"response": []
+						}
+					],
+					"description": "This section includes REST APIs for configuring and managing authentication methods.",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"event": [
@@ -4089,6 +4755,30 @@
 									"body": "3nqbsaa36jpw802fgzznk2d976t11wfzha12awdrfjrmp1qb28jcfz1"
 								}
 							]
+						},
+						{
+							"name": "Whoami",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{dapHostname}}/whoami",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"whoami"
+									]
+								},
+								"description": "WhoAmI provides information about the client making an API request.\n\nIt can be used to help troubleshoot configuration by verifying authentication and the client IP address for audit and network access restrictions. For more information, see [Host Attributes](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Operations/Policy/statement-ref-host.htm#Attribut)."
+							},
+							"response": []
 						},
 						{
 							"name": "Authenticate",
@@ -36170,6 +36860,222 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "General",
+			"item": [
+				{
+					"name": "Add Allowed Referrer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referrerURL\": \"https://CompanyA/portal/\",\n    \"regularExpression\": false\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/passwordvault/api/Configuration/AccessRestriction/AllowedReferrers",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"passwordvault",
+								"api",
+								"Configuration",
+								"AccessRestriction",
+								"AllowedReferrers"
+							]
+						},
+						"description": "This method adds a web application URL to the allowed referrer list. This means access is allowed from the URL to the PVWA. Any user who is a member of the Vault admins group can run this web service."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Allowed Referrer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/passwordvault/api/Configuration/AccessRestriction/AllowedReferrers",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"passwordvault",
+								"api",
+								"Configuration",
+								"AccessRestriction",
+								"AllowedReferrers"
+							]
+						},
+						"description": "This method returns the allowed referrer list. This means access is allowed from all URLs in the list, to the PVWA. Any user who is a member of the Vault admins group can run this web service."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/Configuration/AccessRestriction/AllowedReferrers",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"Configuration",
+										"AccessRestriction",
+										"AllowedReferrers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache,no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+								},
+								{
+									"key": "X-FRAME-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=3159600;includeSubdomains;"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Warning"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Sep 2020 15:51:56 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"referrerURL\": \"/WebID/\",\n        \"regularExpression\": false\n    },\n    {\n        \"referrerURL\": \"https://tenantid.my.idaptive.app\",\n        \"regularExpression\": false\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "This section includes general APIs.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6a2e3a1d-e141-4713-a59f-662c98233136",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e77c7043-4eda-4625-8127-02685c3aaa8b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "LDAP Integration",
 			"item": [
 				{
@@ -37961,6 +38867,1140 @@
 			"name": "Platforms",
 			"item": [
 				{
+					"name": "Target Platforms",
+					"item": [
+						{
+							"name": "Get Target Platforms",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/targets",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"targets"
+									]
+								},
+								"description": "This method allows users to retrieve basic information of all existing target platforms.\n\nYou can use filters to retrieve a subset of the target platforms or search for a specific target platform. For details, see [URL parameters](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/11.6/en/Content/SDK/rest-api-get-target-platforms.htm#URL%C2%A0para)."
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/passwordvault/api/platforms/targets",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"passwordvault",
+												"api",
+												"platforms",
+												"targets"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache,no-store, no-cache, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache,no-cache"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33875"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA22222=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA11111=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA55555=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+										},
+										{
+											"key": "X-FRAME-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=3159600;includeSubdomains;"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-UA-Compatible",
+											"value": "IE=EmulateIE8"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Warning"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 25 Sep 2020 16:07:11 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"Platforms\": [\n        {\n            \"Active\": true,\n            \"SystemType\": \"*NIX\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PSM\"\n            },\n            \"ID\": 2,\n            \"PlatformID\": \"UnixSSH\",\n            \"Name\": \"Unix via SSH\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"*NIX\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 23,\n            \"PlatformID\": \"UnixSSHKeys\",\n            \"Name\": \"Unix via SSH Keys\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Application\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": false\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 35,\n            \"PlatformID\": \"ConjurHost\",\n            \"Name\": \"Conjur Host\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Application\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 48,\n            \"PlatformID\": \"ConjurUser\",\n            \"Name\": \"Conjur User\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Application\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 32,\n            \"PlatformID\": \"CyberArkPTA\",\n            \"Name\": \"CyberArk PTA\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Application\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 9,\n            \"PlatformID\": \"CyberArk\",\n            \"Name\": \"CyberArk Vault\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Application\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 28,\n            \"PlatformID\": \"RSAManagement\",\n            \"Name\": \"RSA Authentication Manager\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Application\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 5,\n            \"PlatformID\": \"SAP\",\n            \"Name\": \"SAP\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Cloud Service\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": false\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 25,\n            \"PlatformID\": \"AWS\",\n            \"Name\": \"Amazon Web Services - AWS\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Cloud Service\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 26,\n            \"PlatformID\": \"AWSAccessKeys\",\n            \"Name\": \"Amazon Web Services - AWS - Access Keys\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Cloud Service\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 30,\n            \"PlatformID\": \"AzurePasswordManagement\",\n            \"Name\": \"Microsoft Azure Password Management\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Cloud Service\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 37,\n            \"PlatformID\": \"GCPServiceAccount\",\n            \"Name\": \"Google Cloud Platfrom - Service Account\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Cloud Service\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 29,\n            \"PlatformID\": \"AzureApplicationKeys\",\n            \"Name\": \"Microsoft Azure Application Keys Management\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 17,\n            \"PlatformID\": \"MySQL\",\n            \"Name\": \"MySQL Server\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 15,\n            \"PlatformID\": \"DB2UnixSSH\",\n            \"Name\": \"DB2 on Unix via SSH\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 16,\n            \"PlatformID\": \"InformixUnixSSH\",\n            \"Name\": \"Informix on Unix via SSH\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 3,\n            \"PlatformID\": \"MSSql\",\n            \"Name\": \"Microsoft SQL Server\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 8,\n            \"PlatformID\": \"Oracle\",\n            \"Name\": \"Oracle Database\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 31,\n            \"PlatformID\": \"SAPHANA\",\n            \"Name\": \"SAP HANA\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Database\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 4,\n            \"PlatformID\": \"Sybase\",\n            \"Name\": \"Sybase ASE\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Directory\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 21,\n            \"PlatformID\": \"Novell-eDirectory\",\n            \"Name\": \"Novell eDirectory server\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Directory\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 20,\n            \"PlatformID\": \"SunOneDirectorySSL\",\n            \"Name\": \"SunOne directory via SSL\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Network Device\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 19,\n            \"PlatformID\": \"CiscoSSH\",\n            \"Name\": \"Cisco router via SSH\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Operating System\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 12,\n            \"PlatformID\": \"as400\",\n            \"Name\": \"AS400\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Operating System\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": false\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 13,\n            \"PlatformID\": \"OS390SSH\",\n            \"Name\": \"OS390 via SSH\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Operating System\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 14,\n            \"PlatformID\": \"VMWareESX-API\",\n            \"Name\": \"VMWare ESX Account API\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"PSM Secure Connect\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": false\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 22,\n            \"PlatformID\": \"PSMSecureConnect\",\n            \"Name\": \"PSM Secure Connect\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Security Appliance\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 18,\n            \"PlatformID\": \"Firewall1\",\n            \"Name\": \"Check Point FireWall-1\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Security Appliance\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 24,\n            \"PlatformID\": \"GAiASSH\",\n            \"Name\": \"Check Point GAiA via SSH\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Website\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 42,\n            \"PlatformID\": \"DockerRegistry\",\n            \"Name\": \"Docker Registry\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Website\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 38,\n            \"PlatformID\": \"GenericWebApp\",\n            \"Name\": \"Generic Web App\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Website\",\n            \"AllowedSafes\": \"BZ_I_*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": false\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 36,\n            \"PlatformID\": \"BusinessWebsite\",\n            \"Name\": \"Business Website\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Windows\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": true,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 10,\n            \"PlatformID\": \"WinDesktopLocal\",\n            \"Name\": \"Windows Desktop Local Accounts\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Windows\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": true,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PSM\"\n            },\n            \"ID\": 7,\n            \"PlatformID\": \"WinDomain\",\n            \"Name\": \"Windows Domain Account\"\n        },\n        {\n            \"Active\": true,\n            \"SystemType\": \"Windows\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": true,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": true,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 6,\n            \"PlatformID\": \"WinServerLocal\",\n            \"Name\": \"Windows Server Local Accounts\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Windows\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": true\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"ID\": 11,\n            \"PlatformID\": \"WinLocalWMI\",\n            \"Name\": \"Windows Local Accounts WMI\"\n        },\n        {\n            \"Active\": false,\n            \"SystemType\": \"Windows\",\n            \"AllowedSafes\": \".*\",\n            \"PrivilegedAccessWorkflows\": {\n                \"RequireDualControlPasswordAccessApproval\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceCheckinCheckoutExclusiveAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"EnforceOnetimePasswordAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                },\n                \"RequireUsersToSpecifyReasonForAccess\": {\n                    \"IsActive\": false,\n                    \"IsAnException\": false\n                }\n            },\n            \"CredentialsManagementPolicy\": {\n                \"Verification\": {\n                    \"PerformAutomatic\": false,\n                    \"RequirePasswordEveryXDays\": 7,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": false\n                },\n                \"Change\": {\n                    \"PerformAutomatic\": true,\n                    \"RequirePasswordEveryXDays\": 90,\n                    \"AutoOnAdd\": false,\n                    \"AllowManual\": true\n                },\n                \"Reconcile\": {\n                    \"AutomaticReconcileWhenUnsynced\": false,\n                    \"AllowManual\": false\n                },\n                \"SecretUpdateConfiguration\": {\n                    \"ChangePasswordInResetMode\": false\n                }\n            },\n            \"PrivilegedSessionManagement\": {\n                \"PSMServerId\": \"PSMServer_a91999c\",\n                \"PSMServerName\": \"PSM Server on PASAAS-PVWA\"\n            },\n            \"ID\": 27,\n            \"PlatformID\": \"WinLooselyDevice\",\n            \"Name\": \"Windows Loosely Device\"\n        }\n    ],\n    \"Total\": 37\n}"
+								}
+							]
+						},
+						{
+							"name": "Activate Target Platform",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/targets/{{PlatformName}}/activate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"targets",
+										"{{PlatformName}}",
+										"activate"
+									]
+								},
+								"description": "This method allows Vault Admins to activate a target platform."
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Target Platform",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/targets/{{PlatformName}}/deactivate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"targets",
+										"{{PlatformName}}",
+										"deactivate"
+									]
+								},
+								"description": "This method allows Vault Admins to deactivate a target platform."
+							},
+							"response": []
+						},
+						{
+							"name": "Duplicate Target Platforms",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Name\": \"test Platform\",\n    \"Description\": \"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/targets/{{PlatformName}}/duplicate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"targets",
+										"{{PlatformName}}",
+										"duplicate"
+									]
+								},
+								"description": "This method allows Vault Admins to duplicate target platforms."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Target Platform",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/targets/{{PlatformName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"targets",
+										"{{PlatformName}}"
+									]
+								},
+								"description": "This method allows Vault Admins to delete a target platform."
+							},
+							"response": []
+						}
+					],
+					"description": "This section includes REST APIs for managing target platforms.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "67e72588-06fb-4184-a25f-dfe335ba8af1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7bcf8f11-007d-4d79-abf4-c13e9f4ac332",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Dependent Platforms",
+					"item": [
+						{
+							"name": "Get Dependent Platforms",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/dependents?search",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"dependents"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": null,
+											"description": "Platform Name"
+										}
+									]
+								},
+								"description": "This method allows Vault Admins to retrieve basic information about all existing dependent platforms."
+							},
+							"response": []
+						},
+						{
+							"name": "Duplicate Dependent Platforms",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Name\": \"test Platform\",\n    \"Description\": \"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/dependent/{{PlatformName}}/duplicate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"dependent",
+										"{{PlatformName}}",
+										"duplicate"
+									]
+								},
+								"description": "This method allows Vault Admins to duplicate dependent platforms."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Dependent Platform",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/dependents/{{PlatformName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"dependents",
+										"{{PlatformName}}"
+									]
+								},
+								"description": "This method allows Vault Admins to delete a dependent platform."
+							},
+							"response": []
+						}
+					],
+					"description": "This section includes REST APIs for managing dependent platforms.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ff89b2b-2bc6-4a6c-9878-dcdde63471f0",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fae4abd9-a4aa-4bbc-8428-8ccfbaace6b9",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Group Platforms",
+					"item": [
+						{
+							"name": "Get Group Platforms",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/groups?search=SSH",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"groups"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "SSH",
+											"description": "Platform Name"
+										}
+									]
+								},
+								"description": "This method allows Vault Admins to retrieve basic information about all existing group platforms."
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/passwordvault/api/platforms/groups?search=SSH",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"passwordvault",
+												"api",
+												"platforms",
+												"groups"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "SSH",
+													"description": "Platform Name"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache,no-store, no-cache, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache,no-cache"
+										},
+										{
+											"key": "Content-Length",
+											"value": "124"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA22222=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA11111=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA55555=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+										},
+										{
+											"key": "X-FRAME-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=3159600;includeSubdomains;"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-UA-Compatible",
+											"value": "IE=EmulateIE8"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Warning"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 30 Sep 2020 13:09:44 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"Platforms\": [\n        {\n            \"Active\": false,\n            \"ID\": 34,\n            \"PlatformID\": \"SampleSSHKeyGroup\",\n            \"Name\": \"[Sample SSH Key Group Platform]\"\n        }\n    ],\n    \"Total\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "Activate Group Platform",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/groups/{{PlatformName}}/activate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"groups",
+										"{{PlatformName}}",
+										"activate"
+									]
+								},
+								"description": "This method allows Vault Admins to activate a group platform."
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Group Platform",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/groups/{{PlatformName}}/deactivate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"groups",
+										"{{PlatformName}}",
+										"deactivate"
+									]
+								},
+								"description": "This method allows Vault Admins to deactivate a group platform."
+							},
+							"response": []
+						},
+						{
+							"name": "Duplicate Group Platforms",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Name\": \"test Platform\",\n    \"Description\": \"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/groups/{{PlatformName}}/duplicate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"groups",
+										"{{PlatformName}}",
+										"duplicate"
+									]
+								},
+								"description": "This method allows Vault Admins to duplicate group platforms."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Group Platform",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/groups/{{PlatformName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"groups",
+										"{{PlatformName}}"
+									]
+								},
+								"description": "This method allows Vault Admins to delete a group platform."
+							},
+							"response": []
+						}
+					],
+					"description": "This section includes REST APIs for managing group platforms.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "01d83a97-94a1-466f-9a88-e36541c1d7bd",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e5c8ac3-3fa2-4c05-b85a-76dab355e27a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotational Group Platforms",
+					"item": [
+						{
+							"name": "Get Rotational Group Platforms",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/rotationalGroups?search=MySQL",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"rotationalGroups"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "MySQL",
+											"description": "Platform Name"
+										}
+									]
+								},
+								"description": "This method allows Vault Admins to retrieve basic information about all existing rotational group platforms."
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/passwordvault/api/platforms/rotationalGroups?search=MySQL",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"passwordvault",
+												"api",
+												"platforms",
+												"rotationalGroups"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "MySQL",
+													"description": "Platform Name"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Cache-Control",
+											"value": "no-cache,no-store, no-cache, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache,no-cache"
+										},
+										{
+											"key": "Content-Length",
+											"value": "145"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA22222=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA11111=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA55555=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+										},
+										{
+											"key": "X-FRAME-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=3159600;includeSubdomains;"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-UA-Compatible",
+											"value": "IE=EmulateIE8"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Warning"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 30 Sep 2020 13:15:00 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"Platforms\": [\n        {\n            \"Active\": true,\n            \"GracePeriod\": 540,\n            \"ID\": 40,\n            \"PlatformID\": \"MySQLServer-DualAccounts\",\n            \"Name\": \"MySQL Server - Dual Accounts\"\n        }\n    ],\n    \"Total\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "Activate Rotational Group Platform",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/rotationalGroups/{{PlatformName}}/activate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"rotationalGroups",
+										"{{PlatformName}}",
+										"activate"
+									]
+								},
+								"description": "This method allows Vault Admins to activate a rotational group platform."
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Rotational Group Platform",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/rotationalGroups/{{PlatformName}}/deactivate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"rotationalGroups",
+										"{{PlatformName}}",
+										"deactivate"
+									]
+								},
+								"description": "This method allows Vault Admins to deactivate a rotational group platform."
+							},
+							"response": []
+						},
+						{
+							"name": "Duplicate Rotational Group Platforms",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Name\": \"test Platform\",\n    \"Description\": \"\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/rotationalGroups/{{PlatformName}}/duplicate",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"rotationalGroups",
+										"{{PlatformName}}",
+										"duplicate"
+									]
+								},
+								"description": "This method allows Vault Admins to duplicate rotational group platforms."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Rotational Group Platform",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/passwordvault/api/platforms/rotationalGroups/{{PlatformName}}",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"passwordvault",
+										"api",
+										"platforms",
+										"rotationalGroups",
+										"{{PlatformName}}"
+									]
+								},
+								"description": "This method allows Vault Admins to delete a rotational group platform."
+							},
+							"response": []
+						}
+					],
+					"description": "This section includes REST APIs for managing rotational group platforms.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "37a313d8-9b99-4d0b-a466-cb0b89a27a45",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5cfe7cbe-9566-49b7-9e2c-74379b324639",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "Get Platform Details",
 					"request": {
 						"method": "GET",
@@ -38282,42 +40322,6 @@
 							"body": "PK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000C�kMZ�\u0017Gf\u0002\u0000\u0000�\n\u0000\u0000\u0014\u0000$\u0000Policy-WinDomain.xml\n\u0000 \u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0018\u0000����\u0002z�\u0001����\u0002z�\u0001����\u0002z�\u0001�V�n�@\u0010�#�\u000e���\u0006q��I\u0015\u0012�\"5�e��ykO�U�\u001d��N�g��#�\n���8��\u0007�\u0010��d�|3�ͯ���\u001f��%K�\u0015(-Pv�\u000f�{�\u0001\u0019c\"���\u0016f~�ɽ��\u0001�D\fΘg�q'9(n\b�D�6��]\u0016`*b\u0001z�W:��`���\u0005Ld/I:�\u0018ݵp\u0006J�ˆp8��\u000fB\u000e0�B�N�r3G�}�\u001aΨ\u0002�\u0006cL׀\u0004���zZ��Wu߾qv\u001f#SJ�Tl�r҄��\u0010\n�#�ަ�T��+�\u0014ӿ\b�נ$����?\u0011�MrC���E�w��]yBИ������\u0019\u000e�� \u0003TƖ��/�O\u0014��\t��$�Z?�JZ]����zq����[6C��\u000bͪ�J�6�\u0018e,R8e��؞�瘱{�\u0017��YK7!i�\"PզX�5�Q�\u0004ɔ��\u0005�p\u0018��<@L/\u0000CX\bmTy\u0001��,H\u000b�T��J�e�m(�-e`S\u0011/��\b�Ap�H\u0003j'\u001c�9ֻ>��H��Z5.�GP��?�Q���- �h�i�F\\R�\f�9��QJ��\u0001��r�\u0004i5ɂq�t�ht\u0013\u000e\u0002�=�\u0013:�J$P-G�\u0015Յ2:�[S�j�K\u0012�B�����OB�(�Ǩ_R�=����5�Ej�\u0007x���K�sE��L�\u0003/\u0007<�9��������r�%h'GYz\r\u001f��;��z|��z�|Ks���������TC�{t�R0����b��J^]I+���\u001e!��hw��~���k��\u000bPK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000C�kM\u0019g�2�\u0005\u0000\u0000�\u0015\u0000\u0000\u0014\u0000$\u0000Policy-WinDomain.ini\n\u0000 \u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0018\u0000����\u0002z�\u0001����\u0002z�\u0001����\u0002z�\u0001�X�o�6\u0010~v��\u000f|l\u0003ǵ���\u001a�!�#�@�\u0018v�n(��Hg��D�$����wGQ��3ֺ\u0001\u0011\f��������;���̄a����4K�e*\u0011ќe\\�\u0014,h6\u0011��Di�rɧBN�W!c�hXO�\\HƣH�Ҷ\u000e\u000f���\u0016I<I�#�fZe��\u0000\\B\u0003��#\u0017\u001ab�$.ạ����/��avƭ�J�E!��7t����_`����\u0000��.<_�#�\u0002I�\u001a�\u0003�\u0006�t-$[�\r�(�$*��E\u001ck0f��&�أ������z��[2u�d5\u001f�vO�|\u0002G[L11��GJF\"\u0011�\n��r��E'��\u0001Z˶B�Ġ��\u0013[�����֎X�Kv\u000f�d\u0010�� E��lX\tt�\u0013s�I�\"�\r�\r����LD3Z)Q�K�{��r\u000b\u001e\u001e�L\u0004w5ί���Uz^��N��\f�(2��`\f\\G�P�[ç`�?��ػ|�ݑ#\u000f<��|bs0��*���3\b4L���UW�T�\\\u0013�\u000eWk��Vyvx�OS�\u0011\f�K�\u001f\n\u0007�W,�%K��-\u0018�.�:gg�M��,~ş��v�5H��d\u0001�\tN\u000f\u000f.��\u0010S���u�(�\u001b\r̄bC��QnS`Ԅ99\f�E\u0007d\u0011����.\u0014��4E37\u0018lÆe�15L\\\ty�\u0013\u0011\u000b;\u001f�\u0016*\u000e>��n��9��\"&�\u0004��\b\f��\u0007ԋ�T,\u0005s\u0002i���H!$��w��r\u001b�n\u0004�\\vL9\u001d������ޟ�\\$\u0001�ɭ$.�m~����J����>m��=�N:��a�O�1;5�\\K\u0016)t\u0006�A��1a�E;B\u0018�C~\u0004V\u000b\u001fa���\u000e�7\u001a\u000e�\u001e���o`\u001f\u0001d����&�ꆲ�SH\u00048u$���K\u0012G���'e+N�Ã߯���x\b��8o�b�T�q9\u0005��5�\u001cY���<)\f�\u0015���\u00024�U$������O�3�xl��[*D\u0019И�1����\u000f�J?�\\\u0007ǝ-�nZ�}|rJպB\"d�z����P\f��2��.\u0007\r*:\u000bM� �T�d�e�:��'�-�7H\tXP�\u0011��'6�e�])���XZ�B��fy��Z4�ta�/@\u001f(��*ri���q\u0007�G�\u0010����{�\npaSp�9\u0010\u00159��)&^\u0015�\n��`<�\u0012o���a�{�b����h��\u0014;�\u0016�(�\u0005n�\\Ǣ�[�b�r ���M$\r��\u001c�\u000f�c�P\t�^\u0005\u001f\u001b�ȷ�\u0005K��%h�CY\u0019��Qt\u0011-\u0015#\u0017P��\u0016Y�@ib\u0019:^�\u0017>��7��\u000f<�s]�P���%�\u001d\u001aXX�Iѻ�BҪ�\nUw��.\\a钉��;�_�ھ��\u000b_&��\\�\u000b������^�WFq\u001fu+q_6U-�;b�p\u0000�hH�N�\u000f�n�p��;H\u0010�:�\u0003\u0014��H��7�U��(���V��x�\u0005\\�����bP߾\u0000B�[E�>Z,�u\u0006�V�\u0002\u0007���\u000e�G݅�\b��\t���9�\u0001�CSP�\u0003�:K�֘�F�=����\u0019u��u5\u00188��z\u0006V�\"�l-6�:�� �ܠ\u0006��#-\u0006��<f��\u0004�EB��ڷ�\u0016���\u0004x�Kʃ����@�b���ɔ\u001aU��\b�Ox�X:�������9\u0011�\\\u0017����%����[�Y{Ӯ6G͈O��?ab1\b~h7Vg�2\u0012�r�Ǒ�0t��b�;\u0018k*�*\u001cխU{�?U��von]���״�2\f8-�/RhY�����ɲ2>�\u0011k���_@N�,��\u001d�o34��\u0006�\u0013��E=.=��Tؠ㾏i���JŕP�{\u0011� ���9Vys9���;̯��\u0019J��\u0001�����\u0007�oN���8t�\u0003PK\u0001\u0002-\u0000\u0014\u0000\u0000\u0000\b\u0000C�kMZ�\u0017Gf\u0002\u0000\u0000�\n\u0000\u0000\u0014\u0000$\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000Policy-WinDomain.xml\n\u0000 \u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0018\u0000����\u0002z�\u0001����\u0002z�\u0001����\u0002z�\u0001PK\u0001\u0002-\u0000\u0014\u0000\u0000\u0000\b\u0000C�kM\u0019g�2�\u0005\u0000\u0000�\u0015\u0000\u0000\u0014\u0000$\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0002\u0000\u0000Policy-WinDomain.ini\n\u0000 \u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0018\u0000����\u0002z�\u0001����\u0002z�\u0001����\u0002z�\u0001PK\u0005\u0006\u0000\u0000\u0000\u0000\u0002\u0000\u0002\u0000�\u0000\u0000\u0000�\b\u0000\u0000\u0000\u0000"
 						}
 					]
-				},
-				{
-					"name": "Import Connection Component",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"type": "text",
-								"key": "Authorization",
-								"value": "{{CyberArkLogonResult}}"
-							},
-							{
-								"value": "application/json",
-								"type": "text",
-								"key": "Content-Type"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ImportFile\": {zip file in the format of BASE 64 array}\n}",
-							"options": {}
-						},
-						"url": {
-							"raw": "{{BaseURL}}/API/ConnectionComponents/Import",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"API",
-								"ConnectionComponents",
-								"Import"
-							]
-						},
-						"description": "This method enables administrators to import a new connection component."
-					},
-					"response": []
 				},
 				{
 					"name": "Import Platform",
@@ -40632,6 +42636,531 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Session Management",
+			"item": [
+				{
+					"name": "Get All Connection Components",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/PSM/Connectors",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"PSM",
+								"Connectors"
+							]
+						},
+						"description": "This method allows Vault admins to get the list of all connection components of an entire environment."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/API/PSM/Connectors",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"API",
+										"PSM",
+										"Connectors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache,no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1468"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=7E8A61F4E4D93A92; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=000000026D4CE685405C9F6384A1470D20CF85E65CD2B6F87C6293EC75EFE7FEB204632700000000; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=ldap; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+								},
+								{
+									"key": "X-FRAME-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=3159600;includeSubdomains;"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Warning"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Sep 2020 00:54:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"PSMConnectors\": [\n        {\n            \"ID\": \"SSH\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"RDP\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PuTTY\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"RDPapplet-Sample\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"RDPWinApplet\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"WebConnection\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-RDP\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-SSH\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-Telnet-Sample\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-TOAD\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-SQLPlus\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-VSPHERE\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-AS400\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-OS390\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-SQLServerMgmtStudio\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-WebFormSample\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-SQLServerMgmtStudio-Win\",\n            \"DisplayName\": \"SQL Server Mgmt Studio\"\n        },\n        {\n            \"ID\": \"PSM-PVWA\",\n            \"DisplayName\": \"CyberArk Password Vault Web Application v9\"\n        },\n        {\n            \"ID\": \"PSM-PrivateArkClient\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-VNCClientSample\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-VNCClientSample-AutoDeployed\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-AWSConsoleWithSTS\",\n            \"DisplayName\": \"AWS Console with STS\"\n        },\n        {\n            \"ID\": \"PSM-WinSCP\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-PTA\",\n            \"DisplayName\": \"CyberArk PTA\"\n        },\n        {\n            \"ID\": \"PSM-WebAppSample\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-MS-AzurePortal\",\n            \"DisplayName\": \"Microsoft Azure Portal\"\n        },\n        {\n            \"ID\": \"PSM-VSPHERE-Web\",\n            \"DisplayName\": \"VMWare vSphere Web\"\n        },\n        {\n            \"ID\": \"PSM-PVWA-v10\",\n            \"DisplayName\": \"CyberArk Password Vault Web Application v10\"\n        },\n        {\n            \"ID\": \"PSM-SAPGUI\",\n            \"DisplayName\": \"\"\n        },\n        {\n            \"ID\": \"PSM-SQLServerMgmtStudio-Database\",\n            \"DisplayName\": \"SQL Server Mgmt Studio Database\"\n        }\n    ],\n    \"Total\": 30\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All PSM Servers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/PSM/Servers",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"PSM",
+								"Servers"
+							]
+						},
+						"description": "This method allows Vault admins to get a list of all PSM servers defined for an environment."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Session Authorization Token",
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{CyberArkLogonResult}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/API/PSM/Servers",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"API",
+										"PSM",
+										"Servers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache,no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=7E8A61F4E4D93A92; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=000000026D4CE685405C9F6384A1470D20CF85E65CD2B6F87C6293EC75EFE7FEB204632700000000; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=ldap; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+								},
+								{
+									"key": "X-FRAME-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=3159600;includeSubdomains;"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Warning"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Sep 2020 00:55:48 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"PSMServers\": [\n        {\n            \"ID\": \"PSMServer_a91999c\",\n            \"Name\": \"PSM Server on PASAAS-PVWA\",\n            \"Address\": \"54.88.213.184\"\n        },\n        {\n            \"ID\": \"PSMServer\",\n            \"Name\": \"PSM Server on PASAAS-PSM\",\n            \"Address\": \"psm.joegarcia.dev\"\n        }\n    ],\n    \"Total\": 2\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Session Management Policy of Platform",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/Platforms/Targets/{{PlatformName}}/PrivilegedSessionManagement",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"Platforms",
+								"Targets",
+								"{{PlatformName}}",
+								"PrivilegedSessionManagement"
+							]
+						},
+						"description": "This method allows Vault admins to retrieve the PSM Policy Section of a target platform."
+					},
+					"response": [
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{CyberArkLogonResult}}",
+										"type": "text",
+										"description": "Session Authorization Token"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURL}}/PasswordVault/API/Platforms/Targets/{{PlatformName}}/PrivilegedSessionManagement",
+									"host": [
+										"{{BaseURL}}"
+									],
+									"path": [
+										"PasswordVault",
+										"API",
+										"Platforms",
+										"Targets",
+										"{{PlatformName}}",
+										"PrivilegedSessionManagement"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store, no-cache, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache,no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA22222=7E8A61F4E4D93A92; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA11111=000000026D4CE685405C9F6384A1470D20CF85E65CD2B6F87C6293EC75EFE7FEB204632700000000; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA55555=ldap; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "CA33333=; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "mobileState=Desktop; path=/PasswordVault/; SameSite=None; secure; HttpOnly"
+								},
+								{
+									"key": "X-FRAME-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=3159600;includeSubdomains;"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-UA-Compatible",
+									"value": "IE=EmulateIE8"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Warning"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 24 Sep 2020 00:57:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Details\": [\n        {\n            \"ParameterName\": \"platformID\",\n            \"ErrorCode\": \"\",\n            \"ErrorMessage\": \"The value 'WinDomain' is not valid for Int64.\"\n        }\n    ],\n    \"ErrorCode\": \"PASWS167E\",\n    \"ErrorMessage\": \"There are some invalid parameters\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Import Connection Component",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ImportFile\": {zip file byte array}\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/PasswordVault/API/ConnectionComponents/Import",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"PasswordVault",
+								"API",
+								"ConnectionComponents",
+								"Import"
+							]
+						},
+						"description": "This method enables administrators to import a new connection component."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Session Management Policy of Platform",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CyberArkLogonResult}}",
+								"type": "text",
+								"description": "Session Authorization Token"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"PSMServerId\":\"PSMServer_e7b11b1\",\n    \"PSMServerName\":\"PSMServer2\",\n    \"PSMConnectors\": [\n        {\n            \"PSMConnectorID\": \"PSM-AWSConsoleWithSTS\",\n            \"Enabled\": false\n        },\n        {\n            \"PSMConnectorID\": \"SSH\",\n            \"Enabled\": true\n        }\n    ]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/passwordvault/api/Platforms/Targets/{{PlatformName}}/PrivilegedSessionManagement",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"passwordvault",
+								"api",
+								"Platforms",
+								"Targets",
+								"{{PlatformName}}",
+								"PrivilegedSessionManagement"
+							]
+						},
+						"description": "This method allows Vault admins to update the PSM Policy Section of a target platform."
+					},
+					"response": []
+				}
+			],
+			"description": "This section includes REST APIs related to session management.",
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "System Health",
 			"item": [
 				{
@@ -41992,6 +44521,39 @@
 											]
 										},
 										"description": "This method removes a specific user from a user group in the Vault."
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Group",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{CyberArkLogonResult}}",
+												"type": "text",
+												"description": "Session Authorization Token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BaseURL}}/PasswordVault/api/UserGroups/{{GroupID}}",
+											"host": [
+												"{{BaseURL}}"
+											],
+											"path": [
+												"PasswordVault",
+												"api",
+												"UserGroups",
+												"{{GroupID}}"
+											]
+										},
+										"description": "his method deletes a user group.\n\nIn order to delete a user group, the following authorizations are required:\n\n* Add/Update Users\n"
 									},
 									"response": []
 								}
