@@ -7,7 +7,6 @@ info:
   contact: {}
 servers:
   - url: "{{dapHostname}}"
-  - url: "https://dap.joegarcia.dev"
 paths:
   "/authn/{dapAccount}/api_key":
     put:
