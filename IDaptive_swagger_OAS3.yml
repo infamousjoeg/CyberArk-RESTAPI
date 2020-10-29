@@ -1,0 +1,2243 @@
+---
+openapi: 3.0.3
+info:
+  title: "CyberArk IDaptive REST API [PUBLIC]"
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: "https://mytenant.centrify.com"
+paths:
+  /AuthProfile/GetDecoratedProfileList:
+    post:
+      summary: /AuthProfile/GetDecoratedProfileList
+      description: /AuthProfile/GetDecoratedProfileList
+      operationId: authProfileGetDecoratedProfileList
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /AuthProfile/SaveProfile:
+    post:
+      summary: /AuthProfile/SaveProfile
+      description: /AuthProfile/SaveProfile
+      operationId: authProfileSaveProfile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                settings:
+                  type: object
+                  properties:
+                    AdditionalData:
+                      type: object
+                      properties: {}
+                    Challenges:
+                      type: array
+                      items:
+                        type: string
+                        example: UP
+                      example:
+                        - UP
+                        - OTP
+                    DurationInMinutes:
+                      type: number
+                      example: 30
+                    Name:
+                      type: string
+                      example: Main Auth Profile
+            example:
+              settings:
+                AdditionalData: {}
+                Challenges:
+                  - UP
+                  - OTP
+                DurationInMinutes: 30
+                Name: Main Auth Profile
+      responses:
+        "200":
+          description: ""
+  /Core/DownloadCertificate:
+    post:
+      summary: /Core/DownloadCertificate
+      description: /Core/DownloadCertificate
+      operationId: coreDownloadCertificate
+      parameters:
+        - name: thumbprint
+          in: query
+          schema:
+            type: string
+            example: 25CDD...
+        - name: filename
+          in: query
+          schema:
+            type: string
+            example: idp1234.centrify.com
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Core/GeneratePassword:
+    post:
+      summary: /Core/GeneratePassword
+      description: /Core/GeneratePassword
+      operationId: coreGeneratePassword
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Core/GetCertificateInfos:
+    post:
+      summary: /Core/GetCertificateInfos
+      description: /Core/GetCertificateInfos
+      operationId: coreGetCertificateInfos
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+            example: Application
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Core/GetOUTreeContents:
+    post:
+      summary: /Core/GetOUTreeContents
+      description: /Core/GetOUTreeContents
+      operationId: coreGetOuTreeContents
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /GetObjectCollectionsAndFilters:
+    post:
+      summary: /collection/GetObjectCollectionsAndFilters
+      description: /collection/GetObjectCollectionsAndFilters
+      operationId: collectionGetObjectCollectionsAndFilters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Args:
+                  type: object
+                  properties:
+                    Caching:
+                      type: number
+                      example: -1
+                    Limit:
+                      type: number
+                      example: 100000
+                    PageNumber:
+                      type: number
+                      example: 1
+                    PageSize:
+                      type: number
+                      example: 100000
+                    SortBy:
+                      type: string
+                      example: ""
+                    direction:
+                      type: string
+                      example: "False"
+                ObjectType:
+                  type: string
+                  example: Server
+            example:
+              Args:
+                Caching: -1
+                Limit: 100000
+                PageNumber: 1
+                PageSize: 100000
+                SortBy: ""
+                direction: "False"
+              ObjectType: Server
+      responses:
+        "200":
+          description: ""
+  /JobFlow/GetActionTriggers:
+    post:
+      summary: /JobFlow/GetActionTriggers
+      description: /JobFlow/GetActionTriggers
+      operationId: jobFlowGetActionTriggers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nodes:
+                  type: array
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        GrantStr:
+                          type: string
+                          example: "0000000000000000000000000000000000000000000000000000000001111111"
+                        ID:
+                          type: string
+                          example: 66d78171-d672-4852-803d-ba1efc31d354
+                        IsForeignKey:
+                          type: boolean
+                          example: false
+                        Key:
+                          type: string
+                          example: 66d78171-d672-4852-803d-ba1efc31d354
+                        Type:
+                          type: string
+                          example: Server
+                        queryingRights:
+                          type: boolean
+                          example: false
+                    example:
+                      - GrantStr: "0000000000000000000000000000000000000000000000000000000001111111"
+                        ID: 66d78171-d672-4852-803d-ba1efc31d354
+                        IsForeignKey: false
+                        Key: 66d78171-d672-4852-803d-ba1efc31d354
+                        Type: Server
+                        queryingRights: false
+                  example:
+                    - - GrantStr: "0000000000000000000000000000000000000000000000000000000001111111"
+                        ID: 66d78171-d672-4852-803d-ba1efc31d354
+                        IsForeignKey: false
+                        Key: 66d78171-d672-4852-803d-ba1efc31d354
+                        Type: Server
+                        queryingRights: false
+            example:
+              Nodes:
+                - - GrantStr: "0000000000000000000000000000000000000000000000000000000001111111"
+                    ID: 66d78171-d672-4852-803d-ba1efc31d354
+                    IsForeignKey: false
+                    Key: 66d78171-d672-4852-803d-ba1efc31d354
+                    Type: Server
+                    queryingRights: false
+      responses:
+        "200":
+          description: ""
+  /JobFlow/StartJob:
+    post:
+      summary: /JobFlow/StartJob
+      description: /JobFlow/StartJob
+      operationId: jobFlowStartJob
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                args:
+                  type: object
+                  properties:
+                    AccessType:
+                      type: string
+                      example: Login
+                    PVID:
+                      type: string
+                      example: b81504f6-e3ca-49bd-989a-30058f000097
+                    Reason:
+                      type: string
+                      example: I need access to this account because...test
+                    RequestedOptions:
+                      type: object
+                      properties:
+                        AssignmentType:
+                          type: string
+                          example: window
+                        EndTime:
+                          type: string
+                          example: "Mon, 15 Jan 2018 19:40:00 GMT"
+                        StartTime:
+                          type: string
+                          example: "Mon, 15 Jan 2018 18:40:00 GMT"
+                script:
+                  type: string
+                  example: /lib/jobs/server_account_access.js
+            example:
+              args:
+                AccessType: Login
+                PVID: b81504f6-e3ca-49bd-989a-30058f000097
+                Reason: I need access to this account because...test
+                RequestedOptions:
+                  AssignmentType: window
+                  EndTime: "Mon, 15 Jan 2018 19:40:00 GMT"
+                  StartTime: "Mon, 15 Jan 2018 18:40:00 GMT"
+              script: /lib/jobs/server_account_access.js
+      responses:
+        "200":
+          description: ""
+  /Policy/AddAuthPolicyModifier:
+    post:
+      summary: /Policy/AddAuthPolicyModifier
+      description: /Policy/AddAuthPolicyModifier
+      operationId: policyAddAuthPolicyModifier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PolicyModifier:
+                  type: string
+                  example: test1
+            example:
+              PolicyModifier: test1
+      responses:
+        "200":
+          description: ""
+  /Policy/GetAuthPolicyModifiers:
+    post:
+      summary: /Policy/GetAuthPolicyModifiers
+      description: /Policy/GetAuthPolicyModifiers
+      operationId: policyGetAuthPolicyModifiers
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Policy/GetNicePlinks:
+    post:
+      summary: /Policy/GetNicePlinks
+      description: /Policy/GetNicePlinks
+      operationId: policyGetNicePlinks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Args:
+                  type: object
+                  properties:
+                    Caching:
+                      type: number
+                      example: -1
+                    Limit:
+                      type: number
+                      example: 100000
+                    PageNumber:
+                      type: number
+                      example: 1
+                    PageSize:
+                      type: number
+                      example: 100000
+                    SortBy:
+                      type: string
+                      example: ""
+                    direction:
+                      type: string
+                      example: "False"
+            example:
+              Args:
+                Caching: -1
+                Limit: 100000
+                PageNumber: 1
+                PageSize: 100000
+                SortBy: ""
+                direction: "False"
+      responses:
+        "200":
+          description: ""
+  /Policy/GetPolicyBlock:
+    post:
+      summary: /Policy/GetPolicyBlock
+      description: /Policy/GetPolicyBlock
+      operationId: policyGetPolicyBlock
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: /Policy/Default Policy
+            example:
+              name: /Policy/Default Policy
+      responses:
+        "200":
+          description: ""
+  /Policy/GetUsingCloudMobileGP:
+    post:
+      summary: /Policy/GetUsingCloudMobileGP
+      description: /Policy/GetUsingCloudMobileGP
+      operationId: policyGetUsingCloudMobileGp
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Policy/SavePolicyBlock3:
+    post:
+      summary: /Policy/SavePolicyBlock3
+      description: /Policy/SavePolicyBlock3
+      operationId: policySavePolicyBlock3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plinks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Description:
+                        type: string
+                        example: ""
+                      EnableCompliant:
+                        type: boolean
+                        example: true
+                      ID:
+                        type: string
+                        example: /Policy/louie1
+                      LinkType:
+                        type: string
+                        example: Collection
+                      Params:
+                        type: array
+                        items:
+                          type: string
+                          example: Device|@Active Devices
+                        example:
+                          - Device|@Active Devices
+                      PolicySet:
+                        type: string
+                        example: /Policy/louie1
+                  example:
+                    - Description: ""
+                      EnableCompliant: true
+                      ID: /Policy/louie1
+                      LinkType: Collection
+                      Params:
+                        - Device|@Active Devices
+                      PolicySet: /Policy/louie1
+                    - Description: ""
+                      EnableCompliant: true
+                      ID: /Policy/RichPolicy
+                      LinkType: Role
+                      Params:
+                        - 52577777_7f2f_4654_97f5_3123dfc5d5c7
+                      PolicySet: /Policy/RichPolicy
+                    - Description: ""
+                      EnableCompliant: true
+                      ID: /Policy/U2F Login Policy
+                      LinkType: Role
+                      Params:
+                        - 8a666666_ec81_4f52_86b7_9377d49c217b
+                      PolicySet: /Policy/U2F Login Policy
+                policy:
+                  type: object
+                  properties:
+                    AuthProfiles:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          AdditionalData:
+                            type: object
+                            properties: {}
+                          Challenges:
+                            type: array
+                            items:
+                              type: string
+                              example: UP
+                            example:
+                              - UP
+                          DurationInMinutes:
+                            type: number
+                            example: 720
+                          Name:
+                            type: string
+                            example: Default New Device Login Profile
+                          Uuid:
+                            type: string
+                            example: 122f46ae-9aad-4e49-8e23-1e4561d9b7c3
+                      example:
+                        - AdditionalData: {}
+                          Challenges:
+                            - UP
+                          DurationInMinutes: 720
+                          Name: Default New Device Login Profile
+                          Uuid: 122f46ae-9aad-4e49-8e23-1e4561d9b7c3
+                    Description:
+                      type: string
+                      example: DO NOT DISABLE Login MFA IN THIS POLICY for unknown devices.
+                    Newpolicy:
+                      type: boolean
+                      example: false
+                    Path:
+                      type: string
+                      example: /Policy/Default Policy
+                    PolicyModifiers:
+                      type: array
+                      items: {}
+                      example: []
+                    RevStamp:
+                      type: string
+                      example: "636486318310000000"
+                    RiskAnalysisLevels:
+                      type: object
+                      properties:
+                        Levels:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              Name:
+                                type: string
+                                example: Normal
+                              TranslatedName:
+                                type: string
+                                example: None Detected
+                          example:
+                            - Name: Normal
+                              TranslatedName: None Detected
+                            - Name: Low
+                              TranslatedName: Low
+                            - Name: Med
+                              TranslatedName: Medium
+                            - Name: High
+                              TranslatedName: High
+                            - Name: Unknown
+                              TranslatedName: Undetermined
+                    Settings:
+                      type: object
+                      properties:
+                        /Core/Authentication/AdminSecurityQuestionsPerUser:
+                          type: number
+                          example: 0
+                        /Core/Authentication/AllowIwa:
+                          type: boolean
+                          example: true
+                        /Core/Authentication/AllowZso:
+                          type: boolean
+                          example: true
+                        /Core/Authentication/AuthenticationRules:
+                          type: object
+                          properties:
+                            Enabled:
+                              type: boolean
+                              example: true
+                            _Type:
+                              type: string
+                              example: RowSet
+                            _UniqueKey:
+                              type: string
+                              example: Condition
+                            _Value:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  Conditions:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        Op:
+                                          type: string
+                                          example: OpExists
+                                        Prop:
+                                          type: string
+                                          example: IdentityCookie
+                                    example:
+                                      - Op: OpExists
+                                        Prop: IdentityCookie
+                                  ProfileId:
+                                    type: string
+                                    example: 44bd658e-defc-4d69-b6de-3dc0d6812f9b
+                              example:
+                                - Conditions:
+                                    - Op: OpExists
+                                      Prop: IdentityCookie
+                                  ProfileId: 44bd658e-defc-4d69-b6de-3dc0d6812f9b
+                        /Core/Authentication/AuthenticationRulesDefaultProfileId:
+                          type: string
+                          example: cfea9de5-9bf7-4569-895d-9dfbb3a9e8d7
+                        /Core/Authentication/AuthenticationRulesHighAuthRequestedProfileId:
+                          type: string
+                          example: 12222222-9aad-4e49-8e23-1e4561d9b7c3
+                        /Core/Authentication/ChallengeDefinitionId:
+                          type: string
+                          example: 0d799995-ca79-43df-9355-fdf12394965b
+                        /Core/Authentication/ConfigureSecurityQuestions:
+                          type: boolean
+                          example: true
+                        /Core/Authentication/CookieAllowPersist:
+                          type: boolean
+                          example: false
+                        /Core/Authentication/IwaSatisfiesAllMechs:
+                          type: boolean
+                          example: false
+                        /Core/Authentication/IwaSetKnownEndpoint:
+                          type: boolean
+                          example: true
+                        /Core/Authentication/NoMfaMechLogin:
+                          type: boolean
+                          example: false
+                        /Core/Authentication/SecurityQuestionAnswerMinLength:
+                          type: number
+                          example: 3
+                        /Core/Authentication/UserSecurityQuestionsPerUser:
+                          type: number
+                          example: 1
+                        /Core/Authentication/ZsoSatisfiesAllMechs:
+                          type: boolean
+                          example: false
+                        /Core/Authentication/ZsoSetKnownEndpoint:
+                          type: boolean
+                          example: true
+                        /Core/MfaRestrictions/BlockMobileMechsOnMobileLogin:
+                          type: boolean
+                          example: false
+                        /Core/PasswordReset/AccountUnlockADEnabled:
+                          type: boolean
+                          example: false
+                        /Core/PasswordReset/AccountUnlockAuthProfile:
+                          type: string
+                          example: e4eeeeee-2e9e-4567-b9e2-a568360c8eb7
+                        /Core/PasswordReset/AccountUnlockEnabled:
+                          type: boolean
+                          example: true
+                        /Core/PasswordReset/AccountUnlockIdentityCookieOnly:
+                          type: boolean
+                          example: false
+                        /Core/PasswordReset/Max:
+                          type: number
+                          example: 10
+                        /Core/PasswordReset/MaxTime:
+                          type: number
+                          example: 60
+                        /Core/PasswordReset/PasswordResetADEnabled:
+                          type: boolean
+                          example: true
+                        /Core/PasswordReset/PasswordResetAuthProfile:
+                          type: string
+                          example: a7dddddd-fe4e-4f37-a885-2176beb4a501
+                        /Core/PasswordReset/PasswordResetEnabled:
+                          type: boolean
+                          example: true
+                        /Core/PasswordReset/PasswordResetIdentityCookieOnly:
+                          type: boolean
+                          example: false
+                        /Core/PasswordReset/UseADAdmin:
+                          type: boolean
+                          example: false
+                        /Core/Security/CDS/ExternalMFA/ShowQRCode:
+                          type: boolean
+                          example: true
+                        /Core/Security/CDS/ExternalMFA/ShowQRCodeForSelfService:
+                          type: boolean
+                          example: true
+                        /Core/Security/CDS/ExternalMFA/UiPrompt:
+                          type: string
+                          example: OATH OTP Client
+                        /Core/Security/CDS/LockoutPolicy/Threshold:
+                          type: number
+                          example: 5
+                        /Core/test1/Authentication/AuthenticationRules:
+                          type: object
+                          properties:
+                            Enabled:
+                              type: boolean
+                              example: true
+                            _Type:
+                              type: string
+                              example: RowSet
+                            _UniqueKey:
+                              type: string
+                              example: Condition
+                            _Value:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  Conditions:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        Op:
+                                          type: string
+                                          example: OpBetween
+                                        Prop:
+                                          type: string
+                                          example: DateRange
+                                        Val:
+                                          type: string
+                                          example: "L,02/23/2018,02/28/2018"
+                                    example:
+                                      - Op: OpBetween
+                                        Prop: DateRange
+                                        Val: "L,02/23/2018,02/28/2018"
+                                  ProfileId:
+                                    type: string
+                                    example: cfea9de5-9bf7-4569-895d-9dfbb3a9e8d7
+                              example:
+                                - Conditions:
+                                    - Op: OpBetween
+                                      Prop: DateRange
+                                      Val: "L,02/23/2018,02/28/2018"
+                                  ProfileId: cfea9de5-9bf7-4569-895d-9dfbb3a9e8d7
+                        /Core/test1/Authentication/AuthenticationRulesDefaultProfileId:
+                          type: string
+                          example: cfefffff-9bf7-4569-895d-9dfbb3a9e8d7
+                        /Core/test1/Authentication/NoMfaMechLogin:
+                          type: boolean
+                          example: false
+                        /Core/test1/AuthenticationEnabled:
+                          type: boolean
+                          example: true
+                        /Mobile/DeviceManagement/UseCentrifyAsMdm:
+                          type: boolean
+                          example: false
+                        /Mobile/EnrollRules/Common/AllowEnrollment:
+                          type: boolean
+                          example: true
+                        /Mobile/EnrollRules/Common/AllowJailBrokenDevices:
+                          type: boolean
+                          example: true
+                        /Mobile/Software/Policies/Centrify/Common/AllowNotificationOnMutipleDevices:
+                          type: boolean
+                          example: true
+                        /Mobile/Software/Policies/Centrify/Common/Restrictions/TrackLocationHistory:
+                          type: boolean
+                          example: true
+                        AuthenticationEnabled:
+                          type: boolean
+                          example: true
+                        PasswordResetEnabled:
+                          type: boolean
+                          example: true
+                    Version:
+                      type: number
+                      example: 6
+            example:
+              plinks:
+                - Description: ""
+                  EnableCompliant: true
+                  ID: /Policy/louie1
+                  LinkType: Collection
+                  Params:
+                    - Device|@Active Devices
+                  PolicySet: /Policy/louie1
+                - Description: ""
+                  EnableCompliant: true
+                  ID: /Policy/RichPolicy
+                  LinkType: Role
+                  Params:
+                    - 52577777_7f2f_4654_97f5_3123dfc5d5c7
+                  PolicySet: /Policy/RichPolicy
+                - Description: ""
+                  EnableCompliant: true
+                  ID: /Policy/U2F Login Policy
+                  LinkType: Role
+                  Params:
+                    - 8a666666_ec81_4f52_86b7_9377d49c217b
+                  PolicySet: /Policy/U2F Login Policy
+              policy:
+                AuthProfiles:
+                  - AdditionalData: {}
+                    Challenges:
+                      - UP
+                    DurationInMinutes: 720
+                    Name: Default New Device Login Profile
+                    Uuid: 122f46ae-9aad-4e49-8e23-1e4561d9b7c3
+                Description: DO NOT DISABLE Login MFA IN THIS POLICY for unknown devices.
+                Newpolicy: false
+                Path: /Policy/Default Policy
+                PolicyModifiers: []
+                RevStamp: "636486318310000000"
+                RiskAnalysisLevels:
+                  Levels:
+                    - Name: Normal
+                      TranslatedName: None Detected
+                    - Name: Low
+                      TranslatedName: Low
+                    - Name: Med
+                      TranslatedName: Medium
+                    - Name: High
+                      TranslatedName: High
+                    - Name: Unknown
+                      TranslatedName: Undetermined
+                Settings:
+                  /Core/Authentication/AdminSecurityQuestionsPerUser: 0
+                  /Core/Authentication/AllowIwa: true
+                  /Core/Authentication/AllowZso: true
+                  /Core/Authentication/AuthenticationRules:
+                    Enabled: true
+                    _Type: RowSet
+                    _UniqueKey: Condition
+                    _Value:
+                      - Conditions:
+                          - Op: OpExists
+                            Prop: IdentityCookie
+                        ProfileId: 44bd658e-defc-4d69-b6de-3dc0d6812f9b
+                  /Core/Authentication/AuthenticationRulesDefaultProfileId: cfea9de5-9bf7-4569-895d-9dfbb3a9e8d7
+                  /Core/Authentication/AuthenticationRulesHighAuthRequestedProfileId: 12222222-9aad-4e49-8e23-1e4561d9b7c3
+                  /Core/Authentication/ChallengeDefinitionId: 0d799995-ca79-43df-9355-fdf12394965b
+                  /Core/Authentication/ConfigureSecurityQuestions: true
+                  /Core/Authentication/CookieAllowPersist: false
+                  /Core/Authentication/IwaSatisfiesAllMechs: false
+                  /Core/Authentication/IwaSetKnownEndpoint: true
+                  /Core/Authentication/NoMfaMechLogin: false
+                  /Core/Authentication/SecurityQuestionAnswerMinLength: 3
+                  /Core/Authentication/UserSecurityQuestionsPerUser: 1
+                  /Core/Authentication/ZsoSatisfiesAllMechs: false
+                  /Core/Authentication/ZsoSetKnownEndpoint: true
+                  /Core/MfaRestrictions/BlockMobileMechsOnMobileLogin: false
+                  /Core/PasswordReset/AccountUnlockADEnabled: false
+                  /Core/PasswordReset/AccountUnlockAuthProfile: e4eeeeee-2e9e-4567-b9e2-a568360c8eb7
+                  /Core/PasswordReset/AccountUnlockEnabled: true
+                  /Core/PasswordReset/AccountUnlockIdentityCookieOnly: false
+                  /Core/PasswordReset/Max: 10
+                  /Core/PasswordReset/MaxTime: 60
+                  /Core/PasswordReset/PasswordResetADEnabled: true
+                  /Core/PasswordReset/PasswordResetAuthProfile: a7dddddd-fe4e-4f37-a885-2176beb4a501
+                  /Core/PasswordReset/PasswordResetEnabled: true
+                  /Core/PasswordReset/PasswordResetIdentityCookieOnly: false
+                  /Core/PasswordReset/UseADAdmin: false
+                  /Core/Security/CDS/ExternalMFA/ShowQRCode: true
+                  /Core/Security/CDS/ExternalMFA/ShowQRCodeForSelfService: true
+                  /Core/Security/CDS/ExternalMFA/UiPrompt: OATH OTP Client
+                  /Core/Security/CDS/LockoutPolicy/Threshold: 5
+                  /Core/test1/Authentication/AuthenticationRules:
+                    Enabled: true
+                    _Type: RowSet
+                    _UniqueKey: Condition
+                    _Value:
+                      - Conditions:
+                          - Op: OpBetween
+                            Prop: DateRange
+                            Val: "L,02/23/2018,02/28/2018"
+                        ProfileId: cfea9de5-9bf7-4569-895d-9dfbb3a9e8d7
+                  /Core/test1/Authentication/AuthenticationRulesDefaultProfileId: cfefffff-9bf7-4569-895d-9dfbb3a9e8d7
+                  /Core/test1/Authentication/NoMfaMechLogin: false
+                  /Core/test1/AuthenticationEnabled: true
+                  /Mobile/DeviceManagement/UseCentrifyAsMdm: false
+                  /Mobile/EnrollRules/Common/AllowEnrollment: true
+                  /Mobile/EnrollRules/Common/AllowJailBrokenDevices: true
+                  /Mobile/Software/Policies/Centrify/Common/AllowNotificationOnMutipleDevices: true
+                  /Mobile/Software/Policies/Centrify/Common/Restrictions/TrackLocationHistory: true
+                  AuthenticationEnabled: true
+                  PasswordResetEnabled: true
+                Version: 6
+      responses:
+        "200":
+          description: ""
+  /SaasManage/GetRoleApps:
+    post:
+      summary: /SaasManage/GetRoleApps
+      description: /SaasManage/GetRoleApps
+      operationId: saasManageGetRoleApps
+      parameters:
+        - name: role
+          in: query
+          schema:
+            type: string
+            example: sysadmin
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Security/AdvanceAuthentication:
+    post:
+      summary: /Security/AdvanceAuthentication
+      description: /Security/AdvanceAuthentication
+      operationId: securityAdvanceAuthentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Action:
+                  type: string
+                  example: Answer
+                Answer:
+                  type: string
+                  example: Answer
+                MechanismId:
+                  type: string
+                  example: MechanismId
+                SessionId:
+                  type: string
+                  example: SessionId
+                TenantId:
+                  type: string
+                  example: mytenant.centrify.com
+            example:
+              Action: Answer
+              Answer: Answer
+              MechanismId: MechanismId
+              SessionId: SessionId
+              TenantId: mytenant.centrify.com
+      responses:
+        "200":
+          description: ""
+  /Security/AdvanceForgotUsername:
+    post:
+      summary: /Security/AdvanceForgotUsername
+      description: /Security/AdvanceForgotUsername
+      operationId: securityAdvanceForgotUsername
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Action:
+                  type: string
+                  example: Answer
+                Answer:
+                  type: string
+                  example: bob.smith@yourcompany.com
+                MechanismId:
+                  type: string
+                  example: 2Vq2ILiv57l...
+                PersistentLogin:
+                  nullable: true
+                  example: ~
+                SessionId:
+                  type: string
+                  example: "-1"
+                TenantId:
+                  type: string
+                  example: ABC123
+            example:
+              Action: Answer
+              Answer: bob.smith@yourcompany.com
+              MechanismId: 2Vq2ILiv57l...
+              PersistentLogin: ~
+              SessionId: "-1"
+              TenantId: ABC123
+      responses:
+        "200":
+          description: ""
+  /Security/Logout:
+    post:
+      summary: /Security/Logout
+      description: /Security/Logout
+      operationId: securityLogout
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /Security/OnDemandChallenge:
+    post:
+      summary: /Security/OnDemandChallenge
+      description: /Security/OnDemandChallenge
+      operationId: securityOnDemandChallenge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PolicyModifier:
+                  type: string
+                  example: test1
+                User:
+                  type: string
+                  example: user@example.com
+            example:
+              PolicyModifier: test1
+              User: user@example.com
+      responses:
+        "200":
+          description: ""
+  /Security/StartAuthentication:
+    post:
+      summary: /Security/StartAuthentication
+      description: /Security/StartAuthentication
+      operationId: securityStartAuthentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TenantId:
+                  type: string
+                  example: mytenant.centrify.com
+                User:
+                  type: string
+                  example: you@yourco.com
+                Version:
+                  type: string
+                  example: "1.0"
+            example:
+              TenantId: mytenant.centrify.com
+              User: you@yourco.com
+              Version: "1.0"
+      responses:
+        "200":
+          description: ""
+  /Security/StartForgotUsername:
+    post:
+      summary: /Security/StartForgotUsername
+      description: /Security/StartForgotUsername
+      operationId: securityStartForgotUsername
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Version:
+                  type: string
+                  example: "1.0"
+            example:
+              Version: "1.0"
+      responses:
+        "200":
+          description: ""
+  /Security/whoami:
+    post:
+      summary: /Security/whoami
+      description: /Security/whoami
+      operationId: securityWhoami
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /ServerAgent/AddEnrollmentCode:
+    post:
+      summary: /ServerAgent/AddEnrollmentCode
+      description: /ServerAgent/AddEnrollmentCode
+      operationId: serverAgentAddEnrollmentCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                AllowAllSets:
+                  type: boolean
+                  example: true
+                AllowMemberShip:
+                  type: boolean
+                  example: true
+                Description:
+                  type: string
+                  example: test
+                NeverExpire:
+                  type: boolean
+                  example: true
+                NoMaxUseCount:
+                  type: boolean
+                  example: true
+                Owner:
+                  type: string
+                  example: System Administrator
+                OwnerID:
+                  type: string
+                  example: sysadmin
+                OwnerType:
+                  type: string
+                  example: Role
+            example:
+              AllowAllSets: true
+              AllowMemberShip: true
+              Description: test
+              NeverExpire: true
+              NoMaxUseCount: true
+              Owner: System Administrator
+              OwnerID: sysadmin
+              OwnerType: Role
+      responses:
+        "200":
+          description: ""
+  /ServerAgent/GetAllEnrollmentCodes:
+    post:
+      summary: /ServerAgent/GetAllEnrollmentCodes
+      description: /ServerAgent/GetAllEnrollmentCodes
+      operationId: serverAgentGetAllEnrollmentCodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Args:
+                  type: object
+                  properties:
+                    Caching:
+                      type: number
+                      example: -1
+                    Limit:
+                      type: number
+                      example: 100000
+                    PageNumber:
+                      type: number
+                      example: 1
+                    PageSize:
+                      type: number
+                      example: 100000
+                    SortBy:
+                      type: string
+                      example: ""
+                    direction:
+                      type: string
+                      example: "False"
+                RRFormat:
+                  type: boolean
+                  example: true
+            example:
+              Args:
+                Caching: -1
+                Limit: 100000
+                PageNumber: 1
+                PageSize: 100000
+                SortBy: ""
+                direction: "False"
+              RRFormat: true
+      responses:
+        "200":
+          description: ""
+  /ServerManage/CreateDiscoveryProfile:
+    post:
+      summary: /ServerManage/CreateDiscoveryProfile
+      description: /ServerManage/CreateDiscoveryProfile
+      operationId: serverManageCreateDiscoveryProfile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ApplicationType:
+                  type: string
+                  example: "WindowsService,ScheduledTask,IISApplicationPool"
+                BypassAddAccountCheck:
+                  type: boolean
+                  example: false
+                ComputerGroups:
+                  nullable: true
+                  example: ~
+                ComputerOUs:
+                  type: array
+                  items:
+                    type: string
+                    example: "DC=centrify,DC=lab"
+                  example:
+                    - "DC=centrify,DC=lab"
+                ComputerType:
+                  type: string
+                  example: "Server,Workstation"
+                DefaultUserName:
+                  type: string
+                  example: jn@centrify.com
+                Description:
+                  type: string
+                  example: A profile to discover new things
+                Domains:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      DomainId:
+                        type: string
+                        example: 11111111-5254-495d-b4d4-22fc0f993899
+                      Enabled:
+                        type: boolean
+                        example: false
+                      Name:
+                        type: string
+                        example: centrify.aws
+                      NamingContext:
+                        type: string
+                        example: "DC=centrify,DC=aws"
+                      UserName:
+                        type: string
+                        example: jn@centrify.com
+                      UsingDefaultAccount:
+                        type: boolean
+                        example: true
+                  example:
+                    - DomainId: 11111111-5254-495d-b4d4-22fc0f993899
+                      Enabled: false
+                      Name: centrify.aws
+                      NamingContext: "DC=centrify,DC=aws"
+                      UserName: jn@centrify.com
+                      UsingDefaultAccount: true
+                Name:
+                  type: string
+                  example: Discover new things
+                OSType:
+                  type: string
+                  example: "Windows,UnixWithCDC"
+                SkipDiscovered:
+                  type: boolean
+                  example: true
+            example:
+              ApplicationType: "WindowsService,ScheduledTask,IISApplicationPool"
+              BypassAddAccountCheck: false
+              ComputerGroups: ~
+              ComputerOUs:
+                - "DC=centrify,DC=lab"
+              ComputerType: "Server,Workstation"
+              DefaultUserName: jn@centrify.com
+              Description: A profile to discover new things
+              Domains:
+                - DomainId: 11111111-5254-495d-b4d4-22fc0f993899
+                  Enabled: false
+                  Name: centrify.aws
+                  NamingContext: "DC=centrify,DC=aws"
+                  UserName: jn@centrify.com
+                  UsingDefaultAccount: true
+              Name: Discover new things
+              OSType: "Windows,UnixWithCDC"
+              SkipDiscovered: true
+      responses:
+        "200":
+          description: ""
+  /ServerManage/GetAccountsForLogin:
+    post:
+      summary: /ServerManage/GetAccountsForLogin
+      description: /ServerManage/GetAccountsForLogin
+      operationId: serverManageGetAccountsForLogin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Args:
+                  type: object
+                  properties:
+                    Caching:
+                      type: number
+                      example: -1
+                    Limit:
+                      type: number
+                      example: 100000
+                    PageNumber:
+                      type: number
+                      example: 1
+                    PageSize:
+                      type: number
+                      example: 100000
+                    SortBy:
+                      type: string
+                      example: ""
+                    direction:
+                      type: string
+                      example: "False"
+                domainOnly:
+                  type: string
+                  example: "false"
+                filter:
+                  type: string
+                  example: ""
+                host:
+                  type: string
+                  example: 66d78171-d672-4852-803d-ba1efc31d354
+            example:
+              Args:
+                Caching: -1
+                Limit: 100000
+                PageNumber: 1
+                PageSize: 100000
+                SortBy: ""
+                direction: "False"
+              domainOnly: "false"
+              filter: ""
+              host: 66d78171-d672-4852-803d-ba1efc31d354
+      responses:
+        "200":
+          description: ""
+  /ServerManage/GetComputerRights:
+    post:
+      summary: /ServerManage/GetComputerRights
+      description: /ServerManage/GetComputerRights
+      operationId: serverManageGetComputerRights
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  example: 72222222-e1ee-4c11-8aff-4d874aec7dcd
+            example:
+              ID: 72222222-e1ee-4c11-8aff-4d874aec7dcd
+      responses:
+        "200":
+          description: ""
+  /ServerManage/GetDiscoveryProfiles:
+    post:
+      summary: /ServerManage/GetDiscoveryProfiles
+      description: /ServerManage/GetDiscoveryProfiles
+      operationId: serverManageGetDiscoveryProfiles
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /ServerManage/GetDiscoveryStatus:
+    post:
+      summary: /ServerManage/GetDiscoveryStatus
+      description: /ServerManage/GetDiscoveryStatus
+      operationId: serverManageGetDiscoveryStatus
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /ServerManage/PreCheckout:
+    post:
+      summary: /ServerManage/PreCheckout
+      description: /ServerManage/PreCheckout
+      operationId: serverManagePreCheckout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PVID:
+                  type: string
+                  example: dcefgefg-cb2d-4988-940e-f096afa7c487
+            example:
+              PVID: dcefgefg-cb2d-4988-940e-f096afa7c487
+      responses:
+        "200":
+          description: ""
+  /ServerManage/RunDiscovery:
+    post:
+      summary: /ServerManage/RunDiscovery
+      description: /ServerManage/RunDiscovery
+      operationId: serverManageRunDiscovery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                BypassAddAccountCheck:
+                  type: boolean
+                  example: false
+                Profiles:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ID:
+                        type: string
+                        example: 9abcdefg-533e-4d11-a92b-15401c65bb40
+                      Passwords:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Domain:
+                              type: string
+                              example: centrify.com
+                            Password:
+                              type: string
+                              example: MyPassword
+                        example:
+                          - Domain: centrify.com
+                            Password: MyPassword
+                  example:
+                    - ID: 9abcdefg-533e-4d11-a92b-15401c65bb40
+                      Passwords:
+                        - Domain: centrify.com
+                          Password: MyPassword
+            example:
+              BypassAddAccountCheck: false
+              Profiles:
+                - ID: 9abcdefg-533e-4d11-a92b-15401c65bb40
+                  Passwords:
+                    - Domain: centrify.com
+                      Password: MyPassword
+      responses:
+        "200":
+          description: ""
+  /ZoneRoleWorkflow/GetRoles:
+    post:
+      summary: /ZoneRoleWorkflow/GetRoles
+      description: /ZoneRoleWorkflow/GetRoles
+      operationId: zoneRoleWorkflowGetRoles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ResourceId:
+                  type: string
+                  example: be123456-4d31-4052-97cb-47456d7347f0
+            example:
+              ResourceId: be123456-4d31-4052-97cb-47456d7347f0
+      responses:
+        "200":
+          description: ""
+  /acl/GetEffectiveRowRights:
+    post:
+      summary: /acl/GetEffectiveRowRights
+      description: /acl/GetEffectiveRowRights
+      operationId: aclGetEffectiveRowRights
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Rows:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ReduceSysadmin:
+                        type: boolean
+                        example: true
+                      RowKey:
+                        type: string
+                        example: 66d78171-d672-4852-803d-ba1efc31d354
+                      Table:
+                        type: string
+                        example: Server
+                  example:
+                    - ReduceSysadmin: true
+                      RowKey: 66d78171-d672-4852-803d-ba1efc31d354
+                      Table: Server
+            example:
+              Rows:
+                - ReduceSysadmin: true
+                  RowKey: 66d78171-d672-4852-803d-ba1efc31d354
+                  Table: Server
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/apis/access_tokens:
+    get:
+      summary: /analytics/services/v1.0/apis/access_tokens (get)
+      description: /analytics/services/v1.0/apis/access_tokens (get)
+      operationId: analyticsServicesV10ApisAccessTokensGet
+      responses:
+        "200":
+          description: ""
+    post:
+      summary: /analytics/services/v1.0/apis/access_tokens (create)
+      description: /analytics/services/v1.0/apis/access_tokens (create)
+      operationId: analyticsServicesV10ApisAccessTokensCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expiration_time:
+                  type: number
+                  example: 1529006108650
+                name:
+                  type: string
+                  example: Test 101
+                scopes:
+                  type: array
+                  items:
+                    type: string
+                    example: sensor_registration
+                  example:
+                    - sensor_registration
+                    - content
+            example:
+              expiration_time: 1529006108650
+              name: Test 101
+              scopes:
+                - sensor_registration
+                - content
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/apis/access_tokens/c454f...:
+    delete:
+      summary: "/analytics/services/v1.0/apis/access_tokens/{token}"
+      description: "/analytics/services/v1.0/apis/access_tokens/{token}"
+      operationId: analyticsServicesV10ApisAccessTokensToken
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/apis/access_tokens/c454f.../activate:
+    put:
+      summary: "/analytics/services/v1.0/apis/access_tokens/{token}/activate"
+      description: "/analytics/services/v1.0/apis/access_tokens/{token}/activate"
+      operationId: analyticsServicesV10ApisAccessTokensTokenActivate
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/apis/access_tokens/c454f.../inactivate:
+    put:
+      summary: "/analytics/services/v1.0/apis/access_tokens/{token}/inactivate"
+      description: "/analytics/services/v1.0/apis/access_tokens/{token}/inactivate"
+      operationId: analyticsServicesV10ApisAccessTokensTokenInactivate
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/apis/scopes:
+    get:
+      summary: /analytics/services/v1.0/apis/scopes
+      description: /analytics/services/v1.0/apis/scopes
+      operationId: analyticsServicesV10ApisScopes
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/dataset/system/models:
+    get:
+      summary: /analytics/services/v1.0/dataset/system/models
+      description: /analytics/services/v1.0/dataset/system/models
+      operationId: analyticsServicesV10DatasetSystemModels
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/file/export/rules/webhook/MyDemo:
+    post:
+      summary: "/analytics/services/v1.0/file/export/rules/webhook/{name}"
+      description: "/analytics/services/v1.0/file/export/rules/webhook/{name}"
+      operationId: analyticsServicesV10FileExportRulesWebhookName
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                export_header:
+                  type: boolean
+                  example: true
+                export_url:
+                  type: boolean
+                  example: true
+                policy_ids:
+                  type: array
+                  items:
+                    type: string
+                    example: a5e7...
+                  example:
+                    - a5e7...
+            example:
+              export_header: true
+              export_url: true
+              policy_ids:
+                - a5e7...
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/file/import/rules/webhook:
+    post:
+      summary: analytics/services/v1.0/file/import/rules/webhook
+      description: analytics/services/v1.0/file/import/rules/webhook
+      operationId: analyticsServicesV10FileImportRulesWebhook
+      requestBody:
+        content:
+          text/plain:
+            example: "boundary=----WebKitFormBoundarykmkpXEKtCNf6UQO0\n\n------WebKitFormBoundarykmkpXEKtCNf6UQO0\nContent-Disposition: form-data; name=\"file\"; filename=\"MyDemo.json\"\nContent-Type: application/json\n\n{  \n   \"ruleActions\":[  \n      {  \n         \"tenantId\":\"ABC1234\",\n         \"policyId\":\"a5e...\",\n         \"name\":\"PageDuty Demo\",\n         \"rule\":{  \n            \"filterType\":\"com.centrify.platform.notification.rule.filter.EventTypeFilter\",\n            \"filterMetaData\":{  \n               \"event_type\":\"Analytics.Server.AdaptiveSessionRecording\"\n            }\n         },\n         \"actions\":[  \n            {  \n               \"actionType\":\"webhook\",\n               \"actionMetaData\":{  \n                  \"headers\":\"Token token=XKup...\",\n                  \"method\":\"POST\",\n                  \"content_type\":\"application/json\",\n                  \"request_body\":\"{\\n  \\\"payload\\\": {\\n    \\\"summary\\\": \\\"${intel_risk_level?cap_first} Risk: <#if event_na...\",\n                  \"url\":\"https://events.pagerduty.com/v2/enqueue\"\n               },\n               \"providerMetaData\":{  \n\n               }\n            }\n         ],\n         \"createdBy\":\"cia\",\n         \"updatedBy\":\"cia\"\n      }\n   ],\n   \"version\":\"0.9\",\n   \"signature\":\"cfd8...\"\n}\n------WebKitFormBoundarykmkpXEKtCNf6UQO0--\n"
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/rules:
+    get:
+      summary: /analytics/services/v1.0/rules
+      description: /analytics/services/v1.0/rules
+      operationId: analyticsServicesV10Rules
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/rules/7bb.../status:
+    post:
+      summary: "/analytics/services/v1.0/rules/{id}/status"
+      description: "/analytics/services/v1.0/rules/{id}/status"
+      operationId: analyticsServicesV10RulesIdStatus
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/rules/a5e...:
+    delete:
+      summary: "/analytics/services/v1.0/rules/{id}"
+      description: "/analytics/services/v1.0/rules/{id}"
+      operationId: analyticsServicesV10RulesId
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/rules/webhook:
+    post:
+      summary: analytics/services/v1.0/rules/webhook
+      description: analytics/services/v1.0/rules/webhook
+      operationId: analyticsServicesV10RulesWebhook
+      requestBody:
+        content:
+          text/plain:
+            example: "{  \n   \"name\":\"My Slack WebHook\",\n   \"description\":\"\",\n   \"url\":\"https://hooks.slack.com/services/T1C.../B9...\",\n   \"method\":\"POST\",\n   \"content_type\":\"application/json\",\n   \"headers\":\"\",\n   \"request_body\":\"{\\n  \\\"attachments\\\": [\\n    {\\n      \\\"author_name\\\": \\\"Centrify Analytics\\\",\\n      \\\"author_link\\\": \\\"https://${tenant_id}-${system.podscape}.${system.domain}/analytics\\\",\\n      \\\"author_icon\\\": \\\"https://${tenant_id}-${system.podscape}.${system.domain}/analytics/ui/favicons/favicon.png\\\",\\n      \\\"title\\\": \\\"Anomaly Session Found from Centrify Analytics\\...\",\n   \"enabled\":true,\n   \"event_type\":\"Analytics.Server.AdaptiveSessionRecording\",\n   \"risk_level\":\"Low\"\n}"
+      responses:
+        "200":
+          description: ""
+  /analytics/services/v1.0/rules/webhook/test:
+    post:
+      summary: /analytics/services/v1.0/rules/webhook/test
+      description: /analytics/services/v1.0/rules/webhook/test
+      operationId: analyticsServicesV10RulesWebhookTest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content_type:
+                  type: string
+                  example: application/json
+                description:
+                  type: string
+                  example: ""
+                enabled:
+                  type: boolean
+                  example: true
+                event_type:
+                  type: string
+                  example: Analytics.Server.AdaptiveSessionRecording
+                headers:
+                  type: string
+                  example: ""
+                method:
+                  type: string
+                  example: POST
+                name:
+                  type: string
+                  example: My Slack WebHook
+                request_body:
+                  type: string
+                  example: "{\n  \"attachments\": [\n    {\n      \"autho..."
+                risk_level:
+                  type: string
+                  example: Low
+                url:
+                  type: string
+                  example: "https://hooks.slack.com/services/T0C..."
+            example:
+              content_type: application/json
+              description: ""
+              enabled: true
+              event_type: Analytics.Server.AdaptiveSessionRecording
+              headers: ""
+              method: POST
+              name: My Slack WebHook
+              request_body: "{\n  \"attachments\": [\n    {\n      \"autho..."
+              risk_level: Low
+              url: "https://hooks.slack.com/services/T0C..."
+      responses:
+        "200":
+          description: ""
+  /manage:
+    get:
+      summary: /manage
+      description: /manage
+      operationId: manage
+      parameters:
+        - name: OneTimePass
+          in: query
+          schema:
+            type: string
+            example: L3dVSFFVRl...
+        - name: msp
+          in: query
+          schema:
+            type: string
+            example: "true "
+      responses:
+        "200":
+          description: ""
+  /mobile/SendMessageToDevice:
+    post:
+      summary: /mobile/SendMessageToDevice
+      description: /mobile/SendMessageToDevice
+      operationId: mobileSendMessageToDevice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deviceIds:
+                  type: array
+                  items:
+                    type: string
+                    example: Dev1
+                  example:
+                    - Dev1
+                    - Dev2
+                message:
+                  type: string
+                  example: Test message
+            example:
+              deviceIds:
+                - Dev1
+                - Dev2
+              message: Test message
+      responses:
+        "200":
+          description: ""
+  /msp/SetTenantState:
+    post:
+      summary: /msp/SetTenantState
+      description: /msp/SetTenantState
+      operationId: mspSetTenantState
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                state:
+                  type: string
+                  example: Disabled
+                tenantId:
+                  type: string
+                  example: AAX1234
+            example:
+              state: Disabled
+              tenantId: AAX1234
+      responses:
+        "200":
+          description: ""
+  /msp/createnewsmb:
+    post:
+      summary: /msp/createnewsmb
+      description: /msp/createnewsmb
+      operationId: mspCreatenewsmb
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                adminUser:
+                  type: string
+                  example: mspadmin
+                company:
+                  type: string
+                  example: JohnTest
+                customerData:
+                  type: object
+                  properties:
+                    Company:
+                      type: string
+                      example: JohnTest
+                    Country:
+                      type: string
+                      example: United States
+                    State:
+                      type: string
+                      example: CO
+                customerName:
+                  type: string
+                  example: john.smith@centrify.com
+                initialAlias:
+                  type: string
+                  example: centrify.com
+                podRegion:
+                  type: string
+                  example: Asia-Pacific
+            example:
+              adminUser: mspadmin
+              company: JohnTest
+              customerData:
+                Company: JohnTest
+                Country: United States
+                State: CO
+              customerName: john.smith@centrify.com
+              initialAlias: centrify.com
+              podRegion: Asia-Pacific
+      responses:
+        "200":
+          description: ""
+  /msp/getavailablepodregions:
+    post:
+      summary: /msp/getavailablepodregions
+      description: /msp/getavailablepodregions
+      operationId: mspGetavailablepodregions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Args:
+                  type: object
+                  properties:
+                    Caching:
+                      type: number
+                      example: -1
+                    Limit:
+                      type: number
+                      example: 100000
+                    PageNumber:
+                      type: number
+                      example: 1
+                    PageSize:
+                      type: number
+                      example: 100000
+                    SortBy:
+                      type: string
+                      example: ""
+                    direction:
+                      type: string
+                      example: "False"
+            example:
+              Args:
+                Caching: -1
+                Limit: 100000
+                PageNumber: 1
+                PageSize: 100000
+                SortBy: ""
+                direction: "False"
+      responses:
+        "200":
+          description: ""
+  /msp/getmanagementlink:
+    post:
+      summary: /msp/getmanagementlink
+      description: /msp/getmanagementlink
+      operationId: mspGetmanagementlink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tenantId:
+                  type: string
+                  example: AAX1234
+            example:
+              tenantId: AAX1234
+      responses:
+        "200":
+          description: ""
+  /oauth2/authorize/myapplication:
+    get:
+      summary: "/oauth2/authorize/{application ID}"
+      description: "/oauth2/authorize/{application ID}"
+      operationId: oauth2AuthorizeApplicationId
+      parameters:
+        - name: debug
+          in: query
+          schema:
+            type: string
+            example: "true"
+        - name: scope
+          in: query
+          schema:
+            type: string
+            example: all
+        - name: response_type
+          in: query
+          schema:
+            type: string
+            example: code
+        - name: redirect_uri
+          in: query
+          schema:
+            type: string
+            example: "https://mytenant.centrify.com/sysinfo/dummy"
+        - name: client_id
+          in: query
+          schema:
+            type: string
+            example: test1234@centrify.com
+        - name: client_secret
+          in: query
+          schema:
+            type: string
+            example: "abc123 "
+      responses:
+        "200":
+          description: ""
+  /oauth2/introspect/YourServiceName:
+    post:
+      summary: "/oauth2/introspect/{ServiceName}"
+      description: "/oauth2/introspect/{ServiceName}"
+      operationId: oauth2IntrospectServiceName
+      requestBody:
+        content:
+          text/plain:
+            example: token=eyJhbGsdaefwsd...
+      responses:
+        "200":
+          description: ""
+  /oauth2/revoke/YourServiceName:
+    post:
+      summary: "/oauth2/revoke/{ServiceName}"
+      description: "/oauth2/revoke/{ServiceName}"
+      operationId: oauth2RevokeServiceName
+      requestBody:
+        content:
+          text/plain:
+            example: token=eyJhbGsdaefwsd...
+      responses:
+        "200":
+          description: ""
+  /oauth2/token/_genericmfa:
+    post:
+      summary: "/oauth2/token/{ServiceName}"
+      description: "/oauth2/token/{ServiceName}"
+      operationId: oauth2TokenServiceName
+      requestBody:
+        content:
+          text/plain:
+            example: scope=GenericMFA&grant_type=client_credentials
+      responses:
+        "200":
+          description: ""
+  /run:
+    get:
+      summary: /run
+      description: /run
+      operationId: run
+      parameters:
+        - name: appkey
+          in: query
+          schema:
+            type: string
+            example: 12341234-8181-401d-958a-8b98a5c40e7a
+        - name: antixss
+          in: query
+          schema:
+            type: string
+            example: OFlq4t_UbQRUqrLc2kgneQ__
+        - name: elevate
+          in: query
+          schema:
+            type: string
+            example: bRJAUCmuKEKK...
+        - name: challengeId
+          in: query
+          schema:
+            type: string
+            example: bRJAUCmuKEKK..
+      responses:
+        "200":
+          description: ""
+  /saasManage/GetScript:
+    post:
+      summary: /saasManage/GetScript
+      description: /saasManage/GetScript
+      operationId: saasManageGetScript
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appkey:
+                  type: string
+                  example: 123470ba-c9...
+            example:
+              appkey: 123470ba-c9...
+      responses:
+        "200":
+          description: ""
+  /security/taskcheck:
+    post:
+      summary: /security/taskcheck
+      description: /security/taskcheck
+      operationId: securityTaskcheck
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Task:
+                  type: string
+                  example: AddResource
+            example:
+              Task: AddResource
+      responses:
+        "200":
+          description: ""
+  /serversession/jumpterm:
+    get:
+      summary: /serversession/jumpterm
+      description: /serversession/jumpterm
+      operationId: serversessionJumpterm
+      parameters:
+        - name: mode
+          in: query
+          schema:
+            type: string
+            example: "1"
+        - name: pvacct
+          in: query
+          schema:
+            type: string
+            example: dddddddd-1d1d-473b-9ca4-cbc2d53b6061
+        - name: hostname
+          in: query
+          schema:
+            type: string
+            example: csssup-ubuntu
+        - name: height
+          in: query
+          schema:
+            type: string
+            example: "480"
+        - name: width
+          in: query
+          schema:
+            type: string
+            example: "640"
+        - name: debug
+          in: query
+          schema:
+            type: string
+            example: "false"
+        - name: token
+          in: query
+          schema:
+            type: string
+            example: ""
+        - name: host
+          in: query
+          schema:
+            type: string
+            example: abcdabcd-7461-4be6-982f-afb256770c3e
+        - name: colrows
+          in: query
+          schema:
+            type: string
+            example: ""
+        - name: title
+          in: query
+          schema:
+            type: string
+            example: "Login%20session%20csssup-ubuntu "
+      responses:
+        "200":
+          description: ""
+  /signalr/abort:
+    post:
+      summary: /signalr/abort
+      description: /signalr/abort
+      operationId: signalrAbort
+      parameters:
+        - name: transport
+          in: query
+          schema:
+            type: string
+            example: webSockets
+        - name: clientProtocol
+          in: query
+          schema:
+            type: string
+            example: "1.5"
+        - name: connectionToken
+          in: query
+          schema:
+            type: string
+            example: KoBXnm...
+        - name: connectionData
+          in: query
+          schema:
+            type: string
+            example: "%5B%7B%22name%22%3A%22rdphub%22%7D%5D"
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: ""
+  /signalr/connect:
+    get:
+      summary: /signalr/connect
+      description: /signalr/connect
+      operationId: signalrConnect
+      parameters:
+        - name: transport
+          in: query
+          schema:
+            type: string
+            example: webSockets
+        - name: clientProtocol
+          in: query
+          schema:
+            type: string
+            example: "1.5"
+        - name: connectionToken
+          in: query
+          schema:
+            type: string
+            example: VYIL...
+        - name: connectionData
+          in: query
+          schema:
+            type: string
+            example: "%5B%7B%22name%22%3A%22sshtermhub%22%7D%5D"
+        - name: tid
+          in: query
+          schema:
+            type: string
+            example: "6"
+      responses:
+        "200":
+          description: ""
+  /signalr/negotiate:
+    get:
+      summary: /signalr/negotiate
+      description: /signalr/negotiate
+      operationId: signalrNegotiate
+      parameters:
+        - name: clientProtocol
+          in: query
+          schema:
+            type: string
+            example: "1.5"
+        - name: connectionData
+          in: query
+          schema:
+            type: string
+            example: "%5B%7B%22name%22%3A%22sshtermhub%22%7D%5D"
+        - name: _
+          in: query
+          schema:
+            type: string
+            example: "1518455965170"
+      responses:
+        "200":
+          description: ""
+  /signalr/start:
+    get:
+      summary: /signalr/start
+      description: /signalr/start
+      operationId: signalrStart
+      parameters:
+        - name: transport
+          in: query
+          schema:
+            type: string
+            example: webSockets
+        - name: clientProtocol
+          in: query
+          schema:
+            type: string
+            example: "1.5"
+        - name: connectionToken
+          in: query
+          schema:
+            type: string
+            example: VYIL...
+        - name: connectionData
+          in: query
+          schema:
+            type: string
+            example: "%5B%7B%22name%22%3A%22sshtermhub%22%7D%5D"
+        - name: _
+          in: query
+          schema:
+            type: string
+            example: "1518455965171"
+      responses:
+        "200":
+          description: ""
+  /uprest/HandleAppClick:
+    get:
+      summary: /uprest/HandleAppClick
+      description: /uprest/HandleAppClick
+      operationId: uprestHandleAppClick
+      parameters:
+        - name: appkey
+          in: query
+          schema:
+            type: string
+            example: 12341234-f77b-47e7-a519-e3b5b793905a
+        - name: antixss
+          in: query
+          schema:
+            type: string
+            example: AOk1nyB5OyLW0ovo_iiyZw__
+        - name: markAppVisited
+          in: query
+          schema:
+            type: string
+            example: "true "
+      responses:
+        "200":
+          description: ""
+  /zso/CertLogin:
+    get:
+      summary: /zso/CertLogin
+      description: /zso/CertLogin
+      operationId: zsoCertLogin
+      parameters:
+        - name: redirectUrl
+          in: query
+          schema:
+            type: string
+            example: https%3A%2F%2Fcorp.mytenant.centrify.com%2Flogin%3FcloudRedirect%3DOauth2%252FAuthorize%252FTest2%253Fbounce%253D4vB7IpBgtRJKjaVwO3i4xG1%26customerId%3DAAA1234
+        - name: noLogin
+          in: query
+          schema:
+            type: string
+            example: "True"
+      responses:
+        "200":
+          description: ""
+tags: []
