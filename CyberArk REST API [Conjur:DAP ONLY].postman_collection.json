@@ -1,0 +1,1579 @@
+{
+	"info": {
+		"_postman_id": "067c37a8-b316-46ef-a409-b7608b08faa9",
+		"name": "CyberArk REST API [PUBLIC]",
+		"description": "All available requests in CyberArk Privileged Account Security Web Services for All Versions\n\n**Last Updated Version:** v11.7\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\n## New Features & Additions\n\n* Bulk Upload Accounts endpoints now available in Accounts > Bulk Upload Accounts.\n* Authentication Methods can be managed via API.\n* All Platform Management can be managed via API.\n* Initial documentation of CyberArk's IDaptive Identity Platform API is available within the \"IDaptive Identity Platform\" folder.\n\nHappy automating!\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n* [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n* [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n* [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n\n## Code Examples\n\n* [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n* [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n* [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n\n## YouTube Videos Playlist\n\n* [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n|---|---|---|\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing.  This will cause known issues._",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Conjur/DAP",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "Rotate",
+							"item": [
+								{
+									"name": "Rotate Your Own API Key",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "{{dapUsername}}",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "{{dapAPIKey}}",
+													"type": "string"
+												},
+												{
+													"key": "showPassword",
+													"value": false,
+													"type": "boolean"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{dapHostname}}/authn/{{dapAccount}}/api_key",
+											"host": [
+												"{{dapHostname}}"
+											],
+											"path": [
+												"authn",
+												"{{dapAccount}}",
+												"api_key"
+											]
+										},
+										"description": "Any role can rotate its own API key. The name and password or current API key of the role must be provided via HTTP Basic Authorization.\n\nNote that the body of the request must be the empty string."
+									},
+									"response": []
+								},
+								{
+									"name": "Rotate A Host API Key",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "{{dapUsername}}",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "{{dapAPIKey}}",
+													"type": "string"
+												},
+												{
+													"key": "showPassword",
+													"value": false,
+													"type": "boolean"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{dapHostname}}/authn/{{dapAccount}}/api_key?role=host:{{dapHostID}}",
+											"host": [
+												"{{dapHostname}}"
+											],
+											"path": [
+												"authn",
+												"{{dapAccount}}",
+												"api_key"
+											],
+											"query": [
+												{
+													"key": "role",
+													"value": "host:{{dapHostID}}"
+												}
+											]
+										},
+										"description": "Rotates the API key of a host you can update.\n\nNote that the body of the request must be the empty string."
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"disabled": false,
+									"script": {
+										"id": "1f5d5193-1fe9-44c6-b5e7-698d7b2213f3",
+										"exec": [
+											"var str=responseBody",
+											"postman.setEnvironmentVariable(\"dapAPIKey\", str);"
+										],
+										"type": "text/javascript"
+									},
+									"listen": "test"
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{dapUsername}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{dapPassword}}",
+											"type": "string"
+										},
+										{
+											"key": "showPassword",
+											"value": false,
+											"type": "boolean"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/authn/{{dapAccount}}/login",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"authn",
+										"{{dapAccount}}",
+										"login"
+									]
+								},
+								"description": "Gets the API key of a user given the username and password via HTTP Basic Authentication.\n\nPasswords are stored in the Conjur database using bcrypt with a work factor of 12. Therefore, login is a fairly expensive operation. However, once the API key is obtained, it may be used to inexpensively obtain access tokens by calling the Authenticate method. An access token is required to use most other parts of the Conjur API.\n\nYour HTTP/REST client probably provides HTTP basic authentication support. For example, curl and all of the Conjur client libraries provide this.\n\nNote that machine roles (Hosts) do not have passwords and do not need to login."
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": ""
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Feb 2020 01:43:53 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8f35b6e793c18b15795ed7cdc1b71529\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "a2eba1d5-0182-400f-91ed-35af70261f15"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.550903"
+										}
+									],
+									"cookie": [],
+									"body": "3nqbsaa36jpw802fgzznk2d976t11wfzha12awdrfjrmp1qb28jcfz1"
+								}
+							]
+						},
+						{
+							"name": "Whoami",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{dapHostname}}/whoami",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"whoami"
+									]
+								},
+								"description": "WhoAmI provides information about the client making an API request.\n\nIt can be used to help troubleshoot configuration by verifying authentication and the client IP address for audit and network access restrictions. For more information, see [Host Attributes](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Operations/Policy/statement-ref-host.htm#Attribut)."
+							},
+							"response": []
+						},
+						{
+							"name": "Authenticate",
+							"event": [
+								{
+									"script": {
+										"id": "25e3373d-6cd9-4a07-9cc1-60dbef05b6bd",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									},
+									"listen": "prerequest",
+									"disabled": false
+								},
+								{
+									"script": {
+										"id": "e08cbf13-604e-47f7-b8b9-d534b49b4160",
+										"exec": [
+											"var str=btoa(responseBody)",
+											"postman.setEnvironmentVariable(\"dapToken\", str);"
+										],
+										"type": "text/javascript"
+									},
+									"disabled": false,
+									"listen": "test"
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{dapAPIKey}}",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/authn/{{dapAccount}}/{{dapUsername}}/authenticate",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"authn",
+										"{{dapAccount}}",
+										"{{dapUsername}}",
+										"authenticate"
+									]
+								},
+								"description": "Gets a short-lived access token, which can be used to authenticate requests to (most of) the rest of the Conjur API. A client can obtain an access token by presenting a valid login name and API key.\n\nThe login must be URL encoded. For example, `alice@devops` must be encoded as `alice%40devops`.\n\nFor host authentication, the login is the host ID with the prefix `host/`. For example, the host webserver would login as `host/webserver`, and would be encoded as `host%2Fwebserver`.\n\nFor API usage, the access token is ordinarily passed as an HTTP Authorization “Token” header.\n\n**Note: Base64-encode the JSON Web Token (JWT) returned in the response for use as the {{dapToken}}.**"
+							},
+							"response": []
+						},
+						{
+							"name": "Change Your Password",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{dapAPIKey}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{dapUsername}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{{dapNewPassword}}",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/authn/{{dapAccount}}/password",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"authn",
+										"{{dapAccount}}",
+										"password"
+									]
+								},
+								"description": "Changes a user’s password. You must provide the login name and current password or API key of the user whose password is to be updated in an HTTP Basic Authentication header. Also replaces the user’s API key with a new securely generated random value. You can fetch the new API key by using Login.\n\nYour HTTP/REST client probably provides HTTP basic authentication support. For example, curl and all of the Conjur client libraries provide this.\n\nNote that machine roles (Hosts) do not have passwords. They authenticate using their API keys, while passwords are only used by human users."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Secrets",
+					"item": [
+						{
+							"name": "Batch Retrieval",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{dapHostname}}/secrets?variable_ids=cyberarkdemo:variable:ec2_deploy%2Faccess_key_id,cyberarkdemo:variable:ec2_deploy%2Faccess_key_secret",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"secrets"
+									],
+									"query": [
+										{
+											"key": "variable_ids",
+											"value": "cyberarkdemo:variable:ec2_deploy%2Faccess_key_id,cyberarkdemo:variable:ec2_deploy%2Faccess_key_secret"
+										}
+									]
+								},
+								"description": "Fetches multiple secret values in one invocation. It’s faster to fetch secrets in batches than to fetch them one at a time."
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve A Secret",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text",
+										"key": "Authorization"
+									}
+								],
+								"url": {
+									"raw": "{{dapHostname}}/secrets/{{dapAccount}}/variable/{{dapSecretID}}",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"secrets",
+										"{{dapAccount}}",
+										"variable",
+										"{{dapSecretID}}"
+									]
+								},
+								"description": "Fetches the value of a secret from the specified Variable. The latest version will be retrieved unless the version parameter is specified. The twenty most recent secret versions are retained.\n\nThe secret data is returned in the response body.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources."
+							},
+							"response": []
+						},
+						{
+							"name": "Add A Secret",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"type": "text",
+										"value": "Token token=\"{{dapToken}}\"",
+										"key": "Authorization"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{dapSecretValue}}",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/secrets/{{dapAccount}}/variable/{{dapSecretID}}",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"secrets",
+										"{{dapAccount}}",
+										"variable",
+										"{{dapSecretID}}"
+									]
+								},
+								"description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources."
+							},
+							"response": []
+						},
+						{
+							"name": "Add Kubernetes CA Certificate",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "-----BEGIN CERTIFICATE-----\nMIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl\ncm5ldGVzMB4XDTE5MDMxODE5NTE0NloXDTI5MDMxNTE5NTE0NlowFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPSr\ni+aUjWdfe7I+snYG2CXEgvP8DVVbLtJn/MzWiIiuqqT14ozkrL7u+a/jLw0GLv4e\nbPXUdVy6Ob80DEuTJZ9Jb+MOPSP7Xsce9nPMwUPN17ucH+m4BLYC/60PuZkrQF95\neLQ38qoQIgnViYYnpyNLI5lY23aNLsqHK6Hk/DgzrfQTaBeIqpsvu0/QKew2Tjq2\n7gRhd8ZRRmwquO/MNyOBxkQ/B0iBq20ZwOoG/3UMw3gynJEcMwGlFcmXETxxxtnj\nlJIGNg3c0L1Lk4CRCRDoi00zE27heHdNXS0nhXSvOnNSM3Pjcr92kLg7NArBv1Oo\ncLDoAeFvt9Hmoc0nwEUCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB\n/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAMEsF+w2wmLGl9EQ0ohtVBMQivmo\nHWsmchSRGoIo9U3Ns+z40Lm7u0qD9mKi3hFS7s73NioRF3XWKZZ2g0BxhUfiX7oe\nKlEN+p8WL2ld4ELHzI+xd5TfYJadn4QYrY0joE65X74TCuCe9quoFtDK7sENn6+R\njkh821YJJH3qy56rwmxmXcmwdtStFoFiF93RLLpBTfKvLiTnIF3Yj5Kf9qcRBd9Z\nKMWaLCavB2OWoE31SfGGetgi5grJxoUcRxVGZX4F/nyIjNEvly/nfg1X0igfn0fz\nB8U+sRYaJN6sD/lFV68qgbXH+BaV/Y+hyrTLLtoPoCXzO16vavVsJSHhvVk=\n-----END CERTIFICATE-----",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/secrets/{{dapAccount}}/variable/{{dapSecretK8sCaCert}}",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"secrets",
+										"{{dapAccount}}",
+										"variable",
+										"{{dapSecretK8sCaCert}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Kubernetes Service Account Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkYXAiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiY29uanVyLWNsdXN0ZXItdG9rZW4tYm1ubTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY29uanVyLWNsdXN0ZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI5MDhkN2ExNy1hMjdkLTExZTktYmNkYy0wMjUwMDAwMDAwMDEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGFwOmNvbmp1ci1jbHVzdGVyIn0.VRCYTFoweZb2epcMvOSeTmdyEYzWF595YFAN4aWVBXP5YD__pJ1mRhRieL5H-k0fXgBKznTHXBg8qZVU5Cf1ha9nzyefnnorQQ6DDMGrw_3gZ6zoiIVKr94K9il_wZ7fjYkOgdJCnCmIk_Mnla-4THkQmIhRRIusqtXlfwk9GryHavr4ZqYREJkF8vQ3C6I8mRPSxkSyhJGGDDKEqoW7tM6Dy2D50lP6olUWgHP9o8M2niPv-1FIdn96Ulvwhdx6a87VOqfPIaQKgwDMIa3DkAl-BX2rL5NhdsctmlGR_4Ygz0rSOfwK0_Whfc3vp9ox5tUA5aPcUh465be4u1kawg",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/secrets/{{dapAccount}}/variable/{{dapSecretK8sServiceAccountToken}}",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"secrets",
+										"{{dapAccount}}",
+										"variable",
+										"{{dapSecretK8sServiceAccountToken}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Policy",
+					"item": [
+						{
+							"name": "Append to a Policy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "- !user george",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/policies/{{dapAccount}}/policy/{{dapPolicyID}}",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"policies",
+										"{{dapAccount}}",
+										"policy",
+										"{{dapPolicyID}}"
+									]
+								},
+								"description": "Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error."
+							},
+							"response": []
+						},
+						{
+							"name": "AWS authn-iam Policy Append to Root Policy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5c61596f-f2c3-44b4-b24a-549e5fe17a76",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									},
+									"disabled": false
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/policies/{{dapAccount}}/policy/root",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"policies",
+										"{{dapAccount}}",
+										"policy",
+										"root"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Kubernetes authn-k8s Policy Append to Root Policy",
+							"event": [
+								{
+									"script": {
+										"id": "5c61596f-f2c3-44b4-b24a-549e5fe17a76",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									},
+									"disabled": false,
+									"listen": "prerequest"
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"type": "text",
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "- !policy\n  id: authn-k8s/k8s-follower\n  body:\n  - !webservice\n  \n  - !variable ca/key\n  \n  - !variable ca/cert\n\n  - !policy\n    id: apps\n    body:\n    - !layer\n\n    - &authenticated-resources-k8s\n      - !host\n        id: dap/service_account/conjur-cluster\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          kubernetes: \"true\"\n\n      - !host\n        id: demoapps/deployment/jenkins\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          kubernetes: \"true\"\n\n      - !host\n        id: demoapps/deployment/python\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          kubernetes: \"true\"\n\n      - !host\n        id: demoapps/deployment/secretless\n        annotations:\n          kubernetes/authentication-container-name: secretless-broker\n          kubernetes: \"true\"\n\n      - !host\n        id: demoapps/deployment/summon\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          kubernetes: \"true\"\n\n      - !host\n        id: demoapps/deployment/curl\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          kubernetes: \"true\"\n\n      - !host\n        id: demoapps/deployment/k8ssecretdap\n        annotations:\n          kubernetes/authentication-container-name: cyberark-secrets-provider\n          kubernetes: \"true\"\n\n    - !grant\n      role: !layer\n      members: *authenticated-resources-k8s\n      \n  - !permit\n    resource: !webservice\n    privilege: [ read, authenticate ]\n    role: !layer apps\n\n\n\n- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/policies/{{dapAccount}}/policy/root",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"policies",
+										"{{dapAccount}}",
+										"policy",
+										"root"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OpenShift authn-k8s Policy Append to Root Policy",
+							"event": [
+								{
+									"script": {
+										"id": "5c61596f-f2c3-44b4-b24a-549e5fe17a76",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									},
+									"listen": "prerequest",
+									"disabled": false
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"type": "text",
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "- !policy\n  id: authn-k8s/okd-follower\n  body:\n  - !webservice\n  \n  - !variable ca/key\n  \n  - !variable ca/cert\n\n  - !policy\n    id: apps\n    body:\n    - !layer\n\n    - &authenticated-resources-okd\n      - !host\n        id: dap/service_account/conjur-cluster\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n          \n      - !host\n        id: demoapps/deployment/jenkins\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/secretless\n        annotations:\n          kubernetes/authentication-container-name: secretless-broker\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/summon\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/pyton\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/curl\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n          \n      - !host\n        id: demoapps/deployment/k8s_secret\n        annotations:\n          kubernetes/authentication-container-name: cyberark-secrets-provider\n          openshift: \"true\"\n\n    - !grant\n      role: !layer\n      members: *authenticated-resources-okd\n      \n  - !permit\n    resource: !webservice\n    privilege: [ read, authenticate ]\n    role: !layer apps\n\n- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/policies/{{dapAccount}}/policy/root",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"policies",
+										"{{dapAccount}}",
+										"policy",
+										"root"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Seed Follower Service Policy Append to Root Policy",
+							"event": [
+								{
+									"disabled": false,
+									"script": {
+										"id": "5c61596f-f2c3-44b4-b24a-549e5fe17a76",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									},
+									"listen": "prerequest"
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"type": "text",
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/okd-follower/apps/dap/service_account/conjur-cluster",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/policies/{{dapAccount}}/policy/root",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"policies",
+										"{{dapAccount}}",
+										"policy",
+										"root"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace Policy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5c61596f-f2c3-44b4-b24a-549e5fe17a76",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									},
+									"disabled": false
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"value": "Token token=\"{{dapToken}}\"",
+										"key": "Authorization",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "---\n- !user mike\n\n- !user john\n\n- !user paul\n\n- !user eva\n\n- !group admins\n\n- !group devops\n\n- !grant\n  role: !group admins\n  members:\n   - !user mike\n   - !user eva\n\n- !grant\n  role: !group devops\n  members:\n   - !user john\n   - !user paul\n   - !group admins\n   - !user admin\n\n- !permit\n  role: !group admins\n  privileges:\n   - read\n   - update\n   - create\n  resources:\n   - !policy root\n\n- !policy\n  id: conjur\n  owner: !group /devops\n\n- !policy\n  id: secrets\n  owner: !group /devops\n  \n- !policy\n  id: ansible\n  owner: !group /devops",
+									"options": {}
+								},
+								"url": {
+									"raw": "{{dapHostname}}/policies/{{dapAccount}}/policy/{{dapPolicyID}}",
+									"host": [
+										"{{dapHostname}}"
+									],
+									"path": [
+										"policies",
+										"{{dapAccount}}",
+										"policy",
+										"{{dapPolicyID}}"
+									]
+								},
+								"description": "Loads or replaces a Conjur policy document.\n\nAny policy data which already exists on the server but is **not** explicitly specified in the new policy file **will be deleted**."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Health",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {}
+						},
+						"url": {
+							"raw": "https://dap.joegarcia.dev/health",
+							"protocol": "https",
+							"host": [
+								"dap",
+								"joegarcia",
+								"dev"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Information",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dapHostname}}/info",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK ",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:33:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1250"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"release\": \"11.1\",\n    \"version\": \"5.6.0\",\n    \"services\": {\n        \"evoke\": {\n            \"desired\": \"i\",\n            \"status\": \"i\",\n            \"err\": null,\n            \"name\": \"conjur-evoke\",\n            \"version\": \"5.14.2.0-e5cfc56\",\n            \"arch\": \"amd64\"\n        },\n        \"ldap-sync\": {\n            \"desired\": \"i\",\n            \"status\": \"i\",\n            \"err\": null,\n            \"name\": \"conjur-ldap-sync\",\n            \"version\": \"2.1.4.0-3c52a79\",\n            \"arch\": \"amd64\"\n        },\n        \"possum\": {\n            \"desired\": \"i\",\n            \"status\": \"i\",\n            \"err\": null,\n            \"name\": \"conjur-possum\",\n            \"version\": \"1.4.2.0-982edbd\",\n            \"arch\": \"amd64\"\n        },\n        \"ui\": {\n            \"desired\": \"i\",\n            \"status\": \"i\",\n            \"err\": null,\n            \"name\": \"conjur-ui\",\n            \"version\": \"2.10.15.0-5289d616\",\n            \"arch\": \"amd64\"\n        }\n    },\n    \"role\": \"master\",\n    \"configuration\": {\n        \"conjur\": {\n            \"role\": \"master\",\n            \"account\": \"cyberarkdemo\",\n            \"hostname\": \"dap.joegarcia.dev\",\n            \"master_altnames\": [\n                \"dap.joegarcia.dev\",\n                \"localhost\",\n                \"conjur\"\n            ]\n        }\n    },\n    \"authenticators\": {\n        \"installed\": [\n            \"authn\",\n            \"authn-iam\",\n            \"authn-k8s\",\n            \"authn-ldap\",\n            \"authn-oidc\"\n        ],\n        \"configured\": [\n            \"authn\"\n        ],\n        \"enabled\": [\n            \"authn\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Policies",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"value": "Token token=\"{{dapToken}}\"",
+								"type": "text",
+								"key": "Authorization"
+							}
+						],
+						"url": {
+							"raw": "{{dapHostname}}/resources/{{dapAccount}}?kind=policy",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"resources",
+								"{{dapAccount}}"
+							],
+							"query": [
+								{
+									"key": "kind",
+									"value": "policy"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:48:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6ddd63463f5d83b718678ba329ee13f3\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "acde4887-2d84-448c-9a30-fe436a9f404a"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.006684"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n        \"id\": \"cyberarkdemo:policy:root\",\n        \"owner\": \"cyberarkdemo:user:admin\",\n        \"permissions\": [],\n        \"annotations\": [],\n        \"policy_versions\": [\n            {\n                \"version\": 1,\n                \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n                \"policy_text\": \"- !policy\\n  id: ec2_deploy\\n\",\n                \"policy_sha256\": \"074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62\",\n                \"finished_at\": \"2019-09-25T16:38:16.559+00:00\",\n                \"id\": \"cyberarkdemo:policy:root\",\n                \"role\": \"cyberarkdemo:user:admin\"\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n        \"id\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"owner\": \"cyberarkdemo:user:admin\",\n        \"policy\": \"cyberarkdemo:policy:root\",\n        \"permissions\": [],\n        \"annotations\": [],\n        \"policy_versions\": [\n            {\n                \"version\": 1,\n                \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n                \"policy_text\": \"- !host\\n  id: ansible-tower\\n  annotations:\\n    ansible: true\\n\\n- !variable access_key_id\\n- !variable access_key_secret\\n\\n- !permit\\n  role: !host ansible-tower\\n  privileges: [ read, execute ]\\n  resources:\\n    - !variable access_key_id\\n    - !variable access_key_secret\\n\",\n                \"policy_sha256\": \"99dd5680b169825d42e170938f86723b6c5f0f06a564b4629aed56fbf6c614e7\",\n                \"finished_at\": \"2019-09-25T16:40:42.452+00:00\",\n                \"id\": \"cyberarkdemo:policy:ec2_deploy\",\n                \"role\": \"cyberarkdemo:user:admin\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "List Everything",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11e0a9c5-ae4b-4a35-8ef1-0baf7229fa55",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							},
+							"disabled": false
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"value": "Token token=\"{{dapToken}}\"",
+								"type": "text",
+								"key": "Authorization"
+							}
+						],
+						"url": {
+							"raw": "{{dapHostname}}/resources/{{dapAccount}}",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"resources",
+								"{{dapAccount}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:49:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83711a7f4234325be0940f3667f471c0\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "c4b8fbcb-0a32-4cfa-a85d-47b0832aea71"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.008289"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n        \"id\": \"cyberarkdemo:policy:root\",\n        \"owner\": \"cyberarkdemo:user:admin\",\n        \"permissions\": [],\n        \"annotations\": [],\n        \"policy_versions\": [\n            {\n                \"version\": 1,\n                \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n                \"policy_text\": \"- !policy\\n  id: ec2_deploy\\n\",\n                \"policy_sha256\": \"074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62\",\n                \"finished_at\": \"2019-09-25T16:38:16.559+00:00\",\n                \"id\": \"cyberarkdemo:policy:root\",\n                \"role\": \"cyberarkdemo:user:admin\"\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n        \"id\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"owner\": \"cyberarkdemo:user:admin\",\n        \"policy\": \"cyberarkdemo:policy:root\",\n        \"permissions\": [],\n        \"annotations\": [],\n        \"policy_versions\": [\n            {\n                \"version\": 1,\n                \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n                \"policy_text\": \"- !host\\n  id: ansible-tower\\n  annotations:\\n    ansible: true\\n\\n- !variable access_key_id\\n- !variable access_key_secret\\n\\n- !permit\\n  role: !host ansible-tower\\n  privileges: [ read, execute ]\\n  resources:\\n    - !variable access_key_id\\n    - !variable access_key_secret\\n\",\n                \"policy_sha256\": \"99dd5680b169825d42e170938f86723b6c5f0f06a564b4629aed56fbf6c614e7\",\n                \"finished_at\": \"2019-09-25T16:40:42.452+00:00\",\n                \"id\": \"cyberarkdemo:policy:ec2_deploy\",\n                \"role\": \"cyberarkdemo:user:admin\"\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [],\n        \"annotations\": [\n            {\n                \"name\": \"ansible\",\n                \"value\": \"true\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"restricted_to\": []\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:variable:ec2_deploy/access_key_id\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [\n            {\n                \"privilege\": \"read\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            },\n            {\n                \"privilege\": \"execute\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"annotations\": [],\n        \"secrets\": [\n            {\n                \"version\": 1,\n                \"expires_at\": null\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:variable:ec2_deploy/access_key_secret\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [\n            {\n                \"privilege\": \"read\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            },\n            {\n                \"privilege\": \"execute\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"annotations\": [],\n        \"secrets\": [\n            {\n                \"version\": 1,\n                \"expires_at\": null\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "List Variables",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"value": "Token token=\"{{dapToken}}\"",
+								"key": "Authorization",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{dapHostname}}/resources/{{dapAccount}}?kind=variable",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"resources",
+								"{{dapAccount}}"
+							],
+							"query": [
+								{
+									"key": "kind",
+									"value": "variable"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"type": "text",
+										"key": "Authorization",
+										"value": "Token token=\"{{dapToken}}\"",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:49:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c75ae765eb1fb220fef723f6cfb59ff6\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "467f82e4-3667-44ef-8c9c-9dd90703ab4f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.006914"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:variable:ec2_deploy/access_key_id\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [\n            {\n                \"privilege\": \"read\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            },\n            {\n                \"privilege\": \"execute\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"annotations\": [],\n        \"secrets\": [\n            {\n                \"version\": 1,\n                \"expires_at\": null\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:variable:ec2_deploy/access_key_secret\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [\n            {\n                \"privilege\": \"read\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            },\n            {\n                \"privilege\": \"execute\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"annotations\": [],\n        \"secrets\": [\n            {\n                \"version\": 1,\n                \"expires_at\": null\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "List Layers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token token=\"{{dapToken}}\""
+							}
+						],
+						"url": {
+							"raw": "{{dapHostname}}/resources/{{dapAccount}}?kind=layer",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"resources",
+								"{{dapAccount}}"
+							],
+							"query": [
+								{
+									"key": "kind",
+									"value": "layer"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK - No Layers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"type": "text",
+										"value": "Token token=\"{{dapToken}}\"",
+										"key": "Authorization",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:50:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d751713988987e9331980363e24189ce\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "458d7f4b-51e5-4328-b988-43a1f11bddca"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.006812"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "List Hosts",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token token=\"{{dapToken}}\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{dapHostname}}/resources/{{dapAccount}}?kind=host",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"resources",
+								"{{dapAccount}}"
+							],
+							"query": [
+								{
+									"key": "kind",
+									"value": "host"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"type": "text",
+										"value": "Token token=\"{{dapToken}}\"",
+										"key": "Authorization",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:50:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fb1eff58d7d0d68a8dffcff8a2f54a2c\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "d403c25a-5cef-403e-9e04-b774bcf57d6f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.006598"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [],\n        \"annotations\": [\n            {\n                \"name\": \"ansible\",\n                \"value\": \"true\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"restricted_to\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "List Groups",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"value": "Token token=\"{{dapToken}}\"",
+								"type": "text",
+								"key": "Authorization"
+							}
+						],
+						"url": {
+							"raw": "{{dapHostname}}/resources/{{dapAccount}}?kind=group",
+							"host": [
+								"{{dapHostname}}"
+							],
+							"path": [
+								"resources",
+								"{{dapAccount}}"
+							],
+							"query": [
+								{
+									"key": "kind",
+									"value": "group"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK - No Groups",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"type": "text",
+										"value": "Token token=\"{{dapToken}}\"",
+										"key": "Authorization",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2020 01:51:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d751713988987e9331980363e24189ce\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "fdb29fc3-759b-4c7e-a3b8-f3bb72aaac54"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.004353"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer"
+			},
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"disabled": false,
+			"listen": "prerequest",
+			"script": {
+				"id": "766a3a87-c222-46a3-b5fe-6f3cd95f21f6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"disabled": false,
+			"listen": "test",
+			"script": {
+				"id": "47cfa652-d7ac-41ed-b4fc-44f38661a23a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
