@@ -1,125 +1,65 @@
 ## CyberArk REST API
 
-All available requests in CyberArk Privileged Account Security (PAS) REST API.
+All available requests in CyberArk Privileged Account Security Web Services
 
-LAST UPDATED: v11.7
+**Last Updated Version:** v12.2
 
-**THIS IS UNOFFICIAL DOCUMENTATION**
+# THIS IS UNOFFICIAL DOCUMENTATION
 
-### Getting Started Guide
+## New Features & Additions
 
-[Getting Started with REST Using Postman](Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)
+*   Removed all v1 API endpoints
+*   Added known undocumented API endpoints
+*   Updated Environment template for easier use
+*   PKI & PKIPN Authentication
+    
 
-### Postman Live Documentation
+Happy automating!
 
-[View CyberArk's Live Documentation and Postman Collection](http://cybr.rocks/RESTAPI)
+## Getting Started Guide
 
-### Get Accounts via REST - PowerShell Example
+[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)
 
-This example demonstrates how to create a function in PowerShell for each REST call necessary and how to handle responses.
+## Community Tools
 
-```powershell
-function PASREST-Logon {
+*   [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API
+*   [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)
+*   [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)
+    
 
-    # Declaration
-    $webServicesLogon = "$PVWA_URL/PasswordVault/api/auth/ldap/logon"
+## Code Examples
 
-    # Authentication
-    $bodyParams = @{username = "Svc_CyberArkAPI"; password = "password"} | ConvertTo-JSON
+*   [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)
+*   [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)
+*   [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)
+    
 
-    # Execution
-    try {
-        $logonResult = Invoke-RestMethod -Uri $webServicesLogon -Method POST -ContentType "application/json" -Body $bodyParams -ErrorVariable logonResultErr
-        Return $logonResult.Trim('"')
-    }
-    catch {
-        Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value__
-        Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
-        Write-Host "Response: " $_.Exception.Message
-        Return $false
-    }
-}
+## YouTube Videos Playlist
 
-function PASREST-Logoff ([string]$Authorization) {
+*   [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)
+    
 
-    # Declaration
-    $webServicesLogoff = "$PVWA_URL/PasswordVault/api/auth/logoff"
+## Maintainer
 
-    # Authorization
-    $headerParams = @{}
-    $headerParams.Add("Authorization",$Authorization)
+[Joe Garcia](https://github.com/infamousjoeg)
 
-    # Execution
-    try {
-        $logoffResult = Invoke-RestMethod -Uri $webServicesLogoff -Method POST -ContentType "application/json" -Header $headerParams -ErrorVariable logoffResultErr
-        Return $true
-    }
-    catch {
-        Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value__
-        Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
-        Write-Host "Response: " $_.Exception.Message
-        Return $false
-    }
-}
+[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)
 
-function PASREST-GetAccount ([string]$Authorization) {
+## Status Codes
 
-    # Declaration
-    $webServicesGA = "$PVWA_URL/PasswordVault/api/Accounts?Keywords=$Keywords&Safe=$Safe"
+| Status Name | Status Code | Status Description |
+| --- | --- | --- |
+| Success | 200 | The request succeeded. The actual response will depend on the request method used. |
+| Created | 201 | The request was fulfilled and resulted in a new resource being created. |
+| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |
+| Unauthorized | 401 | The request requires user authentication. |
+| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |
+| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |
+| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |
+| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |
 
-    # Authorization
-    $headerParams = @{}
-    $headerParams.Add("Authorization",$sessionID)
+*NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues.*
 
-    # Execution
-    try {
-        $getAccountResult = Invoke-RestMethod -Uri $webServicesGA -Method GET -ContentType "application/json" -Headers $headerParams -ErrorVariable getAccountResultErr
-        return $getAccountResult
-    }
-    catch {
-        Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__
-        Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
-        Write-Host "Response:" $_.Exception.Message
-        return $false
-    }
-}
-
-# Global Declaration
-$PVWA_URL = "https://components.cyberark.local"
-$Keywords = "TestAccount"
-$Safe = "TestSafe"
-
-# Execute Logon
-$sessionID = PASREST-Logon
-
-# Error Handling for Logon
-if ($sessionID -eq $false) {Write-Host "[ERROR] There was an error logging into the Vault." -ForegroundColor Red; break}
-else {Write-Host "[INFO] Logon completed successfully." -ForegroundColor DarkYellow}
-
-# Execute Get Accounts
-$getAccountResult = PASREST-GetAccount -Authorization $sessionID
-if ($getAccountResult -eq $false) {Write-Host "[ERROR] There was an error getting the account from the Vault."-ForegroundColor Red; break}
-else {$getAccountResult.accounts | Format-Table -Property AccountID}
-
-# Execute Logoff
-$logoffResult = PASREST-Logoff -Authorization $sessionID
-if ($logoffResult -eq $true) {Write-Host "[INFO] Logoff completed successfully." -ForegroundColor DarkYellow}
-else {Write-Host "[ERROR] Logoff was not completed successfully.  Please logout manually using Authorization token:" $sessionID -ForegroundColor Red}
-```
-
-### Support or Contact
-
-**SYMPTOM:**
-A delete request was sent to the Vault, and the following response was received: `405 Method not allowed`.
-
-**PROBLEM:**
-The `DELETE`/`PUT` command is handled by the WebDAV instead of the Restful services.
-
-**SOLUTION:**
-1. Edit the PVWA's `web.config` file.
-2. Search for `<add name= "WebDAV" Path=......>`
-3. In that line search for the `DELETE` & `PUT` command and delete them, leaving the other ones.
-4. Save the file
-5. Restart IIS
+## Community
 
 Having trouble with CyberArk's REST API? Check out the [/r/CyberArk subreddit on Reddit](https://reddit.com/r/CyberArk)!
