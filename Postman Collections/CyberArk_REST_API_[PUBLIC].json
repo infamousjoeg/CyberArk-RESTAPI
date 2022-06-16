@@ -11031,7 +11031,7 @@
 									"mode": "raw",
 									"raw": "{\n    \"memberName\": \"JonDoe\",\n    \"searchIn\": \"Vault\",\n    \"membershipExpirationDate\": 123456,\n    \"permissions\": {\n        \"useAccounts\": false,\n        \"retrieveAccounts\": false,\n        \"listAccounts\": false,\n        \"addAccounts\": false,\n        \"updateAccountContent\": false,\n        \"updateAccountProperties\": false,\n        \"initiateCPMAccountManagementOperations\": false,\n        \"specifyNextAccountContent\": false,\n        \"renameAccounts\": false,\n        \"deleteAccounts\": false,\n        \"unlockAccounts\": false,\n        \"manageSafe\": false,\n        \"manageSafeMembers\": false,\n        \"backupSafe\": false,\n        \"viewAuditLog\": false,\n        \"viewSafeMembers\": false,\n        \"accessWithoutConfirmation\": false,\n        \"createFolders\": false,\n        \"deleteFolders\": false,\n        \"moveAccountsAndFolders\": false,\n        \"requestsAuthorizationLevel1\": false,\n        \"requestsAuthorizationLevel2\": false\n    }\n}"
 								},
-								"url": "{{pasBaseURL}}/PasswordVault/api/Safes/{{pasSafe}}}/Members",
+								"url": "{{pasBaseURL}}/PasswordVault/api/Safes/{{pasSafe}}/Members",
 								"description": "This method adds an existing user or group as a Safe member.\n\nThe user who runs this web service requires the following permissions in the Vault:\n\n* Manage Safe Members"
 							},
 							"response": []
