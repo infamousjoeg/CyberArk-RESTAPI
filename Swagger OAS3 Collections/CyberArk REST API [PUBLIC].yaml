@@ -26784,18 +26784,10 @@ definitions:
       owner:
         type: string
       permissions:
-        example:
-        - privilege: read
-          role: cyberarkdemo:host:ec2_deploy/ansible-tower
-          policy: cyberarkdemo:policy:ec2_deploy
         type: array
         items:
           $ref: '#/definitions/Permission'
       annotations:
-        example:
-        - name: ansible
-          value: 'true'
-          policy: cyberarkdemo:policy:ec2_deploy
         type: array
         items:
           $ref: '#/definitions/Annotation'
@@ -30346,7 +30338,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1655396663
+      Reason: Automatically accepted via CyberArk Web Services on 1656638838
     type: object
     properties:
       Reason:
@@ -30356,7 +30348,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1655396663
+      Reason: Rejected automatically by CyberArk Web Services on 1656638838
     type: object
     properties:
       Reason:
