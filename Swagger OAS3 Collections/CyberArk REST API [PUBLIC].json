@@ -20117,26 +20117,12 @@
           "type": "string"
         },
         "permissions": {
-          "example": [
-            {
-              "privilege": "read",
-              "role": "cyberarkdemo:host:ec2_deploy/ansible-tower",
-              "policy": "cyberarkdemo:policy:ec2_deploy"
-            }
-          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Permission"
           }
         },
         "annotations": {
-          "example": [
-            {
-              "name": "ansible",
-              "value": "true",
-              "policy": "cyberarkdemo:policy:ec2_deploy"
-            }
-          ],
           "type": "array",
           "items": {
             "$ref": "#/definitions/Annotation"
@@ -24971,7 +24957,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1655396664"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1656638839"
       },
       "type": "object",
       "properties": {
@@ -24986,7 +24972,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1655396664"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1656638839"
       },
       "type": "object",
       "properties": {
