@@ -4386,7 +4386,7 @@
 									"script": {
 										"id": "e08cbf13-604e-47f7-b8b9-d534b49b4160",
 										"exec": [
-											"postman.setEnvironmentVariable(\"conjurToken\", responseBody);"
+											"postman.setEnvironmentVariable(\"conjurSessionToken\", responseBody);"
 										],
 										"type": "text/javascript"
 									},
