@@ -1800,11 +1800,11 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "7245fe3b-8854-4054-9497-52e44178cbca",
 												"exec": [
 													"pm.environment.set(\"identityToken\", pm.response.json().Result.Token);"
 												],
-												"type": "text/javascript",
-												"id": "7245fe3b-8854-4054-9497-52e44178cbca"
+												"type": "text/javascript"
 											}
 										}
 									],
@@ -1826,9 +1826,9 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"SessionId\": \"{{session_id}}\",\n    \"MechanismId\": \"{{mechanism_id_2}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"<email code>\"\n}"
+											"raw": "{\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"<email code>\"\n}"
 										},
-										"url": "https://aaz5779.id.integration-cyberark.cloud/Security/AdvanceAuthentication"
+										"url": "{{identityTenantURL}}/Security/AdvanceAuthentication"
 									},
 									"response": []
 								},
