@@ -1117,245 +1117,6 @@
         }
       }
     },
-    "/secrets": {
-      "get": {
-        "description": "Fetches multiple secret values in one invocation. It’s faster to fetch secrets in batches than to fetch them one at a time.",
-        "summary": "Batch Retrieval",
-        "tags": [
-          "Secrets"
-        ],
-        "operationId": "BatchRetrieval",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "variable_ids",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/secrets/{conjurAccount}/variable/{conjurSecretID}": {
-      "get": {
-        "description": "Fetches the value of a secret from the specified Variable. The latest version will be retrieved unless the version parameter is specified. The twenty most recent secret versions are retained.\n\nThe secret data is returned in the response body.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
-        "summary": "Retrieve A Secret",
-        "tags": [
-          "Secrets"
-        ],
-        "operationId": "RetrieveASecret",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "conjurAccount",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "conjurSecretID",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      },
-      "post": {
-        "description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
-        "summary": "Add A Secret",
-        "tags": [
-          "Secrets"
-        ],
-        "operationId": "AddASecret",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "example": "{{conjurSecretValue}}",
-              "type": "string"
-            }
-          },
-          {
-            "name": "conjurAccount",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "conjurSecretID",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/secrets/{conjurAccount}/variable/{conjurSecretK8sCaCert}": {
-      "post": {
-        "summary": "Add Kubernetes CA Certificate",
-        "tags": [
-          "Secrets"
-        ],
-        "operationId": "AddKubernetesCACertificate",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "example": "-----BEGIN CERTIFICATE-----\nMIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl\ncm5ldGVzMB4XDTE5MDMxODE5NTE0NloXDTI5MDMxNTE5NTE0NlowFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPSr\ni+aUjWdfe7I+snYG2CXEgvP8DVVbLtJn/MzWiIiuqqT14ozkrL7u+a/jLw0GLv4e\nbPXUdVy6Ob80DEuTJZ9Jb+MOPSP7Xsce9nPMwUPN17ucH+m4BLYC/60PuZkrQF95\neLQ38qoQIgnViYYnpyNLI5lY23aNLsqHK6Hk/DgzrfQTaBeIqpsvu0/QKew2Tjq2\n7gRhd8ZRRmwquO/MNyOBxkQ/B0iBq20ZwOoG/3UMw3gynJEcMwGlFcmXETxxxtnj\nlJIGNg3c0L1Lk4CRCRDoi00zE27heHdNXS0nhXSvOnNSM3Pjcr92kLg7NArBv1Oo\ncLDoAeFvt9Hmoc0nwEUCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB\n/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAMEsF+w2wmLGl9EQ0ohtVBMQivmo\nHWsmchSRGoIo9U3Ns+z40Lm7u0qD9mKi3hFS7s73NioRF3XWKZZ2g0BxhUfiX7oe\nKlEN+p8WL2ld4ELHzI+xd5TfYJadn4QYrY0joE65X74TCuCe9quoFtDK7sENn6+R\njkh821YJJH3qy56rwmxmXcmwdtStFoFiF93RLLpBTfKvLiTnIF3Yj5Kf9qcRBd9Z\nKMWaLCavB2OWoE31SfGGetgi5grJxoUcRxVGZX4F/nyIjNEvly/nfg1X0igfn0fz\nB8U+sRYaJN6sD/lFV68qgbXH+BaV/Y+hyrTLLtoPoCXzO16vavVsJSHhvVk=\n-----END CERTIFICATE-----",
-              "type": "string"
-            }
-          },
-          {
-            "name": "conjurAccount",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "conjurSecretK8sCaCert",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
-      "post": {
-        "summary": "Add Kubernetes Service Account Token",
-        "tags": [
-          "Secrets"
-        ],
-        "operationId": "AddKubernetesServiceAccountToken",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "example": "eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkYXAiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiY29uanVyLWNsdXN0ZXItdG9rZW4tYm1ubTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY29uanVyLWNsdXN0ZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI5MDhkN2ExNy1hMjdkLTExZTktYmNkYy0wMjUwMDAwMDAwMDEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGFwOmNvbmp1ci1jbHVzdGVyIn0.VRCYTFoweZb2epcMvOSeTmdyEYzWF595YFAN4aWVBXP5YD__pJ1mRhRieL5H-k0fXgBKznTHXBg8qZVU5Cf1ha9nzyefnnorQQ6DDMGrw_3gZ6zoiIVKr94K9il_wZ7fjYkOgdJCnCmIk_Mnla-4THkQmIhRRIusqtXlfwk9GryHavr4ZqYREJkF8vQ3C6I8mRPSxkSyhJGGDDKEqoW7tM6Dy2D50lP6olUWgHP9o8M2niPv-1FIdn96Ulvwhdx6a87VOqfPIaQKgwDMIa3DkAl-BX2rL5NhdsctmlGR_4Ygz0rSOfwK0_Whfc3vp9ox5tUA5aPcUh465be4u1kawg",
-              "type": "string"
-            }
-          },
-          {
-            "name": "conjurAccount",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "conjurSecretK8sServiceAccountToken",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
     "/policies/{conjurAccount}/policy/{conjurPolicyID}": {
       "post": {
         "description": "Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error.",
@@ -1671,11 +1432,250 @@
         "security": []
       }
     },
+    "/secrets": {
+      "get": {
+        "description": "Fetches multiple secret values in one invocation. It’s faster to fetch secrets in batches than to fetch them one at a time.",
+        "summary": "Batch Retrieval",
+        "tags": [
+          "Secrets"
+        ],
+        "operationId": "BatchRetrieval",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "variable_ids",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/secrets/{conjurAccount}/variable/{conjurSecretID}": {
+      "get": {
+        "description": "Fetches the value of a secret from the specified Variable. The latest version will be retrieved unless the version parameter is specified. The twenty most recent secret versions are retained.\n\nThe secret data is returned in the response body.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
+        "summary": "Retrieve A Secret",
+        "tags": [
+          "Secrets"
+        ],
+        "operationId": "RetrieveASecret",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurSecretID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
+        "summary": "Add A Secret",
+        "tags": [
+          "Secrets"
+        ],
+        "operationId": "AddASecret",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "example": "{{conjurSecretValue}}",
+              "type": "string"
+            }
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurSecretID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/secrets/{conjurAccount}/variable/{conjurSecretK8sCaCert}": {
+      "post": {
+        "summary": "Add Kubernetes CA Certificate",
+        "tags": [
+          "Secrets"
+        ],
+        "operationId": "AddKubernetesCACertificate",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "example": "-----BEGIN CERTIFICATE-----\nMIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl\ncm5ldGVzMB4XDTE5MDMxODE5NTE0NloXDTI5MDMxNTE5NTE0NlowFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPSr\ni+aUjWdfe7I+snYG2CXEgvP8DVVbLtJn/MzWiIiuqqT14ozkrL7u+a/jLw0GLv4e\nbPXUdVy6Ob80DEuTJZ9Jb+MOPSP7Xsce9nPMwUPN17ucH+m4BLYC/60PuZkrQF95\neLQ38qoQIgnViYYnpyNLI5lY23aNLsqHK6Hk/DgzrfQTaBeIqpsvu0/QKew2Tjq2\n7gRhd8ZRRmwquO/MNyOBxkQ/B0iBq20ZwOoG/3UMw3gynJEcMwGlFcmXETxxxtnj\nlJIGNg3c0L1Lk4CRCRDoi00zE27heHdNXS0nhXSvOnNSM3Pjcr92kLg7NArBv1Oo\ncLDoAeFvt9Hmoc0nwEUCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB\n/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAMEsF+w2wmLGl9EQ0ohtVBMQivmo\nHWsmchSRGoIo9U3Ns+z40Lm7u0qD9mKi3hFS7s73NioRF3XWKZZ2g0BxhUfiX7oe\nKlEN+p8WL2ld4ELHzI+xd5TfYJadn4QYrY0joE65X74TCuCe9quoFtDK7sENn6+R\njkh821YJJH3qy56rwmxmXcmwdtStFoFiF93RLLpBTfKvLiTnIF3Yj5Kf9qcRBd9Z\nKMWaLCavB2OWoE31SfGGetgi5grJxoUcRxVGZX4F/nyIjNEvly/nfg1X0igfn0fz\nB8U+sRYaJN6sD/lFV68qgbXH+BaV/Y+hyrTLLtoPoCXzO16vavVsJSHhvVk=\n-----END CERTIFICATE-----",
+              "type": "string"
+            }
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurSecretK8sCaCert",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
+      "post": {
+        "summary": "Add Kubernetes Service Account Token",
+        "tags": [
+          "Secrets"
+        ],
+        "operationId": "AddKubernetesServiceAccountToken",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "example": "eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkYXAiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiY29uanVyLWNsdXN0ZXItdG9rZW4tYm1ubTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY29uanVyLWNsdXN0ZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI5MDhkN2ExNy1hMjdkLTExZTktYmNkYy0wMjUwMDAwMDAwMDEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGFwOmNvbmp1ci1jbHVzdGVyIn0.VRCYTFoweZb2epcMvOSeTmdyEYzWF595YFAN4aWVBXP5YD__pJ1mRhRieL5H-k0fXgBKznTHXBg8qZVU5Cf1ha9nzyefnnorQQ6DDMGrw_3gZ6zoiIVKr94K9il_wZ7fjYkOgdJCnCmIk_Mnla-4THkQmIhRRIusqtXlfwk9GryHavr4ZqYREJkF8vQ3C6I8mRPSxkSyhJGGDDKEqoW7tM6Dy2D50lP6olUWgHP9o8M2niPv-1FIdn96Ulvwhdx6a87VOqfPIaQKgwDMIa3DkAl-BX2rL5NhdsctmlGR_4Ygz0rSOfwK0_Whfc3vp9ox5tUA5aPcUh465be4u1kawg",
+              "type": "string"
+            }
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurSecretK8sServiceAccountToken",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/health": {
       "get": {
         "summary": "Health",
         "tags": [
-          "Conjur Secrets Manager"
+          "Self-Hosted Enterprise"
         ],
         "operationId": "Health",
         "deprecated": false,
@@ -1696,7 +1696,7 @@
       "get": {
         "summary": "Information",
         "tags": [
-          "Conjur Secrets Manager"
+          "Self-Hosted Enterprise"
         ],
         "operationId": "Information",
         "deprecated": false,
@@ -1803,23 +1803,16 @@
     },
     "/resources/{conjurAccount}": {
       "get": {
-        "summary": "List Policies",
+        "summary": "List Everything",
         "tags": [
-          "Conjur Secrets Manager"
+          "Self-Hosted Enterprise"
         ],
-        "operationId": "ListPolicies",
+        "operationId": "ListEverything",
         "deprecated": false,
         "produces": [
           "application/json; charset=utf-8"
         ],
         "parameters": [
-          {
-            "name": "kind",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -1845,47 +1838,6 @@
                 "$ref": "#/definitions/200OK1"
               }
             },
-            "examples": {
-              "application/json; charset=utf-8": [
-                {
-                  "created_at": "2019-09-25T16:38:16.426+00:00",
-                  "id": "cyberarkdemo:policy:root",
-                  "owner": "cyberarkdemo:user:admin",
-                  "permissions": [],
-                  "annotations": [],
-                  "policy_versions": [
-                    {
-                      "version": 1,
-                      "created_at": "2019-09-25T16:38:16.426+00:00",
-                      "policy_text": "- !policy\n  id: ec2_deploy\n",
-                      "policy_sha256": "074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62",
-                      "finished_at": "2019-09-25T16:38:16.559+00:00",
-                      "id": "cyberarkdemo:policy:root",
-                      "role": "cyberarkdemo:user:admin"
-                    }
-                  ]
-                },
-                {
-                  "created_at": "2019-09-25T16:38:16.426+00:00",
-                  "id": "cyberarkdemo:policy:ec2_deploy",
-                  "owner": "cyberarkdemo:user:admin",
-                  "policy": "cyberarkdemo:policy:root",
-                  "permissions": [],
-                  "annotations": [],
-                  "policy_versions": [
-                    {
-                      "version": 1,
-                      "created_at": "2019-09-25T16:40:42.340+00:00",
-                      "policy_text": "- !host\n  id: ansible-tower\n  annotations:\n    ansible: true\n\n- !variable access_key_id\n- !variable access_key_secret\n\n- !permit\n  role: !host ansible-tower\n  privileges: [ read, execute ]\n  resources:\n    - !variable access_key_id\n    - !variable access_key_secret\n",
-                      "policy_sha256": "99dd5680b169825d42e170938f86723b6c5f0f06a564b4629aed56fbf6c614e7",
-                      "finished_at": "2019-09-25T16:40:42.452+00:00",
-                      "id": "cyberarkdemo:policy:ec2_deploy",
-                      "role": "cyberarkdemo:user:admin"
-                    }
-                  ]
-                }
-              ]
-            },
             "headers": {
               "Server": {
                 "type": "string",
@@ -1893,7 +1845,7 @@
               },
               "Date": {
                 "type": "string",
-                "default": "Tue, 18 Feb 2020 01:48:07 GMT"
+                "default": "Tue, 18 Feb 2020 01:49:20 GMT"
               },
               "Transfer-Encoding": {
                 "type": "string",
@@ -1917,7 +1869,7 @@
               },
               "ETag": {
                 "type": "string",
-                "default": "W/\"6ddd63463f5d83b718678ba329ee13f3\""
+                "default": "W/\"83711a7f4234325be0940f3667f471c0\""
               },
               "Cache-Control": {
                 "type": "string",
@@ -1925,11 +1877,11 @@
               },
               "X-Request-Id": {
                 "type": "string",
-                "default": "acde4887-2d84-448c-9a30-fe436a9f404a"
+                "default": "c4b8fbcb-0a32-4cfa-a85d-47b0832aea71"
               },
               "X-Runtime": {
                 "type": "string",
-                "default": "0.006684"
+                "default": "0.008289"
               }
             }
           }
@@ -17861,114 +17813,6 @@
         "permissions": {
           "type": "array",
           "items": {
-            "type": "string"
-          }
-        },
-        "annotations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "policy_versions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PolicyVersion"
-          }
-        },
-        "policy": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "created_at",
-        "id",
-        "owner",
-        "permissions",
-        "annotations",
-        "policy_versions"
-      ]
-    },
-    "PolicyVersion": {
-      "title": "PolicyVersion",
-      "example": {
-        "version": 1,
-        "created_at": "2019-09-25T16:38:16.426+00:00",
-        "policy_text": "- !policy\n  id: ec2_deploy\n",
-        "policy_sha256": "074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62",
-        "finished_at": "2019-09-25T16:38:16.559+00:00",
-        "id": "cyberarkdemo:policy:root",
-        "role": "cyberarkdemo:user:admin"
-      },
-      "type": "object",
-      "properties": {
-        "version": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "policy_text": {
-          "type": "string"
-        },
-        "policy_sha256": {
-          "type": "string"
-        },
-        "finished_at": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "role": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "version",
-        "created_at",
-        "policy_text",
-        "policy_sha256",
-        "finished_at",
-        "id",
-        "role"
-      ]
-    },
-    "200OK2": {
-      "title": "200OK2",
-      "example": {
-        "created_at": "2019-09-25T16:38:16.426+00:00",
-        "id": "cyberarkdemo:policy:root",
-        "owner": "cyberarkdemo:user:admin",
-        "permissions": [],
-        "annotations": [],
-        "policy_versions": [
-          {
-            "version": 1,
-            "created_at": "2019-09-25T16:38:16.426+00:00",
-            "policy_text": "- !policy\n  id: ec2_deploy\n",
-            "policy_sha256": "074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62",
-            "finished_at": "2019-09-25T16:38:16.559+00:00",
-            "id": "cyberarkdemo:policy:root",
-            "role": "cyberarkdemo:user:admin"
-          }
-        ]
-      },
-      "type": "object",
-      "properties": {
-        "created_at": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "owner": {
-          "type": "string"
-        },
-        "permissions": {
-          "type": "array",
-          "items": {
             "$ref": "#/definitions/Permission"
           }
         },
@@ -18088,6 +17932,52 @@
         "policy"
       ]
     },
+    "PolicyVersion": {
+      "title": "PolicyVersion",
+      "example": {
+        "version": 1,
+        "created_at": "2019-09-25T16:38:16.426+00:00",
+        "policy_text": "- !policy\n  id: ec2_deploy\n",
+        "policy_sha256": "074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62",
+        "finished_at": "2019-09-25T16:38:16.559+00:00",
+        "id": "cyberarkdemo:policy:root",
+        "role": "cyberarkdemo:user:admin"
+      },
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "policy_text": {
+          "type": "string"
+        },
+        "policy_sha256": {
+          "type": "string"
+        },
+        "finished_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "created_at",
+        "policy_text",
+        "policy_sha256",
+        "finished_at",
+        "id",
+        "role"
+      ]
+    },
     "Secret": {
       "title": "Secret",
       "example": {
@@ -18109,8 +17999,130 @@
         "expires_at"
       ]
     },
+    "200OK2": {
+      "title": "200OK2",
+      "example": {
+        "created_at": "2019-09-25T16:40:42.340+00:00",
+        "id": "cyberarkdemo:host:ec2_deploy/ansible-tower",
+        "owner": "cyberarkdemo:policy:ec2_deploy",
+        "policy": "cyberarkdemo:policy:ec2_deploy",
+        "permissions": [],
+        "annotations": [
+          {
+            "name": "ansible",
+            "value": "true",
+            "policy": "cyberarkdemo:policy:ec2_deploy"
+          }
+        ],
+        "restricted_to": []
+      },
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "policy": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Annotation1"
+          }
+        },
+        "restricted_to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "created_at",
+        "id",
+        "owner",
+        "policy",
+        "permissions",
+        "annotations",
+        "restricted_to"
+      ]
+    },
     "200OK3": {
       "title": "200OK3",
+      "example": {
+        "created_at": "2019-09-25T16:38:16.426+00:00",
+        "id": "cyberarkdemo:policy:root",
+        "owner": "cyberarkdemo:user:admin",
+        "permissions": [],
+        "annotations": [],
+        "policy_versions": [
+          {
+            "version": 1,
+            "created_at": "2019-09-25T16:38:16.426+00:00",
+            "policy_text": "- !policy\n  id: ec2_deploy\n",
+            "policy_sha256": "074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62",
+            "finished_at": "2019-09-25T16:38:16.559+00:00",
+            "id": "cyberarkdemo:policy:root",
+            "role": "cyberarkdemo:user:admin"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "policy_versions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyVersion"
+          }
+        },
+        "policy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "created_at",
+        "id",
+        "owner",
+        "permissions",
+        "annotations",
+        "policy_versions"
+      ]
+    },
+    "200OK4": {
+      "title": "200OK4",
       "example": {
         "created_at": "2019-09-25T16:40:42.340+00:00",
         "id": "cyberarkdemo:variable:ec2_deploy/access_key_id",
@@ -18177,66 +18189,6 @@
         "permissions",
         "annotations",
         "secrets"
-      ]
-    },
-    "200OK4": {
-      "title": "200OK4",
-      "example": {
-        "created_at": "2019-09-25T16:40:42.340+00:00",
-        "id": "cyberarkdemo:host:ec2_deploy/ansible-tower",
-        "owner": "cyberarkdemo:policy:ec2_deploy",
-        "policy": "cyberarkdemo:policy:ec2_deploy",
-        "permissions": [],
-        "annotations": [
-          {
-            "name": "ansible",
-            "value": "true",
-            "policy": "cyberarkdemo:policy:ec2_deploy"
-          }
-        ],
-        "restricted_to": []
-      },
-      "type": "object",
-      "properties": {
-        "created_at": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "owner": {
-          "type": "string"
-        },
-        "policy": {
-          "type": "string"
-        },
-        "permissions": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "annotations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Annotation1"
-          }
-        },
-        "restricted_to": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "created_at",
-        "id",
-        "owner",
-        "policy",
-        "permissions",
-        "annotations",
-        "restricted_to"
       ]
     },
     "EPMAuthenticationRequest": {
@@ -24957,7 +24909,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1665581287"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1665581337"
       },
       "type": "object",
       "properties": {
@@ -24972,7 +24924,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1665581287"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1665581337"
       },
       "type": "object",
       "properties": {
@@ -27576,13 +27528,13 @@
       "name": "Authentication"
     },
     {
-      "name": "Secrets"
-    },
-    {
       "name": "Policy"
     },
     {
-      "name": "Conjur Secrets Manager"
+      "name": "Secrets"
+    },
+    {
+      "name": "Self-Hosted Enterprise"
     },
     {
       "name": "Aggregated Events"
