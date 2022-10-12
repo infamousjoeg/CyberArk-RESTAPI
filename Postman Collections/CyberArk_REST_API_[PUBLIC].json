@@ -1732,6 +1732,18 @@
 								},
 								{
 									"name": "Password authentication",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5c5dfcc2-12d9-4410-a004-2e3d48eed009",
+												"exec": [
+													"pm.environment.set(\"identityToken\", pm.response.json().Result.Token);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "19be60b4-6dd1-4e82-a968-505bb04da91b",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
