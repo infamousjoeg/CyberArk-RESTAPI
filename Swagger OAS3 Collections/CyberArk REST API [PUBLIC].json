@@ -1992,11 +1992,11 @@
     },
     "/AdvanceAuthentication": {
       "post": {
-        "summary": "Send email with code",
+        "summary": "Enter email code",
         "tags": [
           "Authenticate"
         ],
-        "operationId": "Sendemailwithcode",
+        "operationId": "Enteremailcode",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -2028,7 +2028,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SendemailwithcodeRequest"
+              "$ref": "#/definitions/EnteremailcodeRequest"
             }
           }
         ],
@@ -25203,7 +25203,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1665581541"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1665581587"
       },
       "type": "object",
       "properties": {
@@ -25218,7 +25218,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1665581541"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1665581587"
       },
       "type": "object",
       "properties": {
