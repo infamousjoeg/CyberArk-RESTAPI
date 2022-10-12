@@ -14737,7 +14737,7 @@
 			"description": "This section includes REST APIs for managing users and groups."
 		},
 		{
-			"name": "New Folder",
+			"name": "Privileged Access Manager",
 			"item": [],
 			"id": "74d40c99-d78a-4576-97c1-8bc79a8a2d34"
 		}
