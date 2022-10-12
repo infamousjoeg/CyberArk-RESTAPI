@@ -2500,7 +2500,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /AdvanceAuthentication:
+  /Security/AdvanceAuthentication:
     post:
       summary: Password authentication
       tags:
@@ -2530,6 +2530,40 @@ paths:
         description: ''
         schema:
           $ref: '#/definitions/PasswordauthenticationRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /AdvanceAuthentication:
+    post:
+      summary: Send email with code
+      tags:
+      - Authenticate
+      operationId: Sendemailwithcode
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: X-IDAP-NATIVE-CLIENT
+        in: header
+        required: true
+        type: boolean
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SendemailwithcodeRequest'
       responses:
         '200':
           description: ''
@@ -30457,7 +30491,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1665581496
+      Reason: Automatically accepted via CyberArk Web Services on 1665581516
     type: object
     properties:
       Reason:
@@ -30467,7 +30501,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1665581496
+      Reason: Rejected automatically by CyberArk Web Services on 1665581516
     type: object
     properties:
       Reason:
