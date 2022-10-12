@@ -14,8 +14,7 @@
     }
   },
   "schemes": [
-    "http",
-    "https"
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -1990,7 +1989,7 @@
         }
       }
     },
-    "/authenticate": {
+    "/api/authn-oidc/cyberark/{conjurAccount}/authenticate": {
       "post": {
         "summary": "Authenticate OIDC",
         "tags": [
@@ -2015,6 +2014,13 @@
           {
             "name": "id_token",
             "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
             "required": true,
             "type": "string",
             "description": ""
@@ -25153,7 +25159,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1665581620"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1665581644"
       },
       "type": "object",
       "properties": {
@@ -25168,7 +25174,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1665581620"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1665581644"
       },
       "type": "object",
       "properties": {
