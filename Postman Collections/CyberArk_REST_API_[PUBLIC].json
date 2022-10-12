@@ -1838,14 +1838,14 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "aeec5f3b-9e5c-4b81-9456-f2be33d1771c",
 												"exec": [
 													"pm.environment.set(\"conjurToken\", pm.response.text());",
 													"pm.test(\"response is ok\", function () {",
 													"    pm.response.to.not.be.error;",
 													"});"
 												],
-												"type": "text/javascript",
-												"id": "aeec5f3b-9e5c-4b81-9456-f2be33d1771c"
+												"type": "text/javascript"
 											}
 										}
 									],
@@ -1877,7 +1877,7 @@
 												}
 											]
 										},
-										"url": "https://conjurdemo.secretsmgr.integration-cyberark.cloud/api/authn-oidc/cyberark/conjur/authenticate"
+										"url": "{{conjurHostname}}/api/authn-oidc/cyberark/{{conjurAccount}}/authenticate"
 									},
 									"response": []
 								}
