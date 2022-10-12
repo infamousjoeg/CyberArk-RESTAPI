@@ -1726,7 +1726,7 @@
 											"mode": "raw",
 											"raw": "{\n   \"User\": \"{{identityUsername}}\",\n   \"Version\": \"1.0\"\n}"
 										},
-										"url": "{{identityBaseURL}}/Security/StartAuthentication"
+										"url": "{{identityTenantURL}}/Security/StartAuthentication"
 									},
 									"response": []
 								},
