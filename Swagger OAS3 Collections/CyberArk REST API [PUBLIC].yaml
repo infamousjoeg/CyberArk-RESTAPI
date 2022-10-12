@@ -2536,10 +2536,10 @@ paths:
           headers: {}
   /AdvanceAuthentication:
     post:
-      summary: Send email with code
+      summary: Enter email code
       tags:
       - Authenticate
-      operationId: Sendemailwithcode
+      operationId: Enteremailcode
       deprecated: false
       produces:
       - application/json
@@ -2563,7 +2563,7 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/SendemailwithcodeRequest'
+          $ref: '#/definitions/EnteremailcodeRequest'
       responses:
         '200':
           description: ''
@@ -30491,7 +30491,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1665581544
+      Reason: Automatically accepted via CyberArk Web Services on 1665581586
     type: object
     properties:
       Reason:
@@ -30501,7 +30501,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1665581544
+      Reason: Rejected automatically by CyberArk Web Services on 1665581586
     type: object
     properties:
       Reason:
