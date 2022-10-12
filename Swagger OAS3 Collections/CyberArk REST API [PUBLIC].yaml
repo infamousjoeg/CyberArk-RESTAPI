@@ -11,7 +11,6 @@ securityDefinitions:
     type: basic
 schemes:
 - http
-- https
 consumes:
 - application/json
 produces:
@@ -2534,7 +2533,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /authenticate:
+  /api/authn-oidc/cyberark/{conjurAccount}/authenticate:
     post:
       summary: Authenticate OIDC
       tags:
@@ -2553,6 +2552,11 @@ paths:
         description: ''
       - name: id_token
         in: formData
+        required: true
+        type: string
+        description: ''
+      - name: conjurAccount
+        in: path
         required: true
         type: string
         description: ''
@@ -30457,7 +30461,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1665581619
+      Reason: Automatically accepted via CyberArk Web Services on 1665581643
     type: object
     properties:
       Reason:
@@ -30467,7 +30471,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1665581619
+      Reason: Rejected automatically by CyberArk Web Services on 1665581643
     type: object
     properties:
       Reason:
