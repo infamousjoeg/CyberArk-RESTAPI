@@ -1990,56 +1990,6 @@
         }
       }
     },
-    "/AdvanceAuthentication": {
-      "post": {
-        "summary": "Enter email code",
-        "tags": [
-          "Authenticate"
-        ],
-        "operationId": "Enteremailcode",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "X-IDAP-NATIVE-CLIENT",
-            "in": "header",
-            "required": true,
-            "type": "boolean",
-            "description": ""
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": false,
-            "enum": [
-              "application/json"
-            ],
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/EnteremailcodeRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
     "/authenticate": {
       "post": {
         "summary": "Authenticate OIDC",
@@ -18458,8 +18408,8 @@
     "EnteremailcodeRequest": {
       "title": "EnteremailcodeRequest",
       "example": {
-        "SessionId": "{{session_id}}",
-        "MechanismId": "{{mechanism_id_2}}",
+        "SessionId": "{{identitySessionID}}",
+        "MechanismId": "{{identityMechanismID2}}",
         "Action": "Answer",
         "Answer": "<email code>"
       },
@@ -25203,7 +25153,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1665581587"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1665581620"
       },
       "type": "object",
       "properties": {
@@ -25218,7 +25168,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1665581587"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1665581620"
       },
       "type": "object",
       "properties": {
