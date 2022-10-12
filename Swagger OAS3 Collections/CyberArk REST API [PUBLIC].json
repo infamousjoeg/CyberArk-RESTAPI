@@ -24957,7 +24957,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1665581275"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1665581287"
       },
       "type": "object",
       "properties": {
@@ -24972,7 +24972,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1665581275"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1665581287"
       },
       "type": "object",
       "properties": {
