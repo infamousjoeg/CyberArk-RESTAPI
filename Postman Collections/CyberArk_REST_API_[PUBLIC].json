@@ -1752,7 +1752,7 @@
 											"mode": "raw",
 											"raw": "{\n    \"SessionId\": \"{{identitySessionId}}\",\n    \"MechanismId\": \"{{identityMechanismId}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"{{identityPassword}}\"\n}"
 										},
-										"url": "https://aaz5779.id.integration-cyberark.cloud/Security/AdvanceAuthentication"
+										"url": "{{identityTenantURL}}/Security/AdvanceAuthentication"
 									},
 									"response": []
 								},
