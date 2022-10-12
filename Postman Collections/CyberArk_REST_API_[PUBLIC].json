@@ -1686,7 +1686,194 @@
 				},
 				{
 					"name": "Conjur Cloud",
-					"item": [],
+					"item": [
+						{
+							"name": "Authenticate",
+							"item": [
+								{
+									"name": "StartAuthentication",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3eb7d97d-2fc2-41b2-baae-b980c4cabfbf",
+												"exec": [
+													"pm.environment.set(\"identitySessionId\", pm.response.json().Result.SessionId);",
+													"pm.environment.set(\"identityMechanismId\", pm.response.json().Result.Challenges[0].Mechanisms[0].MechanismId);",
+													"pm.environment.set(\"identityMechanismId2\", pm.response.json().Result.Challenges[1].Mechanisms[0].MechanismId);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "3ef282a9-a537-499f-ab1d-db8db57c590b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-IDAP-NATIVE-CLIENT",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"User\": \"{{identityUsername}}\",\n   \"Version\": \"1.0\"\n}"
+										},
+										"url": "{{identityBaseURL}}/Security/StartAuthentication"
+									},
+									"response": []
+								},
+								{
+									"name": "Password authentication",
+									"id": "19be60b4-6dd1-4e82-a968-505bb04da91b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-IDAP-NATIVE-CLIENT",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"SessionId\": \"{{identitySessionId}}\",\n    \"MechanismId\": \"{{identityMechanismId}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"{{identityPassword}}\"\n}"
+										},
+										"url": "https://aaz5779.id.integration-cyberark.cloud/Security/AdvanceAuthentication"
+									},
+									"response": []
+								},
+								{
+									"name": "Send email with code",
+									"id": "e8957589-1ef6-4319-97e2-d40743542f50",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-IDAP-NATIVE-CLIENT",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"SessionId\": \"{{identitySessionId}}\",\n    \"MechanismId\": \"{{identityMechanismId2}}\",\n    \"Action\": \"StartOOB\"\n}"
+										},
+										"url": "https://aaz5779.id.integration-cyberark.cloud/Security/AdvanceAuthentication"
+									},
+									"response": []
+								},
+								{
+									"name": "Enter email code",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"identityToken\", pm.response.json().Result.Token);"
+												],
+												"type": "text/javascript",
+												"id": "7245fe3b-8854-4054-9497-52e44178cbca"
+											}
+										}
+									],
+									"id": "2e619763-3e77-4581-9c14-c6195ad2a4ae",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-IDAP-NATIVE-CLIENT",
+												"value": "true"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"SessionId\": \"{{session_id}}\",\n    \"MechanismId\": \"{{mechanism_id_2}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"<email code>\"\n}"
+										},
+										"url": "https://aaz5779.id.integration-cyberark.cloud/Security/AdvanceAuthentication"
+									},
+									"response": []
+								},
+								{
+									"name": "Authenticate OIDC",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.environment.set(\"conjurToken\", pm.response.text());",
+													"pm.test(\"response is ok\", function () {",
+													"    pm.response.to.not.be.error;",
+													"});"
+												],
+												"type": "text/javascript",
+												"id": "aeec5f3b-9e5c-4b81-9456-f2be33d1771c"
+											}
+										}
+									],
+									"id": "8c5977bd-74dc-4bc0-85c3-3cb9e03f7c99",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "text/plain",
+												"disabled": true
+											},
+											{
+												"key": "Accept-Encoding",
+												"value": "base64",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "id_token",
+													"value": "{{identityToken}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": "https://conjurdemo.secretsmgr.integration-cyberark.cloud/api/authn-oidc/cyberark/conjur/authenticate"
+									},
+									"response": []
+								}
+							],
+							"id": "0acf8c3d-a7cc-485f-8fac-508786ab2566",
+							"description": "Here are the requests that handle the different types of authentication."
+						}
+					],
 					"id": "963db7ca-2057-441b-8de2-a6aa623dff77"
 				}
 			],
