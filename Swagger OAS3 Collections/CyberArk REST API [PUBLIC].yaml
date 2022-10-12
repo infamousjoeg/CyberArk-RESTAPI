@@ -11,6 +11,7 @@ securityDefinitions:
     type: basic
 schemes:
 - http
+- https
 consumes:
 - application/json
 produces:
@@ -2465,6 +2466,100 @@ paths:
               type: string
               default: '0.008289'
       security: []
+  /Security/StartAuthentication:
+    post:
+      summary: StartAuthentication
+      tags:
+      - Authenticate
+      operationId: StartAuthentication
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: X-IDAP-NATIVE-CLIENT
+        in: header
+        required: true
+        type: boolean
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/StartAuthenticationRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /AdvanceAuthentication:
+    post:
+      summary: Password authentication
+      tags:
+      - Authenticate
+      operationId: Passwordauthentication
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: X-IDAP-NATIVE-CLIENT
+        in: header
+        required: true
+        type: boolean
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/PasswordauthenticationRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /authenticate:
+    post:
+      summary: Authenticate OIDC
+      tags:
+      - Authenticate
+      operationId: AuthenticateOIDC
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Accept-Encoding
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: id_token
+        in: formData
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
   /EPM/API/Sets/{epmSetID}/Events/ApplicationEvents:
     get:
       description: >-
@@ -25287,6 +25382,82 @@ definitions:
     - permissions
     - annotations
     - secrets
+  StartAuthenticationRequest:
+    title: StartAuthenticationRequest
+    example:
+      User: '{{identityUsername}}'
+      Version: '1.0'
+    type: object
+    properties:
+      User:
+        type: string
+      Version:
+        type: string
+    required:
+    - User
+    - Version
+  PasswordauthenticationRequest:
+    title: PasswordauthenticationRequest
+    example:
+      SessionId: '{{identitySessionId}}'
+      MechanismId: '{{identityMechanismId}}'
+      Action: Answer
+      Answer: '{{identityPassword}}'
+    type: object
+    properties:
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+      Answer:
+        type: string
+    required:
+    - SessionId
+    - MechanismId
+    - Action
+    - Answer
+  SendemailwithcodeRequest:
+    title: SendemailwithcodeRequest
+    example:
+      SessionId: '{{identitySessionId}}'
+      MechanismId: '{{identityMechanismId2}}'
+      Action: StartOOB
+    type: object
+    properties:
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+    required:
+    - SessionId
+    - MechanismId
+    - Action
+  EnteremailcodeRequest:
+    title: EnteremailcodeRequest
+    example:
+      SessionId: '{{session_id}}'
+      MechanismId: '{{mechanism_id_2}}'
+      Action: Answer
+      Answer: <email code>
+    type: object
+    properties:
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+      Answer:
+        type: string
+    required:
+    - SessionId
+    - MechanismId
+    - Action
+    - Answer
   EPMAuthenticationRequest:
     title: EPMAuthenticationRequest
     example:
@@ -30286,7 +30457,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1665581346
+      Reason: Automatically accepted via CyberArk Web Services on 1665581412
     type: object
     properties:
       Reason:
@@ -30296,7 +30467,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1665581346
+      Reason: Rejected automatically by CyberArk Web Services on 1665581412
     type: object
     properties:
       Reason:
@@ -32190,6 +32361,8 @@ tags:
 - name: Policy
 - name: Secrets
 - name: Self-Hosted Enterprise
+- name: Authenticate
+  description: Here are the requests that handle the different types of authentication.
 - name: Aggregated Events
 - name: Computer Management
 - name: Manage Policies
