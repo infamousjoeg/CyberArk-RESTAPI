@@ -3162,7 +3162,7 @@ paths:
             path: /address
             value: '{{pasAddress}}'
           - op: add
-            path: /port
+            path: /platformAccountProperties/port
             value: '3306'
           - op: remove
             path: /ticketnumber
@@ -34214,7 +34214,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1694104082
+      Reason: Automatically accepted via CyberArk Web Services on 1694104112
     type: object
     properties:
       Reason:
@@ -34224,7 +34224,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1694104082
+      Reason: Rejected automatically by CyberArk Web Services on 1694104112
     type: object
     properties:
       Reason:
