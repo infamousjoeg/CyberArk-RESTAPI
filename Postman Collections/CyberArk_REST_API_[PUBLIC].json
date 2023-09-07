@@ -13403,7 +13403,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{conjurHostname}}/api/health"
+								"url": "{{conjurHostname}}/health"
 							},
 							"response": []
 						},
