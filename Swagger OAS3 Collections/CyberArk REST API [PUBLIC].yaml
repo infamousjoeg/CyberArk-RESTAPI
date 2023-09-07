@@ -16533,8 +16533,50 @@ paths:
       parameters: []
       responses:
         '200':
-          description: ''
-          headers: {}
+          description: OK
+          schema:
+            $ref: '#/definitions/Health'
+          examples:
+            application/json:
+              services:
+                ldap-sync: disabled
+                possum: ok
+                ui: ok
+                ok: true
+              database:
+                ok: true
+                connect:
+                  main: ok
+                free_space:
+                  main:
+                    kbytes: 24772948
+                    inodes: 5764740
+                replication_status:
+                  pg_current_xlog_location: 0/29AAF28
+                  pg_current_xlog_location_bytes: 43691816
+              audit:
+                ok: true
+                received:
+                  processed: 0
+              ok: true
+              degraded: false
+              role: master
+          headers:
+            Server:
+              type: string
+              default: nginx
+            Date:
+              type: string
+              default: Thu, 07 Sep 2023 12:55:36 GMT
+            Content-Length:
+              type: string
+              default: '552'
+            Connection:
+              type: string
+              default: keep-alive
+            Conjur-Health:
+              type: string
+              default: OK
   /api/info:
     get:
       summary: Information
@@ -34178,7 +34220,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1694091353
+      Reason: Automatically accepted via CyberArk Web Services on 1694091369
     type: object
     properties:
       Reason:
@@ -34188,7 +34230,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1694091353
+      Reason: Rejected automatically by CyberArk Web Services on 1694091369
     type: object
     properties:
       Reason:
@@ -35972,6 +36014,182 @@ definitions:
     required:
     - formats
     - keyPassword
+  Health:
+    title: Health
+    example:
+      services:
+        ldap-sync: disabled
+        possum: ok
+        ui: ok
+        ok: true
+      database:
+        ok: true
+        connect:
+          main: ok
+        free_space:
+          main:
+            kbytes: 24772948
+            inodes: 5764740
+        replication_status:
+          pg_current_xlog_location: 0/29AAF28
+          pg_current_xlog_location_bytes: 43691816
+      audit:
+        ok: true
+        received:
+          processed: 0
+      ok: true
+      degraded: false
+      role: master
+    type: object
+    properties:
+      services:
+        $ref: '#/definitions/Services'
+      database:
+        $ref: '#/definitions/Database'
+      audit:
+        $ref: '#/definitions/Audit'
+      ok:
+        type: boolean
+      degraded:
+        type: boolean
+      role:
+        type: string
+    required:
+    - services
+    - database
+    - audit
+    - ok
+    - degraded
+    - role
+  Services:
+    title: Services
+    example:
+      ldap-sync: disabled
+      possum: ok
+      ui: ok
+      ok: true
+    type: object
+    properties:
+      ldap-sync:
+        type: string
+      possum:
+        type: string
+      ui:
+        type: string
+      ok:
+        type: boolean
+    required:
+    - ldap-sync
+    - possum
+    - ui
+    - ok
+  Database:
+    title: Database
+    example:
+      ok: true
+      connect:
+        main: ok
+      free_space:
+        main:
+          kbytes: 24772948
+          inodes: 5764740
+      replication_status:
+        pg_current_xlog_location: 0/29AAF28
+        pg_current_xlog_location_bytes: 43691816
+    type: object
+    properties:
+      ok:
+        type: boolean
+      connect:
+        $ref: '#/definitions/Connect'
+      free_space:
+        $ref: '#/definitions/FreeSpace'
+      replication_status:
+        $ref: '#/definitions/ReplicationStatus'
+    required:
+    - ok
+    - connect
+    - free_space
+    - replication_status
+  Connect:
+    title: Connect
+    example:
+      main: ok
+    type: object
+    properties:
+      main:
+        type: string
+    required:
+    - main
+  FreeSpace:
+    title: FreeSpace
+    example:
+      main:
+        kbytes: 24772948
+        inodes: 5764740
+    type: object
+    properties:
+      main:
+        $ref: '#/definitions/Main'
+    required:
+    - main
+  Main:
+    title: Main
+    example:
+      kbytes: 24772948
+      inodes: 5764740
+    type: object
+    properties:
+      kbytes:
+        type: integer
+        format: int32
+      inodes:
+        type: integer
+        format: int32
+    required:
+    - kbytes
+    - inodes
+  ReplicationStatus:
+    title: ReplicationStatus
+    example:
+      pg_current_xlog_location: 0/29AAF28
+      pg_current_xlog_location_bytes: 43691816
+    type: object
+    properties:
+      pg_current_xlog_location:
+        type: string
+      pg_current_xlog_location_bytes:
+        type: integer
+        format: int32
+    required:
+    - pg_current_xlog_location
+    - pg_current_xlog_location_bytes
+  Audit:
+    title: Audit
+    example:
+      ok: true
+      received:
+        processed: 0
+    type: object
+    properties:
+      ok:
+        type: boolean
+      received:
+        $ref: '#/definitions/Received'
+    required:
+    - ok
+    - received
+  Received:
+    title: Received
+    example:
+      processed: 0
+    type: object
+    properties:
+      processed:
+        type: integer
+        format: int32
+    required:
+    - processed
   200OK33:
     title: 200OK33
     example:
@@ -36034,7 +36252,7 @@ definitions:
       version:
         type: string
       services:
-        $ref: '#/definitions/Services'
+        $ref: '#/definitions/Services1'
       role:
         type: string
       configuration:
@@ -36048,8 +36266,8 @@ definitions:
     - role
     - configuration
     - authenticators
-  Services:
-    title: Services
+  Services1:
+    title: Services1
     example:
       evoke:
         desired: i
