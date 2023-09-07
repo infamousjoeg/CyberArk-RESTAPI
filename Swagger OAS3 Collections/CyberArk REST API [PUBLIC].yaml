@@ -16659,7 +16659,7 @@ paths:
             Connection:
               type: string
               default: keep-alive
-  /api/resources/conjur:
+  /api/resources/{conjurAccount}:
     get:
       summary: List Resources
       tags:
@@ -16674,6 +16674,16 @@ paths:
         required: true
         type: string
         description: 'Valid Values: group, host, layer, policy, variable'
+      - name: search
+        in: query
+        required: true
+        type: string
+        description: Search term used to narrow results
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
       responses:
         '200':
           description: OK
@@ -34204,7 +34214,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1694091397
+      Reason: Automatically accepted via CyberArk Web Services on 1694092344
     type: object
     properties:
       Reason:
@@ -34214,7 +34224,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1694091397
+      Reason: Rejected automatically by CyberArk Web Services on 1694092344
     type: object
     properties:
       Reason:
