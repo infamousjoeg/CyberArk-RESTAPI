@@ -21132,7 +21132,7 @@
         }
       }
     },
-    "/api/health": {
+    "/health": {
       "get": {
         "summary": "Health",
         "tags": [
@@ -36563,27 +36563,6 @@
         }
       }
     },
-    "/health": {
-      "get": {
-        "summary": "Health",
-        "tags": [
-          "Conjur Cloud"
-        ],
-        "operationId": "GetHealth",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
     "/.secretsmgr.cyberark.cloud/api/resources/conjur": {
       "get": {
         "summary": "List Resources",
@@ -43956,7 +43935,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1694091341"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1694091353"
       },
       "type": "object",
       "properties": {
@@ -43971,7 +43950,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1694091341"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1694091353"
       },
       "type": "object",
       "properties": {
