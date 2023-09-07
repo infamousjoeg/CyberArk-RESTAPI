@@ -13405,7 +13405,49 @@
 								"header": [],
 								"url": "{{conjurHostname}}/health"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "23d995d1-0611-4f36-ae34-4496a9eaa71e",
+									"name": "Health",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{conjurHostname}}/health"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Sep 2023 12:55:36 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "552"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Conjur-Health",
+											"value": "OK"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"services\": {\n        \"ldap-sync\": \"disabled\",\n        \"possum\": \"ok\",\n        \"ui\": \"ok\",\n        \"ok\": true\n    },\n    \"database\": {\n        \"ok\": true,\n        \"connect\": {\n            \"main\": \"ok\"\n        },\n        \"free_space\": {\n            \"main\": {\n                \"kbytes\": 24772948,\n                \"inodes\": 5764740\n            }\n        },\n        \"replication_status\": {\n            \"pg_current_xlog_location\": \"0/29AAF28\",\n            \"pg_current_xlog_location_bytes\": 43691816\n        }\n    },\n    \"audit\": {\n        \"ok\": true,\n        \"received\": {\n            \"processed\": 0\n        }\n    },\n    \"ok\": true,\n    \"degraded\": false,\n    \"role\": \"master\"\n}"
+								}
+							]
 						},
 						{
 							"name": "Information",
