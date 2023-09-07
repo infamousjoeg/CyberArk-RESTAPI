@@ -16521,7 +16521,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /api/health:
+  /health:
     get:
       summary: Health
       tags:
@@ -28744,21 +28744,6 @@ paths:
             X-Runtime:
               type: string
               default: '0.008289'
-  /health:
-    get:
-      summary: Health
-      tags:
-      - Conjur Cloud
-      operationId: GetHealth
-      deprecated: false
-      produces:
-      - application/json
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      security: []
   /.secretsmgr.cyberark.cloud/api/resources/conjur:
     get:
       summary: List Resources
@@ -34193,7 +34178,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1694091340
+      Reason: Automatically accepted via CyberArk Web Services on 1694091353
     type: object
     properties:
       Reason:
@@ -34203,7 +34188,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1694091340
+      Reason: Rejected automatically by CyberArk Web Services on 1694091353
     type: object
     properties:
       Reason:
