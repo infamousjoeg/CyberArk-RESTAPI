@@ -13515,7 +13515,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{conjurHostname}}/api/resources/:conjurAccount?kind=variable&search=SyncVault/LOB_CI/D-Win-SvcAccts/D-Win-SvcAccts",
+									"raw": "{{conjurHostname}}/api/resources/:conjurAccount?kind=variable&search=password",
 									"host": [
 										"{{conjurHostname}}"
 									],
@@ -13532,7 +13532,7 @@
 										},
 										{
 											"key": "search",
-											"value": "SyncVault/LOB_CI/D-Win-SvcAccts/D-Win-SvcAccts",
+											"value": "password",
 											"description": "Search term used to narrow results"
 										},
 										{
