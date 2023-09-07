@@ -1706,7 +1706,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "[\n\t{\n\t\t\"op\": \"replace\",\n\t\t\"path\": \"/address\",\n\t\t\"value\": \"{{pasAddress}}\"\n\t},\n\t{\n\t\t\"op\": \"add\",\n\t\t\"path\": \"/port\",\n\t\t\"value\": \"3306\"\n\t},\n\t{\n\t\t\"op\": \"remove\",\n\t\t\"path\": \"/ticketnumber\",\n\t\t\"value\": \"\"\n\t}\n]"
+											"raw": "[\n\t{\n\t\t\"op\": \"replace\",\n\t\t\"path\": \"/address\",\n\t\t\"value\": \"{{pasAddress}}\"\n\t},\n\t{\n\t\t\"op\": \"add\",\n\t\t\"path\": \"/platformAccountProperties/port\",\n\t\t\"value\": \"3306\"\n\t},\n\t{\n\t\t\"op\": \"remove\",\n\t\t\"path\": \"/ticketnumber\",\n\t\t\"value\": \"\"\n\t}\n]"
 										},
 										"url": {
 											"raw": "{{pasBaseURL}}/passwordvault/api/accounts/:pasAccountID",
