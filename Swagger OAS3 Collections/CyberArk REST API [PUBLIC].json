@@ -21211,7 +21211,7 @@
         }
       }
     },
-    "/api/info": {
+    "/info": {
       "get": {
         "summary": "Information",
         "tags": [
@@ -21316,8 +21316,7 @@
               }
             }
           }
-        },
-        "security": []
+        }
       }
     },
     "/api/resources/conjur": {
@@ -37263,27 +37262,6 @@
         }
       }
     },
-    "/info": {
-      "get": {
-        "description": "Return the Secrets Hub tenant general information, including Secrets Hub tenant role ARN and the tenant PAM type",
-        "summary": "Tenant Info",
-        "tags": [
-          "Secrets Hub"
-        ],
-        "operationId": "TenantInfo",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
     "/customer/platforms/accounts": {
       "get": {
         "description": "This method enables you to retrieve workspaces grouped by platforms.",
@@ -43994,7 +43972,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1694091377"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1694091403"
       },
       "type": "object",
       "properties": {
@@ -44009,7 +43987,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1694091377"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1694091403"
       },
       "type": "object",
       "properties": {
