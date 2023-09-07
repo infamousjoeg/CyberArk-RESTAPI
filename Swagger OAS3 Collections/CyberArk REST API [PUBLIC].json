@@ -2690,7 +2690,7 @@
                 },
                 {
                   "op": "add",
-                  "path": "/port",
+                  "path": "/platformAccountProperties/port",
                   "value": "3306"
                 },
                 {
@@ -43986,7 +43986,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1694092355"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1694104082"
       },
       "type": "object",
       "properties": {
@@ -44001,7 +44001,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1694092355"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1694104082"
       },
       "type": "object",
       "properties": {
