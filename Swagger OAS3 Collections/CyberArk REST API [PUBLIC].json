@@ -6397,7 +6397,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK35"
+              "$ref": "#/definitions/200OK36"
             },
             "examples": {
               "application/json; charset=utf-8": {
@@ -21146,8 +21146,67 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
-            "headers": {}
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK33"
+            },
+            "examples": {
+              "application/json": {
+                "services": {
+                  "ldap-sync": "disabled",
+                  "possum": "ok",
+                  "ui": "ok",
+                  "ok": true
+                },
+                "database": {
+                  "ok": true,
+                  "connect": {
+                    "main": "ok"
+                  },
+                  "free_space": {
+                    "main": {
+                      "kbytes": 24772948,
+                      "inodes": 5764740
+                    }
+                  },
+                  "replication_status": {
+                    "pg_current_xlog_location": "0/29AAF28",
+                    "pg_current_xlog_location_bytes": 43691816
+                  }
+                },
+                "audit": {
+                  "ok": true,
+                  "received": {
+                    "processed": 0
+                  }
+                },
+                "ok": true,
+                "degraded": false,
+                "role": "master"
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 07 Sep 2023 12:55:36 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "552"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Conjur-Health": {
+                "type": "string",
+                "default": "OK"
+              }
+            }
           }
         }
       }
@@ -21168,7 +21227,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK33"
+              "$ref": "#/definitions/200OK34"
             },
             "examples": {
               "application/json": {
@@ -21288,7 +21347,7 @@
               "type": "array",
               "default": "",
               "items": {
-                "$ref": "#/definitions/200OK34"
+                "$ref": "#/definitions/200OK35"
               }
             },
             "headers": {
@@ -21466,7 +21525,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK37"
+              "$ref": "#/definitions/200OK38"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -22245,7 +22304,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK38"
+              "$ref": "#/definitions/200OK39"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -22421,7 +22480,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK39"
+              "$ref": "#/definitions/200OK40"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -22995,7 +23054,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK40"
+              "$ref": "#/definitions/200OK41"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -25913,7 +25972,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK41"
+              "$ref": "#/definitions/200OK42"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -26440,7 +26499,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK42"
+              "$ref": "#/definitions/200OK43"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -26856,7 +26915,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK43"
+              "$ref": "#/definitions/200OK44"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -27936,7 +27995,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK44"
+              "$ref": "#/definitions/200OK45"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -28182,7 +28241,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK44"
+              "$ref": "#/definitions/200OK45"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -28835,7 +28894,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK46"
+              "$ref": "#/definitions/200OK47"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -29008,7 +29067,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK47"
+              "$ref": "#/definitions/200OK48"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -29179,7 +29238,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK47"
+              "$ref": "#/definitions/200OK48"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -30140,7 +30199,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK49"
+              "$ref": "#/definitions/200OK50"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -30304,7 +30363,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK50"
+              "$ref": "#/definitions/200OK51"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -30579,7 +30638,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK51"
+              "$ref": "#/definitions/200OK52"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -30725,7 +30784,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK52"
+              "$ref": "#/definitions/200OK53"
             },
             "headers": {}
           },
@@ -30815,7 +30874,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK53"
+              "$ref": "#/definitions/200OK54"
             },
             "headers": {
               "Cache-Control": {
@@ -30938,7 +30997,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK54"
+              "$ref": "#/definitions/200OK55"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -31891,7 +31950,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK55"
+              "$ref": "#/definitions/200OK56"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -32151,7 +32210,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/200OK56"
+              "$ref": "#/definitions/200OK57"
             },
             "examples": {
               "application/scim+json; charset=utf-8": {
@@ -36510,7 +36569,7 @@
               "type": "array",
               "default": "",
               "items": {
-                "$ref": "#/definitions/200OK34"
+                "$ref": "#/definitions/200OK35"
               }
             },
             "headers": {
@@ -36590,7 +36649,7 @@
               "type": "array",
               "default": "",
               "items": {
-                "$ref": "#/definitions/200OK34"
+                "$ref": "#/definitions/200OK35"
               }
             },
             "headers": {
@@ -43935,7 +43994,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1694091353"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1694091377"
       },
       "type": "object",
       "properties": {
@@ -43950,7 +44009,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1694091353"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1694091377"
       },
       "type": "object",
       "properties": {
@@ -46353,6 +46412,255 @@
     "200OK33": {
       "title": "200OK33",
       "example": {
+        "services": {
+          "ldap-sync": "disabled",
+          "possum": "ok",
+          "ui": "ok",
+          "ok": true
+        },
+        "database": {
+          "ok": true,
+          "connect": {
+            "main": "ok"
+          },
+          "free_space": {
+            "main": {
+              "kbytes": 24772948,
+              "inodes": 5764740
+            }
+          },
+          "replication_status": {
+            "pg_current_xlog_location": "0/29AAF28",
+            "pg_current_xlog_location_bytes": 43691816
+          }
+        },
+        "audit": {
+          "ok": true,
+          "received": {
+            "processed": 0
+          }
+        },
+        "ok": true,
+        "degraded": false,
+        "role": "master"
+      },
+      "type": "object",
+      "properties": {
+        "services": {
+          "$ref": "#/definitions/Services"
+        },
+        "database": {
+          "$ref": "#/definitions/Database"
+        },
+        "audit": {
+          "$ref": "#/definitions/Audit"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "degraded": {
+          "type": "boolean"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "services",
+        "database",
+        "audit",
+        "ok",
+        "degraded",
+        "role"
+      ]
+    },
+    "Services": {
+      "title": "Services",
+      "example": {
+        "ldap-sync": "disabled",
+        "possum": "ok",
+        "ui": "ok",
+        "ok": true
+      },
+      "type": "object",
+      "properties": {
+        "ldap-sync": {
+          "type": "string"
+        },
+        "possum": {
+          "type": "string"
+        },
+        "ui": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ldap-sync",
+        "possum",
+        "ui",
+        "ok"
+      ]
+    },
+    "Database": {
+      "title": "Database",
+      "example": {
+        "ok": true,
+        "connect": {
+          "main": "ok"
+        },
+        "free_space": {
+          "main": {
+            "kbytes": 24772948,
+            "inodes": 5764740
+          }
+        },
+        "replication_status": {
+          "pg_current_xlog_location": "0/29AAF28",
+          "pg_current_xlog_location_bytes": 43691816
+        }
+      },
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "connect": {
+          "$ref": "#/definitions/Connect"
+        },
+        "free_space": {
+          "$ref": "#/definitions/FreeSpace"
+        },
+        "replication_status": {
+          "$ref": "#/definitions/ReplicationStatus"
+        }
+      },
+      "required": [
+        "ok",
+        "connect",
+        "free_space",
+        "replication_status"
+      ]
+    },
+    "Connect": {
+      "title": "Connect",
+      "example": {
+        "main": "ok"
+      },
+      "type": "object",
+      "properties": {
+        "main": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "main"
+      ]
+    },
+    "FreeSpace": {
+      "title": "FreeSpace",
+      "example": {
+        "main": {
+          "kbytes": 24772948,
+          "inodes": 5764740
+        }
+      },
+      "type": "object",
+      "properties": {
+        "main": {
+          "$ref": "#/definitions/Main"
+        }
+      },
+      "required": [
+        "main"
+      ]
+    },
+    "Main": {
+      "title": "Main",
+      "example": {
+        "kbytes": 24772948,
+        "inodes": 5764740
+      },
+      "type": "object",
+      "properties": {
+        "kbytes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "inodes": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "kbytes",
+        "inodes"
+      ]
+    },
+    "ReplicationStatus": {
+      "title": "ReplicationStatus",
+      "example": {
+        "pg_current_xlog_location": "0/29AAF28",
+        "pg_current_xlog_location_bytes": 43691816
+      },
+      "type": "object",
+      "properties": {
+        "pg_current_xlog_location": {
+          "type": "string"
+        },
+        "pg_current_xlog_location_bytes": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "pg_current_xlog_location",
+        "pg_current_xlog_location_bytes"
+      ]
+    },
+    "Audit": {
+      "title": "Audit",
+      "example": {
+        "ok": true,
+        "received": {
+          "processed": 0
+        }
+      },
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "received": {
+          "$ref": "#/definitions/Received"
+        }
+      },
+      "required": [
+        "ok",
+        "received"
+      ]
+    },
+    "Received": {
+      "title": "Received",
+      "example": {
+        "processed": 0
+      },
+      "type": "object",
+      "properties": {
+        "processed": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "processed"
+      ]
+    },
+    "200OK34": {
+      "title": "200OK34",
+      "example": {
         "release": "11.1",
         "version": "5.6.0",
         "services": {
@@ -46427,7 +46735,7 @@
           "type": "string"
         },
         "services": {
-          "$ref": "#/definitions/Services"
+          "$ref": "#/definitions/Services1"
         },
         "role": {
           "type": "string"
@@ -46448,8 +46756,8 @@
         "authenticators"
       ]
     },
-    "Services": {
-      "title": "Services",
+    "Services1": {
+      "title": "Services1",
       "example": {
         "evoke": {
           "desired": "i",
@@ -46771,8 +47079,8 @@
         "enabled"
       ]
     },
-    "200OK34": {
-      "title": "200OK34",
+    "200OK35": {
+      "title": "200OK35",
       "example": {
         "created_at": "2019-09-25T16:38:16.426+00:00",
         "id": "cyberarkdemo:policy:root",
@@ -47234,8 +47542,8 @@
         "Version"
       ]
     },
-    "200OK35": {
-      "title": "200OK35",
+    "200OK36": {
+      "title": "200OK36",
       "example": {
         "access_token": "LONG-STRING-EXAMPLE-iOjE2NTIxMDExMzcsImlzcyI6Imh0dHBzOi8vYWFjNDAyNS5teS5pZGFwdGl2ZS5hcHAvIiwiaWF0IjoxNjUyMTI4MzMxLCJhdWQiOiI2MTc4N2Q0ZC0wY2NlLTQ4NTYtYWMyNC0yMjEwYTlhZjBjM2QiLCJ1bmlxdWVfbmFtZSI6ImlkZW50aXR5LXByaXZpbGVnZS1pbLONG-STRING-EXAMPLE",
         "token_type": "Bearer",
@@ -47325,8 +47633,8 @@
         "error_description"
       ]
     },
-    "200OK36": {
-      "title": "200OK36",
+    "200OK37": {
+      "title": "200OK37",
       "example": {
         "access_token": "LONG-STRING-EXAMPLE-iOjE2NTIxMDExMzcsImlzcyI6Imh0dHBzOi8vYWFjNDAyNS5teS5pZGFwdGl2ZS5hcHAvIiwiaWF0IjoxNjUyMTI4MzMxLCJhdWQiOiI2MTc4N2Q0ZC0wY2NlLTQ4NTYtYWMyNC0yMjEwYTlhZjBjM2QiLCJ1bmlxdWVfbmFtZSI6ImlkZW50aXR5LXByaXZpbGVnZS1pbLONG-STRING-EXAMPLE",
         "refresh_token": "EXAMPLEREFRESHTOKEN-_MASbbGorodseK_QoHWrEuqlJ5Es-EXAMPLE",
@@ -47381,8 +47689,8 @@
         "error_description"
       ]
     },
-    "200OK37": {
-      "title": "200OK37",
+    "200OK38": {
+      "title": "200OK38",
       "example": {
         "schemas": [
           "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -49421,8 +49729,8 @@
         "detail"
       ]
     },
-    "200OK38": {
-      "title": "200OK38",
+    "200OK39": {
+      "title": "200OK39",
       "example": {
         "name": "VaultInternal",
         "displayName": "VaultInternal",
@@ -49781,8 +50089,8 @@
         "urn:ietf:params:scim:schemas:cyberark:1.0:Safe"
       ]
     },
-    "200OK39": {
-      "title": "200OK39",
+    "200OK40": {
+      "title": "200OK40",
       "example": {
         "name": "myDocsContainerNameNEW",
         "displayName": "myDocsContainerNameNEW",
@@ -49913,8 +50221,8 @@
         "detail"
       ]
     },
-    "200OK40": {
-      "title": "200OK40",
+    "200OK41": {
+      "title": "200OK41",
       "example": {
         "schemas": [
           "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -56814,8 +57122,8 @@
         "value"
       ]
     },
-    "200OK41": {
-      "title": "200OK41",
+    "200OK42": {
+      "title": "200OK42",
       "example": {
         "container": {
           "value": "AccountsFeedADAccounts",
@@ -57292,8 +57600,8 @@
         "rights"
       ]
     },
-    "200OK42": {
-      "title": "200OK42",
+    "200OK43": {
+      "title": "200OK43",
       "example": {
         "container": {
           "value": "myContainer",
@@ -57512,8 +57820,8 @@
         "detail"
       ]
     },
-    "200OK43": {
-      "title": "200OK43",
+    "200OK44": {
+      "title": "200OK44",
       "example": {
         "schemas": [
           "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -60351,8 +60659,8 @@
         "display"
       ]
     },
-    "200OK44": {
-      "title": "200OK44",
+    "200OK45": {
+      "title": "200OK45",
       "example": {
         "displayName": "Auditors",
         "members": [
@@ -60669,8 +60977,8 @@
         "value"
       ]
     },
-    "200OK46": {
-      "title": "200OK46",
+    "200OK47": {
+      "title": "200OK47",
       "type": "object",
       "properties": {
         "schemas": {
@@ -61262,8 +61570,8 @@
         "id"
       ]
     },
-    "200OK47": {
-      "title": "200OK47",
+    "200OK48": {
+      "title": "200OK48",
       "example": {
         "name": "myPrivilegeData23",
         "type": "key",
@@ -61673,8 +61981,8 @@
         "urn:ietf:params:scim:schemas:cyberark:1.0:PrivilegedData"
       ]
     },
-    "200OK49": {
-      "title": "200OK49",
+    "200OK50": {
+      "title": "200OK50",
       "example": {
         "schemas": [
           "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"
@@ -61895,8 +62203,8 @@
         "description"
       ]
     },
-    "200OK50": {
-      "title": "200OK50",
+    "200OK51": {
+      "title": "200OK51",
       "example": {
         "schemas": [
           "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -62168,8 +62476,8 @@
         "required"
       ]
     },
-    "200OK51": {
-      "title": "200OK51",
+    "200OK52": {
+      "title": "200OK52",
       "example": {
         "name": "Group",
         "endpoint": "/Groups",
@@ -62231,8 +62539,8 @@
         "meta"
       ]
     },
-    "200OK52": {
-      "title": "200OK52",
+    "200OK53": {
+      "title": "200OK53",
       "type": "object",
       "properties": {
         "schemas": {
@@ -62381,8 +62689,8 @@
         "caseExact"
       ]
     },
-    "200OK53": {
-      "title": "200OK53",
+    "200OK54": {
+      "title": "200OK54",
       "type": "object",
       "properties": {
         "name": {
@@ -62412,8 +62720,8 @@
         "meta"
       ]
     },
-    "200OK54": {
-      "title": "200OK54",
+    "200OK55": {
+      "title": "200OK55",
       "example": {
         "schemas": [
           "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -64919,8 +65227,8 @@
         "id"
       ]
     },
-    "200OK55": {
-      "title": "200OK55",
+    "200OK56": {
+      "title": "200OK56",
       "example": {
         "userName": "Administrator",
         "displayName": "Administrator",
@@ -65241,8 +65549,8 @@
         "schemas"
       ]
     },
-    "200OK56": {
-      "title": "200OK56",
+    "200OK57": {
+      "title": "200OK57",
       "example": {
         "userName": "first2.last2@example.com",
         "displayName": "first2.last2@example.com",
