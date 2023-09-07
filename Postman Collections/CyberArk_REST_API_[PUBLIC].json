@@ -13408,7 +13408,7 @@
 							"response": [
 								{
 									"id": "23d995d1-0611-4f36-ae34-4496a9eaa71e",
-									"name": "Health",
+									"name": "200 OK",
 									"originalRequest": {
 										"method": "GET",
 										"header": [],
