@@ -5386,7 +5386,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK35'
+            $ref: '#/definitions/200OK36'
           examples:
             application/json; charset=utf-8:
               access_token: LONG-STRING-EXAMPLE-iOjE2NTIxMDExMzcsImlzcyI6Imh0dHBzOi8vYWFjNDAyNS5teS5pZGFwdGl2ZS5hcHAvIiwiaWF0IjoxNjUyMTI4MzMxLCJhdWQiOiI2MTc4N2Q0ZC0wY2NlLTQ4NTYtYWMyNC0yMjEwYTlhZjBjM2QiLCJ1bmlxdWVfbmFtZSI6ImlkZW50aXR5LXByaXZpbGVnZS1pbLONG-STRING-EXAMPLE
@@ -16535,7 +16535,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Health'
+            $ref: '#/definitions/200OK33'
           examples:
             application/json:
               services:
@@ -16577,7 +16577,7 @@ paths:
             Conjur-Health:
               type: string
               default: OK
-  /api/info:
+  /info:
     get:
       summary: Information
       tags:
@@ -16591,7 +16591,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK33'
+            $ref: '#/definitions/200OK34'
           examples:
             application/json:
               release: '11.1'
@@ -16659,7 +16659,6 @@ paths:
             Connection:
               type: string
               default: keep-alive
-      security: []
   /api/resources/conjur:
     get:
       summary: List Resources
@@ -16682,7 +16681,7 @@ paths:
             type: array
             default: ''
             items:
-              $ref: '#/definitions/200OK34'
+              $ref: '#/definitions/200OK35'
           headers:
             Server:
               type: string
@@ -16876,7 +16875,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK37'
+            $ref: '#/definitions/200OK38'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -17467,7 +17466,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK38'
+            $ref: '#/definitions/200OK39'
           examples:
             application/scim+json; charset=utf-8:
               name: VaultInternal
@@ -17609,7 +17608,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK39'
+            $ref: '#/definitions/200OK40'
           examples:
             application/scim+json; charset=utf-8:
               name: myDocsContainerNameNEW
@@ -18085,7 +18084,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK40'
+            $ref: '#/definitions/200OK41'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -20401,7 +20400,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK41'
+            $ref: '#/definitions/200OK42'
           examples:
             application/scim+json; charset=utf-8:
               container:
@@ -20810,7 +20809,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK42'
+            $ref: '#/definitions/200OK43'
           examples:
             application/scim+json; charset=utf-8:
               container:
@@ -21160,7 +21159,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK43'
+            $ref: '#/definitions/200OK44'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -21917,7 +21916,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK44'
+            $ref: '#/definitions/200OK45'
           examples:
             application/scim+json; charset=utf-8:
               displayName: Auditors
@@ -22113,7 +22112,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK44'
+            $ref: '#/definitions/200OK45'
           examples:
             application/scim+json; charset=utf-8:
               displayName: myGroupNameDocs
@@ -22687,7 +22686,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK46'
+            $ref: '#/definitions/200OK47'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -22811,7 +22810,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK47'
+            $ref: '#/definitions/200OK48'
           examples:
             application/scim+json; charset=utf-8:
               name: myPrivilegeData23
@@ -22942,7 +22941,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK47'
+            $ref: '#/definitions/200OK48'
           examples:
             application/scim+json; charset=utf-8:
               name: myPrivilegeDataDocsNew
@@ -23646,7 +23645,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK49'
+            $ref: '#/definitions/200OK50'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -23789,7 +23788,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK50'
+            $ref: '#/definitions/200OK51'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -23994,7 +23993,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK51'
+            $ref: '#/definitions/200OK52'
           examples:
             application/scim+json; charset=utf-8:
               name: Group
@@ -24125,7 +24124,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK52'
+            $ref: '#/definitions/200OK53'
           headers: {}
         '401':
           description: Unauthorized
@@ -24205,7 +24204,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK53'
+            $ref: '#/definitions/200OK54'
           headers:
             Cache-Control:
               type: string
@@ -24336,7 +24335,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK54'
+            $ref: '#/definitions/200OK55'
           examples:
             application/scim+json; charset=utf-8:
               schemas:
@@ -25050,7 +25049,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK55'
+            $ref: '#/definitions/200OK56'
           examples:
             application/scim+json; charset=utf-8:
               userName: Administrator
@@ -25255,7 +25254,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/200OK56'
+            $ref: '#/definitions/200OK57'
           examples:
             application/scim+json; charset=utf-8:
               userName: first2.last2@example.com
@@ -28751,7 +28750,7 @@ paths:
             type: array
             default: ''
             items:
-              $ref: '#/definitions/200OK34'
+              $ref: '#/definitions/200OK35'
           headers:
             Server:
               type: string
@@ -28808,7 +28807,7 @@ paths:
             type: array
             default: ''
             items:
-              $ref: '#/definitions/200OK34'
+              $ref: '#/definitions/200OK35'
           headers:
             Server:
               type: string
@@ -29228,21 +29227,6 @@ paths:
         description: ''
         schema:
           $ref: '#/definitions/SetPolicyStateRequest'
-      responses:
-        '200':
-          description: ''
-          headers: {}
-  /info:
-    get:
-      description: Return the Secrets Hub tenant general information, including Secrets Hub tenant role ARN and the tenant PAM type
-      summary: Tenant Info
-      tags:
-      - Secrets Hub
-      operationId: TenantInfo
-      deprecated: false
-      produces:
-      - application/json
-      parameters: []
       responses:
         '200':
           description: ''
@@ -34220,7 +34204,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1694091369
+      Reason: Automatically accepted via CyberArk Web Services on 1694091397
     type: object
     properties:
       Reason:
@@ -34230,7 +34214,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1694091369
+      Reason: Rejected automatically by CyberArk Web Services on 1694091397
     type: object
     properties:
       Reason:
@@ -36014,8 +35998,8 @@ definitions:
     required:
     - formats
     - keyPassword
-  Health:
-    title: Health
+  200OK33:
+    title: 200OK33
     example:
       services:
         ldap-sync: disabled
@@ -36190,8 +36174,8 @@ definitions:
         format: int32
     required:
     - processed
-  200OK33:
-    title: 200OK33
+  200OK34:
+    title: 200OK34
     example:
       release: '11.1'
       version: 5.6.0
@@ -36507,8 +36491,8 @@ definitions:
     - installed
     - configured
     - enabled
-  200OK34:
-    title: 200OK34
+  200OK35:
+    title: 200OK35
     example:
       created_at: 2019-09-25T16:38:16.426+00:00
       id: cyberarkdemo:policy:root
@@ -36847,8 +36831,8 @@ definitions:
     - TenantID
     - User
     - Version
-  200OK35:
-    title: 200OK35
+  200OK36:
+    title: 200OK36
     example:
       access_token: LONG-STRING-EXAMPLE-iOjE2NTIxMDExMzcsImlzcyI6Imh0dHBzOi8vYWFjNDAyNS5teS5pZGFwdGl2ZS5hcHAvIiwiaWF0IjoxNjUyMTI4MzMxLCJhdWQiOiI2MTc4N2Q0ZC0wY2NlLTQ4NTYtYWMyNC0yMjEwYTlhZjBjM2QiLCJ1bmlxdWVfbmFtZSI6ImlkZW50aXR5LXByaXZpbGVnZS1pbLONG-STRING-EXAMPLE
       token_type: Bearer
@@ -36912,8 +36896,8 @@ definitions:
     required:
     - error
     - error_description
-  200OK36:
-    title: 200OK36
+  200OK37:
+    title: 200OK37
     example:
       access_token: LONG-STRING-EXAMPLE-iOjE2NTIxMDExMzcsImlzcyI6Imh0dHBzOi8vYWFjNDAyNS5teS5pZGFwdGl2ZS5hcHAvIiwiaWF0IjoxNjUyMTI4MzMxLCJhdWQiOiI2MTc4N2Q0ZC0wY2NlLTQ4NTYtYWMyNC0yMjEwYTlhZjBjM2QiLCJ1bmlxdWVfbmFtZSI6ImlkZW50aXR5LXByaXZpbGVnZS1pbLONG-STRING-EXAMPLE
       refresh_token: EXAMPLEREFRESHTOKEN-_MASbbGorodseK_QoHWrEuqlJ5Es-EXAMPLE
@@ -36953,8 +36937,8 @@ definitions:
     required:
     - error
     - error_description
-  200OK37:
-    title: 200OK37
+  200OK38:
+    title: 200OK38
     example:
       schemas:
       - urn:ietf:params:scim:api:messages:2.0:ListResponse
@@ -38435,8 +38419,8 @@ definitions:
     - status
     - scimType
     - detail
-  200OK38:
-    title: 200OK38
+  200OK39:
+    title: 200OK39
     example:
       name: VaultInternal
       displayName: VaultInternal
@@ -38697,8 +38681,8 @@ definitions:
     - id
     - meta
     - urn:ietf:params:scim:schemas:cyberark:1.0:Safe
-  200OK39:
-    title: 200OK39
+  200OK40:
+    title: 200OK40
     example:
       name: myDocsContainerNameNEW
       displayName: myDocsContainerNameNEW
@@ -38793,8 +38777,8 @@ definitions:
     - schemas
     - status
     - detail
-  200OK40:
-    title: 200OK40
+  200OK41:
+    title: 200OK41
     example:
       schemas:
       - urn:ietf:params:scim:api:messages:2.0:ListResponse
@@ -44101,8 +44085,8 @@ definitions:
         type: string
     required:
     - value
-  200OK41:
-    title: 200OK41
+  200OK42:
+    title: 200OK42
     example:
       container:
         value: AccountsFeedADAccounts
@@ -44454,8 +44438,8 @@ definitions:
     - user
     - container
     - rights
-  200OK42:
-    title: 200OK42
+  200OK43:
+    title: 200OK43
     example:
       container:
         value: myContainer
@@ -44613,8 +44597,8 @@ definitions:
     - schemas
     - status
     - detail
-  200OK43:
-    title: 200OK43
+  200OK44:
+    title: 200OK44
     example:
       schemas:
       - urn:ietf:params:scim:api:messages:2.0:ListResponse
@@ -46433,8 +46417,8 @@ definitions:
         type: string
     required:
     - display
-  200OK44:
-    title: 200OK44
+  200OK45:
+    title: 200OK45
     example:
       displayName: Auditors
       members:
@@ -46647,8 +46631,8 @@ definitions:
     required:
     - display
     - value
-  200OK46:
-    title: 200OK46
+  200OK47:
+    title: 200OK47
     type: object
     properties:
       schemas:
@@ -47035,8 +47019,8 @@ definitions:
     required:
     - name
     - id
-  200OK47:
-    title: 200OK47
+  200OK48:
+    title: 200OK48
     example:
       name: myPrivilegeData23
       type: key
@@ -47306,8 +47290,8 @@ definitions:
     - id
     - meta
     - urn:ietf:params:scim:schemas:cyberark:1.0:PrivilegedData
-  200OK49:
-    title: 200OK49
+  200OK50:
+    title: 200OK50
     example:
       schemas:
       - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
@@ -47462,8 +47446,8 @@ definitions:
     - type
     - name
     - description
-  200OK50:
-    title: 200OK50
+  200OK51:
+    title: 200OK51
     example:
       schemas:
       - urn:ietf:params:scim:api:messages:2.0:ListResponse
@@ -47647,8 +47631,8 @@ definitions:
     required:
     - schema
     - required
-  200OK51:
-    title: 200OK51
+  200OK52:
+    title: 200OK52
     example:
       name: Group
       endpoint: /Groups
@@ -47692,8 +47676,8 @@ definitions:
     - schemas
     - id
     - meta
-  200OK52:
-    title: 200OK52
+  200OK53:
+    title: 200OK53
     type: object
     properties:
       schemas:
@@ -47800,8 +47784,8 @@ definitions:
     - multiValued
     - required
     - caseExact
-  200OK53:
-    title: 200OK53
+  200OK54:
+    title: 200OK54
     type: object
     properties:
       name:
@@ -47822,8 +47806,8 @@ definitions:
     - attributes
     - id
     - meta
-  200OK54:
-    title: 200OK54
+  200OK55:
+    title: 200OK55
     example:
       schemas:
       - urn:ietf:params:scim:api:messages:2.0:ListResponse
@@ -49619,8 +49603,8 @@ definitions:
     required:
     - userName
     - id
-  200OK55:
-    title: 200OK55
+  200OK56:
+    title: 200OK56
     example:
       userName: Administrator
       displayName: Administrator
@@ -49857,8 +49841,8 @@ definitions:
     - active
     - id
     - schemas
-  200OK56:
-    title: 200OK56
+  200OK57:
+    title: 200OK57
     example:
       userName: first2.last2@example.com
       displayName: first2.last2@example.com
