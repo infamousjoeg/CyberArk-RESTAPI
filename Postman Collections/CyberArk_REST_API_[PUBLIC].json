@@ -13515,26 +13515,25 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{conjurHostname}}/api/resources/conjur?kind=host",
+									"raw": "{{conjurHostname}}/api/resources/:conjurAccount?kind=variable&search=SyncVault/LOB_CI/D-Win-SvcAccts/D-Win-SvcAccts",
 									"host": [
 										"{{conjurHostname}}"
 									],
 									"path": [
 										"api",
 										"resources",
-										"conjur"
+										":conjurAccount"
 									],
 									"query": [
 										{
 											"key": "kind",
-											"value": "host",
+											"value": "variable",
 											"description": "Valid Values: group, host, layer, policy, variable"
 										},
 										{
 											"key": "search",
-											"value": "password",
-											"description": "Search term used to narrow results",
-											"disabled": true
+											"value": "SyncVault/LOB_CI/D-Win-SvcAccts/D-Win-SvcAccts",
+											"description": "Search term used to narrow results"
 										},
 										{
 											"key": "limit",
@@ -13559,6 +13558,12 @@
 											"value": "conjur:user:george",
 											"description": "The fully qualified identifier for the role whose resource list you want to view",
 											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "conjurAccount",
+											"value": "{{conjurAccount}}"
 										}
 									]
 								}
