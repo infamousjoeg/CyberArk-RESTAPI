@@ -3571,39 +3571,29 @@
 													}
 												],
 												"body": {
-													"mode": "raw",
-													"raw": ""
-												},
-												"url": {
-													"raw": "{{pasBaseURL}}/passwordvault/api/auth/saml/logon?concurrentSession=true&apiUse=true&samlResponse={{pasSAMLToken}}",
-													"host": [
-														"{{pasBaseURL}}"
-													],
-													"path": [
-														"passwordvault",
-														"api",
-														"auth",
-														"saml",
-														"logon"
-													],
-													"query": [
-														{
-															"key": "concurrentSession",
-															"value": "true",
-															"description": "Boolean value"
-														},
+													"mode": "urlencoded",
+													"urlencoded": [
 														{
 															"key": "apiUse",
 															"value": "true",
-															"description": "Never should be false"
+															"description": "DO NOT CHANGE",
+															"type": "text"
+														},
+														{
+															"key": "concurrentSession",
+															"value": "true",
+															"description": "Valid Values: true, false",
+															"type": "text"
 														},
 														{
 															"key": "samlResponse",
 															"value": "{{pasSAMLToken}}",
-															"description": "The SAML Token returned from your IdP"
+															"description": "The base64-encoded SAML response from your IdP",
+															"type": "text"
 														}
 													]
 												},
+												"url": "{{pasBaseURL}}/passwordvault/api/auth/saml/logon",
 												"description": "This method authenticates a user to the Vault using SAML authentication and returns a token that can be used in subsequent web services calls.\n\n[Example PowerShell Code is available here](https://gist.github.com/infamousjoeg/b44faa299ec3de65bdd1d3b8474b0649)"
 											},
 											"response": []
@@ -37138,7 +37128,123 @@
 										},
 										"description": "Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error."
 									},
-									"response": []
+									"response": [
+										{
+											"id": "74245d5e-368f-47d8-99b9-22e6c5e03c3c",
+											"name": "authn-jwt for GitHub",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "- !policy\n  id: github\n  annotations:\n    description: JWT Authenticator web service for GitHub\n  body:\n    # Create the conjur/authn-jwt/github web service\n    - !webservice\n\n    - !variable\n      id: token-app-property\n      annotations:\n        description: JWT Authenticator bases authentication on claims from the JWT. You can base authentication on identifying clams such as the name, the user, and so on. If you can customize the JWT, you can create a custom claim and base authentication on this claim.\n\n    - !variable\n      id: identity-path\n      annotations:\n        description: JWT Authenticator bases authentication on a combination of the claim in the token-app-property and the full path of the application identity (host) in Conjur. This variable is optional, and is used in conjunction with token-app-property. It has no purpose when standing alone.\n\n    - !variable\n      id: issuer\n      annotations:\n        description: JWT Authenticator bases authentication on the JWT issuer. This variable is optional, and is relevant only if there is an iss claim in the JWT. The issuer variable and iss claim values must match.\n\n    - !variable\n      id: jwks-uri\n      annotations:\n        description: A JSON Web Key Set (JWKS) URI. If the JWKS vendor provides both a jwks-uri and an equivalent provider-uri, you can use the provider-uri which has an easier interface to work with.\n\n    # Group of hosts that can authenticate using this JWT Authenticator\n    - !group\n      id: consumers\n      annotations:\n        description: Allows authentication through authn-jwt/github web service.\n    \n    # Permit the consumers group to authenticate to the authn-jwt/github web service\n    - !permit\n      role: !group consumers\n      privilege: [ read, authenticate ]\n      resource: !webservice\n\n    # Create a web service for checking authn-jwt/github status\n    - !webservice\n      id: status\n\n    # Group of users who can check the status of authn-jwt/github\n    - !group\n      id: operators\n      annotations:\n        description: Group of users that can check the status of the authn-jwt/github authenticator.\n    \n    # Permit group to check the status of authn-jwt/github\n    - !permit\n      role: !group operators\n      privilege: read\n      resource: !webservice status"
+												},
+												"url": {
+													"raw": "https://{{saasSubdomain}}.secretsmgr.cyberark.cloud/api/policies/conjur/policy/:conjurPolicyID",
+													"protocol": "https",
+													"host": [
+														"{{saasSubdomain}}",
+														"secretsmgr",
+														"cyberark",
+														"cloud"
+													],
+													"path": [
+														"api",
+														"policies",
+														"conjur",
+														"policy",
+														":conjurPolicyID"
+													],
+													"variable": [
+														{
+															"key": "conjurPolicyID",
+															"value": "conjur/authn-jwt"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Tue, 12 Sep 2023 16:45:52 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-permitted-cross-domain-policies",
+													"value": "none"
+												},
+												{
+													"key": "referrer-policy",
+													"value": "strict-origin-when-cross-origin"
+												},
+												{
+													"key": "vary",
+													"value": "Accept"
+												},
+												{
+													"key": "etag",
+													"value": "W/\"87e1acc2a66b99105c36e6343a309640\""
+												},
+												{
+													"key": "x-request-id",
+													"value": "5cb13b35-881c-4920-8904-027ec10ddb9c"
+												},
+												{
+													"key": "x-runtime",
+													"value": "0.244095"
+												},
+												{
+													"key": "server",
+													"value": "-"
+												},
+												{
+													"key": "content-security-policy",
+													"value": "default-src 'none'"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=63072000; includeSubDomains; preload;"
+												},
+												{
+													"key": "cache-control",
+													"value": "no-cache; no-store; must-revalidate;"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"created_roles\": {},\n    \"version\": 1\n}"
+										}
+									]
 								},
 								{
 									"name": "Replace Policy",
@@ -38025,6 +38131,167 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "[\n    {\n        \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n        \"id\": \"cyberarkdemo:policy:root\",\n        \"owner\": \"cyberarkdemo:user:admin\",\n        \"permissions\": [],\n        \"annotations\": [],\n        \"policy_versions\": [\n            {\n                \"version\": 1,\n                \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n                \"policy_text\": \"- !policy\\n  id: ec2_deploy\\n\",\n                \"policy_sha256\": \"074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62\",\n                \"finished_at\": \"2019-09-25T16:38:16.559+00:00\",\n                \"id\": \"cyberarkdemo:policy:root\",\n                \"role\": \"cyberarkdemo:user:admin\"\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:38:16.426+00:00\",\n        \"id\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"owner\": \"cyberarkdemo:user:admin\",\n        \"policy\": \"cyberarkdemo:policy:root\",\n        \"permissions\": [],\n        \"annotations\": [],\n        \"policy_versions\": [\n            {\n                \"version\": 1,\n                \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n                \"policy_text\": \"- !host\\n  id: ansible-tower\\n  annotations:\\n    ansible: true\\n\\n- !variable access_key_id\\n- !variable access_key_secret\\n\\n- !permit\\n  role: !host ansible-tower\\n  privileges: [ read, execute ]\\n  resources:\\n    - !variable access_key_id\\n    - !variable access_key_secret\\n\",\n                \"policy_sha256\": \"99dd5680b169825d42e170938f86723b6c5f0f06a564b4629aed56fbf6c614e7\",\n                \"finished_at\": \"2019-09-25T16:40:42.452+00:00\",\n                \"id\": \"cyberarkdemo:policy:ec2_deploy\",\n                \"role\": \"cyberarkdemo:user:admin\"\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [],\n        \"annotations\": [\n            {\n                \"name\": \"ansible\",\n                \"value\": \"true\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"restricted_to\": []\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:variable:ec2_deploy/access_key_id\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [\n            {\n                \"privilege\": \"read\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            },\n            {\n                \"privilege\": \"execute\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"annotations\": [],\n        \"secrets\": [\n            {\n                \"version\": 1,\n                \"expires_at\": null\n            }\n        ]\n    },\n    {\n        \"created_at\": \"2019-09-25T16:40:42.340+00:00\",\n        \"id\": \"cyberarkdemo:variable:ec2_deploy/access_key_secret\",\n        \"owner\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"policy\": \"cyberarkdemo:policy:ec2_deploy\",\n        \"permissions\": [\n            {\n                \"privilege\": \"read\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            },\n            {\n                \"privilege\": \"execute\",\n                \"role\": \"cyberarkdemo:host:ec2_deploy/ansible-tower\",\n                \"policy\": \"cyberarkdemo:policy:ec2_deploy\"\n            }\n        ],\n        \"annotations\": [],\n        \"secrets\": [\n            {\n                \"version\": 1,\n                \"expires_at\": null\n            }\n        ]\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Enable/Disable Authenticator",
+							"id": "e35c2d98-71ed-475b-bde8-d8e1bdd98a4f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "enabled",
+											"value": "true",
+											"description": "Enable or disable the authenticator",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{saasSubdomain}}.secretsmgr.cyberark.cloud/api/:conjurAuthnType/:conjurServiceID/conjur",
+									"protocol": "https",
+									"host": [
+										"{{saasSubdomain}}",
+										"secretsmgr",
+										"cyberark",
+										"cloud"
+									],
+									"path": [
+										"api",
+										":conjurAuthnType",
+										":conjurServiceID",
+										"conjur"
+									],
+									"variable": [
+										{
+											"id": "e641a145-43ab-458d-a35e-88682af118c0",
+											"key": "conjurAuthnType",
+											"value": "authn-jwt"
+										},
+										{
+											"id": "b489e867-b5a3-40ca-b59f-e50dafebfcae",
+											"key": "conjurServiceID",
+											"value": "github"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c3a9e663-1fbc-4473-82c1-ac5a71a75dfc",
+									"name": "204 No Content (Success)",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "enabled",
+													"value": "true",
+													"description": "Enable or disable the authenticator",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://{{saasSubdomain}}.secretsmgr.cyberark.cloud/api/:conjurAuthnType/:conjurServiceID/conjur",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"secretsmgr",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												":conjurAuthnType",
+												":conjurServiceID",
+												"conjur"
+											],
+											"variable": [
+												{
+													"key": "conjurAuthnType",
+													"value": "authn-jwt"
+												},
+												{
+													"key": "conjurServiceID",
+													"value": "github"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 12 Sep 2023 16:51:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "x-request-id",
+											"value": "1ae59a81-cb2e-405d-a705-d81d495db720"
+										},
+										{
+											"key": "x-runtime",
+											"value": "0.033615"
+										},
+										{
+											"key": "server",
+											"value": "-"
+										},
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'none'"
+										},
+										{
+											"key": "strict-transport-security",
+											"value": "max-age=63072000; includeSubDomains; preload;"
+										},
+										{
+											"key": "cache-control",
+											"value": "no-cache; no-store; must-revalidate;"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": null
 								}
 							]
 						}
@@ -39351,6 +39618,3267 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "Connector Management",
+					"item": [
+						{
+							"name": "Components",
+							"item": [
+								{
+									"name": "Get A Component By Connector",
+									"id": "a9f21e16-990a-4774-b147-a8b12519cac6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id/components/:component_id",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id",
+												"components",
+												":component_id"
+											],
+											"variable": [
+												{
+													"id": "a59f9bb4-2dfb-4df0-9e10-63098ffc02ea",
+													"key": "connector_id",
+													"value": "<string>"
+												},
+												{
+													"id": "95d13b61-af27-4ca6-87a6-b99940e89086",
+													"key": "component_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns a component by connector"
+									},
+									"response": [
+										{
+											"id": "67c696e4-645b-4154-acdc-3c792a291484",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"componentId\": \"<string>\",\n  \"componentName\": \"<string>\",\n  \"componentStatus\": \"Initializing\",\n  \"connectorId\": \"<string>\",\n  \"version\": \"<string>\",\n  \"upgradeVersions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"usedCpu\": \"<number>\",\n  \"usedMemory\": \"<number>\",\n  \"installedAt\": \"<integer>\",\n  \"updatedAt\": \"<integer>\",\n  \"acronym\": \"<string>\",\n  \"maintenanceStatus\": {\n    \"maintenanceType\": \"Upgrade\",\n    \"progress\": \"<number>\",\n    \"currentStep\": \"<string>\",\n    \"additionalInformation\": {\n      \"etabe\": \"<string>\",\n      \"dolore84f\": \"<string>\",\n      \"exf3\": \"<string>\",\n      \"eu_00\": \"<string>\"\n    }\n  }\n}"
+										},
+										{
+											"id": "b3e34c18-e782-4ec8-8a22-df02a40892ca",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "8c2c82cb-bb03-4238-9a42-64bb869fad22",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "7539af61-02ef-45cf-b508-3be85f090abd",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "2d802b2b-3ef3-49a6-836c-5793d66c70d7",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get All Components",
+									"id": "ffdc09e1-de0c-45e3-b4a4-c2b4cf188f10",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "https://{{saasSubdomain}}.cyberark.cloud/api/components",
+										"description": "Returns a list of all components"
+									},
+									"response": [
+										{
+											"id": "41a3fec9-237d-49f1-bf61-520aa263ada9",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/components"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"components\": [\n    {\n      \"componentId\": \"<string>\",\n      \"componentName\": \"<string>\",\n      \"componentStatus\": \"Suspended\",\n      \"connectorId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"usedCpu\": \"<number>\",\n      \"usedMemory\": \"<number>\",\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"acronym\": \"<string>\",\n      \"maintenanceStatus\": {\n        \"maintenanceType\": \"Installation\",\n        \"progress\": \"<number>\",\n        \"currentStep\": \"<string>\",\n        \"additionalInformation\": {\n          \"enima54\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"componentId\": \"<string>\",\n      \"componentName\": \"<string>\",\n      \"componentStatus\": \"Suspended\",\n      \"connectorId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"usedCpu\": \"<number>\",\n      \"usedMemory\": \"<number>\",\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"acronym\": \"<string>\",\n      \"maintenanceStatus\": {\n        \"maintenanceType\": \"Installation\",\n        \"progress\": \"<number>\",\n        \"currentStep\": \"<string>\",\n        \"additionalInformation\": {\n          \"eafe3\": \"<string>\",\n          \"mollit_7cf\": \"<string>\"\n        }\n      }\n    }\n  ]\n}"
+										},
+										{
+											"id": "bfd1e4bc-3926-4355-8175-2ff91b693d74",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/components"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "367f79b5-e467-4254-9e30-c4ac679b86e3",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/components"
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "76147f8a-0b82-4c2a-a4ea-2a18300bead8",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/components"
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get All Connector Components",
+									"id": "6c21047e-32f8-4dd6-b29a-f420777fcc0a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id/components",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id",
+												"components"
+											],
+											"variable": [
+												{
+													"id": "bbff4b41-9540-4eaf-ae05-1a006fb48a2a",
+													"key": "connector_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns a list of component based on the connector ID"
+									},
+									"response": [
+										{
+											"id": "7ba82fb0-deb5-479d-b284-7f3613d4db5d",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"components\": [\n    {\n      \"componentId\": \"<string>\",\n      \"componentName\": \"<string>\",\n      \"componentStatus\": \"Suspended\",\n      \"connectorId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"usedCpu\": \"<number>\",\n      \"usedMemory\": \"<number>\",\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"acronym\": \"<string>\",\n      \"maintenanceStatus\": {\n        \"maintenanceType\": \"Installation\",\n        \"progress\": \"<number>\",\n        \"currentStep\": \"<string>\",\n        \"additionalInformation\": {\n          \"enima54\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"componentId\": \"<string>\",\n      \"componentName\": \"<string>\",\n      \"componentStatus\": \"Suspended\",\n      \"connectorId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"usedCpu\": \"<number>\",\n      \"usedMemory\": \"<number>\",\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"acronym\": \"<string>\",\n      \"maintenanceStatus\": {\n        \"maintenanceType\": \"Installation\",\n        \"progress\": \"<number>\",\n        \"currentStep\": \"<string>\",\n        \"additionalInformation\": {\n          \"eafe3\": \"<string>\",\n          \"mollit_7cf\": \"<string>\"\n        }\n      }\n    }\n  ]\n}"
+										},
+										{
+											"id": "bdd3dedb-a03d-444c-acc7-e3a40c50ae4f",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "7a5be60f-8278-40cc-ae17-26a6daf93594",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "8f3e7ad5-04ab-42fd-89d0-0ec2e235e1cc",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "e73e18ee-0015-40cb-b0e2-f3e5a77479a4",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Component Installation",
+									"id": "ec1cd927-c729-47e6-950d-15718b926111",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"componentName\": \"<string>\",\n  \"extraVars\": {},\n  \"version\": \"stable\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id/components",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id",
+												"components"
+											],
+											"variable": [
+												{
+													"id": "f51280a0-cb46-4ba5-84de-94be4c2f3a13",
+													"key": "connector_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Installs new component on the connector host"
+									},
+									"response": [
+										{
+											"id": "8142d7e4-8489-4b18-ae9f-fa10669e92f4",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"componentName\": \"<string>\",\n  \"extraVars\": {},\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Accepted",
+											"code": 202,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"taskId\": \"<string>\"\n}"
+										},
+										{
+											"id": "f0dc6b88-84f1-41ec-97d9-3755ba3b8a28",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"componentName\": \"<string>\",\n  \"extraVars\": {},\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "1a55440d-2981-4a00-95c0-45341a0b0b00",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"componentName\": \"<string>\",\n  \"extraVars\": {},\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "878475d4-583a-4d74-8ea1-9625535acc54",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"componentName\": \"<string>\",\n  \"extraVars\": {},\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "2c3fc5b4-b23a-440e-95a9-6eff0354c439",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"componentName\": \"<string>\",\n  \"extraVars\": {},\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Reinstall Component",
+									"id": "66c29f65-3fd1-4ab2-a900-535222672d01",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id/components/:component_id/reinstall",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id",
+												"components",
+												":component_id",
+												"reinstall"
+											],
+											"variable": [
+												{
+													"id": "3685caec-be33-4fd7-aba1-13953578a369",
+													"key": "connector_id",
+													"value": "<string>"
+												},
+												{
+													"id": "9f2caffc-3c00-47f3-874f-5a64d523cd96",
+													"key": "component_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Reinstall a component on the connectors host"
+									},
+									"response": [
+										{
+											"id": "e496c8fd-4c5b-43c2-950b-2610cf601a58",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id/reinstall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"reinstall"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"taskId\": \"<string>\"\n}"
+										},
+										{
+											"id": "d7e291c6-3b57-42e4-8660-af89f84fa345",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id/reinstall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"reinstall"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "fb72b720-a78c-4bae-be91-0409faed150c",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id/reinstall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"reinstall"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "6b4ec635-c060-403c-982e-fbe124a8aef4",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id/reinstall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"reinstall"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "f5569d4c-0b05-48f3-bbb9-8fbee005b1c0",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id/reinstall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"reinstall"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Rescan Components",
+									"id": "70e043d0-4513-4f02-9371-48f9d5fad9a7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id/components/rescan",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id",
+												"components",
+												"rescan"
+											],
+											"variable": [
+												{
+													"id": "fb9fdf35-8b85-4f7c-bcff-853961023b11",
+													"key": "connector_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Triggers components rescan flow"
+									},
+									"response": [
+										{
+											"id": "dd40fbec-66b3-4d10-9bfe-4e1e03ba1a90",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/rescan",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														"rescan"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{}"
+										},
+										{
+											"id": "3e7192d0-808a-47d2-846c-bbc8fccddbc9",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/rescan",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														"rescan"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "d3df9e88-f355-4402-bd9d-777fc7ad36c0",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/rescan",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														"rescan"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "f456332d-53d6-4004-8b1e-9c620622be8e",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/rescan",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														"rescan"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "fa251558-4562-40da-a3da-ff4777763f18",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/rescan",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														"rescan"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Upgrade A Component",
+									"id": "faf45c4f-1c7e-4b9a-a734-3459a136d0ae",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloudapi/connectors/:connector_id/components/:component_id/upgrade",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloudapi"
+											],
+											"path": [
+												"connectors",
+												":connector_id",
+												"components",
+												":component_id",
+												"upgrade"
+											],
+											"variable": [
+												{
+													"id": "06577024-87f1-420c-978b-5d2e43b167ed",
+													"key": "connector_id",
+													"value": "<string>"
+												},
+												{
+													"id": "c7b97e1b-78dc-4910-b4e2-8c12276d745c",
+													"key": "component_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Upgrades a component to the latest stable version"
+									},
+									"response": [
+										{
+											"id": "bd42b5dc-32f1-4a4b-adc5-eda4624629c3",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}api/connectors/:connector_id/components/:component_id/upgrade",
+													"host": [
+														"{{baseUrl}}api"
+													],
+													"path": [
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"upgrade"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"oldVersion\": \"<string>\",\n  \"newVersion\": \"<string>\",\n  \"taskId\": \"<string>\"\n}"
+										},
+										{
+											"id": "28ffabad-7b96-4f0d-8f7e-9f62853da6fe",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}api/connectors/:connector_id/components/:component_id/upgrade",
+													"host": [
+														"{{baseUrl}}api"
+													],
+													"path": [
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"upgrade"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "b97cad11-89be-4942-b555-606c93888036",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}api/connectors/:connector_id/components/:component_id/upgrade",
+													"host": [
+														"{{baseUrl}}api"
+													],
+													"path": [
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"upgrade"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "581cc319-f5c3-4a2c-9a90-cdd9f915a6f9",
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}api/connectors/:connector_id/components/:component_id/upgrade",
+													"host": [
+														"{{baseUrl}}api"
+													],
+													"path": [
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"upgrade"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "839cfdc5-78e7-4ad6-af64-6284c31d45a6",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}api/connectors/:connector_id/components/:component_id/upgrade",
+													"host": [
+														"{{baseUrl}}api"
+													],
+													"path": [
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"upgrade"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "ff09945d-b708-4f72-8f03-a6ba520a22d9",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}api/connectors/:connector_id/components/:component_id/upgrade",
+													"host": [
+														"{{baseUrl}}api"
+													],
+													"path": [
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id",
+														"upgrade"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete A Component",
+									"id": "1dadb6dd-0e65-4215-9fa3-74be92d7dd7c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id/components/:component_id",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id",
+												"components",
+												":component_id"
+											],
+											"variable": [
+												{
+													"id": "bab95245-a4f0-4f79-b99e-68cd7b054824",
+													"key": "connector_id",
+													"value": "<string>"
+												},
+												{
+													"id": "cc712e73-2c16-4a43-834b-d99194f83d84",
+													"key": "component_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Deletes a component record"
+									},
+									"response": [
+										{
+											"id": "36738c4d-31ba-4e5c-8007-5903cc4fe98b",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										},
+										{
+											"id": "ffb531e5-ba85-468c-b291-345b79e9d257",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "b0f06c2c-2335-42b3-8f1e-ab12b7d4b0e4",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "a26d2aae-b01f-482c-bf32-8288bf26699c",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "eab05947-80ed-4b7d-9c61-62c422a4a5fd",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id/components/:component_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id",
+														"components",
+														":component_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														},
+														{
+															"key": "component_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								}
+							],
+							"id": "7630b9cc-9ef9-417d-81c1-6deaf32c0c1f"
+						},
+						{
+							"name": "Connectors",
+							"item": [
+								{
+									"name": "Get A Connector",
+									"id": "7cc3d9ee-f552-411b-bd86-c3f94708ff44",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id"
+											],
+											"variable": [
+												{
+													"id": "583a90df-6d7e-454e-9f96-0cd7e0064282",
+													"key": "connector_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns a connector"
+									},
+									"response": [
+										{
+											"id": "c12f1c93-06bd-4863-a549-d7bd4a605791",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"connectorId\": \"<string>\",\n  \"connectorStatus\": \"Active\",\n  \"platformType\": \"Unknown\",\n  \"connectorPoolId\": \"<string>\",\n  \"version\": \"<string>\",\n  \"upgradeVersions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"installedAt\": \"<integer>\",\n  \"updatedAt\": \"<integer>\",\n  \"host\": {\n    \"hostname\": \"<string>\",\n    \"privateIp\": \"<string>\",\n    \"publicIp\": \"<string>\",\n    \"os\": \"windows\",\n    \"osVersion\": \"<string>\",\n    \"osName\": \"<string>\",\n    \"cpuType\": \"<string>\",\n    \"totalCpu\": \"<integer>\",\n    \"usedCpu\": \"<number>\",\n    \"totalMemory\": \"<number>\",\n    \"usedMemory\": \"<number>\",\n    \"cloudRegion\": \"<string>\",\n    \"cloudAccount\": \"<string>\"\n  },\n  \"components\": [\n    {\n      \"componentId\": \"<string>\",\n      \"componentName\": \"<string>\",\n      \"componentStatus\": \"MaintenanceFailed\",\n      \"connectorId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"usedCpu\": \"<number>\",\n      \"usedMemory\": \"<number>\",\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"acronym\": \"<string>\",\n      \"maintenanceStatus\": {\n        \"maintenanceType\": \"Upgrade\",\n        \"progress\": \"<number>\",\n        \"currentStep\": \"<string>\",\n        \"additionalInformation\": {\n          \"quis_9\": \"<string>\",\n          \"temporc\": \"<string>\",\n          \"ex_d\": \"<string>\",\n          \"voluptatec_\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"componentId\": \"<string>\",\n      \"componentName\": \"<string>\",\n      \"componentStatus\": \"Inactive\",\n      \"connectorId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"usedCpu\": \"<number>\",\n      \"usedMemory\": \"<number>\",\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"acronym\": \"<string>\",\n      \"maintenanceStatus\": {\n        \"maintenanceType\": \"Upgrade\",\n        \"progress\": \"<number>\",\n        \"currentStep\": \"<string>\",\n        \"additionalInformation\": {\n          \"aliquip_06b\": \"<string>\",\n          \"cupidatat_4\": \"<string>\",\n          \"proident_65\": \"<string>\"\n        }\n      }\n    }\n  ]\n}"
+										},
+										{
+											"id": "61554b30-1ecf-4e73-9720-dcb1c4c5e4a4",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "de7cb672-86fa-46c5-82d0-78f4531233ff",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "cc116397-386e-4ead-8d24-568b93555893",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "9a135bea-eef2-45ea-b582-786d9e89214f",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get All Connectors",
+									"id": "63c725c1-1d73-476e-aaf4-f52e7036f4ab",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors",
+										"description": "Returns a list of all connectors"
+									},
+									"response": [
+										{
+											"id": "b4ec7e27-73dc-4ed4-b5ed-5e0f328866e4",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/connectors"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"connectors\": [\n    {\n      \"connectorId\": \"<string>\",\n      \"connectorStatus\": \"Downloaded\",\n      \"platformType\": \"AWS\",\n      \"connectorPoolId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"host\": {\n        \"hostname\": \"<string>\",\n        \"privateIp\": \"<string>\",\n        \"publicIp\": \"<string>\",\n        \"os\": \"windows\",\n        \"osVersion\": \"<string>\",\n        \"osName\": \"<string>\",\n        \"cpuType\": \"<string>\",\n        \"totalCpu\": \"<integer>\",\n        \"usedCpu\": \"<number>\",\n        \"totalMemory\": \"<number>\",\n        \"usedMemory\": \"<number>\",\n        \"cloudRegion\": \"<string>\",\n        \"cloudAccount\": \"<string>\"\n      },\n      \"components\": [\n        {\n          \"componentId\": \"<string>\",\n          \"componentName\": \"<string>\",\n          \"componentStatus\": \"Downloaded\",\n          \"connectorId\": \"<string>\",\n          \"version\": \"<string>\",\n          \"upgradeVersions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"usedCpu\": \"<number>\",\n          \"usedMemory\": \"<number>\",\n          \"installedAt\": \"<integer>\",\n          \"updatedAt\": \"<integer>\",\n          \"acronym\": \"<string>\",\n          \"maintenanceStatus\": {\n            \"maintenanceType\": \"Upgrade\",\n            \"progress\": \"<number>\",\n            \"currentStep\": \"<string>\",\n            \"additionalInformation\": {\n              \"laborum_5\": \"<string>\"\n            }\n          }\n        },\n        {\n          \"componentId\": \"<string>\",\n          \"componentName\": \"<string>\",\n          \"componentStatus\": \"Initializing\",\n          \"connectorId\": \"<string>\",\n          \"version\": \"<string>\",\n          \"upgradeVersions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"usedCpu\": \"<number>\",\n          \"usedMemory\": \"<number>\",\n          \"installedAt\": \"<integer>\",\n          \"updatedAt\": \"<integer>\",\n          \"acronym\": \"<string>\",\n          \"maintenanceStatus\": {\n            \"maintenanceType\": \"Upgrade\",\n            \"progress\": \"<number>\",\n            \"currentStep\": \"<string>\",\n            \"additionalInformation\": {\n              \"ea_e9\": \"<string>\",\n              \"cillum_c5\": \"<string>\",\n              \"etd5\": \"<string>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"connectorId\": \"<string>\",\n      \"connectorStatus\": \"Unknown\",\n      \"platformType\": \"Unknown\",\n      \"connectorPoolId\": \"<string>\",\n      \"version\": \"<string>\",\n      \"upgradeVersions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"installedAt\": \"<integer>\",\n      \"updatedAt\": \"<integer>\",\n      \"host\": {\n        \"hostname\": \"<string>\",\n        \"privateIp\": \"<string>\",\n        \"publicIp\": \"<string>\",\n        \"os\": \"windows\",\n        \"osVersion\": \"<string>\",\n        \"osName\": \"<string>\",\n        \"cpuType\": \"<string>\",\n        \"totalCpu\": \"<integer>\",\n        \"usedCpu\": \"<number>\",\n        \"totalMemory\": \"<number>\",\n        \"usedMemory\": \"<number>\",\n        \"cloudRegion\": \"<string>\",\n        \"cloudAccount\": \"<string>\"\n      },\n      \"components\": [\n        {\n          \"componentId\": \"<string>\",\n          \"componentName\": \"<string>\",\n          \"componentStatus\": \"Unknown\",\n          \"connectorId\": \"<string>\",\n          \"version\": \"<string>\",\n          \"upgradeVersions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"usedCpu\": \"<number>\",\n          \"usedMemory\": \"<number>\",\n          \"installedAt\": \"<integer>\",\n          \"updatedAt\": \"<integer>\",\n          \"acronym\": \"<string>\",\n          \"maintenanceStatus\": {\n            \"maintenanceType\": \"Upgrade\",\n            \"progress\": \"<number>\",\n            \"currentStep\": \"<string>\",\n            \"additionalInformation\": {\n              \"aliquip1\": \"<string>\",\n              \"ad5d4\": \"<string>\"\n            }\n          }\n        },\n        {\n          \"componentId\": \"<string>\",\n          \"componentName\": \"<string>\",\n          \"componentStatus\": \"Unknown\",\n          \"connectorId\": \"<string>\",\n          \"version\": \"<string>\",\n          \"upgradeVersions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"usedCpu\": \"<number>\",\n          \"usedMemory\": \"<number>\",\n          \"installedAt\": \"<integer>\",\n          \"updatedAt\": \"<integer>\",\n          \"acronym\": \"<string>\",\n          \"maintenanceStatus\": {\n            \"maintenanceType\": \"Upgrade\",\n            \"progress\": \"<number>\",\n            \"currentStep\": \"<string>\",\n            \"additionalInformation\": {\n              \"deseruntd45\": \"<string>\"\n            }\n          }\n        }\n      ]\n    }\n  ]\n}"
+										},
+										{
+											"id": "533e8109-0c71-4f4b-9d4f-65d266e7b772",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/connectors"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "396ed599-20dd-416f-8ef3-773c9b91f449",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/connectors"
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "4f6f9e2b-5084-408f-978e-feb15222a406",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/connectors"
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "99507c8a-1352-4400-b2cd-4e7b58deed0a",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": "{{baseUrl}}/api/connectors"
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete A Connector",
+									"id": "e56009a1-951b-4c88-9a99-f8f533685609",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/connectors/:connector_id",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"connectors",
+												":connector_id"
+											],
+											"variable": [
+												{
+													"id": "41f79296-1028-44f5-b181-3734a1224aa4",
+													"key": "connector_id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Deletes a connector and all its components"
+									},
+									"response": [
+										{
+											"id": "5d267ffd-ebae-474e-864e-84ab4a743a9b",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": null,
+											"cookie": [],
+											"responseTime": null,
+											"body": null
+										},
+										{
+											"id": "074e9f1c-6459-45ce-a3d9-f5d3add0b646",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "af4abfef-458c-460c-b865-e056872749a7",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "5a0df704-358b-44b7-9cec-d9844da3be30",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "1b9b2d50-0fcd-4f92-ad32-c9013e9fa05b",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/connectors/:connector_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"connectors",
+														":connector_id"
+													],
+													"variable": [
+														{
+															"key": "connector_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								}
+							],
+							"id": "fd2ac844-5b95-4377-b54a-33191541a984"
+						},
+						{
+							"name": "Agent Installation",
+							"item": [
+								{
+									"name": "Get Temporary Connector Installation Script",
+									"id": "b1c966e3-a38a-4aa1-8558-3bf8cacabd69",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"osType\": \"linux\",\n  \"version\": \"stable\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{saasSubdomain}}.cyberark.cloud/api/setup-script",
+										"description": "Creates a temporary script for installing an agent"
+									},
+									"response": [
+										{
+											"id": "05d78148-e35e-48a2-a376-1c919e6a6359",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"osType\": \"linux\",\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/api/setup-script"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"script\": \"<string>\"\n}"
+										},
+										{
+											"id": "3a7f27a2-58f6-432d-9d47-e09bb0e02995",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"osType\": \"linux\",\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/api/setup-script"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "697afdce-c22e-4775-986b-5e608d49bb93",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"osType\": \"linux\",\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/api/setup-script"
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "912040fe-ea64-4ae1-8a67-e57a2d1b8b38",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"osType\": \"linux\",\n  \"version\": \"stable\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/api/setup-script"
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								}
+							],
+							"id": "eb4571a2-5909-4e04-84f1-fdf1fcca7e0c"
+						},
+						{
+							"name": "Components Catalog",
+							"item": [
+								{
+									"name": "Get Components Catalog Configuration",
+									"id": "7fe5a5f7-c6ad-46a6-b9c9-c47fdcba4f43",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.cyberark.cloud/api/components-catalog/:component_name/versions/:version/configuration",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"components-catalog",
+												":component_name",
+												"versions",
+												":version",
+												"configuration"
+											],
+											"variable": [
+												{
+													"id": "15c6d360-4110-4ebc-9adf-8eb4e5609585",
+													"key": "component_name",
+													"value": "<string>"
+												},
+												{
+													"id": "93980c06-6759-4b6b-aa27-81945e99964a",
+													"key": "version",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Retrieves component task configuration"
+									},
+									"response": [
+										{
+											"id": "ca75f4bd-6b7d-464b-b1df-c8499b5b8af0",
+											"name": "Successful Response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/components-catalog/:component_name/versions/:version/configuration",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"components-catalog",
+														":component_name",
+														"versions",
+														":version",
+														"configuration"
+													],
+													"variable": [
+														{
+															"key": "component_name"
+														},
+														{
+															"key": "version"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"configuration\": {}\n}"
+										},
+										{
+											"id": "c435d385-b46b-4f97-af5c-4bf3380aad32",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/components-catalog/:component_name/versions/:version/configuration",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"components-catalog",
+														":component_name",
+														"versions",
+														":version",
+														"configuration"
+													],
+													"variable": [
+														{
+															"key": "component_name"
+														},
+														{
+															"key": "version"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "a1fe842f-3d13-405a-ae61-1a1aa501a3cd",
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/components-catalog/:component_name/versions/:version/configuration",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"components-catalog",
+														":component_name",
+														"versions",
+														":version",
+														"configuration"
+													],
+													"variable": [
+														{
+															"key": "component_name"
+														},
+														{
+															"key": "version"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "f01223ab-90ca-4d53-8b15-bf0cd09e0434",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/components-catalog/:component_name/versions/:version/configuration",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"components-catalog",
+														":component_name",
+														"versions",
+														":version",
+														"configuration"
+													],
+													"variable": [
+														{
+															"key": "component_name"
+														},
+														{
+															"key": "version"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										},
+										{
+											"id": "9cb06da2-d34d-444b-96b9-afce93ec0360",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/components-catalog/:component_name/versions/:version/configuration",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"components-catalog",
+														":component_name",
+														"versions",
+														":version",
+														"configuration"
+													],
+													"variable": [
+														{
+															"key": "component_name"
+														},
+														{
+															"key": "version"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"description\": \"\",\n  \"details\": \"\"\n}"
+										}
+									]
+								}
+							],
+							"id": "8713e6a6-3090-4200-a853-784006c87b64"
+						}
+					],
+					"id": "e454f9d2-df8b-4a9b-a058-1906f151ba5e",
+					"description": "This topic includes REST APIs for automating Connector Management actions.",
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "{{identityToken}}"
+						}
+					}
 				}
 			],
 			"id": "045fe494-76dd-4403-be19-3e3b55b407cc"
