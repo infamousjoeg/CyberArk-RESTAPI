@@ -4714,21 +4714,6 @@ paths:
       consumes:
       - application/x-www-form-urlencoded
       parameters:
-      - name: concurrentSession
-        in: query
-        required: true
-        type: boolean
-        description: Boolean value
-      - name: apiUse
-        in: query
-        required: true
-        type: boolean
-        description: Never should be false
-      - name: samlResponse
-        in: query
-        required: true
-        type: string
-        description: The SAML Token returned from your IdP
       - name: Content-Type
         in: header
         required: false
@@ -4736,6 +4721,21 @@ paths:
         - application/x-www-form-urlencoded
         type: string
         description: ''
+      - name: apiUse
+        in: formData
+        required: true
+        type: boolean
+        description: DO NOT CHANGE
+      - name: concurrentSession
+        in: formData
+        required: true
+        type: boolean
+        description: 'Valid Values: true, false'
+      - name: samlResponse
+        in: formData
+        required: true
+        type: string
+        description: The base64-encoded SAML response from your IdP
       responses:
         '200':
           description: ''
@@ -16112,7 +16112,7 @@ paths:
       operationId: PostAppendtoaPolicy
       deprecated: false
       produces:
-      - application/json
+      - application/json; charset=utf-8
       parameters:
       - name: conjurPolicyID
         in: path
@@ -16131,9 +16131,66 @@ paths:
             - !user george
           type: string
       responses:
-        '200':
-          description: ''
-          headers: {}
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/authn-jwtforGitHub'
+          examples:
+            application/json; charset=utf-8:
+              created_roles: {}
+              version: 1
+          headers:
+            Date:
+              type: string
+              default: Tue, 12 Sep 2023 16:45:52 GMT
+            Transfer-Encoding:
+              type: string
+              default: chunked
+            Connection:
+              type: string
+              default: keep-alive
+            x-frame-options:
+              type: string
+              default: SAMEORIGIN
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            x-download-options:
+              type: string
+              default: noopen
+            x-permitted-cross-domain-policies:
+              type: string
+              default: none
+            referrer-policy:
+              type: string
+              default: strict-origin-when-cross-origin
+            vary:
+              type: string
+              default: Accept
+            etag:
+              type: string
+              default: W/"87e1acc2a66b99105c36e6343a309640"
+            x-request-id:
+              type: string
+              default: 5cb13b35-881c-4920-8904-027ec10ddb9c
+            x-runtime:
+              type: string
+              default: '0.244095'
+            server:
+              type: string
+              default: '-'
+            content-security-policy:
+              type: string
+              default: default-src 'none'
+            strict-transport-security:
+              type: string
+              default: max-age=63072000; includeSubDomains; preload;
+            cache-control:
+              type: string
+              default: no-cache; no-store; must-revalidate;
     put:
       description: >-
         Loads or replaces a Conjur policy document.
@@ -27780,6 +27837,413 @@ paths:
         '200':
           description: ''
           headers: {}
+  /.cyberark.cloud/api/connectors/{connector_id}:
+    get:
+      description: Returns a connector
+      summary: Get A Connector
+      tags:
+      - Connectors
+      operationId: GetAConnector
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse6'
+          examples:
+            application/json:
+              connectorId: <string>
+              connectorStatus: Active
+              platformType: Unknown
+              connectorPoolId: <string>
+              version: <string>
+              upgradeVersions:
+              - <string>
+              - <string>
+              installedAt: <integer>
+              updatedAt: <integer>
+              host:
+                hostname: <string>
+                privateIp: <string>
+                publicIp: <string>
+                os: windows
+                osVersion: <string>
+                osName: <string>
+                cpuType: <string>
+                totalCpu: <integer>
+                usedCpu: <number>
+                totalMemory: <number>
+                usedMemory: <number>
+                cloudRegion: <string>
+                cloudAccount: <string>
+              components:
+              - componentId: <string>
+                componentName: <string>
+                componentStatus: MaintenanceFailed
+                connectorId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                usedCpu: <number>
+                usedMemory: <number>
+                installedAt: <integer>
+                updatedAt: <integer>
+                acronym: <string>
+                maintenanceStatus:
+                  maintenanceType: Upgrade
+                  progress: <number>
+                  currentStep: <string>
+                  additionalInformation:
+                    quis_9: <string>
+                    temporc: <string>
+                    ex_d: <string>
+                    voluptatec_: <string>
+              - componentId: <string>
+                componentName: <string>
+                componentStatus: Inactive
+                connectorId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                usedCpu: <number>
+                usedMemory: <number>
+                installedAt: <integer>
+                updatedAt: <integer>
+                acronym: <string>
+                maintenanceStatus:
+                  maintenanceType: Upgrade
+                  progress: <number>
+                  currentStep: <string>
+                  additionalInformation:
+                    aliquip_06b: <string>
+                    cupidatat_4: <string>
+                    proident_65: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+    delete:
+      description: Deletes a connector and all its components
+      summary: Delete A Connector
+      tags:
+      - Connectors
+      operationId: DeleteAConnector
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '204':
+          description: No Content
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /connectors:
+    get:
+      description: Returns a list of all connectors
+      summary: Get All Connectors
+      tags:
+      - Connectors
+      operationId: GetAllConnectors
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse7'
+          examples:
+            application/json:
+              connectors:
+              - connectorId: <string>
+                connectorStatus: Downloaded
+                platformType: AWS
+                connectorPoolId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                installedAt: <integer>
+                updatedAt: <integer>
+                host:
+                  hostname: <string>
+                  privateIp: <string>
+                  publicIp: <string>
+                  os: windows
+                  osVersion: <string>
+                  osName: <string>
+                  cpuType: <string>
+                  totalCpu: <integer>
+                  usedCpu: <number>
+                  totalMemory: <number>
+                  usedMemory: <number>
+                  cloudRegion: <string>
+                  cloudAccount: <string>
+                components:
+                - componentId: <string>
+                  componentName: <string>
+                  componentStatus: Downloaded
+                  connectorId: <string>
+                  version: <string>
+                  upgradeVersions:
+                  - <string>
+                  - <string>
+                  usedCpu: <number>
+                  usedMemory: <number>
+                  installedAt: <integer>
+                  updatedAt: <integer>
+                  acronym: <string>
+                  maintenanceStatus:
+                    maintenanceType: Upgrade
+                    progress: <number>
+                    currentStep: <string>
+                    additionalInformation:
+                      laborum_5: <string>
+                - componentId: <string>
+                  componentName: <string>
+                  componentStatus: Initializing
+                  connectorId: <string>
+                  version: <string>
+                  upgradeVersions:
+                  - <string>
+                  - <string>
+                  usedCpu: <number>
+                  usedMemory: <number>
+                  installedAt: <integer>
+                  updatedAt: <integer>
+                  acronym: <string>
+                  maintenanceStatus:
+                    maintenanceType: Upgrade
+                    progress: <number>
+                    currentStep: <string>
+                    additionalInformation:
+                      ea_e9: <string>
+                      cillum_c5: <string>
+                      etd5: <string>
+              - connectorId: <string>
+                connectorStatus: Unknown
+                platformType: Unknown
+                connectorPoolId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                installedAt: <integer>
+                updatedAt: <integer>
+                host:
+                  hostname: <string>
+                  privateIp: <string>
+                  publicIp: <string>
+                  os: windows
+                  osVersion: <string>
+                  osName: <string>
+                  cpuType: <string>
+                  totalCpu: <integer>
+                  usedCpu: <number>
+                  totalMemory: <number>
+                  usedMemory: <number>
+                  cloudRegion: <string>
+                  cloudAccount: <string>
+                components:
+                - componentId: <string>
+                  componentName: <string>
+                  componentStatus: Unknown
+                  connectorId: <string>
+                  version: <string>
+                  upgradeVersions:
+                  - <string>
+                  - <string>
+                  usedCpu: <number>
+                  usedMemory: <number>
+                  installedAt: <integer>
+                  updatedAt: <integer>
+                  acronym: <string>
+                  maintenanceStatus:
+                    maintenanceType: Upgrade
+                    progress: <number>
+                    currentStep: <string>
+                    additionalInformation:
+                      aliquip1: <string>
+                      ad5d4: <string>
+                - componentId: <string>
+                  componentName: <string>
+                  componentStatus: Unknown
+                  connectorId: <string>
+                  version: <string>
+                  upgradeVersions:
+                  - <string>
+                  - <string>
+                  usedCpu: <number>
+                  usedMemory: <number>
+                  installedAt: <integer>
+                  updatedAt: <integer>
+                  acronym: <string>
+                  maintenanceStatus:
+                    maintenanceType: Upgrade
+                    progress: <number>
+                    currentStep: <string>
+                    additionalInformation:
+                      deseruntd45: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
   /.dpa.cyberark.cloud/api/access-policies/{dpaPolicyID}:
     get:
       description: Retrieves authorization policy with the given ID
@@ -28881,6 +29345,79 @@ paths:
         '200':
           description: ''
           headers: {}
+  /.secretsmgr.cyberark.cloud/api/{conjurAuthnType}/{conjurServiceID}/conjur:
+    patch:
+      summary: Enable/Disable Authenticator
+      tags:
+      - Conjur Cloud
+      operationId: Enable/DisableAuthenticator
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: conjurAuthnType
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: conjurServiceID
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: enabled
+        in: formData
+        required: true
+        type: boolean
+        description: Enable or disable the authenticator
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Date:
+              type: string
+              default: Tue, 12 Sep 2023 16:51:49 GMT
+            Connection:
+              type: string
+              default: keep-alive
+            x-frame-options:
+              type: string
+              default: SAMEORIGIN
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            x-download-options:
+              type: string
+              default: noopen
+            x-permitted-cross-domain-policies:
+              type: string
+              default: none
+            referrer-policy:
+              type: string
+              default: strict-origin-when-cross-origin
+            x-request-id:
+              type: string
+              default: 1ae59a81-cb2e-405d-a705-d81d495db720
+            x-runtime:
+              type: string
+              default: '0.033615'
+            server:
+              type: string
+              default: '-'
+            content-security-policy:
+              type: string
+              default: default-src 'none'
+            strict-transport-security:
+              type: string
+              default: max-age=63072000; includeSubDomains; preload;
+            cache-control:
+              type: string
+              default: no-cache; no-store; must-revalidate;
   /.secretshub.cyberark.cloud/api/secret-stores/{shStoreID}/filters/{shFilterID}:
     get:
       description: Get a specific secrets filter by unique identifier.
@@ -29610,6 +30147,874 @@ paths:
       responses:
         '200':
           description: ''
+          headers: {}
+  /.cyberark.cloud/api/connectors/{connector_id}/components/{component_id}:
+    get:
+      description: Returns a component by connector
+      summary: Get A Component By Connector
+      tags:
+      - Components
+      operationId: GetAComponentByConnector
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: component_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse'
+          examples:
+            application/json:
+              componentId: <string>
+              componentName: <string>
+              componentStatus: Initializing
+              connectorId: <string>
+              version: <string>
+              upgradeVersions:
+              - <string>
+              - <string>
+              usedCpu: <number>
+              usedMemory: <number>
+              installedAt: <integer>
+              updatedAt: <integer>
+              acronym: <string>
+              maintenanceStatus:
+                maintenanceType: Upgrade
+                progress: <number>
+                currentStep: <string>
+                additionalInformation:
+                  etabe: <string>
+                  dolore84f: <string>
+                  exf3: <string>
+                  eu_00: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+    delete:
+      description: Deletes a component record
+      summary: Delete A Component
+      tags:
+      - Components
+      operationId: DeleteAComponent
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: component_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '204':
+          description: No Content
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /components:
+    get:
+      description: Returns a list of all components
+      summary: Get All Components
+      tags:
+      - Components
+      operationId: GetAllComponents
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse1'
+          examples:
+            application/json:
+              components:
+              - componentId: <string>
+                componentName: <string>
+                componentStatus: Suspended
+                connectorId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                usedCpu: <number>
+                usedMemory: <number>
+                installedAt: <integer>
+                updatedAt: <integer>
+                acronym: <string>
+                maintenanceStatus:
+                  maintenanceType: Installation
+                  progress: <number>
+                  currentStep: <string>
+                  additionalInformation:
+                    enima54: <string>
+              - componentId: <string>
+                componentName: <string>
+                componentStatus: Suspended
+                connectorId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                usedCpu: <number>
+                usedMemory: <number>
+                installedAt: <integer>
+                updatedAt: <integer>
+                acronym: <string>
+                maintenanceStatus:
+                  maintenanceType: Installation
+                  progress: <number>
+                  currentStep: <string>
+                  additionalInformation:
+                    eafe3: <string>
+                    mollit_7cf: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /.cyberark.cloud/api/connectors/{connector_id}/components:
+    get:
+      description: Returns a list of component based on the connector ID
+      summary: Get All Connector Components
+      tags:
+      - Components
+      operationId: GetAllConnectorComponents
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse1'
+          examples:
+            application/json:
+              components:
+              - componentId: <string>
+                componentName: <string>
+                componentStatus: Suspended
+                connectorId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                usedCpu: <number>
+                usedMemory: <number>
+                installedAt: <integer>
+                updatedAt: <integer>
+                acronym: <string>
+                maintenanceStatus:
+                  maintenanceType: Installation
+                  progress: <number>
+                  currentStep: <string>
+                  additionalInformation:
+                    enima54: <string>
+              - componentId: <string>
+                componentName: <string>
+                componentStatus: Suspended
+                connectorId: <string>
+                version: <string>
+                upgradeVersions:
+                - <string>
+                - <string>
+                usedCpu: <number>
+                usedMemory: <number>
+                installedAt: <integer>
+                updatedAt: <integer>
+                acronym: <string>
+                maintenanceStatus:
+                  maintenanceType: Installation
+                  progress: <number>
+                  currentStep: <string>
+                  additionalInformation:
+                    eafe3: <string>
+                    mollit_7cf: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+    post:
+      description: Installs new component on the connector host
+      summary: Component Installation
+      tags:
+      - Components
+      operationId: ComponentInstallation
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/ComponentInstallationRequest'
+      responses:
+        '202':
+          description: Accepted
+          schema:
+            $ref: '#/definitions/SuccessfulResponse3'
+          examples:
+            application/json:
+              taskId: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /.cyberark.cloud/api/connectors/{connector_id}/components/{component_id}/reinstall:
+    post:
+      description: Reinstall a component on the connectors host
+      summary: Reinstall Component
+      tags:
+      - Components
+      operationId: ReinstallComponent
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: component_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse3'
+          examples:
+            application/json:
+              taskId: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /.cyberark.cloud/api/connectors/{connector_id}/components/rescan:
+    post:
+      description: Triggers components rescan flow
+      summary: Rescan Components
+      tags:
+      - Components
+      operationId: RescanComponents
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            default: ''
+          examples:
+            application/json: {}
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /.cyberark.cloudapi/connectors/{connector_id}/components/{component_id}/upgrade:
+    post:
+      description: Upgrades a component to the latest stable version
+      summary: Upgrade A Component
+      tags:
+      - Components
+      operationId: UpgradeAComponent
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: connector_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: component_id
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse5'
+          examples:
+            application/json:
+              oldVersion: <string>
+              newVersion: <string>
+              taskId: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Forbidden1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /setup-script:
+    post:
+      description: Creates a temporary script for installing an agent
+      summary: Get Temporary Connector Installation Script
+      tags:
+      - Agent Installation
+      operationId: GetTemporaryConnectorInstallationScript
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/GetTemporaryConnectorInstallationScriptRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse8'
+          examples:
+            application/json:
+              script: <string>
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+  /.cyberark.cloud/api/components-catalog/{component_name}/versions/{version}/configuration:
+    get:
+      description: Retrieves component task configuration
+      summary: Get Components Catalog Configuration
+      tags:
+      - Components Catalog
+      operationId: GetComponentsCatalogConfiguration
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: component_name
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: version
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SuccessfulResponse9'
+          examples:
+            application/json:
+              configuration: {}
+          headers: {}
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequest1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthorized1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/NotFound1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
+          headers: {}
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/InternalServerError1'
+          examples:
+            application/json:
+              code: <string>
+              message: <string>
+              description: ''
+              details: ''
           headers: {}
 definitions:
   Ad-HocConnectthroughPSMRequest:
@@ -34214,7 +35619,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1694104112
+      Reason: Automatically accepted via CyberArk Web Services on 1694706686
     type: object
     properties:
       Reason:
@@ -34224,7 +35629,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1694104112
+      Reason: Rejected automatically by CyberArk Web Services on 1694706686
     type: object
     properties:
       Reason:
@@ -54375,6 +55780,21 @@ definitions:
     - comments
     - applications
     - pvwaApplications
+  authn-jwtforGitHub:
+    title: authn-jwtforGitHub
+    example:
+      created_roles: {}
+      version: 1
+    type: object
+    properties:
+      created_roles:
+        type: object
+      version:
+        type: integer
+        format: int32
+    required:
+    - created_roles
+    - version
   CreateSecretsFilterRequest:
     title: CreateSecretsFilterRequest
     example:
@@ -55043,6 +56463,1092 @@ definitions:
     - entities
     - targetAttributes
     - accessRules
+  SuccessfulResponse:
+    title: SuccessfulResponse
+    example:
+      componentId: <string>
+      componentName: <string>
+      componentStatus: Initializing
+      connectorId: <string>
+      version: <string>
+      upgradeVersions:
+      - <string>
+      - <string>
+      usedCpu: <number>
+      usedMemory: <number>
+      installedAt: <integer>
+      updatedAt: <integer>
+      acronym: <string>
+      maintenanceStatus:
+        maintenanceType: Upgrade
+        progress: <number>
+        currentStep: <string>
+        additionalInformation:
+          etabe: <string>
+          dolore84f: <string>
+          exf3: <string>
+          eu_00: <string>
+    type: object
+    properties:
+      componentId:
+        type: string
+      componentName:
+        type: string
+      componentStatus:
+        type: string
+      connectorId:
+        type: string
+      version:
+        type: string
+      upgradeVersions:
+        type: array
+        items:
+          type: string
+      usedCpu:
+        type: string
+      usedMemory:
+        type: string
+      installedAt:
+        type: string
+      updatedAt:
+        type: string
+      acronym:
+        type: string
+      maintenanceStatus:
+        $ref: '#/definitions/MaintenanceStatus'
+    required:
+    - componentId
+    - componentName
+    - componentStatus
+    - connectorId
+    - version
+    - upgradeVersions
+    - usedCpu
+    - usedMemory
+    - installedAt
+    - updatedAt
+    - acronym
+    - maintenanceStatus
+  MaintenanceStatus:
+    title: MaintenanceStatus
+    example:
+      maintenanceType: Upgrade
+      progress: <number>
+      currentStep: <string>
+      additionalInformation:
+        etabe: <string>
+        dolore84f: <string>
+        exf3: <string>
+        eu_00: <string>
+    type: object
+    properties:
+      maintenanceType:
+        type: string
+      progress:
+        type: string
+      currentStep:
+        type: string
+      additionalInformation:
+        $ref: '#/definitions/AdditionalInformation'
+    required:
+    - maintenanceType
+    - progress
+    - currentStep
+    - additionalInformation
+  AdditionalInformation:
+    title: AdditionalInformation
+    example:
+      etabe: <string>
+      dolore84f: <string>
+      exf3: <string>
+      eu_00: <string>
+    type: object
+    properties:
+      etabe:
+        type: string
+      dolore84f:
+        type: string
+      exf3:
+        type: string
+      eu_00:
+        type: string
+    required:
+    - etabe
+    - dolore84f
+    - exf3
+    - eu_00
+  BadRequest1:
+    title: BadRequest1
+    example:
+      code: <string>
+      message: <string>
+      description: ''
+      details: ''
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+      details:
+        type: string
+    required:
+    - code
+    - message
+    - description
+    - details
+  Unauthorized1:
+    title: Unauthorized1
+    example:
+      code: <string>
+      message: <string>
+      description: ''
+      details: ''
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+      details:
+        type: string
+    required:
+    - code
+    - message
+    - description
+    - details
+  NotFound1:
+    title: NotFound1
+    example:
+      code: <string>
+      message: <string>
+      description: ''
+      details: ''
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+      details:
+        type: string
+    required:
+    - code
+    - message
+    - description
+    - details
+  InternalServerError1:
+    title: InternalServerError1
+    example:
+      code: <string>
+      message: <string>
+      description: ''
+      details: ''
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+      details:
+        type: string
+    required:
+    - code
+    - message
+    - description
+    - details
+  SuccessfulResponse1:
+    title: SuccessfulResponse1
+    example:
+      components:
+      - componentId: <string>
+        componentName: <string>
+        componentStatus: Suspended
+        connectorId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        usedCpu: <number>
+        usedMemory: <number>
+        installedAt: <integer>
+        updatedAt: <integer>
+        acronym: <string>
+        maintenanceStatus:
+          maintenanceType: Installation
+          progress: <number>
+          currentStep: <string>
+          additionalInformation:
+            enima54: <string>
+      - componentId: <string>
+        componentName: <string>
+        componentStatus: Suspended
+        connectorId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        usedCpu: <number>
+        usedMemory: <number>
+        installedAt: <integer>
+        updatedAt: <integer>
+        acronym: <string>
+        maintenanceStatus:
+          maintenanceType: Installation
+          progress: <number>
+          currentStep: <string>
+          additionalInformation:
+            eafe3: <string>
+            mollit_7cf: <string>
+    type: object
+    properties:
+      components:
+        type: array
+        items:
+          $ref: '#/definitions/Component2'
+    required:
+    - components
+  Component2:
+    title: Component2
+    example:
+      componentId: <string>
+      componentName: <string>
+      componentStatus: Suspended
+      connectorId: <string>
+      version: <string>
+      upgradeVersions:
+      - <string>
+      - <string>
+      usedCpu: <number>
+      usedMemory: <number>
+      installedAt: <integer>
+      updatedAt: <integer>
+      acronym: <string>
+      maintenanceStatus:
+        maintenanceType: Installation
+        progress: <number>
+        currentStep: <string>
+        additionalInformation:
+          enima54: <string>
+    type: object
+    properties:
+      componentId:
+        type: string
+      componentName:
+        type: string
+      componentStatus:
+        type: string
+      connectorId:
+        type: string
+      version:
+        type: string
+      upgradeVersions:
+        type: array
+        items:
+          type: string
+      usedCpu:
+        type: string
+      usedMemory:
+        type: string
+      installedAt:
+        type: string
+      updatedAt:
+        type: string
+      acronym:
+        type: string
+      maintenanceStatus:
+        $ref: '#/definitions/MaintenanceStatus1'
+    required:
+    - componentId
+    - componentName
+    - componentStatus
+    - connectorId
+    - version
+    - upgradeVersions
+    - usedCpu
+    - usedMemory
+    - installedAt
+    - updatedAt
+    - acronym
+    - maintenanceStatus
+  MaintenanceStatus1:
+    title: MaintenanceStatus1
+    example:
+      maintenanceType: Installation
+      progress: <number>
+      currentStep: <string>
+      additionalInformation:
+        enima54: <string>
+    type: object
+    properties:
+      maintenanceType:
+        type: string
+      progress:
+        type: string
+      currentStep:
+        type: string
+      additionalInformation:
+        $ref: '#/definitions/AdditionalInformation1'
+    required:
+    - maintenanceType
+    - progress
+    - currentStep
+    - additionalInformation
+  AdditionalInformation1:
+    title: AdditionalInformation1
+    example:
+      enima54: <string>
+    type: object
+    properties:
+      enima54:
+        type: string
+      eafe3:
+        type: string
+      mollit_7cf:
+        type: string
+  ComponentInstallationRequest:
+    title: ComponentInstallationRequest
+    example:
+      componentName: <string>
+      extraVars: {}
+      version: stable
+    type: object
+    properties:
+      componentName:
+        type: string
+      extraVars:
+        type: object
+      version:
+        type: string
+    required:
+    - componentName
+    - extraVars
+    - version
+  SuccessfulResponse3:
+    title: SuccessfulResponse3
+    example:
+      taskId: <string>
+    type: object
+    properties:
+      taskId:
+        type: string
+    required:
+    - taskId
+  SuccessfulResponse5:
+    title: SuccessfulResponse5
+    example:
+      oldVersion: <string>
+      newVersion: <string>
+      taskId: <string>
+    type: object
+    properties:
+      oldVersion:
+        type: string
+      newVersion:
+        type: string
+      taskId:
+        type: string
+    required:
+    - oldVersion
+    - newVersion
+    - taskId
+  Forbidden1:
+    title: Forbidden1
+    example:
+      code: <string>
+      message: <string>
+      description: ''
+      details: ''
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+      details:
+        type: string
+    required:
+    - code
+    - message
+    - description
+    - details
+  SuccessfulResponse6:
+    title: SuccessfulResponse6
+    example:
+      connectorId: <string>
+      connectorStatus: Active
+      platformType: Unknown
+      connectorPoolId: <string>
+      version: <string>
+      upgradeVersions:
+      - <string>
+      - <string>
+      installedAt: <integer>
+      updatedAt: <integer>
+      host:
+        hostname: <string>
+        privateIp: <string>
+        publicIp: <string>
+        os: windows
+        osVersion: <string>
+        osName: <string>
+        cpuType: <string>
+        totalCpu: <integer>
+        usedCpu: <number>
+        totalMemory: <number>
+        usedMemory: <number>
+        cloudRegion: <string>
+        cloudAccount: <string>
+      components:
+      - componentId: <string>
+        componentName: <string>
+        componentStatus: MaintenanceFailed
+        connectorId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        usedCpu: <number>
+        usedMemory: <number>
+        installedAt: <integer>
+        updatedAt: <integer>
+        acronym: <string>
+        maintenanceStatus:
+          maintenanceType: Upgrade
+          progress: <number>
+          currentStep: <string>
+          additionalInformation:
+            quis_9: <string>
+            temporc: <string>
+            ex_d: <string>
+            voluptatec_: <string>
+      - componentId: <string>
+        componentName: <string>
+        componentStatus: Inactive
+        connectorId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        usedCpu: <number>
+        usedMemory: <number>
+        installedAt: <integer>
+        updatedAt: <integer>
+        acronym: <string>
+        maintenanceStatus:
+          maintenanceType: Upgrade
+          progress: <number>
+          currentStep: <string>
+          additionalInformation:
+            aliquip_06b: <string>
+            cupidatat_4: <string>
+            proident_65: <string>
+    type: object
+    properties:
+      connectorId:
+        type: string
+      connectorStatus:
+        type: string
+      platformType:
+        type: string
+      connectorPoolId:
+        type: string
+      version:
+        type: string
+      upgradeVersions:
+        type: array
+        items:
+          type: string
+      installedAt:
+        type: string
+      updatedAt:
+        type: string
+      host:
+        $ref: '#/definitions/Host'
+      components:
+        type: array
+        items:
+          $ref: '#/definitions/Component4'
+    required:
+    - connectorId
+    - connectorStatus
+    - platformType
+    - connectorPoolId
+    - version
+    - upgradeVersions
+    - installedAt
+    - updatedAt
+    - host
+    - components
+  Host:
+    title: Host
+    example:
+      hostname: <string>
+      privateIp: <string>
+      publicIp: <string>
+      os: windows
+      osVersion: <string>
+      osName: <string>
+      cpuType: <string>
+      totalCpu: <integer>
+      usedCpu: <number>
+      totalMemory: <number>
+      usedMemory: <number>
+      cloudRegion: <string>
+      cloudAccount: <string>
+    type: object
+    properties:
+      hostname:
+        type: string
+      privateIp:
+        type: string
+      publicIp:
+        type: string
+      os:
+        type: string
+      osVersion:
+        type: string
+      osName:
+        type: string
+      cpuType:
+        type: string
+      totalCpu:
+        type: string
+      usedCpu:
+        type: string
+      totalMemory:
+        type: string
+      usedMemory:
+        type: string
+      cloudRegion:
+        type: string
+      cloudAccount:
+        type: string
+    required:
+    - hostname
+    - privateIp
+    - publicIp
+    - os
+    - osVersion
+    - osName
+    - cpuType
+    - totalCpu
+    - usedCpu
+    - totalMemory
+    - usedMemory
+    - cloudRegion
+    - cloudAccount
+  Component4:
+    title: Component4
+    example:
+      componentId: <string>
+      componentName: <string>
+      componentStatus: MaintenanceFailed
+      connectorId: <string>
+      version: <string>
+      upgradeVersions:
+      - <string>
+      - <string>
+      usedCpu: <number>
+      usedMemory: <number>
+      installedAt: <integer>
+      updatedAt: <integer>
+      acronym: <string>
+      maintenanceStatus:
+        maintenanceType: Upgrade
+        progress: <number>
+        currentStep: <string>
+        additionalInformation:
+          quis_9: <string>
+          temporc: <string>
+          ex_d: <string>
+          voluptatec_: <string>
+    type: object
+    properties:
+      componentId:
+        type: string
+      componentName:
+        type: string
+      componentStatus:
+        type: string
+      connectorId:
+        type: string
+      version:
+        type: string
+      upgradeVersions:
+        type: array
+        items:
+          type: string
+      usedCpu:
+        type: string
+      usedMemory:
+        type: string
+      installedAt:
+        type: string
+      updatedAt:
+        type: string
+      acronym:
+        type: string
+      maintenanceStatus:
+        $ref: '#/definitions/MaintenanceStatus3'
+    required:
+    - componentId
+    - componentName
+    - componentStatus
+    - connectorId
+    - version
+    - upgradeVersions
+    - usedCpu
+    - usedMemory
+    - installedAt
+    - updatedAt
+    - acronym
+    - maintenanceStatus
+  MaintenanceStatus3:
+    title: MaintenanceStatus3
+    example:
+      maintenanceType: Upgrade
+      progress: <number>
+      currentStep: <string>
+      additionalInformation:
+        quis_9: <string>
+        temporc: <string>
+        ex_d: <string>
+        voluptatec_: <string>
+    type: object
+    properties:
+      maintenanceType:
+        type: string
+      progress:
+        type: string
+      currentStep:
+        type: string
+      additionalInformation:
+        $ref: '#/definitions/AdditionalInformation3'
+    required:
+    - maintenanceType
+    - progress
+    - currentStep
+    - additionalInformation
+  AdditionalInformation3:
+    title: AdditionalInformation3
+    example:
+      quis_9: <string>
+      temporc: <string>
+      ex_d: <string>
+      voluptatec_: <string>
+    type: object
+    properties:
+      quis_9:
+        type: string
+      temporc:
+        type: string
+      ex_d:
+        type: string
+      voluptatec_:
+        type: string
+      aliquip_06b:
+        type: string
+      cupidatat_4:
+        type: string
+      proident_65:
+        type: string
+  SuccessfulResponse7:
+    title: SuccessfulResponse7
+    example:
+      connectors:
+      - connectorId: <string>
+        connectorStatus: Downloaded
+        platformType: AWS
+        connectorPoolId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        installedAt: <integer>
+        updatedAt: <integer>
+        host:
+          hostname: <string>
+          privateIp: <string>
+          publicIp: <string>
+          os: windows
+          osVersion: <string>
+          osName: <string>
+          cpuType: <string>
+          totalCpu: <integer>
+          usedCpu: <number>
+          totalMemory: <number>
+          usedMemory: <number>
+          cloudRegion: <string>
+          cloudAccount: <string>
+        components:
+        - componentId: <string>
+          componentName: <string>
+          componentStatus: Downloaded
+          connectorId: <string>
+          version: <string>
+          upgradeVersions:
+          - <string>
+          - <string>
+          usedCpu: <number>
+          usedMemory: <number>
+          installedAt: <integer>
+          updatedAt: <integer>
+          acronym: <string>
+          maintenanceStatus:
+            maintenanceType: Upgrade
+            progress: <number>
+            currentStep: <string>
+            additionalInformation:
+              laborum_5: <string>
+        - componentId: <string>
+          componentName: <string>
+          componentStatus: Initializing
+          connectorId: <string>
+          version: <string>
+          upgradeVersions:
+          - <string>
+          - <string>
+          usedCpu: <number>
+          usedMemory: <number>
+          installedAt: <integer>
+          updatedAt: <integer>
+          acronym: <string>
+          maintenanceStatus:
+            maintenanceType: Upgrade
+            progress: <number>
+            currentStep: <string>
+            additionalInformation:
+              ea_e9: <string>
+              cillum_c5: <string>
+              etd5: <string>
+      - connectorId: <string>
+        connectorStatus: Unknown
+        platformType: Unknown
+        connectorPoolId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        installedAt: <integer>
+        updatedAt: <integer>
+        host:
+          hostname: <string>
+          privateIp: <string>
+          publicIp: <string>
+          os: windows
+          osVersion: <string>
+          osName: <string>
+          cpuType: <string>
+          totalCpu: <integer>
+          usedCpu: <number>
+          totalMemory: <number>
+          usedMemory: <number>
+          cloudRegion: <string>
+          cloudAccount: <string>
+        components:
+        - componentId: <string>
+          componentName: <string>
+          componentStatus: Unknown
+          connectorId: <string>
+          version: <string>
+          upgradeVersions:
+          - <string>
+          - <string>
+          usedCpu: <number>
+          usedMemory: <number>
+          installedAt: <integer>
+          updatedAt: <integer>
+          acronym: <string>
+          maintenanceStatus:
+            maintenanceType: Upgrade
+            progress: <number>
+            currentStep: <string>
+            additionalInformation:
+              aliquip1: <string>
+              ad5d4: <string>
+        - componentId: <string>
+          componentName: <string>
+          componentStatus: Unknown
+          connectorId: <string>
+          version: <string>
+          upgradeVersions:
+          - <string>
+          - <string>
+          usedCpu: <number>
+          usedMemory: <number>
+          installedAt: <integer>
+          updatedAt: <integer>
+          acronym: <string>
+          maintenanceStatus:
+            maintenanceType: Upgrade
+            progress: <number>
+            currentStep: <string>
+            additionalInformation:
+              deseruntd45: <string>
+    type: object
+    properties:
+      connectors:
+        type: array
+        items:
+          $ref: '#/definitions/Connector'
+    required:
+    - connectors
+  Connector:
+    title: Connector
+    example:
+      connectorId: <string>
+      connectorStatus: Downloaded
+      platformType: AWS
+      connectorPoolId: <string>
+      version: <string>
+      upgradeVersions:
+      - <string>
+      - <string>
+      installedAt: <integer>
+      updatedAt: <integer>
+      host:
+        hostname: <string>
+        privateIp: <string>
+        publicIp: <string>
+        os: windows
+        osVersion: <string>
+        osName: <string>
+        cpuType: <string>
+        totalCpu: <integer>
+        usedCpu: <number>
+        totalMemory: <number>
+        usedMemory: <number>
+        cloudRegion: <string>
+        cloudAccount: <string>
+      components:
+      - componentId: <string>
+        componentName: <string>
+        componentStatus: Downloaded
+        connectorId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        usedCpu: <number>
+        usedMemory: <number>
+        installedAt: <integer>
+        updatedAt: <integer>
+        acronym: <string>
+        maintenanceStatus:
+          maintenanceType: Upgrade
+          progress: <number>
+          currentStep: <string>
+          additionalInformation:
+            laborum_5: <string>
+      - componentId: <string>
+        componentName: <string>
+        componentStatus: Initializing
+        connectorId: <string>
+        version: <string>
+        upgradeVersions:
+        - <string>
+        - <string>
+        usedCpu: <number>
+        usedMemory: <number>
+        installedAt: <integer>
+        updatedAt: <integer>
+        acronym: <string>
+        maintenanceStatus:
+          maintenanceType: Upgrade
+          progress: <number>
+          currentStep: <string>
+          additionalInformation:
+            ea_e9: <string>
+            cillum_c5: <string>
+            etd5: <string>
+    type: object
+    properties:
+      connectorId:
+        type: string
+      connectorStatus:
+        type: string
+      platformType:
+        type: string
+      connectorPoolId:
+        type: string
+      version:
+        type: string
+      upgradeVersions:
+        type: array
+        items:
+          type: string
+      installedAt:
+        type: string
+      updatedAt:
+        type: string
+      host:
+        $ref: '#/definitions/Host'
+      components:
+        type: array
+        items:
+          $ref: '#/definitions/Component5'
+    required:
+    - connectorId
+    - connectorStatus
+    - platformType
+    - connectorPoolId
+    - version
+    - upgradeVersions
+    - installedAt
+    - updatedAt
+    - host
+    - components
+  Component5:
+    title: Component5
+    example:
+      componentId: <string>
+      componentName: <string>
+      componentStatus: Downloaded
+      connectorId: <string>
+      version: <string>
+      upgradeVersions:
+      - <string>
+      - <string>
+      usedCpu: <number>
+      usedMemory: <number>
+      installedAt: <integer>
+      updatedAt: <integer>
+      acronym: <string>
+      maintenanceStatus:
+        maintenanceType: Upgrade
+        progress: <number>
+        currentStep: <string>
+        additionalInformation:
+          laborum_5: <string>
+    type: object
+    properties:
+      componentId:
+        type: string
+      componentName:
+        type: string
+      componentStatus:
+        type: string
+      connectorId:
+        type: string
+      version:
+        type: string
+      upgradeVersions:
+        type: array
+        items:
+          type: string
+      usedCpu:
+        type: string
+      usedMemory:
+        type: string
+      installedAt:
+        type: string
+      updatedAt:
+        type: string
+      acronym:
+        type: string
+      maintenanceStatus:
+        $ref: '#/definitions/MaintenanceStatus4'
+    required:
+    - componentId
+    - componentName
+    - componentStatus
+    - connectorId
+    - version
+    - upgradeVersions
+    - usedCpu
+    - usedMemory
+    - installedAt
+    - updatedAt
+    - acronym
+    - maintenanceStatus
+  MaintenanceStatus4:
+    title: MaintenanceStatus4
+    example:
+      maintenanceType: Upgrade
+      progress: <number>
+      currentStep: <string>
+      additionalInformation:
+        laborum_5: <string>
+    type: object
+    properties:
+      maintenanceType:
+        type: string
+      progress:
+        type: string
+      currentStep:
+        type: string
+      additionalInformation:
+        $ref: '#/definitions/AdditionalInformation4'
+    required:
+    - maintenanceType
+    - progress
+    - currentStep
+    - additionalInformation
+  AdditionalInformation4:
+    title: AdditionalInformation4
+    example:
+      laborum_5: <string>
+    type: object
+    properties:
+      laborum_5:
+        type: string
+      ea_e9:
+        type: string
+      cillum_c5:
+        type: string
+      etd5:
+        type: string
+      aliquip1:
+        type: string
+      ad5d4:
+        type: string
+      deseruntd45:
+        type: string
+  GetTemporaryConnectorInstallationScriptRequest:
+    title: GetTemporaryConnectorInstallationScriptRequest
+    example:
+      osType: linux
+      version: stable
+    type: object
+    properties:
+      osType:
+        type: string
+      version:
+        type: string
+    required:
+    - osType
+    - version
+  SuccessfulResponse8:
+    title: SuccessfulResponse8
+    example:
+      script: <string>
+    type: object
+    properties:
+      script:
+        type: string
+    required:
+    - script
+  SuccessfulResponse9:
+    title: SuccessfulResponse9
+    example:
+      configuration: {}
+    type: object
+    properties:
+      configuration:
+        type: object
+    required:
+    - configuration
 security: []
 tags:
 - name: Account Actions
@@ -55251,3 +57757,6 @@ tags:
   description: "# What is Secrets Hub?\n\nSecrets Hub is a CyberArk SaaS solution that addresses the challenge of managing multiple security platforms in the cloud.\n\n## Industry challenge: Lack of centralized secret management\n\nIn many enterprises today, a high proportion of user name and password  \ncredentials are not managed centrally, but are managed in security islands. As a result, security admin users do not have one place to control and manage all enterprise secrets. It's also difficult, if not impossible, for security admin to enforce a unified security standard across the organization.\n\nAnother obstacle to centralized secret management is that application owners developers prefer to work natively, without having to manage security and password rotation.\n\n## Solution: Securing cloud secrets with Secrets Hub\n\nSecrets Hub is a CyberArk SaaS solution that facilitates centralized control of secrets in one place.\n\nSecrets Hub acts as a trusted connector between cloud applications that run on cloud platforms (AWS or Microsoft Azure) and CyberArk Privilege Cloud. The secrets managed separately by multiple cloud platform applications are securely integrated with CyberArk Privilege Cloud.  \nThis integration enables your enterprise to securely manage its cloud  \nsecrets and enforce security policies on those secrets. As a unified  \ncentralized hub, Secrets Hub manages your enterprise secrets without  \naffecting developer velocity."
 - name: Cloud Entitlements Manager (CEM)
 - name: Secure Cloud Access (SCA)
+- name: Components
+- name: Agent Installation
+- name: Components Catalog
