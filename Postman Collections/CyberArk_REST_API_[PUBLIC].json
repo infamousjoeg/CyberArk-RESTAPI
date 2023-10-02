@@ -30360,7 +30360,7 @@
 												"value": "application/json"
 											}
 										],
-										"url": "https://{{saasSubdomain}}.privilegecloud.cyberark.cloud/passwordvault/api/byok/disable",
+										"url": "https://{{saasSubdomain}}.privilegecloud.cyberark.cloud/api/byok/disable",
 										"description": "This API stops data encryption within Privilege Cloud using your AWS key.\n\nAs a result of this action, Privilege Cloud stops using your encryption key and switches to the Privilege Cloud encryption key.\n\n### Important\n\nThe Disable BYOK API deactivates BYOK and the system encryption and decryption mechanisms are reset to use the CyberArk key.\n\nSystem functionality is stopped and returns to full operational functionality within a short while.\n\n### Required user permissions\n\nTo run this API, the user must be assigned to one of the following roles:\n\n- Privilege Cloud Administrator\n    \n- Privilege Cloud Administrator Basic\n    \n- Privilege Cloud Administrator Lite"
 									},
 									"response": []
