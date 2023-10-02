@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0",
     "title": "CyberArk REST API [PUBLIC]",
-    "description": "All available requests in CyberArk Identity Security Platform.\n\n**Last Updated Version:** v13.2\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nThis collection is backed up at [https://github.com/infamousjoeg/CyberArk-RESTAPI](https://github.com/infamousjoeg/CyberArk-RESTAPI).\n\n## New Features & Additions\n\n- Split Collection into 2 Root Folders: Self-Hosted & SaaS\n    - All specific endpoints are self-contained within the root folders\n- Added Privilege Cloud, Dynamic Privileged Access, Remote Access, Conjur Cloud, Secrets Hub, Cloud Entitlements Manager, Secure Cloud Access, and Connection Management\n    \n- Authentication has been moved to the folder-level instead of being set on each individual request\n    \n\nHappy automating!\n\n## Want to use a CLI? Get cybr-cli for your OS!\n\n[https://github.com/infamousjoeg/cybr-cli](https://github.com/infamousjoeg/cybr-cli)\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n- [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n- [IdentityCommand](https://github.com/pspete/IdentityCommand) - PowerShell Module for CyberArk Identity (Supports psPAS)\n- [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n- [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n    \n\n## Code Examples\n\n- [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n- [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n- [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n    \n\n## YouTube Videos Playlist\n\n- [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n    \n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n| --- | --- | --- |\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues._",
+    "description": "All available requests in CyberArk Identity Security Platform.\n\n**Last Updated Version:** v13.2\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nThis collection is backed up at [https://github.com/infamousjoeg/CyberArk-RESTAPI](https://github.com/infamousjoeg/CyberArk-RESTAPI).\n\n## New Features & Additions\n\n- Added Applications & User Management to Privilege Cloud folder\n    \n- Split Collection into 2 Root Folders: Self-Hosted & SaaS\n    \n    - All specific endpoints are self-contained within the root folders\n- Added Privilege Cloud, Dynamic Privileged Access, Remote Access, Conjur Cloud, Secrets Hub, Cloud Entitlements Manager, Secure Cloud Access, and Connection Management\n- Authentication has been moved to the folder-level instead of being set on each individual request\n    \n\nHappy automating!\n\n## Want to use a CLI? Get cybr-cli for your OS!\n\n[https://github.com/infamousjoeg/cybr-cli](https://github.com/infamousjoeg/cybr-cli)\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n- [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n- [IdentityCommand](https://github.com/pspete/IdentityCommand) - PowerShell Module for CyberArk Identity (Supports psPAS)\n- [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n- [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n    \n\n## Code Examples\n\n- [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n- [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n- [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n    \n\n## YouTube Videos Playlist\n\n- [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n    \n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n| --- | --- | --- |\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues._",
     "contact": {}
   },
   "host": "example.com",
@@ -1652,7 +1652,7 @@
         }
       },
       "post": {
-        "description": "This method allows a developer to add multiple accounts to existing Safes. The response contains the ID of the bulk account upload that was performed.\n  \t\n**Note:** This option is only available if you have **Add accounts**, **Update account content**, and **Update account properties** authorization in at least one Safe.",
+        "description": "This method allows a developer to add multiple accounts to existing Safes. The response contains the ID of the bulk account upload that was performed.\n\n**Note:** This option is only available if you have **Add accounts**, **Update account content**, and **Update account properties** authorization in at least one Safe.",
         "summary": "Create Bulk Upload of Accounts",
         "tags": [
           "Bulk Upload of Accounts"
@@ -4754,6 +4754,523 @@
           "Applications"
         ],
         "operationId": "DeleteaSpecificAuthentication",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "aamAppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "aamAuthMethodID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications": {
+      "get": {
+        "description": "This method returns a list of all the applications in the Vault.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users",
+        "summary": "List Applications1",
+        "tags": [
+          "Applications"
+        ],
+        "operationId": "ListApplications1",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK3"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "application": [
+                  {
+                    "AccessPermittedFrom": 0,
+                    "AccessPermittedTo": 24,
+                    "AllowExtendedAuthenticationRestrictions": false,
+                    "AppID": "AIMWebService",
+                    "BusinessOwnerEmail": "",
+                    "BusinessOwnerFName": "",
+                    "BusinessOwnerLName": "",
+                    "BusinessOwnerPhone": "",
+                    "Description": "This application is for the web service installed for the Central Credential Provider.",
+                    "Disabled": false,
+                    "ExpirationDate": null,
+                    "Location": "\\"
+                  },
+                  {
+                    "AccessPermittedFrom": 0,
+                    "AccessPermittedTo": 24,
+                    "AllowExtendedAuthenticationRestrictions": false,
+                    "AppID": "RESTExamples",
+                    "BusinessOwnerEmail": "john.doe@cyberark.com",
+                    "BusinessOwnerFName": "John",
+                    "BusinessOwnerLName": "Doe",
+                    "BusinessOwnerPhone": "555-555-1212",
+                    "Description": "AppID for all AIM and REST Examples",
+                    "Disabled": false,
+                    "ExpirationDate": null,
+                    "Location": "\\Applications"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "type": "string",
+                "default": "no-cache, no-store, must-revalidate"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "771"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Mon, 05 Jun 2017 18:49:26 GMT"
+              },
+              "Expires": {
+                "type": "string",
+                "default": "-1"
+              },
+              "Pragma": {
+                "type": "string",
+                "default": "no-cache"
+              },
+              "Server": {
+                "type": "string",
+                "default": "Microsoft-IIS/8.5"
+              },
+              "Set-Cookie": {
+                "type": "string",
+                "default": "CA22222=; path=/PasswordVault/; HttpOnly"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "X-UA-Compatible": {
+                "type": "string",
+                "default": "IE=EmulateIE8"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-FRAME-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Access-Control-Expose-Headers": {
+                "type": "string",
+                "default": "Warning"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=31536000; includeSubDomains"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications/{aamAppID}": {
+      "get": {
+        "description": "This method returns information about a specific application.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users",
+        "summary": "List a Specific Application1",
+        "tags": [
+          "Applications"
+        ],
+        "operationId": "ListaSpecificApplication1",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "aamAppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK3"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "application": [
+                  {
+                    "AccessPermittedFrom": 0,
+                    "AccessPermittedTo": 24,
+                    "AllowExtendedAuthenticationRestrictions": false,
+                    "AppID": "Ansible",
+                    "BusinessOwnerEmail": "joe.garcia@cyberark.com",
+                    "BusinessOwnerFName": "Joe",
+                    "BusinessOwnerLName": "Garcia",
+                    "BusinessOwnerPhone": "222-UWISHUKNEW",
+                    "Description": "Identity assigned to all Ansible retrieved credentials for audit.",
+                    "Disabled": false,
+                    "ExpirationDate": null,
+                    "Location": "\\Applications"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "type": "string",
+                "default": "no-cache, no-store, must-revalidate"
+              },
+              "Pragma": {
+                "type": "string",
+                "default": "no-cache"
+              },
+              "Expires": {
+                "type": "string",
+                "default": "-1"
+              },
+              "Server": {
+                "type": "string",
+                "default": "Microsoft-IIS/10.0"
+              },
+              "Set-Cookie": {
+                "type": "string",
+                "default": "CA22222=BE36C14D1FE1AAFA; path=/PasswordVault/; secure; HttpOnly"
+              },
+              "X-UA-Compatible": {
+                "type": "string",
+                "default": "IE=EmulateIE8"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-FRAME-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Access-Control-Expose-Headers": {
+                "type": "string",
+                "default": "Warning"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=31536000; includeSubDomains"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 11 Nov 2018 21:25:46 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "423"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "This method deletes a specific application.\r\nThe user requires the following permission in the Vault:\r\n- Manage Users",
+        "summary": "Delete a Specific Application1",
+        "tags": [
+          "Applications"
+        ],
+        "operationId": "DeleteaSpecificApplication1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "aamAppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications/{aamAppID}/Authentications": {
+      "get": {
+        "description": "This method returns information about all the authentications methods of a specific application.\r\nThe user who runs this web service requires the following permission in the Vault:\r\n- Audit Users",
+        "summary": "List all Authentication Methods of a Specific Application1",
+        "tags": [
+          "Applications"
+        ],
+        "operationId": "ListallAuthenticationMethodsofaSpecificApplication1",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "aamAppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK6"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "authentication": [
+                  {
+                    "AllowInternalScripts": null,
+                    "AppID": "Ansible",
+                    "AuthType": "machineAddress",
+                    "AuthValue": "ansible.192.168.3.103.xip.io",
+                    "Comment": null,
+                    "IsFolder": null,
+                    "authID": 1
+                  },
+                  {
+                    "AllowInternalScripts": null,
+                    "AppID": "Ansible",
+                    "AuthType": "machineAddress",
+                    "AuthValue": "192.168.3.103",
+                    "Comment": null,
+                    "IsFolder": null,
+                    "authID": 2
+                  },
+                  {
+                    "AllowInternalScripts": null,
+                    "AppID": "Ansible",
+                    "AuthType": "machineAddress",
+                    "AuthValue": "ansibletower",
+                    "Comment": null,
+                    "IsFolder": null,
+                    "authID": 3
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "type": "string",
+                "default": "no-cache, no-store, must-revalidate"
+              },
+              "Pragma": {
+                "type": "string",
+                "default": "no-cache"
+              },
+              "Expires": {
+                "type": "string",
+                "default": "-1"
+              },
+              "Server": {
+                "type": "string",
+                "default": "Microsoft-IIS/10.0"
+              },
+              "Set-Cookie": {
+                "type": "string",
+                "default": "CA22222=BE36C14D1FE1AAFA; path=/PasswordVault/; secure; HttpOnly"
+              },
+              "X-UA-Compatible": {
+                "type": "string",
+                "default": "IE=EmulateIE8"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-FRAME-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Access-Control-Expose-Headers": {
+                "type": "string",
+                "default": "Warning"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=31536000; includeSubDomains"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 11 Nov 2018 21:26:06 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "472"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "This method adds a new authentication method to a specific application in the Vault.\r\nThe user who adds this authentication method requires the following permissions in the Vault:\r\n- Manage Users",
+        "summary": "Add Authentication Method1",
+        "tags": [
+          "Applications"
+        ],
+        "operationId": "AddAuthenticationMethod1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "aamAppID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "example": "{\r\n  \"authentication\":\r\n  {\r\n    \"AuthType\":\"path/osuser/hash/machineAddress\",\r\n    \"AuthValue\":\"<Path string>/<OSUser Name>/<Hash Value>/<Machine Address/CIDR>\",\r\n    \"IsFolder\":<true/false>,\r\n    \"AllowInternalScripts\":<true/false>\r\n  }\r\n}",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications/{aamAppID}/Authentications/{aamAuthMethodID}": {
+      "delete": {
+        "description": "This method deletes a specific authentication method from a defined application.\r\nThe user requires the following permission in the Vault:\r\n- Manage Users",
+        "summary": "Delete a Specific Authentication1",
+        "tags": [
+          "Applications"
+        ],
+        "operationId": "DeleteaSpecificAuthentication1",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -18906,6 +19423,567 @@
         }
       }
     },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/users/{pasUserID}": {
+      "get": {
+        "description": "This method returns information about a specific user in the Vault.\n\nTo run this Web service, you must have the following permissions:\n\n* Audit users",
+        "summary": "Get User Details1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "GetUserDetails1",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK28"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "enableUser": true,
+                "changePassOnNextLogon": false,
+                "expiryDate": -62135578800,
+                "suspended": false,
+                "lastSuccessfulLoginDate": 1618316264,
+                "unAuthorizedInterfaces": [],
+                "authenticationMethod": [
+                  "AuthTypePass"
+                ],
+                "passwordNeverExpires": true,
+                "distinguishedName": "",
+                "description": "",
+                "businessAddress": {
+                  "workStreet": "",
+                  "workCity": "",
+                  "workState": "",
+                  "workZip": "",
+                  "workCountry": ""
+                },
+                "internet": {
+                  "homePage": "",
+                  "homeEmail": "",
+                  "businessEmail": "",
+                  "otherEmail": ""
+                },
+                "phones": {
+                  "homeNumber": "",
+                  "businessNumber": "",
+                  "cellularNumber": "",
+                  "faxNumber": "",
+                  "pagerNumber": ""
+                },
+                "personalDetails": {
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "zip": "",
+                  "country": "",
+                  "title": "",
+                  "organization": "",
+                  "department": "",
+                  "profession": "",
+                  "firstName": "",
+                  "middleName": "",
+                  "lastName": ""
+                },
+                "groupsMembership": [
+                  {
+                    "groupID": 16,
+                    "groupName": "PVWAMonitor",
+                    "groupType": "Vault"
+                  },
+                  {
+                    "groupID": 17,
+                    "groupName": "PVWAUsers",
+                    "groupType": "Vault"
+                  },
+                  {
+                    "groupID": 11,
+                    "groupName": "Vault Admins",
+                    "groupType": "Vault"
+                  }
+                ],
+                "id": 2,
+                "username": "Administrator",
+                "source": "CyberArk",
+                "userType": "Built-InAdmins",
+                "componentUser": false,
+                "vaultAuthorization": [
+                  "AddUpdateUsers",
+                  "AddSafes",
+                  "AddNetworkAreas",
+                  "ManageDirectoryMapping",
+                  "ManageServerFileCategories",
+                  "AuditUsers",
+                  "BackupAllSafes",
+                  "RestoreAllSafes",
+                  "ResetUsersPasswords",
+                  "ActivateUsers"
+                ],
+                "location": "\\"
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "type": "string",
+                "default": "no-cache,no-store, no-cache, must-revalidate"
+              },
+              "Pragma": {
+                "type": "string",
+                "default": "no-cache,no-cache"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "1250"
+              },
+              "Expires": {
+                "type": "string",
+                "default": "-1"
+              },
+              "Set-Cookie": {
+                "type": "string",
+                "default": "CA22222=227A9B834757B197; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+              },
+              "X-FRAME-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=3159600;includeSubdomains;"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-UA-Compatible": {
+                "type": "string",
+                "default": "IE=EmulateIE8"
+              },
+              "Access-Control-Expose-Headers": {
+                "type": "string",
+                "default": "Warning"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 13 Apr 2021 12:20:49 GMT"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "This method updates an existing Vault user.",
+        "summary": "Update User1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UpdateUser1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "This method deletes a specific user in the Vault.",
+        "summary": "Delete User1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "DeleteUser1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/users": {
+      "get": {
+        "description": "This method returns a list of all existing users in the Vault except for the Master and the Batch built-in users.\n\nTo run this Web service, you must have the following permissions:\n\n* **Audit users**\n\nYou can retrieve only users on the same level as you or lower in the Vault hierarchy.\n\n**Note:** This Web service returns up to 6000 users in up to 20 seconds. If the number of users is higher, the response time may be higher.",
+        "summary": "Get Users",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "GetUsers1",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK29"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "Users": [
+                  {
+                    "id": 29,
+                    "username": "jgarcia",
+                    "source": "LDAP",
+                    "userType": "EPVUser",
+                    "componentUser": false,
+                    "vaultAuthorization": [
+                      "AddUpdateUsers",
+                      "AddSafes",
+                      "AddNetworkAreas",
+                      "ManageServerFileCategories",
+                      "AuditUsers",
+                      "ResetUsersPasswords",
+                      "ActivateUsers"
+                    ],
+                    "location": "\\",
+                    "personalDetails": {
+                      "firstName": "Joe",
+                      "middleName": "",
+                      "lastName": "Garcia"
+                    }
+                  }
+                ],
+                "Total": 1
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "type": "string",
+                "default": "no-cache,no-store, no-cache, must-revalidate"
+              },
+              "Pragma": {
+                "type": "string",
+                "default": "no-cache,no-cache"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "350"
+              },
+              "Expires": {
+                "type": "string",
+                "default": "-1"
+              },
+              "Set-Cookie": {
+                "type": "string",
+                "default": "CA22222=227A9B834757B197; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+              },
+              "X-FRAME-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=3159600;includeSubdomains;"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-UA-Compatible": {
+                "type": "string",
+                "default": "IE=EmulateIE8"
+              },
+              "Access-Control-Expose-Headers": {
+                "type": "string",
+                "default": "Warning"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 13 Apr 2021 12:18:43 GMT"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/users/{pasUserID}/activate": {
+      "post": {
+        "description": "This method activates an existing Vault user who was suspended after entering incorrect credentials multiple times.\n\n**Note:** This method activates a suspended user. It does not activate an inactive user.",
+        "summary": "Activate User1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "ActivateUser1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/users/{pasUserID}/disable": {
+      "post": {
+        "description": "This method disables a specific user in the Vault.",
+        "summary": "Disable User1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "DisableUser1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/users/{pasUserID}/enable": {
+      "post": {
+        "description": "This method enables a specific user in the Vault.",
+        "summary": "Enable User1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "EnableUser1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/users/{pasUserID}/resetpassword": {
+      "post": {
+        "description": "This method resets an existing Vault user's password.\n\nTo run this Web service, you must have the following permissions:\n\n* **Audit users**\n* **Reset Users' Passwords**\n\nThe user who runs this Web service must be in the same Vault Location or higher as the user whose password is being reset.",
+        "summary": "Reset User Password1",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "ResetUserPassword1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ResetUserPasswordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
     "/users/{raUserID}": {
       "get": {
         "description": "Retrieves details of a user identified by ID",
@@ -18913,7 +19991,7 @@
         "tags": [
           "Users"
         ],
-        "operationId": "GetUserDetails1",
+        "operationId": "GetUserDetails2",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -18940,7 +20018,7 @@
         "tags": [
           "Users"
         ],
-        "operationId": "DeleteUser1",
+        "operationId": "DeleteUser2",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -18969,7 +20047,7 @@
         "tags": [
           "Users"
         ],
-        "operationId": "GetUsers1",
+        "operationId": "GetUsers2",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -19480,6 +20558,337 @@
           "Groups"
         ],
         "operationId": "RemoveUserfromGroup",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasGroupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "pasUserID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/usergroups/{pasGroupID}": {
+      "get": {
+        "summary": "Get Group Details1",
+        "tags": [
+          "Groups"
+        ],
+        "operationId": "GetGroupDetails1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasGroupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "description": "This method updates a Vault group. The user who runs this web service requires the following permissions:\n\n* Add\\Update users",
+        "summary": "Update Group1",
+        "tags": [
+          "Groups"
+        ],
+        "operationId": "UpdateGroup1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasGroupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "his method deletes a user group.\n\nIn order to delete a user group, the following authorizations are required:\n\n* Add/Update Users\n",
+        "summary": "Delete Group1",
+        "tags": [
+          "Groups"
+        ],
+        "operationId": "DeleteGroup1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasGroupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/usergroups": {
+      "get": {
+        "description": "This method returns a list of all existing user groups.\n\nThe user performing this task:\n\n* Must have **Audit users** permissions in the Safe.\n* Can see groups either **only** on the **same** level, or **lower** in the Vault hierarchy.\n\nThis depends on the HideVaultUsersTree parameter defined in the dbparam.ini. If HideVaultUsersTree is set to **No**, all groups will be returned (not only those in the same level or lower in the Vault hierarchy). If this parameter is set to **Yes**, only auditors and managers will be allowed to get all groups.\n \t\n**Note:**\n* Filtering for this task is supported only from Vault v10.5.\n* Retrieving more than 1,000 groups may cause a slowdown in response.",
+        "summary": "Get Groups1",
+        "tags": [
+          "Groups"
+        ],
+        "operationId": "GetGroups1",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/200OK30"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "value": [
+                  {
+                    "id": 11,
+                    "groupType": "Vault",
+                    "groupName": "Vault Admins",
+                    "description": "Vault Admins group",
+                    "location": "\\System"
+                  }
+                ],
+                "count": 1
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "type": "string",
+                "default": "no-cache,no-store, no-cache, must-revalidate"
+              },
+              "Pragma": {
+                "type": "string",
+                "default": "no-cache,no-cache"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "135"
+              },
+              "Expires": {
+                "type": "string",
+                "default": "-1"
+              },
+              "Set-Cookie": {
+                "type": "string",
+                "default": "CA22222=2AD5419BC06CA94A; path=/PasswordVault/; SameSite=Strict; secure; HttpOnly"
+              },
+              "X-FRAME-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=3159600;includeSubdomains;"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-UA-Compatible": {
+                "type": "string",
+                "default": "IE=EmulateIE8"
+              },
+              "Access-Control-Expose-Headers": {
+                "type": "string",
+                "default": "Warning"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 13 Apr 2021 19:58:02 GMT"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/usergroups/{pasGroupID}/members": {
+      "post": {
+        "description": "This method adds a user as a member to an existing Vault group. This is relevant for regular Vault users, LDAP mapped groups or LDAP users.\n\nThe user who runs this web service requires the **Add/Update users** permissions in the Vault.",
+        "summary": "Add Member to Group1",
+        "tags": [
+          "Groups"
+        ],
+        "operationId": "AddMembertoGroup1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pasGroupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddMembertoGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/.privilegecloud.cyberark.cloud/passwordvault/api/usergroups/{pasGroupID}/members/{pasUserID}": {
+      "delete": {
+        "description": "This method removes a specific user from a user group in the Vault.",
+        "summary": "Remove User from Group1",
+        "tags": [
+          "Groups"
+        ],
+        "operationId": "RemoveUserfromGroup1",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -26996,7 +28405,7 @@
         "tags": [
           "Group Management"
         ],
-        "operationId": "GetGroups1",
+        "operationId": "GetGroups2",
         "deprecated": false,
         "produces": [
           "application/scim+json; charset=utf-8"
@@ -28528,7 +29937,7 @@
         "tags": [
           "Group Management"
         ],
-        "operationId": "DeleteGroup1",
+        "operationId": "DeleteGroup2",
         "deprecated": false,
         "produces": [
           "application/scim+json; charset=utf-8"
@@ -31077,7 +32486,7 @@
         "tags": [
           "User Management"
         ],
-        "operationId": "GetUsers2",
+        "operationId": "GetUsers3",
         "deprecated": false,
         "produces": [
           "application/scim+json; charset=utf-8",
@@ -32496,7 +33905,7 @@
         "tags": [
           "User Management"
         ],
-        "operationId": "DeleteUser2",
+        "operationId": "DeleteUser3",
         "deprecated": false,
         "produces": [
           "application/scim+json; charset=utf-8"
@@ -35118,7 +36527,7 @@
         }
       }
     },
-    "/passwordvault/api/byok/configure": {
+    "/api/byok/configure": {
       "post": {
         "description": "This API configures your KMS key in the Privilege Cloud BYOK service. In response, Privilege Cloud verifies access to your key.\n\nThe result indicates if Privilege Cloud successfully accessed your key, and that it can be used for data encryption within Privilege Cloud.\n\n### Required user permissions\n\nTo run this API, the user must be assigned to one of the following roles:\n\n- Privilege Cloud Administrator\n    \n- Privilege Cloud Administrator Basic\n    \n- Privilege Cloud Administrator Lite",
         "summary": "Configure BYOK",
@@ -45904,7 +47313,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1694801183"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1696251046"
       },
       "type": "object",
       "properties": {
@@ -45919,7 +47328,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1694801183"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1696251046"
       },
       "type": "object",
       "properties": {
@@ -73161,7 +74570,7 @@
         "applications": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Application4"
+            "$ref": "#/definitions/Application8"
           }
         },
         "customText": {
@@ -73242,8 +74651,8 @@
         "workingHoursEndSeconds"
       ]
     },
-    "Application4": {
-      "title": "Application4",
+    "Application8": {
+      "title": "Application8",
       "example": {
         "siteId": "string",
         "applicationId": "string"
@@ -73374,7 +74783,7 @@
         "applications": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Application4"
+            "$ref": "#/definitions/Application8"
           }
         },
         "customText": {
@@ -73467,7 +74876,7 @@
         "applications": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Application4"
+            "$ref": "#/definitions/Application8"
           }
         },
         "pvwaApplications": {
