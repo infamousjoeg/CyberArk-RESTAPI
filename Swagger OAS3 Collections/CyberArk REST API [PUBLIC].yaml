@@ -28882,7 +28882,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /passwordvault/api/byok/disable:
+  /api/byok/disable:
     post:
       description: "This API stops data encryption within Privilege Cloud using your AWS key.\n\nAs a result of this action, Privilege Cloud stops using your encryption key and switches to the Privilege Cloud encryption key.\n\n### Important\n\nThe Disable BYOK API deactivates BYOK and the system encryption and decryption mechanisms are reset to use the CyberArk key.\n\nSystem functionality is stopped and returns to full operational functionality within a short while.\n\n### Required user permissions\n\nTo run this API, the user must be assigned to one of the following roles:\n\n- Privilege Cloud Administrator\n    \n- Privilege Cloud Administrator Basic\n    \n- Privilege Cloud Administrator Lite"
       summary: Disable BYOK
@@ -36742,7 +36742,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1696251043
+      Reason: Automatically accepted via CyberArk Web Services on 1696251049
     type: object
     properties:
       Reason:
@@ -36752,7 +36752,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1696251043
+      Reason: Rejected automatically by CyberArk Web Services on 1696251049
     type: object
     properties:
       Reason:
