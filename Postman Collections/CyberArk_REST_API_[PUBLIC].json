@@ -30373,13 +30373,8 @@
 									},
 									"request": {
 										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"url": "https://{{saasSubdomain}}.privilegecloud.cyberark.cloud/passwordvault/api/byok/enable",
+										"header": [],
+										"url": "https://{{saasSubdomain}}.privilegecloud.cyberark.cloud/api/byok/enable",
 										"description": "This API starts data encryption within Privilege Cloud using your KMS key.\n\nThe result indicates that your key is used for data encryption within Privilege Cloud.\n\n### Important\n\nThe Enable BYOK API activates BYOK and the system encryption and decryption mechanisms are reset to use your encryption key.\n\nAfter enabling BYOK, system functionality is stopped to set the encryption and returns to full operational functionality within 5 minutes. After approximately 5 minutes, sign in to Privilege Cloud Portal, check your accounts are accessible, and continue working as usual.\n\n### Warning\n\nWhen employing BYOK, the customer is solely responsible for safeguarding the encryption key.\n\nIn case CyberArk does not have access to your key, for example, in case of deletion, loss, or alteration of the key, you will not be able to access your encrypted data.\n\nCyberArk does not store a copy of your encryption key, does not maintain any alternate means of accessing your encrypted data, and will not be able to recover your encrypted secrets or recorded sessions.\n\nThe Bring Your Own Key service is subject to the \"Bring Your Own Key\" provision in [CyberArk's SaaS Terms of Service](https://www.cyberark.com/SaaS-Terms-of-Service.pdf).\n\n### Required user permissions\n\nTo run this API, the user must be assigned to one of the following roles:\n\n- Privilege Cloud Administrator\n    \n- Privilege Cloud Administrator Basic\n    \n- Privilege Cloud Administrator Lite"
 									},
 									"response": []
