@@ -39211,6 +39211,121 @@
 											"cookie": [],
 											"responseTime": null,
 											"body": "{\n    \"created_roles\": {},\n    \"version\": 1\n}"
+										},
+										{
+											"id": "911ee709-5671-4c9f-9d37-3026e06127d5",
+											"name": "authn-jwt for Jenkins",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "- !policy\n  id: jenkins\n  annotations:\n    description: JWT Authenticator web service for Jenkins\n  body:\n    # Create the conjur/authn-jwt/jenkins web service\n    - !webservice\n\n    - !variable\n      id: token-app-property\n      annotations:\n        description: JWT Authenticator bases authentication on claims from the JWT. You can base authentication on identifying clams such as the name, the user, and so on. If you can customize the JWT, you can create a custom claim and base authentication on this claim.\n\n    - !variable\n      id: identity-path\n      annotations:\n        description: JWT Authenticator bases authentication on a combination of the claim in the token-app-property and the full path of the application identity (host) in Conjur. This variable is optional, and is used in conjunction with token-app-property. It has no purpose when standing alone.\n\n    - !variable\n      id: issuer\n      annotations:\n        description: JWT Authenticator bases authentication on the JWT issuer. This variable is optional, and is relevant only if there is an iss claim in the JWT. The issuer variable and iss claim values must match.\n\n    - !variable\n      id: jwks-uri\n      annotations:\n        description: A JSON Web Key Set (JWKS) URI. If the JWKS vendor provides both a jwks-uri and an equivalent provider-uri, you can use the provider-uri which has an easier interface to work with.\n\n    # Group of hosts that can authenticate using this JWT Authenticator\n    - !group\n      id: consumers\n      annotations:\n        description: Allows authentication through authn-jwt/jenkins web service.\n    \n    # Permit the consumers group to authenticate to the authn-jwt/jenkins web service\n    - !permit\n      role: !group consumers\n      privilege: [ read, authenticate ]\n      resource: !webservice\n\n    # Create a web service for checking authn-jwt/jenkins status\n    - !webservice\n      id: status\n\n    # Group of users who can check the status of authn-jwt/jenkins\n    - !group\n      id: operators\n      annotations:\n        description: Group of users that can check the status of the authn-jwt/jenkins authenticator.\n    \n    # Permit group to check the status of authn-jwt/jenkins\n    - !permit\n      role: !group operators\n      privilege: read\n      resource: !webservice status"
+												},
+												"url": {
+													"raw": "https://{{saasSubdomain}}.secretsmgr.cyberark.cloud/api/policies/conjur/policy/:conjurPolicyID",
+													"protocol": "https",
+													"host": [
+														"{{saasSubdomain}}",
+														"secretsmgr",
+														"cyberark",
+														"cloud"
+													],
+													"path": [
+														"api",
+														"policies",
+														"conjur",
+														"policy",
+														":conjurPolicyID"
+													],
+													"variable": [
+														{
+															"key": "conjurPolicyID",
+															"value": "conjur/authn-jwt"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 22 Sep 2023 19:05:04 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-permitted-cross-domain-policies",
+													"value": "none"
+												},
+												{
+													"key": "referrer-policy",
+													"value": "strict-origin-when-cross-origin"
+												},
+												{
+													"key": "vary",
+													"value": "Accept"
+												},
+												{
+													"key": "etag",
+													"value": "W/\"a2c78686266b33133c21132b1dc1d029\""
+												},
+												{
+													"key": "x-request-id",
+													"value": "613fd6b4-b605-4923-9030-b0551eb9f283"
+												},
+												{
+													"key": "x-runtime",
+													"value": "0.223041"
+												},
+												{
+													"key": "server",
+													"value": "-"
+												},
+												{
+													"key": "content-security-policy",
+													"value": "default-src 'none'"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=63072000; includeSubDomains; preload;"
+												},
+												{
+													"key": "cache-control",
+													"value": "no-cache; no-store; must-revalidate;"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"created_roles\": {},\n    \"version\": 2\n}"
 										}
 									]
 								},
@@ -40573,7 +40688,44 @@
 									"response": []
 								},
 								{
-									"name": "Create Secret Store",
+									"name": "Test Connection",
+									"id": "7e9466e5-5aeb-4287-9ac7-04fad27ecf8e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/secret-stores/:shStoreId/status/connection",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"secretshub",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"secret-stores",
+												":shStoreId",
+												"status",
+												"connection"
+											],
+											"variable": [
+												{
+													"id": "eb6fd8d7-08f4-4f16-8541-cb3e311509a0",
+													"key": "shStoreId",
+													"value": "store-5a05468b-fa58-4bcf-84e9-62ede8af55f4",
+													"description": "The unique identifier of the secret store"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AWS Secret Store",
 									"id": "b3ef82ce-42cb-43c4-b546-a951081118bc",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -40589,6 +40741,75 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\n    \"type\": \"AWS_ASM\",\n    \"data\": {\n        \"accountAlias\": \"Synced Account\",\n        \"accountId\": \"111111111111\",\n        \"regionId\": \"us-east-1\",\n        \"roleName\": \"Secrets-Hub-IAM-Role-Name-Created-For-Secrets-Hub\"\n    },\n    \"description\": \"AWS Secrets Manager for dev-team-prod\",\n    \"name\": \"Account alias - us-east-1\"\n}"
+										},
+										"url": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/secret-stores",
+										"description": "The secret store is a Secrets Hub representation of where  \nsecrets are stored in. Secret store can be a source or a target. For example, a secret store source represent a specific CyberArk PAM, and target secret store represents a specific AWS Secrets Manager / Azure Key Vault."
+									},
+									"response": []
+								},
+								{
+									"name": "Create Azure Private Secret Store",
+									"id": "71d1dc3c-b1c5-443e-9761-2f7a60c930f3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"data\":\n    {\n        \"appClientDirectoryId\": \"\",\n        \"azureVaultUrl\": \"\",\n        \"appClientId\": \"\",\n        \"appClientSecret\": \"\",\n        \"connectionConfig\": {\n            \"connectionType\": \"CONNECTOR\", \n            \"connectorId\": \"\"\n        }\n    },\n    \"name\":\"\",\n    \"description\":\"\",\n    \"type\":\"AZURE_AKV\"\n}"
+										},
+										"url": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/secret-stores",
+										"description": "The secret store is a Secrets Hub representation of where  \nsecrets are stored in. Secret store can be a source or a target. For example, a secret store source represent a specific CyberArk PAM, and target secret store represents a specific AWS Secrets Manager / Azure Key Vault."
+									},
+									"response": []
+								},
+								{
+									"name": "Create Azure Public Secret Store",
+									"id": "b63095f6-7434-4896-8f6e-5cea0f972e74",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"data\":\n    {\n        \"appClientDirectoryId\": \"\",\n        \"azureVaultUrl\": \"\",\n        \"appClientId\": \"\",\n        \"appClientSecret\": \"\",\n        \"connectionConfig\": {\n            \"connectionType\": \"PUBLIC\"\n        }\n    },\n    \"name\":\"\",\n    \"description\":\"\",\n    \"type\":\"AZURE_AKV\"\n}"
+										},
+										"url": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/secret-stores",
+										"description": "The secret store is a Secrets Hub representation of where  \nsecrets are stored in. Secret store can be a source or a target. For example, a secret store source represent a specific CyberArk PAM, and target secret store represents a specific AWS Secrets Manager / Azure Key Vault."
+									},
+									"response": []
+								},
+								{
+									"name": "Create PAM Self-Hosted Source",
+									"id": "cedf3652-13ac-4230-9e57-696b70760f4e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"data\":\n    { \n        \"url\": \"{{pasBaseURL}}/PasswordVault\", \n        \"userName\": \"SecretsHub\",\n        \"password\": \"\",\n        \"connectorId\": \"\"\n    },\n    \"name\":\"\",\n    \"description\":\"\",\n    \"type\":\"PAM_SELF_HOSTED\"\n}"
 										},
 										"url": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/secret-stores",
 										"description": "The secret store is a Secrets Hub representation of where  \nsecrets are stored in. Secret store can be a source or a target. For example, a secret store source represent a specific CyberArk PAM, and target secret store represents a specific AWS Secrets Manager / Azure Key Vault."
@@ -41241,7 +41462,172 @@
 								},
 								"description": "Returns the status of the job"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "a478dcad-fce2-4aa9-acc7-a74ed8fcb389",
+									"name": "InProgress",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.sca.cyberark.cloud/api/integrations/status?jobId=7d2032f5-d6d2-42e4-8a69-4a75fef35ada",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"sca",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"integrations",
+												"status"
+											],
+											"query": [
+												{
+													"key": "jobId",
+													"value": "7d2032f5-d6d2-42e4-8a69-4a75fef35ada",
+													"description": "The ID of the requested job"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 19 Oct 2023 17:44:01 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "212"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-amzn-RequestId",
+											"value": "fea4d5bf-32cf-4778-8f29-7b651e88b8e6"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://ui.sca.cyberark.cloud"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=63072000; includeSubDomains; preload"
+										},
+										{
+											"key": "x-amz-apigw-id",
+											"value": "ND2jOGBYoAMEBjA="
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Amzn-Trace-Id",
+											"value": "Root=1-65316ae1-777637e14e1c9b963f14885a;Sampled=0;lineage=8c11e126:0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"job_id\": \"7d2032f5-d6d2-42e4-8a69-4a75fef35ada\",\n    \"operation\": \"RESCAN_REQUEST_ORCHESTRATOR\",\n    \"status\": \"InProgress\",\n    \"last_updated\": \"2023-10-19T17:42:54Z\",\n    \"already_running\": true,\n    \"metadata\": null,\n    \"total_executed\": null\n}"
+								},
+								{
+									"id": "55b556b6-fa3a-4407-94c7-e1548d0428ef",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.sca.cyberark.cloud/api/integrations/status?jobId=7d2032f5-d6d2-42e4-8a69-4a75fef35ada",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"sca",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"integrations",
+												"status"
+											],
+											"query": [
+												{
+													"key": "jobId",
+													"value": "7d2032f5-d6d2-42e4-8a69-4a75fef35ada",
+													"description": "The ID of the requested job"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 19 Oct 2023 17:47:27 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "210"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-amzn-RequestId",
+											"value": "468559cd-825c-4d07-a2a0-09c221184813"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://ui.sca.cyberark.cloud"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=63072000; includeSubDomains; preload"
+										},
+										{
+											"key": "x-amz-apigw-id",
+											"value": "ND3DMGScoAMETlw="
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Amzn-Trace-Id",
+											"value": "Root=1-65316bad-4469d45029d2486d74d25e45;Sampled=0;lineage=ba2fa4db:0|8c11e126:0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"job_id\": \"7d2032f5-d6d2-42e4-8a69-4a75fef35ada\",\n    \"operation\": \"RESCAN_REQUEST_ORCHESTRATOR\",\n    \"status\": \"Success\",\n    \"last_updated\": \"2023-10-19T17:46:52Z\",\n    \"already_running\": false,\n    \"metadata\": null,\n    \"total_executed\": null\n}"
+								}
+							]
 						},
 						{
 							"name": "Get Policies",
@@ -41381,7 +41767,78 @@
 								"url": "https://{{saasSubdomain}}.sca.cyberark.cloud/api/cloud/rescan",
 								"description": "This method start rescan on the cloud"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "62354658-571b-4794-8fc6-d0419d637dc8",
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"cloudProvider\": 1,\n    \"accountType\": \"All\"\n}"
+										},
+										"url": "https://{{saasSubdomain}}.sca.cyberark.cloud/api/cloud/rescan"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 19 Oct 2023 17:42:54 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "69"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "x-amzn-RequestId",
+											"value": "054be13f-8eac-4725-9f7d-66c37ab23123"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://ui.sca.cyberark.cloud"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=63072000; includeSubDomains; preload"
+										},
+										{
+											"key": "x-amz-apigw-id",
+											"value": "ND2X9GPAIAMEGUA="
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Amzn-Trace-Id",
+											"value": "Root=1-65316a99-1dae9c3a42819f0b39617bea;Sampled=0;lineage=728d73b5:0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"jobId\": \"7d2032f5-d6d2-42e4-8a69-4a75fef35ada\",\n    \"operation\": \"RESCAN\"\n}"
+								}
+							]
 						},
 						{
 							"name": "Create Policy",
