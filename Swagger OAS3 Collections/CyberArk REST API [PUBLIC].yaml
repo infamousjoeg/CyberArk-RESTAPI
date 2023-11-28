@@ -28906,7 +28906,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /passwordvault/api/byok/enable:
+  /api/byok/enable:
     post:
       description: "This API starts data encryption within Privilege Cloud using your KMS key.\n\nThe result indicates that your key is used for data encryption within Privilege Cloud.\n\n### Important\n\nThe Enable BYOK API activates BYOK and the system encryption and decryption mechanisms are reset to use your encryption key.\n\nAfter enabling BYOK, system functionality is stopped to set the encryption and returns to full operational functionality within 5 minutes. After approximately 5 minutes, sign in to Privilege Cloud Portal, check your accounts are accessible, and continue working as usual.\n\n### Warning\n\nWhen employing BYOK, the customer is solely responsible for safeguarding the encryption key.\n\nIn case CyberArk does not have access to your key, for example, in case of deletion, loss, or alteration of the key, you will not be able to access your encrypted data.\n\nCyberArk does not store a copy of your encryption key, does not maintain any alternate means of accessing your encrypted data, and will not be able to recover your encrypted secrets or recorded sessions.\n\nThe Bring Your Own Key service is subject to the \"Bring Your Own Key\" provision in [CyberArk's SaaS Terms of Service](https://www.cyberark.com/SaaS-Terms-of-Service.pdf).\n\n### Required user permissions\n\nTo run this API, the user must be assigned to one of the following roles:\n\n- Privilege Cloud Administrator\n    \n- Privilege Cloud Administrator Basic\n    \n- Privilege Cloud Administrator Lite"
       summary: Enable BYOK
@@ -28916,16 +28916,7 @@ paths:
       deprecated: false
       produces:
       - application/json
-      consumes:
-      - application/json
-      parameters:
-      - name: Content-Type
-        in: header
-        required: false
-        enum:
-        - application/json
-        type: string
-        description: ''
+      parameters: []
       responses:
         '200':
           description: ''
@@ -30752,13 +30743,32 @@ paths:
         '200':
           description: ''
           headers: {}
+  /.secretshub.cyberark.cloud/api/secret-stores/{shStoreId}/status/connection:
+    get:
+      summary: Test Connection
+      tags:
+      - Secret Stores
+      operationId: TestConnection
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: shStoreId
+        in: path
+        required: true
+        type: string
+        description: The unique identifier of the secret store
+      responses:
+        '200':
+          description: ''
+          headers: {}
   /secret-stores:
     post:
       description: "The secret store is a Secrets Hub representation of where  \nsecrets are stored in. Secret store can be a source or a target. For example, a secret store source represent a specific CyberArk PAM, and target secret store represents a specific AWS Secrets Manager / Azure Key Vault."
-      summary: Create Secret Store
+      summary: Create AWS Secret Store
       tags:
       - Secret Stores
-      operationId: CreateSecretStore
+      operationId: CreateAWSSecretStore
       deprecated: false
       produces:
       - application/json
@@ -30777,7 +30787,7 @@ paths:
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/CreateSecretStoreRequest'
+          $ref: '#/definitions/CreateAWSSecretStoreRequest'
       responses:
         '200':
           description: ''
@@ -31015,7 +31025,7 @@ paths:
       operationId: GetJobStatus
       deprecated: false
       produces:
-      - application/json
+      - application/json; charset=UTF-8
       parameters:
       - name: jobId
         in: query
@@ -31024,8 +31034,49 @@ paths:
         description: The ID of the requested job
       responses:
         '200':
-          description: ''
-          headers: {}
+          description: OK
+          schema:
+            $ref: '#/definitions/InProgress'
+          examples:
+            application/json; charset=UTF-8:
+              job_id: 7d2032f5-d6d2-42e4-8a69-4a75fef35ada
+              operation: RESCAN_REQUEST_ORCHESTRATOR
+              status: InProgress
+              last_updated: 2023-10-19T17:42:54Z
+              already_running: true
+              metadata: null
+              total_executed: null
+          headers:
+            Date:
+              type: string
+              default: Thu, 19 Oct 2023 17:44:01 GMT
+            Content-Length:
+              type: string
+              default: '212'
+            Connection:
+              type: string
+              default: keep-alive
+            x-amzn-RequestId:
+              type: string
+              default: fea4d5bf-32cf-4778-8f29-7b651e88b8e6
+            Access-Control-Allow-Origin:
+              type: string
+              default: https://ui.sca.cyberark.cloud
+            Strict-Transport-Security:
+              type: string
+              default: max-age=63072000; includeSubDomains; preload
+            x-amz-apigw-id:
+              type: string
+              default: ND2jOGBYoAMEBjA=
+            X-Content-Type-Options:
+              type: string
+              default: nosniff
+            X-Amzn-Trace-Id:
+              type: string
+              default: Root=1-65316ae1-777637e14e1c9b963f14885a;Sampled=0;lineage=8c11e126:0
+            Access-Control-Allow-Credentials:
+              type: string
+              default: 'true'
   /.sca.cyberark.cloud/api/policies:
     get:
       description: Returns a list of policies that match the requested filters
@@ -31160,7 +31211,7 @@ paths:
       operationId: CloudRe-Scan
       deprecated: false
       produces:
-      - application/json
+      - application/json; charset=UTF-8
       consumes:
       - application/json
       parameters:
@@ -31179,8 +31230,44 @@ paths:
           $ref: '#/definitions/CloudRe-ScanRequest'
       responses:
         '200':
-          description: ''
-          headers: {}
+          description: OK
+          schema:
+            $ref: '#/definitions/200OK85'
+          examples:
+            application/json; charset=UTF-8:
+              jobId: 7d2032f5-d6d2-42e4-8a69-4a75fef35ada
+              operation: RESCAN
+          headers:
+            Date:
+              type: string
+              default: Thu, 19 Oct 2023 17:42:54 GMT
+            Content-Length:
+              type: string
+              default: '69'
+            Connection:
+              type: string
+              default: keep-alive
+            x-amzn-RequestId:
+              type: string
+              default: 054be13f-8eac-4725-9f7d-66c37ab23123
+            Access-Control-Allow-Origin:
+              type: string
+              default: https://ui.sca.cyberark.cloud
+            Strict-Transport-Security:
+              type: string
+              default: max-age=63072000; includeSubDomains; preload
+            x-amz-apigw-id:
+              type: string
+              default: ND2X9GPAIAMEGUA=
+            X-Content-Type-Options:
+              type: string
+              default: nosniff
+            X-Amzn-Trace-Id:
+              type: string
+              default: Root=1-65316a99-1dae9c3a42819f0b39617bea;Sampled=0;lineage=728d73b5:0
+            Access-Control-Allow-Credentials:
+              type: string
+              default: 'true'
   /policies/create-policy:
     post:
       description: This method creates a new policy in SCA
@@ -36742,7 +36829,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1696251049
+      Reason: Automatically accepted via CyberArk Web Services on 1701180653
     type: object
     properties:
       Reason:
@@ -36752,7 +36839,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1696251049
+      Reason: Rejected automatically by CyberArk Web Services on 1701180653
     type: object
     properties:
       Reason:
@@ -56918,6 +57005,21 @@ definitions:
     required:
     - created_roles
     - version
+  authn-jwtforJenkins:
+    title: authn-jwtforJenkins
+    example:
+      created_roles: {}
+      version: 2
+    type: object
+    properties:
+      created_roles:
+        type: object
+      version:
+        type: integer
+        format: int32
+    required:
+    - created_roles
+    - version
   CreateSecretsFilterRequest:
     title: CreateSecretsFilterRequest
     example:
@@ -56943,8 +57045,8 @@ definitions:
         type: string
     required:
     - safeName
-  CreateSecretStoreRequest:
-    title: CreateSecretStoreRequest
+  CreateAWSSecretStoreRequest:
+    title: CreateAWSSecretStoreRequest
     example:
       type: AWS_ASM
       data:
@@ -56991,6 +57093,190 @@ definitions:
     - accountId
     - regionId
     - roleName
+  CreateAzurePrivateSecretStoreRequest:
+    title: CreateAzurePrivateSecretStoreRequest
+    example:
+      data:
+        appClientDirectoryId: ''
+        azureVaultUrl: ''
+        appClientId: ''
+        appClientSecret: ''
+        connectionConfig:
+          connectionType: CONNECTOR
+          connectorId: ''
+      name: ''
+      description: ''
+      type: AZURE_AKV
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Data2'
+      name:
+        type: string
+      description:
+        type: string
+      type:
+        type: string
+    required:
+    - data
+    - name
+    - description
+    - type
+  Data2:
+    title: Data2
+    example:
+      appClientDirectoryId: ''
+      azureVaultUrl: ''
+      appClientId: ''
+      appClientSecret: ''
+      connectionConfig:
+        connectionType: CONNECTOR
+        connectorId: ''
+    type: object
+    properties:
+      appClientDirectoryId:
+        type: string
+      azureVaultUrl:
+        type: string
+      appClientId:
+        type: string
+      appClientSecret:
+        type: string
+      connectionConfig:
+        $ref: '#/definitions/ConnectionConfig'
+    required:
+    - appClientDirectoryId
+    - azureVaultUrl
+    - appClientId
+    - appClientSecret
+    - connectionConfig
+  ConnectionConfig:
+    title: ConnectionConfig
+    example:
+      connectionType: CONNECTOR
+      connectorId: ''
+    type: object
+    properties:
+      connectionType:
+        type: string
+      connectorId:
+        type: string
+    required:
+    - connectionType
+    - connectorId
+  CreateAzurePublicSecretStoreRequest:
+    title: CreateAzurePublicSecretStoreRequest
+    example:
+      data:
+        appClientDirectoryId: ''
+        azureVaultUrl: ''
+        appClientId: ''
+        appClientSecret: ''
+        connectionConfig:
+          connectionType: PUBLIC
+      name: ''
+      description: ''
+      type: AZURE_AKV
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Data3'
+      name:
+        type: string
+      description:
+        type: string
+      type:
+        type: string
+    required:
+    - data
+    - name
+    - description
+    - type
+  Data3:
+    title: Data3
+    example:
+      appClientDirectoryId: ''
+      azureVaultUrl: ''
+      appClientId: ''
+      appClientSecret: ''
+      connectionConfig:
+        connectionType: PUBLIC
+    type: object
+    properties:
+      appClientDirectoryId:
+        type: string
+      azureVaultUrl:
+        type: string
+      appClientId:
+        type: string
+      appClientSecret:
+        type: string
+      connectionConfig:
+        $ref: '#/definitions/ConnectionConfig1'
+    required:
+    - appClientDirectoryId
+    - azureVaultUrl
+    - appClientId
+    - appClientSecret
+    - connectionConfig
+  ConnectionConfig1:
+    title: ConnectionConfig1
+    example:
+      connectionType: PUBLIC
+    type: object
+    properties:
+      connectionType:
+        type: string
+    required:
+    - connectionType
+  CreatePAMSelf-HostedSourceRequest:
+    title: CreatePAMSelf-HostedSourceRequest
+    example:
+      data:
+        url: '{{pasBaseURL}}/PasswordVault'
+        userName: SecretsHub
+        password: ''
+        connectorId: ''
+      name: ''
+      description: ''
+      type: PAM_SELF_HOSTED
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Data4'
+      name:
+        type: string
+      description:
+        type: string
+      type:
+        type: string
+    required:
+    - data
+    - name
+    - description
+    - type
+  Data4:
+    title: Data4
+    example:
+      url: '{{pasBaseURL}}/PasswordVault'
+      userName: SecretsHub
+      password: ''
+      connectorId: ''
+    type: object
+    properties:
+      url:
+        type: string
+      userName:
+        type: string
+      password:
+        type: string
+      connectorId:
+        type: string
+    required:
+    - url
+    - userName
+    - password
+    - connectorId
   UpdateSecretStoreRequest:
     title: UpdateSecretStoreRequest
     example:
@@ -57002,7 +57288,7 @@ definitions:
     type: object
     properties:
       data:
-        $ref: '#/definitions/Data2'
+        $ref: '#/definitions/Data5'
       description:
         type: string
       name:
@@ -57011,8 +57297,8 @@ definitions:
     - data
     - description
     - name
-  Data2:
-    title: Data2
+  Data5:
+    title: Data5
     example:
       accountAlias: Account alias as defined in AWS
       roleName: Secrets-Hub-IAM-Role-Name-Created-For-Secrets-Hub
@@ -57131,6 +57417,74 @@ definitions:
     - cloudTrailRegion
     - athenaResultBucketName
     - athenaRoleArn
+  InProgress:
+    title: InProgress
+    example:
+      job_id: 7d2032f5-d6d2-42e4-8a69-4a75fef35ada
+      operation: RESCAN_REQUEST_ORCHESTRATOR
+      status: InProgress
+      last_updated: 2023-10-19T17:42:54Z
+      already_running: true
+      metadata: null
+      total_executed: null
+    type: object
+    properties:
+      job_id:
+        type: string
+      operation:
+        type: string
+      status:
+        type: string
+      last_updated:
+        type: string
+      already_running:
+        type: boolean
+      metadata:
+        type: string
+      total_executed:
+        type: string
+    required:
+    - job_id
+    - operation
+    - status
+    - last_updated
+    - already_running
+    - metadata
+    - total_executed
+  Success:
+    title: Success
+    example:
+      job_id: 7d2032f5-d6d2-42e4-8a69-4a75fef35ada
+      operation: RESCAN_REQUEST_ORCHESTRATOR
+      status: Success
+      last_updated: 2023-10-19T17:46:52Z
+      already_running: false
+      metadata: null
+      total_executed: null
+    type: object
+    properties:
+      job_id:
+        type: string
+      operation:
+        type: string
+      status:
+        type: string
+      last_updated:
+        type: string
+      already_running:
+        type: boolean
+      metadata:
+        type: string
+      total_executed:
+        type: string
+    required:
+    - job_id
+    - operation
+    - status
+    - last_updated
+    - already_running
+    - metadata
+    - total_executed
   CloudRe-ScanRequest:
     title: CloudRe-ScanRequest
     example:
@@ -57146,6 +57500,20 @@ definitions:
     required:
     - cloudProvider
     - accountType
+  200OK85:
+    title: 200OK85
+    example:
+      jobId: 7d2032f5-d6d2-42e4-8a69-4a75fef35ada
+      operation: RESCAN
+    type: object
+    properties:
+      jobId:
+        type: string
+      operation:
+        type: string
+    required:
+    - jobId
+    - operation
   CreatePolicyRequest1:
     title: CreatePolicyRequest1
     example:
