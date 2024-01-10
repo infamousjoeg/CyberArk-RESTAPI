@@ -14104,6 +14104,55 @@
 									"response": []
 								},
 								{
+									"name": "Alt OIDC Authentication",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "72b4cfe7-c0c8-4698-85f8-f1f183150132",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"pm.environment.set(\"identityToken\", jsonData.access_token)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "fea01f7b-6628-4f5e-9d9e-0b87b198ca86",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "grant_type",
+													"value": "client_credentials",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "{{identityUsername}}",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "{{identityPassword}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": "https://{{identityTenantId}}.id.cyberark.cloud/oauth2/platformtoken"
+									},
+									"response": []
+								},
+								{
 									"name": "Sign Out from Current Session",
 									"id": "cbfaddd3-6e48-4b75-8657-fecb4aec7142",
 									"protocolProfileBehavior": {
@@ -35458,25 +35507,6 @@
 									"name": "Users",
 									"item": [
 										{
-											"name": "Get Logged On User Detail",
-											"id": "10cf4e83-c94c-481c-a8ac-969b7c7cd71f",
-											"protocolProfileBehavior": {
-												"disableBodyPruning": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"url": "https://{{saasSubdomain}}.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/User",
-												"description": "This method returns user information of the user who is logged on."
-											},
-											"response": []
-										},
-										{
 											"name": "Get User Details",
 											"id": "cf66b08f-55e8-4bf8-b503-ce907bdab673",
 											"protocolProfileBehavior": {
@@ -39326,6 +39356,121 @@
 											"cookie": [],
 											"responseTime": null,
 											"body": "{\n    \"created_roles\": {},\n    \"version\": 2\n}"
+										},
+										{
+											"id": "91d5d7a7-628e-41ee-b153-59055ae2ac08",
+											"name": "authn-iam for AWS",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "- !policy\n  id: inf-aws\n  body:\n    - !webservice\n  \n    # Group of hosts that can authenticate using this JWT Authenticator\n    - !group\n      id: consumers\n      annotations:\n        description: Allows authentication through authn-iam/inf-aws web service.\n    \n    # Permit the consumers group to authenticate to the authn-iam/inf-aws web service\n    - !permit\n      role: !group consumers\n      privilege: [ read, authenticate ]\n      resource: !webservice"
+												},
+												"url": {
+													"raw": "https://{{saasSubdomain}}.secretsmgr.cyberark.cloud/api/policies/conjur/policy/:conjurPolicyID",
+													"protocol": "https",
+													"host": [
+														"{{saasSubdomain}}",
+														"secretsmgr",
+														"cyberark",
+														"cloud"
+													],
+													"path": [
+														"api",
+														"policies",
+														"conjur",
+														"policy",
+														":conjurPolicyID"
+													],
+													"variable": [
+														{
+															"key": "conjurPolicyID",
+															"value": "conjur/authn-iam"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 30 Nov 2023 14:49:17 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-permitted-cross-domain-policies",
+													"value": "none"
+												},
+												{
+													"key": "referrer-policy",
+													"value": "strict-origin-when-cross-origin"
+												},
+												{
+													"key": "vary",
+													"value": "Accept"
+												},
+												{
+													"key": "etag",
+													"value": "W/\"87e1acc2a66b99105c36e6343a309640\""
+												},
+												{
+													"key": "x-request-id",
+													"value": "8716fdc3-7879-4605-9b03-f5a3da7d07a4"
+												},
+												{
+													"key": "x-runtime",
+													"value": "0.278943"
+												},
+												{
+													"key": "server",
+													"value": "-"
+												},
+												{
+													"key": "content-security-policy",
+													"value": "default-src 'none'"
+												},
+												{
+													"key": "strict-transport-security",
+													"value": "max-age=63072000; includeSubDomains; preload;"
+												},
+												{
+													"key": "cache-control",
+													"value": "no-cache; no-store; must-revalidate;"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "0"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"created_roles\": {},\n    \"version\": 1\n}"
 										}
 									]
 								},
