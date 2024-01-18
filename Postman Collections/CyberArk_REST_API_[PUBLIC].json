@@ -39560,6 +39560,35 @@
 							"id": "619e2c4e-0bfb-439f-8398-4bdf048b3b71"
 						},
 						{
+							"name": "Dynamic Secrets",
+							"item": [
+								{
+									"name": "Create Issuer",
+									"id": "efd08bda-5e30-498f-8d7a-faca73968e3e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"my-aws-issuer\",\n    \"max_ttl\": 3000,\n    \"type\": \"aws\",\n    \"data\": {\n        \"access_key_id\": \"my_key_id\",\n        \"secret_access_key\": \"my_key_secret\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{conjurHostname}}/api/issuers/conjur",
+										"description": "The `issuers` API manages a Conjur Cloud **issuer** resource. A Conjur Cloud issuer holds the data related to a target, for example AWS, that is needed for issuing dynamic (just-in-time) secret values."
+									},
+									"response": []
+								}
+							],
+							"id": "0889bac7-22c7-49c0-8843-65c66a4b8dbe"
+						},
+						{
 							"name": "Secrets",
 							"item": [
 								{
@@ -45449,6 +45478,41 @@
 							"token": "{{identityToken}}"
 						}
 					}
+				},
+				{
+					"name": "Platform Discovery by Subdomain",
+					"id": "5362d314-12cf-42db-a918-83405ccc3f2d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://platform-discovery.cyberark.cloud/api/v2/services/subdomain/:saasSubdomain",
+							"protocol": "https",
+							"host": [
+								"platform-discovery",
+								"cyberark",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"v2",
+								"services",
+								"subdomain",
+								":saasSubdomain"
+							],
+							"variable": [
+								{
+									"id": "49e18df8-d17d-49d6-abcc-0e7e920ad77e",
+									"key": "saasSubdomain",
+									"value": "{{saasSubdomain}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "045fe494-76dd-4403-be19-3e3b55b407cc"
