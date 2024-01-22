@@ -38955,6 +38955,155 @@
 							"description": "Here are the requests that handle the different types of authentication."
 						},
 						{
+							"name": "Dynamic Secrets",
+							"item": [
+								{
+									"name": "Create Issuer",
+									"id": "efd08bda-5e30-498f-8d7a-faca73968e3e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"my-aws-issuer\",\n    \"max_ttl\": 3000,\n    \"type\": \"aws\",\n    \"data\": {\n        \"access_key_id\": \"my_key_id\",\n        \"secret_access_key\": \"my_key_secret\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{conjurHostname}}/api/issuers/conjur",
+										"description": "The `issuers` API manages a Conjur Cloud **issuer** resource. A Conjur Cloud issuer holds the data related to a target, for example AWS, that is needed for issuing dynamic (just-in-time) secret values."
+									},
+									"response": []
+								}
+							],
+							"id": "0889bac7-22c7-49c0-8843-65c66a4b8dbe"
+						},
+						{
+							"name": "Groups",
+							"item": [
+								{
+									"name": "Add Group Member",
+									"id": "beb93605-d3e3-4eda-8229-3e6170cc4430",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/x.secretsmgr.v2+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // id accepts full path to user, workload, or group\n    \"id\": \"data/ci/github/groupName\"\n    // kind accepts user, host, group\n    \"kind\": \"group\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{conjurHostname}}/api/groups/:conjurPolicyBranch/:conjurGroupName/members",
+											"host": [
+												"{{conjurHostname}}"
+											],
+											"path": [
+												"api",
+												"groups",
+												":conjurPolicyBranch",
+												":conjurGroupName",
+												"members"
+											],
+											"variable": [
+												{
+													"id": "2c74c82a-2197-4925-800d-f0ff927cd849",
+													"key": "conjurPolicyBranch",
+													"value": "data",
+													"description": "The branch the group is located on. (e.g. data/ci/jenkins)"
+												},
+												{
+													"id": "43cb4702-7780-47e3-aa33-9cd10d8e2f0a",
+													"key": "conjurGroupName",
+													"value": "sampleGroup",
+													"description": "The group name to add the member to"
+												}
+											]
+										},
+										"description": "Add a user, workload, or group as a member of a group."
+									},
+									"response": []
+								},
+								{
+									"name": "Remove Group Member",
+									"id": "6cd7d779-887b-49e1-8343-6a74aaab9194",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/x.secretsmgr.v2+json"
+											}
+										],
+										"url": {
+											"raw": "{{conjurHostname}}/api/groups/:conjurPolicyBranch/:conjurGroupName/members/:conjurKind/:conjurRoleId",
+											"host": [
+												"{{conjurHostname}}"
+											],
+											"path": [
+												"api",
+												"groups",
+												":conjurPolicyBranch",
+												":conjurGroupName",
+												"members",
+												":conjurKind",
+												":conjurRoleId"
+											],
+											"variable": [
+												{
+													"id": "a78e461e-0e62-4640-aea1-b9a13cc07839",
+													"key": "conjurPolicyBranch",
+													"value": "data",
+													"description": "The branch the group is located on. (e.g. data/ci/jenkins)"
+												},
+												{
+													"id": "072559e0-d372-4499-99f2-df1d75c98e22",
+													"key": "conjurGroupName",
+													"value": "sampleGroup",
+													"description": "The group name to add the member to"
+												},
+												{
+													"id": "dd4108a6-9fcb-4a10-9d92-fdad78a20304",
+													"key": "conjurKind",
+													"value": "group",
+													"description": "The kind of member to remove (user, host, group)"
+												},
+												{
+													"id": "ee4160bf-8955-44f4-82a7-7df14b841113",
+													"key": "conjurRoleId",
+													"value": "data/ci/github/groupName",
+													"description": "The full path of the member to remove (accepts users, workloads, groups)"
+												}
+											]
+										},
+										"description": "Add a user, workload, or group as a member of a group."
+									},
+									"response": []
+								}
+							],
+							"id": "5ae0ecdd-1f73-4c68-a269-95928f67017f",
+							"description": "Manage group membership of resources in Conjur Cloud."
+						},
+						{
 							"name": "Host Factory",
 							"item": [
 								{
@@ -39558,35 +39707,6 @@
 								}
 							],
 							"id": "619e2c4e-0bfb-439f-8398-4bdf048b3b71"
-						},
-						{
-							"name": "Dynamic Secrets",
-							"item": [
-								{
-									"name": "Create Issuer",
-									"id": "efd08bda-5e30-498f-8d7a-faca73968e3e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"id\": \"my-aws-issuer\",\n    \"max_ttl\": 3000,\n    \"type\": \"aws\",\n    \"data\": {\n        \"access_key_id\": \"my_key_id\",\n        \"secret_access_key\": \"my_key_secret\"\n    }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{conjurHostname}}/api/issuers/conjur",
-										"description": "The `issuers` API manages a Conjur Cloud **issuer** resource. A Conjur Cloud issuer holds the data related to a target, for example AWS, that is needed for issuing dynamic (just-in-time) secret values."
-									},
-									"response": []
-								}
-							],
-							"id": "0889bac7-22c7-49c0-8843-65c66a4b8dbe"
 						},
 						{
 							"name": "Secrets",
