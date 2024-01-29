@@ -41401,6 +41401,131 @@
 							"description": "This topic includes REST APIs for managing sync policies."
 						},
 						{
+							"name": "Discovery & Visibility",
+							"item": [
+								{
+									"name": "Get scans",
+									"id": "2d7397ef-b2e0-4786-80ce-c78029875325",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/x.secretshub.beta+json"
+											}
+										],
+										"url": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/scans"
+									},
+									"response": []
+								},
+								{
+									"name": "Get secrets",
+									"id": "5c18805b-297b-4ae0-b65d-43d8b7b82415",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										},
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/x.secretshub.beta+json"
+											}
+										],
+										"url": {
+											"raw": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/secrets?projection=REGULAR",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"secretshub",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"secrets"
+											],
+											"query": [
+												{
+													"key": "projection",
+													"value": "REGULAR",
+													"description": "Data representiation method. Can be EXTEND or REGULAR."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Scan secret store",
+									"id": "8f9ba890-ae98-4210-be17-61d939e90a73",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true
+										},
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/x.secretshub.beta+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"scope\": {\n    \"secretStoresIds\": [\n      \"store-id\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{saasSubdomain}}.secretshub.cyberark.cloud/api/scan-definitions/:shScanType/:shScanID/scan",
+											"protocol": "https",
+											"host": [
+												"{{saasSubdomain}}",
+												"secretshub",
+												"cyberark",
+												"cloud"
+											],
+											"path": [
+												"api",
+												"scan-definitions",
+												":shScanType",
+												":shScanID",
+												"scan"
+											],
+											"variable": [
+												{
+													"id": "c5413546-875e-4ae7-aca3-9e27ef4ccee5",
+													"key": "shScanType",
+													"value": "secret-store",
+													"description": "The type of scan."
+												},
+												{
+													"id": "83913b3f-6ba1-4b2c-9eef-95dc65adf0b3",
+													"key": "shScanID",
+													"value": "default",
+													"description": "The ID of the scan."
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "415cb175-d177-47cf-8cdb-642b30b7ea96"
+						},
+						{
 							"name": "Tenant Info",
 							"id": "581c8631-9ad4-4fa1-a3ce-da328c68ccb4",
 							"protocolProfileBehavior": {
