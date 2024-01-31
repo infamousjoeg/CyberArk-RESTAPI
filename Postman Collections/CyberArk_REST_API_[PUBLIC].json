@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "676230f3-7895-4a35-a20f-57bd846e1a92",
 		"name": "CyberArk REST API [PUBLIC]",
-		"description": "All available requests in CyberArk Identity Security Platform.\n\n**Last Updated Version:** v13.2\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nThis collection is backed up at [https://github.com/infamousjoeg/CyberArk-RESTAPI](https://github.com/infamousjoeg/CyberArk-RESTAPI).\n\n## New Features & Additions\n\n- Added Applications & User Management to Privilege Cloud folder\n    \n- Split Collection into 2 Root Folders: Self-Hosted & SaaS\n    \n    - All specific endpoints are self-contained within the root folders\n- Added Privilege Cloud, Dynamic Privileged Access, Remote Access, Conjur Cloud, Secrets Hub, Cloud Entitlements Manager, Secure Cloud Access, and Connection Management\n- Authentication has been moved to the folder-level instead of being set on each individual request\n    \n\nHappy automating!\n\n## Want to use a CLI? Get cybr-cli for your OS!\n\n[https://github.com/infamousjoeg/cybr-cli](https://github.com/infamousjoeg/cybr-cli)\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n- [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n- [IdentityCommand](https://github.com/pspete/IdentityCommand) - PowerShell Module for CyberArk Identity (Supports psPAS)\n- [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n- [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n    \n\n## Code Examples\n\n- [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n- [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n- [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n    \n\n## YouTube Videos Playlist\n\n- [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n    \n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n| --- | --- | --- |\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues._",
+		"description": "All available requests in CyberArk Identity Security Platform.\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nThis collection is backed up at [https://github.com/infamousjoeg/CyberArk-RESTAPI](https://github.com/infamousjoeg/CyberArk-RESTAPI).\n\n## New Features & Additions\n\n- Added Endpoint Privilege Manager API\n- Added Discovery & Visibility API for Secrets Hub\n- Fixed bugs in Conjur Enterprise API\n    \n\nHappy automating!\n\n## Quick Start YouTube Video Series\n\n[<img src=\"https://img.youtube.com/vi/Sq-cwn_1lvk/0.jpg\" alt=\"How to Use Postman for No Code Development with CyberArk\">](https://www.youtube.com/watch?v=Sq-cwn_1lvk&list=PL-p_9AwMQDmmqsBus-Bukn3mQaJE0kHzC&index=1)\n\n## Want to use a CLI? Get cybr-cli for your OS!\n\n[https://github.com/infamousjoeg/cybr-cli](https://github.com/infamousjoeg/cybr-cli)\n\n## Community Tools\n\n- [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n- [IdentityCommand](https://github.com/pspete/IdentityCommand) - PowerShell Module for CyberArk Identity (Supports psPAS)\n- [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n- [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n    \n\n## Code Examples\n\n- [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n- [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n- [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n    \n\n## YouTube Videos Playlist\n\n- [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n    \n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n| --- | --- | --- |\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues._",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -45688,6 +45688,935 @@
 						"type": "bearer",
 						"bearer": {
 							"token": "{{identityToken}}"
+						}
+					}
+				},
+				{
+					"name": "Endpoint Privilege Manager (EPM)",
+					"item": [
+						{
+							"name": "Authentication",
+							"item": [
+								{
+									"name": "Get EPM Version",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7a5376b0-29d8-4166-a8fc-3569680464f6",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"epmVersion\", jsonData.Version);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "21311420-a4d1-4979-85c6-2822a64ae7db",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "https://{{epmDispatcherAddress}}/epm/api/server/version",
+										"description": "This method enables the user to retrieve the EPM version."
+									},
+									"response": []
+								},
+								{
+									"name": "Login (EPM Credentials)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27abaf45-2544-471a-866f-8adb9d76a52b",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"epmToken\", jsonData.EPMAuthenticationResult);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "3c64da4b-4b56-45a1-b8ad-2ecdf8c4083c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"Username\": \"{{epmUsername}}\",\r\n  \"Password\": \"{{epmPassword}}\",\r\n  \"ApplicationID\": \"{{epmApplicationID}}\" // The source application ID which represents the application that calls REST APIs from EPM and distinguishes them from REST APIs from another application, such as the UI.\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{epmDispatcherAddress}}/epm/api/auth/epm/logon",
+										"description": "This method authenticates a user to EPM using username and password and returns a token that can be used in subsequent Rest API calls.\n\nAfter the configured timeout expires, users have to log on again using their username and password.\n\nThe session timeout for all APIs is part of the session token and is defined by the **Timeout for inactive session** Server Configuration parameter."
+									},
+									"response": []
+								},
+								{
+									"name": "Login (SAML)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "41adc7b6-4c5a-4d6a-bb5b-469d7cd1f307",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"epmToken\", jsonData.EPMAuthenticationResult);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "d59c754e-fb42-4050-b15e-46d80b4e181c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "SAMLResponse",
+													"value": "{{epmSAMLToken}}",
+													"description": "The token received from the Identity Provider (IdP).",
+													"type": "text"
+												}
+											]
+										},
+										"url": "https://{{epmDispatcherAddress}}/saml/logon",
+										"description": "This method authenticates a user to EPM with a SAML token and returns a token that can be used in subsequent web service calls.\n\nAfter the configured timeout expires, users have to log on again using their SAML token.\n\nThe session timeout for all APIs is part of the session token and defined by the **Timeout for inactive session** in Account Configuration."
+									},
+									"response": []
+								}
+							],
+							"id": "8afea52b-f5bb-4229-9f7b-0dc6428731cf"
+						},
+						{
+							"name": "Endpoints",
+							"item": [
+								{
+									"name": "Get Sets",
+									"id": "49452ad8-901f-49f7-8b84-75aaffd21d71",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmDispatcherAddress}}/epm/api/sets",
+											"protocol": "https",
+											"host": [
+												"{{epmDispatcherAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "Number of sets to skip. Default: 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "50",
+													"description": "Maximum number of sets to return. Default: 50, Max: 1000",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Computer Groups",
+									"id": "4c353281-68cc-4043-a77f-dd1e60fb3420",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/ComputerGroups",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"ComputerGroups"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "contains(Name,'MyGroup')",
+													"description": "A query that filters results according to part of the computer group name. Valid values: name (allowed operators) or contains (part of the computer group name)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "531ec279-2bc8-4e38-b9df-130e9ae98c59",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method retrieves the computer groups from a Set."
+									},
+									"response": []
+								},
+								{
+									"name": "Get Computers",
+									"id": "a366f06d-50f2-4428-9957-2d80339b7316",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmServerAddress}}/EPM/API/Sets/:epmSetID/Computers",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"EPM",
+												"API",
+												"Sets",
+												":epmSetID",
+												"Computers"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "ComputerName eq 'comp01'",
+													"description": "Read https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetComputers.htm for filtering options.",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "The number of endpoint computers to skip. Default: 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "50",
+													"description": "The number of computers to return. Default: 50, Max: 5000",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "15a21966-0080-4234-9450-198df869ef9f",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Move Computer(s) to Set",
+									"id": "fc63fd7e-46c2-447a-b4dc-7bc888e41ca1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"computerIds\": \"{{epmAgentID}}\",\n    \"destSetId\": \"{{epmDestinationSetID}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/computers/redirectagents",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"computers",
+												"redirectagents"
+											],
+											"variable": [
+												{
+													"id": "00091522-62ec-4144-ae39-51bf12a7f874",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method moves endpoint computers with an EPM agent to a different Set.\n\n**Note:** You can move up to 500 computers per Set each day. To move a larger number of computers, contact CyberArk support."
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Computer",
+									"id": "c670a948-a9d1-4234-a970-7719878df846",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmServerAddress}}/EPM/API/Sets/:epmSetID/Computers/:epmAgentID",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"EPM",
+												"API",
+												"Sets",
+												":epmSetID",
+												"Computers",
+												":epmAgentID"
+											],
+											"variable": [
+												{
+													"id": "81aeb533-d5b3-4e60-8423-38c3ada6865f",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												},
+												{
+													"id": "35ea619f-d208-4184-9324-d8597c5607b8",
+													"key": "epmAgentID",
+													"value": "{{epmAgentID}}",
+													"description": "The unique agent identifier, generated in the Get Computers API response."
+												}
+											]
+										},
+										"description": "This method deletes a computer."
+									},
+									"response": []
+								}
+							],
+							"id": "7b4d2d3e-2da3-42df-be56-31fd105a6c01"
+						},
+						{
+							"name": "Events & Audit",
+							"item": [
+								{
+									"name": "Get Admin Audit Data",
+									"id": "9e4d090c-e687-4fe0-a154-d05434808622",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/adminaudit",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"adminaudit"
+											],
+											"query": [
+												{
+													"key": "dateFrom",
+													"value": "2024-01-01T00:00:00",
+													"description": "The first date until which to gather audit records.",
+													"disabled": true
+												},
+												{
+													"key": "dateTo",
+													"value": "2024-02-01T00:00:00",
+													"description": "The last date until which to gather audit records.",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "Number of audit records to skip. Default: 0, Max: 1000",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "50",
+													"description": "Number of items to return on a page. Default: 50, Max: 500",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "7ef1e4cf-5d21-4111-9940-4862bb679c05",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method retrieves audit records for actions performed by account administrators.\n\nUsers require at least the View Only Account Administrator permission to call this API."
+									},
+									"response": []
+								},
+								{
+									"name": "Get Aggregated Events Copy",
+									"id": "d3aae4e0-4d2d-472c-b7cd-9f011904d2fc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // For more information on filter queries, please read https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetAggregatedEvents.htm#Bodyparameters\n    \"filter\": \"aggregatedBy EQ \\\"943E0A8C840430E53D8D641CF4CDC1660C75FFE0,Block\\\" AND (fileName CONTAINS \\\"notepad++\\\" OR fileDescription CONTAINS \\\"notepad++\\\" OR publisher CONTAINS \\\"microsoft\\\" OR policyName CONTAINS \\\"MyPolicy\\\" OR hash CONTAINS \\\"943E0A8C840430E53D8D641CF4CDC1660C75FFE0\\\")\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/events/aggregations/search",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"events",
+												"aggregations",
+												"search"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "250",
+													"description": "The number of items to return on a requested page. Default: 250, Max: 1000",
+													"disabled": true
+												},
+												{
+													"key": "nextCursor",
+													"value": "start",
+													"description": "An opaque string used to retrieve the next page of results. Call the API with the value returned in the results of the previous call. For the first page, set the value to \"start\".",
+													"disabled": true
+												},
+												{
+													"key": "sortBy",
+													"value": "Date",
+													"description": "Sort by a specific result. Valid values: Date, Occurrences, ComputersCount",
+													"disabled": true
+												},
+												{
+													"key": "sortDir",
+													"value": "desc",
+													"description": "The sorting direction. Valid values: asc, desc (default)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "211fc93e-a052-4e91-857f-d6a23d05ca2f",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Detailed Raw Events",
+									"id": "72465fca-9606-48cc-b8f8-4093d5366e08",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // For more information on filter queries, please read https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetDetailedRawEvents.htm#Bodyparameters\n    \"filter\": \"aggregatedBy EQ \\\"943E0A8C840430E53D8D641CF4CDC1660C75FFE0,Block\\\" AND (fileName CONTAINS \\\"notepad++\\\" OR fileDescription CONTAINS \\\"notepad++\\\" OR publisher CONTAINS \\\"microsoft\\\" OR policyName CONTAINS \\\"MyPolicy\\\" OR hash CONTAINS \\\"943E0A8C840430E53D8D641CF4CDC1660C75FFE0\\\")\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/events/search",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"events",
+												"search"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "250",
+													"description": "The number of items to return on a page. Default: 250, Max: 1000",
+													"disabled": true
+												},
+												{
+													"key": "nextCursor",
+													"value": "start",
+													"description": "An opaque string used to retrieve the next page of results. Call the API with the value returned in the results of the previous call.\n\nFor the first page, set to the value \"start\".",
+													"disabled": true
+												},
+												{
+													"key": "sortBy",
+													"value": "2024-01-01T00:00:00",
+													"description": "Sort by a specific result. Valid value: Date (based on the EventDate parameter) Default: firstSeen",
+													"disabled": true
+												},
+												{
+													"key": "sortDir",
+													"value": "desc",
+													"description": "The sorting direction. Valid value: asc, desc (default)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "84b56132-c5e3-4c03-98cf-effa4f230a18",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method enables users to retrieve raw events from EPM, according to filters.\n\n**Note:**\n\n- This method replaces [Get raw events (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetRawEvents.htm) and [Get raw event details (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetRawEventDetails.htm) for inbox events.\n    \n- To return all results for a specified time, bypassing the 1000 record limit, use both the arrivalTime and nextCursor parameter. The results are listed in chronological order."
+									},
+									"response": []
+								},
+								{
+									"name": "Get Aggregated Policy Audits",
+									"id": "66f3576f-fe7a-4555-b067-f6d212b358a7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // For more information on filter queries, please read https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetAggregatedPolicyAudits.htm#Bodyparameters\n    \"filter\": \"(fileName CONTAINS \\\"notepad++\\\" OR fileDescription CONTAINS \\\"notepad++\\\" OR publisher CONTAINS \\\"microsoft\\\" OR policyName CONTAINS \\\"MyPolicy\\\" )\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/policyaudits/aggregations/search",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"policyaudits",
+												"aggregations",
+												"search"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "250",
+													"description": "The number of items to return on a page. Default: 250, Max: 1000",
+													"disabled": true
+												},
+												{
+													"key": "nextCursor",
+													"value": "start",
+													"description": "An opaque string used to retrieve the next page of results. Call the API with the value returned in the results of the previous call.\nFor the first page, set to the value \"start\".",
+													"disabled": true
+												},
+												{
+													"key": "sortBy",
+													"value": "2024-01-01T00:00:00",
+													"description": "Sort by a specific result. Valid value: Date (based on the EventDate parameter) Default: firstSeen",
+													"disabled": true
+												},
+												{
+													"key": "sortDir",
+													"value": "desc",
+													"description": "The sorting direction. Valid value: asc, desc (default)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "55b479c0-6d0f-48f7-9e11-5cda18a654df",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method enables users to retrieve aggregated policy audit events from EPM, according to filters.\n\n**Note:**\n\n- This method replaces [Get aggregated events (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetAggregatedEventsDep.htm) for audit events.\n    \n- To return all results for a specified time, bypassing the 1000 record limit, use both the arrivalTime and nextCursor parameter. The results are listed in chronological order."
+									},
+									"response": []
+								},
+								{
+									"name": "Get Detailed Policy Audit Raw Events",
+									"id": "c75a3846-a10d-437a-80b1-4366a02918cb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // For more information on filter queries, please read https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetPolicyAuditRawEventDetails.htm#Bodyparameters\n    \"filter\": \"(fileName CONTAINS \\\"notepad++\\\" OR fileDescription CONTAINS \\\"notepad++\\\" OR publisher CONTAINS \\\"microsoft\\\" OR policyName CONTAINS \\\"MyPolicy\\\" )\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/policyaudits/search",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"policyaudits",
+												"search"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "250",
+													"description": "The number of items to return on a page. Default: 250, Max: 1000",
+													"disabled": true
+												},
+												{
+													"key": "nextCursor",
+													"value": "start",
+													"description": "An opaque string used to retrieve the next page of results. Call the API with the value returned in the results of the previous call.\nFor the first page, set to the value \"start\".",
+													"disabled": true
+												},
+												{
+													"key": "sortBy",
+													"value": "2024-01-01T00:00:00",
+													"description": "Sort by a specific result. Valid value: Date (based on the EventDate parameter) Default: firstSeen",
+													"disabled": true
+												},
+												{
+													"key": "sortDir",
+													"value": "desc",
+													"description": "The sorting direction. Valid value: asc, desc (default)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "6a7a1030-834d-4d7f-8dff-9ee391e6e8f9",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method enables users to retrieve policy audit raw events from EPM, according to filters.\n\n**Note:**\n\n- This method replaces [Get raw events (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetRawEvents.htm) and [Get raw event details (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetRawEventDetails.htm) for audit events.\n    \n- To return all results for a specified time, bypassing the 1000 record limit, use both the arrivalTime and nextCursor parameter. The results are listed in chronological order."
+									},
+									"response": []
+								}
+							],
+							"id": "f2b47b5a-5eeb-413b-95f0-b9589ad52ab1"
+						},
+						{
+							"name": "Policies",
+							"item": [
+								{
+									"name": "Get Policies Details",
+									"id": "64ba6c00-f71b-433e-b22f-7fc06cd1dbbe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/policies/server/:epmPolicyID",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"policies",
+												"server",
+												":epmPolicyID"
+											],
+											"variable": [
+												{
+													"id": "997069b8-f200-436c-934e-c40816783889",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												},
+												{
+													"id": "7e8c5662-3243-428b-afc2-5436295d5edc",
+													"key": "epmPolicyID",
+													"value": "{{epmPolicyID}}",
+													"description": "Unique ID of the policy for which to retrieve details. Retrieve the Policy ID with Get Policies."
+												}
+											]
+										},
+										"description": "This method retrieves details of a policy.\n\n**Note:** This method replaces the [Get policy details (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetPolicyDetailsDep.htm) API."
+									},
+									"response": []
+								},
+								{
+									"name": "Get Policies",
+									"id": "ea199eda-285c-41a3-8556-8e630ac37919",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // Blank indicates all \n    // For more information on filter queries, please read https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetPolicies.htm#Bodyparameters\n    \"filter\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/policies/server/search",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"policies",
+												"server",
+												"search"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "50",
+													"description": "The number of items to return on a page. Default: 50, Max: 1000",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "Number of policies to skip. Default: 0",
+													"disabled": true
+												},
+												{
+													"key": "sortBy",
+													"value": "Updated",
+													"description": "Sort by a specific result. Valid value: Column title",
+													"disabled": true
+												},
+												{
+													"key": "sortDir",
+													"value": "desc",
+													"description": "The sorting direction. Valid value: asc, desc (default)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "c13f8b33-4d99-45be-a62a-aa0a0ada6d79",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method retrieves a list of policies, according to one or more filters.\n\n**Note:** This method replaces the [Get policies (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/GetPoliciesDep.htm) API."
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Policy",
+									"id": "4e1e7438-68a1-45a1-b214-fc23110e739e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://{{epmServerAddress}}/epm/api/sets/:epmSetID/policies/server/:epmPolicyID",
+											"protocol": "https",
+											"host": [
+												"{{epmServerAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"policies",
+												"server",
+												":epmPolicyID"
+											],
+											"variable": [
+												{
+													"id": "bdb0da30-92c0-4664-9197-eca244c4628d",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												},
+												{
+													"id": "a959fdee-a40e-4881-bccf-0bb03875a723",
+													"key": "epmPolicyID",
+													"value": "{{epmPolicyID}}",
+													"description": "Unique ID of the policy for which to retrieve details. Retrieve the Policy ID with Get Policies."
+												}
+											]
+										},
+										"description": "This method deletes a policy.\n\n**Note:** This method replaces the [Delete policy (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/DeletePolicyDep.htm) API."
+									},
+									"response": []
+								},
+								{
+									"name": "Create Policy",
+									"id": "3874bfed-1a54-46e1-ab15-22fee485f373",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"PolicyDetails\": {\n        \"UIOnStart\": {\n            \"Id\": \"dc58bc84-a89d-4ae5-b200-6524b1f3bee6\",\n            \"AllowedDialogType\": 2\n        },\n        \"UIOnStartAdmin\": {\n            \"Id\": \"3d563080-9aea-4f05-b908-3254646d1414\",\n            \"AllowedDialogType\": 2\n        },\n        \"UIReplaceUacAdmin\": {\n            \"Id\": \"dc58bc84-a89d-4ae5-b200-6524b1f3bee6\",\n            \"AllowedDialogType\": 2\n        },\n        \"UIReplaceUAC\": {\n            \"Id\": \"dc58bc84-a89d-4ae5-b200-6524b1f3bee6\",\n            \"AllowedDialogType\": 2\n        },\n        \"RecordAuditVideo\": false,\n        \"UIAuditVideo\": {\n            \"Id\": \"00000000-0000-0000-0000-000000000000\",\n            \"AllowedDialogType\": 7\n        },\n        \"UIAuditVideoError\": {\n            \"Id\": \"00000000-0000-0000-0000-000000000000\",\n            \"AllowedDialogType\": 10\n        },\n        \"UIAuditVideoInit\": {\n            \"Id\": \"00000000-0000-0000-0000-000000000000\",\n            \"AllowedDialogType\": 17\n        },\n        \"PrevioulsyAppGroup\": false,\n        \"ConditionalEnforcement\": [],\n        \"AccessControl\": null,\n        \"Audit\": false,\n        \"Applications\": [\n            {\n                \"id\": \"fe28e730-0631-45bf-a022-ddc42fe658e1\",\n                \"internalId\": 0,\n                \"applicationType\": 9,\n                \"displayName\": \"\",\n                \"description\": \"\",\n                \"patterns\": {\n                    \"FILE_NAME\": {\n                        \"@type\": \"FileName\",\n                        \"fileSize\": 0,\n                        \"isEmpty\": true,\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false\n                    },\n                    \"PUBLISHER\": {\n                        \"@type\": \"Publisher\",\n                        \"signatureLevel\": 1,\n                        \"separator\": \";\",\n                        \"caseSensitive\": true,\n                        \"compareAs\": 0,\n                        \"isEmpty\": true,\n                        \"content\": \"\"\n                    },\n                    \"CODE_URL\": {\n                        \"@type\": \"Text\",\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false,\n                        \"isEmpty\": true\n                    },\n                    \"MIME_TYPE\": {\n                        \"@type\": \"Text\",\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false,\n                        \"isEmpty\": true\n                    },\n                    \"CLSID\": {\n                        \"@type\": \"Text\",\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false,\n                        \"isEmpty\": true\n                    },\n                    \"VERSION\": {\n                        \"@type\": \"VersionRange\",\n                        \"minVersion\": \"\",\n                        \"maxVersion\": \"\",\n                        \"isEmpty\": true\n                    }\n                },\n                \"applicationGroupId\": \"00000000-0000-0000-0000-000000000000\",\n                \"internalApplicationGroupId\": 0,\n                \"includeInMatching\": true,\n                \"accountId\": \"00000000-0000-0000-0000-000000000000\",\n                \"restrictOpenSaveFileDialog\": true,\n                \"securityTokenId\": \"00000000-0000-0000-0000-000000000000\",\n                \"protectInstalledFiles\": false\n            },\n            {\n                \"id\": \"265bd246-dca8-4561-a595-47e75f85a693\",\n                \"internalId\": 0,\n                \"applicationType\": 20,\n                \"displayName\": \"\",\n                \"description\": \"\",\n                \"patterns\": {\n                    \"PUBLISHER\": {\n                        \"@type\": \"Publisher\",\n                        \"signatureLevel\": 1,\n                        \"separator\": \";\",\n                        \"caseSensitive\": true,\n                        \"compareAs\": 0,\n                        \"isEmpty\": true,\n                        \"content\": \"\"\n                    },\n                    \"APP_PACKAGE_NAME\": {\n                        \"@type\": \"Text\",\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false,\n                        \"isEmpty\": true\n                    },\n                    \"APP_PACKAGE_VERSION\": {\n                        \"@type\": \"VersionRange\",\n                        \"minVersion\": \"\",\n                        \"maxVersion\": \"\",\n                        \"isEmpty\": true\n                    },\n                    \"CAPABILITIES\": {\n                        \"@type\": \"Capabilities\",\n                        \"capabilities\": [\n                            {\n                                \"name\": \"musicLibrary\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"picturesLibrary\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"videosLibrary\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"removableStorage\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"internetClient\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"internetClientServer\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"privateNetworkClientServer\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"location\",\n                                \"groupType\": \"DeviceCapability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"microphone\",\n                                \"groupType\": \"DeviceCapability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"proximity\",\n                                \"groupType\": \"DeviceCapability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"webcam\",\n                                \"groupType\": \"DeviceCapability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"enterpriseAuthentication\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"sharedUserCertificates\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            },\n                            {\n                                \"name\": \"documentsLibrary\",\n                                \"groupType\": \"Capability\",\n                                \"enabled\": true\n                            }\n                        ],\n                        \"isEmpty\": false\n                    }\n                },\n                \"applicationGroupId\": \"00000000-0000-0000-0000-000000000000\",\n                \"internalApplicationGroupId\": 0,\n                \"includeInMatching\": true,\n                \"accountId\": \"00000000-0000-0000-0000-000000000000\",\n                \"restrictOpenSaveFileDialog\": true,\n                \"securityTokenId\": \"00000000-0000-0000-0000-000000000000\",\n                \"protectInstalledFiles\": false\n            },\n            {\n                \"id\": \"d8e860a8-af74-4876-acad-e5892e976cab\",\n                \"internalId\": 0,\n                \"applicationType\": 5,\n                \"displayName\": \"\",\n                \"description\": \"\",\n                \"patterns\": {\n                    \"FILE_NAME\": {\n                        \"@type\": \"FileName\",\n                        \"hashAlgorithm\": \"\",\n                        \"hash\": \"\",\n                        \"fileSize\": 0,\n                        \"isEmpty\": false,\n                        \"content\": \"aa\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false\n                    },\n                    \"ARGUMENTS\": {\n                        \"@type\": \"Text\",\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": true,\n                        \"isEmpty\": true\n                    },\n                    \"LOCATION\": {\n                        \"@type\": \"Location\",\n                        \"content\": \"\",\n                        \"withSubfolders\": true,\n                        \"caseSensitive\": false,\n                        \"isEmpty\": true\n                    },\n                    \"LOCATION_TYPE\": {\n                        \"@type\": \"LocationType\",\n                        \"locationType\": \"\",\n                        \"isEmpty\": true\n                    },\n                    \"OWNER\": {\n                        \"@type\": \"AdAccounts\",\n                        \"accounts\": [],\n                        \"isEmpty\": true\n                    },\n                    \"PUBLISHER\": {\n                        \"@type\": \"Publisher\",\n                        \"signatureLevel\": 1,\n                        \"separator\": \";\",\n                        \"caseSensitive\": true,\n                        \"compareAs\": 0,\n                        \"isEmpty\": true,\n                        \"content\": \"\"\n                    },\n                    \"PRODUCT_NAME\": {\n                        \"@type\": \"FileInfo\",\n                        \"elementName\": \"FileVerInfo\",\n                        \"attributeInfoName\": \"ProductName\",\n                        \"isEmpty\": true,\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false\n                    },\n                    \"COMPANY_NAME\": {\n                        \"@type\": \"FileInfo\",\n                        \"elementName\": \"FileVerInfo\",\n                        \"attributeInfoName\": \"CompanyName\",\n                        \"isEmpty\": true,\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false\n                    },\n                    \"PRODUCT_CODE\": {\n                        \"@type\": \"FileInfo\",\n                        \"elementName\": \"FileVerInfo\",\n                        \"attributeInfoName\": \"ProductCode\",\n                        \"isEmpty\": true,\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false\n                    },\n                    \"UPGRADE_CODE\": {\n                        \"@type\": \"FileInfo\",\n                        \"elementName\": \"FileVerInfo\",\n                        \"attributeInfoName\": \"UpgradeCode\",\n                        \"isEmpty\": true,\n                        \"content\": \"\",\n                        \"compareAs\": 0,\n                        \"caseSensitive\": false\n                    },\n                    \"PRODUCT_VERSION\": {\n                        \"@type\": \"VersionRange\",\n                        \"minVersion\": \"\",\n                        \"maxVersion\": \"\",\n                        \"isEmpty\": true\n                    },\n                    \"FILE_ORIGIN\": {\n                        \"@type\": \"FileOrigin\",\n                        \"preexisted\": false,\n                        \"mainSrcType\": \"\",\n                        \"softwareDistributorName\": \"\",\n                        \"softwareDistributorId\": \"00000000-0000-0000-0000-000000000000\",\n                        \"location\": {\n                            \"@type\": \"Location\",\n                            \"content\": \"\",\n                            \"withSubfolders\": true,\n                            \"caseSensitive\": false,\n                            \"isEmpty\": true\n                        },\n                        \"locationType\": {\n                            \"@type\": \"LocationType\",\n                            \"locationType\": \"\",\n                            \"isEmpty\": true\n                        },\n                        \"userGroupList\": {\n                            \"@type\": \"AdAccounts\",\n                            \"accounts\": [],\n                            \"isEmpty\": true\n                        },\n                        \"package\": {\n                            \"@type\": \"Package\",\n                            \"fileName\": {\n                                \"@type\": \"FileName\",\n                                \"hashAlgorithm\": \"\",\n                                \"hash\": \"\",\n                                \"fileSize\": 0,\n                                \"isEmpty\": true,\n                                \"content\": \"\",\n                                \"compareAs\": 0,\n                                \"caseSensitive\": false\n                            },\n                            \"publisher\": {\n                                \"@type\": \"Publisher\",\n                                \"signatureLevel\": 1,\n                                \"separator\": \";\",\n                                \"caseSensitive\": true,\n                                \"compareAs\": 0,\n                                \"isEmpty\": true,\n                                \"content\": \"\"\n                            },\n                            \"isEmpty\": true\n                        },\n                        \"url\": {\n                            \"@type\": \"Text\",\n                            \"content\": \"\",\n                            \"compareAs\": 0,\n                            \"caseSensitive\": false,\n                            \"isEmpty\": true\n                        },\n                        \"isEmpty\": true\n                    },\n                    \"PARENT_PROCESS\": {\n                        \"@type\": \"ParentProcess\",\n                        \"ApplicationGroupId\": \"00000000-0000-0000-0000-000000000000\",\n                        \"AllAncestors\": false,\n                        \"isEmpty\": true\n                    }\n                },\n                \"applicationGroupId\": \"00000000-0000-0000-0000-000000000000\",\n                \"internalApplicationGroupId\": 0,\n                \"includeInMatching\": true,\n                \"accountId\": \"00000000-0000-0000-0000-000000000000\",\n                \"restrictOpenSaveFileDialog\": true,\n                \"securityTokenId\": \"00000000-0000-0000-0000-000000000000\",\n                \"protectInstalledFiles\": false\n            },\n            {\n                \"id\": \"6698bd60-8386-4721-976f-0c91f7de8b53\",\n                \"internalId\": 0,\n                \"applicationType\": 2,\n                \"displayName\": \"some group for public api\",\n                \"description\": \"\",\n                \"patterns\": {},\n                \"applicationGroupId\": \"00000000-0000-0000-0000-000000000000\",\n                \"internalApplicationGroupId\": 0,\n                \"includeInMatching\": true,\n                \"accountId\": \"00000000-0000-0000-0000-000000000000\",\n                \"restrictOpenSaveFileDialog\": false,\n                \"securityTokenId\": \"00000000-0000-0000-0000-000000000000\",\n                \"protectInstalledFiles\": false\n            }\n        ],\n        \"Activation\": {\n            \"ActivateDate\": null,\n            \"DeactivateDate\": null,\n            \"Scheduler\": null\n        },\n        \"Priority\": 40,\n        \"Executors\": [],\n        \"IsAppliedToAllComputers\": true,\n        \"Accounts\": [],\n        \"IncludeADComputerGroups\": [],\n        \"ExcludeADComputerGroups\": [],\n        \"Id\": \"7ee84937-f7dc-45ba-a744-8f42264074d4\",\n        \"Name\": \"Win Allow Test\",\n        \"Description\": \"\",\n        \"PolicyType\": 11,\n        \"IsActive\": true,\n        \"Action\": 1,\n        \"LinkedAgentPolicies\": [\n            {\n                \"Id\": \"0e2f9cf9-5e05-425d-a1df-ba22db5b7696\",\n                \"PolicyType\": 3,\n                \"DefaultApplicationGroupId\": \"c77f4a43-567b-4142-bfe5-9bd11b418136\"\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://{{epmDispatcherAddress}}/epm/api/sets/:epmSetID/policies/server",
+											"protocol": "https",
+											"host": [
+												"{{epmDispatcherAddress}}"
+											],
+											"path": [
+												"epm",
+												"api",
+												"sets",
+												":epmSetID",
+												"policies",
+												"server"
+											],
+											"variable": [
+												{
+													"id": "b6a8ad0d-77dc-419f-8314-67b558b0706d",
+													"key": "epmSetID",
+													"value": "{{epmSetID}}",
+													"description": "ID of a set that the user has permission to view, generated in the Get Sets API response."
+												}
+											]
+										},
+										"description": "This method creates a new policy.\n\n**Note:** This method replaces the [Create policy (deprecated)](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/CreatePolicyDep.htm) API.\n\n## Permissions\n\nUsers require the following user role permissions to call this API:\n\n- The relevant policy permissions under Policy New UI\n    \n- All End-User UI > End-User UI (Privilege Management only) permissions in at least View only mode\n    \n- The Advanced > Configuration > View Global Agent Configuration permission\n    \n\nFor details, see [Role management](https://docs.cyberark.com/EPM/Latest/en/Content/Admin/AccountAdministrator.htm#Role)."
+									},
+									"response": []
+								}
+							],
+							"id": "a8adaf72-a9f2-414c-9b21-cebaac3d1bc3"
+						},
+						{
+							"name": "AppGroups",
+							"item": [],
+							"id": "401a844d-e94c-42f6-862f-e832c9053b5d"
+						},
+						{
+							"name": "AppCatalog",
+							"item": [],
+							"id": "a71e603f-dd53-49e3-9b15-0ac4a45aa0b2"
+						}
+					],
+					"id": "7a4dad7f-b8ff-47bb-b1dc-cf372b7ee336",
+					"description": "[https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/WebServicesIntro.htm](https://docs.cyberark.com/EPM/Latest/en/Content/WebServices/WebServicesIntro.htm)",
+					"auth": {
+						"type": "apikey",
+						"apikey": {
+							"value": "basic {{epmToken}}",
+							"key": "Authorization"
 						}
 					}
 				},
