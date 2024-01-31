@@ -12831,9 +12831,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -12887,9 +12884,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -12942,9 +12936,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -12997,9 +12988,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -13052,9 +13040,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -13107,9 +13092,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "PUT",
 										"header": [],
 										"body": {
@@ -13156,9 +13138,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "GET",
 										"header": [
 											{
@@ -13194,9 +13173,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "GET",
 										"header": [
 											{
@@ -13246,9 +13222,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [
 											{
@@ -13294,9 +13267,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [
 											{
@@ -13341,9 +13311,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "noauth"
-										},
 										"method": "POST",
 										"header": [],
 										"body": {
